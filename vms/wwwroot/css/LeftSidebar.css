@@ -1,0 +1,35 @@
+﻿.fixed-left {
+    height: calc(100% - 50px);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    margin-top: 50px;
+    margin-left: 3px;
+    scrollbar-color: darkgrey;
+    scrollbar-width: thin;
+}
+
+@media (min-width:992px) {
+    .page-sidebar {
+        width: 230px !important;
+    }
+
+    .page-sidebar-reversed.page-sidebar-fixed .page-sidebar {
+        margin-left: -230px !important;
+    }
+}
+
+.fixed-left::-webkit-scrollbar {
+    width: .5em;
+}
+
+.fixed-left::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.fixed-left::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
