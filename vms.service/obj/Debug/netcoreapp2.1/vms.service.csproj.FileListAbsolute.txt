@@ -1,0 +1,28 @@
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.service.deps.json
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\VMS\vms.4\vms\vms\vms.service\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.csprojAssemblyReference.cache
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.csproj.CoreCompileInputs.cache
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.AssemblyInfoInputs.cache
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.AssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.csproj.CopyComplete
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.dll
+E:\VMS\vms.4\vms\vms\vms.service\obj\Debug\netcoreapp2.1\vms.service.pdb
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.service.deps.json
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\personal\New folder\MoneyMoney\vms.service\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.csprojAssemblyReference.cache
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.csproj.CoreCompileInputs.cache
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.AssemblyInfoInputs.cache
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.AssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.csproj.CopyComplete
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.dll
+E:\personal\New folder\MoneyMoney\vms.service\obj\Debug\netcoreapp2.1\vms.service.pdb

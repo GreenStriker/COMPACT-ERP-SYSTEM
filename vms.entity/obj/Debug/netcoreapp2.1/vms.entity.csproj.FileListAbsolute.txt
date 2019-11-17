@@ -1,0 +1,18 @@
+E:\VMS\vms.4\vms\vms\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.deps.json
+E:\VMS\vms.4\vms\vms\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.csprojAssemblyReference.cache
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.csproj.CoreCompileInputs.cache
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.AssemblyInfoInputs.cache
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.AssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.deps.json
+E:\personal\New folder\MoneyMoney\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms.entity\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.csprojAssemblyReference.cache
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.csproj.CoreCompileInputs.cache
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.AssemblyInfoInputs.cache
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.AssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms.entity\obj\Debug\netcoreapp2.1\vms.entity.pdb

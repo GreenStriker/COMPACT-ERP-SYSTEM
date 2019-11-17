@@ -1,0 +1,24 @@
+E:\VMS\vms.4\vms\vms\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.deps.json
+E:\VMS\vms.4\vms\vms\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\VMS\vms.4\vms\vms\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\VMS\vms.4\vms\vms\vms.repository\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms.repository\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csprojAssemblyReference.cache
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csproj.CoreCompileInputs.cache
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.AssemblyInfoInputs.cache
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.AssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csproj.CopyComplete
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.dll
+E:\VMS\vms.4\vms\vms\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.pdb
+E:\personal\New folder\MoneyMoney\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.deps.json
+E:\personal\New folder\MoneyMoney\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\personal\New folder\MoneyMoney\vms.repository\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\personal\New folder\MoneyMoney\vms.repository\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms.repository\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csprojAssemblyReference.cache
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csproj.CoreCompileInputs.cache
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.AssemblyInfoInputs.cache
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.AssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.csproj.CopyComplete
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.dll
+E:\personal\New folder\MoneyMoney\vms.repository\obj\Debug\netcoreapp2.1\vms.repository.pdb

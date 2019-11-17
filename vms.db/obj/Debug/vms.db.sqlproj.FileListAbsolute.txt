@@ -1,0 +1,10 @@
+E:\VMS\vms.4\vms\vms\vms.db\bin\Debug\vms.db.dacpac
+E:\VMS\vms.4\vms\vms\vms.db\bin\Debug\vms.db.dll
+E:\VMS\vms.4\vms\vms\vms.db\bin\Debug\vms.db.pdb
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\Model.xml
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\refactor.xml
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\postdeploy.sql
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\predeploy.sql
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\vms.db.dll
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\vms.db.pdb
+E:\VMS\vms.4\vms\vms\vms.db\obj\Debug\vms.db.sqlprojAssemblyReference.cache

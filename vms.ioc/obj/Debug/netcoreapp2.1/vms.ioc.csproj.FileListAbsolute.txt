@@ -1,0 +1,36 @@
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.deps.json
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.pdb
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.data.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.data.pdb
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\VMS\vms.4\vms\vms\vms.ioc\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csprojAssemblyReference.cache
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csproj.CoreCompileInputs.cache
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.AssemblyInfoInputs.cache
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.AssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csproj.CopyComplete
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.dll
+E:\VMS\vms.4\vms\vms\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.deps.json
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.ioc.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.data.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.data.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csprojAssemblyReference.cache
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csproj.CoreCompileInputs.cache
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.AssemblyInfoInputs.cache
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.AssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.csproj.CopyComplete
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.dll
+E:\personal\New folder\MoneyMoney\vms.ioc\obj\Debug\netcoreapp2.1\vms.ioc.pdb
