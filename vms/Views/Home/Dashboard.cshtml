@@ -1,0 +1,153 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_Layout";
+}
+@section breadcrumb
+    {
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("DashBoard","Home")">Root</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Dashboard</span>
+        </li>
+    </ul>
+}
+<!-- BEGIN PAGE TITLE-->
+<h1 class="page-title">
+    Dashboard
+</h1>
+
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<!-- BEGIN DASHBOARD STATS 1-->
+<div class="row">
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 blue" href="#">
+            <div class="visual">
+                <i class="fa fa-comments"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    ৳  <span data-counter="counterup" data-value="89,769.00">0</span>
+                </div>
+                <div class="desc">Purchase Amount</div>
+                <h3>@ViewBag.Name</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 purple" href="#">
+            <div class="visual">
+                <i class="fa fa-globe"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    ৳  <span data-counter="counterup" data-value="9,869.00">0</span>
+                </div>
+                <div class="desc">Production Amount</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+            <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    ৳  <span data-counter="counterup" data-value="1,569.00">0</span>
+                </div>
+                <div class="desc">Sales Amount</div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 green" href="#">
+            <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    ৳  <span data-counter="counterup" data-value="3,769.00">0</span>
+                </div>
+                <div class="desc">Paid TAX </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 col-xs-12 col-lg-6 col-xl-6 border responsive" style="border-color:#eee;width: auto; min-height:400px; margin-left:20px; margin-right:20px;">
+
+        <div id="donutchart" style="min-width:480px; height: 380px; ">
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xs-12 col-lg-6 col-xl-6 border responsive" style="border-color:#eee; width: auto;min-height:400px ;margin-right:20px;margin-left:20px;">
+
+        <div id="table_div" style="min-width:480px; height: 380px; " class="responsive"></div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['Sales', 11],
+                ['Damage', 2],
+                ['Production', 2],
+                ['Inventory', 2],
+                ['Purchase', 7]
+            ]);
+
+            var options = {
+                title: '',
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            chart.draw(data, options);
+        }
+    </script>
+
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['table'] });
+        google.charts.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Mushak Name');
+            data.addColumn('string', 'Last Generated Date');
+            data.addColumn('boolean', 'Submitted');
+            data.addRows([
+                ['Mushak-2.1', '7/7/2019', true],
+                ['Mushak-2.3', '8/9/2019', false],
+                ['Mushak-4.3', '15/8/2019', true],
+                ['Mushak-6.1', '1/9/2019', true],
+                ['Mushak-6.2', '25/7/2019', false],
+                ['Mushak-6.2.1', '6/7/2019', true],
+                ['Mushak-6.3', '8/8/2019', true],
+                ['Mushak-6.5', '9/9/2019', true],
+                ['Mushak-6.10', '18/9/2019', true],
+                ['Mushak 9.1', '30/8/2019', true],
+                ['Mushak-9.2', '1/7/2019', true]
+
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, { showRowNumber: true, width: '100%', height: '100%' });
+        }
+    </script>
+
+}
