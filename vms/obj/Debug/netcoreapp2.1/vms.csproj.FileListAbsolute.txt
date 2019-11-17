@@ -1,0 +1,564 @@
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.deps.json
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.runtimeconfig.json
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.runtimeconfig.dev.json
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.Views.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.Views.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.data.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.ioc.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.utility.dll
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.ioc.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.utility.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.data.pdb
+E:\VMS\vms.4\vms\vms\vms\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.csprojAssemblyReference.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.csproj.CoreCompileInputs.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.RazorAssemblyInfo.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.RazorAssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.AssemblyInfoInputs.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.AssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.TagHelpers.input.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.TagHelpers.output.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.RazorCoreGenerate.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Restore.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Authentication\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\addnew.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Damage\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Damage\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Dashboard.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\NbrUser.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Reference.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\SaleCancellations.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Registration.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\BOM.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\MaterialConsume.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\NewProductionOrder.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\PaymentJournalVoucherEntry.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\PurchaseOrderList.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\SectionDelivery.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Vouchers.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\PriceSetup.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\SupplimentaryDuty.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\PriceDeclaration.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\PriceSetup.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductDelivery.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductDetails.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductInformation.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\AccountsView.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\CancelAdd.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\CreateForeignOrder.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DebitNote.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DetailsNew.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\NewPurchase.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseDue.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseForeign.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseLocal.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchasePayment.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\ExpenceReport.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok10.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Ga.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Gha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11ka.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11kha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Purchase.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11sale.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12ka.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12kha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok15.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok16.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok17.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok17Ka.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok18.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok19.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Ga.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Gha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Ka.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Kha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok20.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok21.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok22.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok23.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok24.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok25.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok26.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok27.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok28.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok29.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2Kha.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2P1.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2P3.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok4.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok4P3.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok5.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok5Ka.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P1.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P10.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P2.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P2P1.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P3.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P5.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok7.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok8.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9P1.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9P2.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\MushokTr6.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReport.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReportGr.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReportMonth.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\AssignRights.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreateNew.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreditNote.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\DetailsNew.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SaleForeign.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SalesDue.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SalesPaymentReceive.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\DuePaymentPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Confirmation.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_FooterPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_HeaderPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutForChangePassword.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutForChnagePass.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutNBR.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LeftPanelPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ReportSearchOption.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\ChangePassword.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Create.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Delete.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Edit.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Index.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\VendorDetail.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.RazorTargetAssemblyInfo.cache
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.RazorTargetAssemblyInfo.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.Views.pdb
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.csproj.CopyComplete
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.dll
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\vms.pdb
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Details.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Authentication\Index_dev.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreditNoteView.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DebitNoteView.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\OverHeadCost.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P6.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\AddBranch.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\MushakReturnPlanToPaymentInfo.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SaleTransfer.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnPaymentInfo.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnReturnedAmountInfo.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnSubmissionInfo.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P4.g.cshtml.cs
+E:\VMS\vms.4\vms\vms\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\PriceDeclarMushok.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.deps.json
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.runtimeconfig.json
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.runtimeconfig.dev.json
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.Views.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.Views.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.data.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.entity.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.ioc.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.repository.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.service.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.utility.dll
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.entity.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.ioc.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.service.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.utility.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.data.pdb
+E:\personal\New folder\MoneyMoney\vms\bin\Debug\netcoreapp2.1\vms.repository.pdb
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.csprojAssemblyReference.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.csproj.CoreCompileInputs.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.RazorAssemblyInfo.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.RazorAssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.AssemblyInfoInputs.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.AssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.TagHelpers.input.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.TagHelpers.output.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.RazorCoreGenerate.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\AuditLogs\Restore.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Authentication\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Authentication\Index_dev.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\addnew.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DamageTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Damage\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Damage\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DeliveryMethods\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\DocumentTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ExportTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Dashboard.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\NbrUser.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\Reference.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Home\SaleCancellations.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnPaymentInfo.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnReturnedAmountInfo.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\AddMushakReturnSubmissionInfo.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\MushakGenerations\MushakReturnPlanToPaymentInfo.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\AddBranch.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Organizations\Registration.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PaymentMethods\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductCategories\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductGroups\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\BOM.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\MaterialConsume.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\NewProductionOrder.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\PaymentJournalVoucherEntry.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\PurchaseOrderList.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\SectionDelivery.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Production\Vouchers.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\OverHeadCost.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\PriceDeclarMushok.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\PriceSetup.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Products\SupplimentaryDuty.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\ProductVattypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\PriceDeclaration.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\PriceSetup.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductDelivery.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductDetails.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Product\ProductInformation.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseReasons\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\PurchaseTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\AccountsView.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\CancelAdd.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\CreateForeignOrder.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DebitNote.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DebitNoteView.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\DetailsNew.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\NewPurchase.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseDue.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseForeign.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchaseLocal.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\PurchasePayment.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\ExpenceReport.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok10.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Ga.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Gha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11ka.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11kha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11Purchase.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok11sale.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12ka.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok12kha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok15.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok16.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok17.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok17Ka.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok18.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok19.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Ga.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Gha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Ka.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok1Kha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok20.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok21.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok22.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok23.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok24.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok25.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok26.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok27.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok28.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok29.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2Kha.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2P1.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok2P3.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok4.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok4P3.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok5.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok5Ka.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P1.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P10.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P2.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P2P1.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P3.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P4.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P5.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok6P6.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok7.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok8.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9P1.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\Mushok9P2.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\MushokTr6.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReport.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReportGr.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Reports\PurchaseReportMonth.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Rights\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\RoleRights\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\AssignRights.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Roles\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\SalesDeliveryTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreateNew.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreditNote.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\CreditNoteView.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\DetailsNew.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SaleForeign.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SalesDue.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SalesPaymentReceive.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Sales\SaleTransfer.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\DuePaymentPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Confirmation.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_FooterPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_HeaderPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutForChangePassword.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutForChnagePass.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutNBR.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LeftPanelPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ReportSearchOption.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\ChangePassword.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\UserTypes\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Create.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Delete.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Details.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Edit.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\Index.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\Vendor\VendorDetail.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.RazorTargetAssemblyInfo.cache
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.RazorTargetAssemblyInfo.cs
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.Views.pdb
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.csproj.CopyComplete
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.dll
+E:\personal\New folder\MoneyMoney\vms\obj\Debug\netcoreapp2.1\vms.pdb
