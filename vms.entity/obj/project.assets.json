@@ -5644,11 +5644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\vms.entity\\vms.entity.csproj",
+      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.entity\\vms.entity.csproj",
       "projectName": "vms.entity",
-      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.entity\\vms.entity.csproj",
+      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.entity\\vms.entity.csproj",
       "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
-      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\vms.entity\\obj\\",
+      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.entity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

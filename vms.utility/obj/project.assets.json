@@ -725,11 +725,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\vms.utility\\vms.utility.csproj",
+      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.utility\\vms.utility.csproj",
       "projectName": "vms.utility",
-      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.utility\\vms.utility.csproj",
+      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.utility\\vms.utility.csproj",
       "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
-      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\vms.utility\\obj\\",
+      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.utility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
