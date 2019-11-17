@@ -5664,11 +5664,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\vms.data\\vms.data.csproj",
+      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.data\\vms.data.csproj",
       "projectName": "vms.data",
-      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.data\\vms.data.csproj",
+      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.data\\vms.data.csproj",
       "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
-      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\vms.data\\obj\\",
+      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5687,8 +5687,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\personal\\New folder\\MoneyMoney\\vms.entity\\vms.entity.csproj": {
-              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.entity\\vms.entity.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.entity\\vms.entity.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.entity\\vms.entity.csproj"
             }
           }
         }

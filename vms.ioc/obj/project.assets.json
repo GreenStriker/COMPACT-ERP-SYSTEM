@@ -5815,11 +5815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\vms.ioc\\vms.ioc.csproj",
+      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.ioc\\vms.ioc.csproj",
       "projectName": "vms.ioc",
-      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.ioc\\vms.ioc.csproj",
+      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.ioc\\vms.ioc.csproj",
       "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
-      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\vms.ioc\\obj\\",
+      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.ioc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5838,11 +5838,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\personal\\New folder\\MoneyMoney\\vms.data\\vms.data.csproj": {
-              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.data\\vms.data.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.data\\vms.data.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.data\\vms.data.csproj"
             },
-            "E:\\personal\\New folder\\MoneyMoney\\vms.service\\vms.service.csproj": {
-              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.service\\vms.service.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.service\\vms.service.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\MoneyMoney\\vms.service\\vms.service.csproj"
             }
           }
         }
