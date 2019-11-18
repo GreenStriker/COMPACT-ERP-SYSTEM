@@ -11,9 +11,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 //using vms.ActionFilter;
-//using vms.entity.viewModels;
+using vms.entity.viewModels;
 using vms.ioc;
-//using vms.Utility;
+using Inventory.Utility;
 
 namespace vms
 {
@@ -111,7 +111,7 @@ namespace vms
 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Authentication}/{action=Index}/{id?}");
+                    template: "{controller=Default}/{action=Index}/{id?}");
             });
         }
 

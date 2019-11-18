@@ -14,7 +14,7 @@ namespace vms.repository.dbo
     public interface IUserRepository : IRepositoryBase<User>
     {
         Task<IEnumerable<User>> GetUsers(int p_orgId);
-        Task<User> GetUser(string p_encryptedId);
+        Task<User> GetUser(int id);
     }
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
@@ -31,26 +31,22 @@ namespace vms.repository.dbo
         }
         public async Task<IEnumerable<User>> GetUsers(int p_orgId)
         {
-            var users = await this.Query().Where(w => w.OrganizationId == p_orgId).Include(p => p.Role)
-                .Include(p => p.UserType)
-                .SelectAsync();
-            users.ToList().ForEach(delegate (User user)
-            {
-                user.EncryptedId = _dataProtector.Protect(user.UserId.ToString());
-            });
+            var users = await this.Query().SelectAsync();
+          
             return users;
         }
-        public async Task<User> GetUser(string p_encryptedId)
+        public async Task<User> GetUser(int ids)
         {
-            int id = int.Parse(_dataProtector.Unprotect(p_encryptedId));
+            int id = ids;
             var user = await this.Query()
-                .Include(p => p.Role)
-                .Include(p => p.UserType)
-                .SingleOrDefaultAsync(x => x.UserId == id, System.Threading.CancellationToken.None);
-            user.EncryptedId = _dataProtector.Protect(user.UserId.ToString());
+             
+                .SingleOrDefaultAsync(x => x.Uid == id, System.Threading.CancellationToken.None);
+           
 
             return user;
         }
-
     }
+
+
+     
 }

@@ -5,10 +5,10 @@ using Microsoft.Extensions.DependencyInjection;
 using URF.Core.Abstractions;
 using URF.Core.EF;
 using vms.entity.models;
-//using vms.entity.viewModels;
-//using vms.repository.dbo;
+using vms.entity.viewModels;
+using vms.repository.dbo;
 //using vms.repository.dbo.StoredProcedure;
-//using vms.service.dbo;
+using vms.service.dbo;
 //using vms.service.dbo.acc;
 //using vms.service.dbo.StoredProdecure;
 
@@ -23,7 +23,7 @@ namespace vms.ioc
             services.AddScoped<DbContext, InventoryContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddScoped<IDataProtector, Microsoft.AspNetCore.DataProtection>();
-            //services.AddSingleton<PurposeStringConstants>();
+            services.AddSingleton<PurposeStringConstants>();
             //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
             //services.AddScoped<IAutocompleteService, AutocompleteService>();
             //services.AddScoped<IBankRepository, BankRepository>();
@@ -85,8 +85,8 @@ namespace vms.ioc
             //services.AddTransient<IRoleRightRepository, RoleRightRepository>();
             //services.AddTransient<IRoleRightService, RoleRightService>();
 
-            //services.AddTransient<IUserRepository, UserRepository>();
-            //services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserService, UserService>();
 
             //services.AddTransient<IUserTypeRepository, UserTypeRepository>();
             //services.AddTransient<IUserTypeService, UserTypeService>();
@@ -171,7 +171,7 @@ namespace vms.ioc
             //services.AddTransient<IDamageTypeService, DamageTypeService>();
 
 
-        
+
 
 
             //services.AddTransient<IDeliveryMethodRepository, DeliveryMethodRepository>();
@@ -185,10 +185,10 @@ namespace vms.ioc
 
             //services.AddTransient<IPaymentMethodRepository, PaymentMethodRepository>();
             //services.AddTransient<IPaymentMethodService, PaymentMethodService>();
-            
+
             //services.AddTransient<IPurchasePaymentRepository, PurchasePaymentRepository>();
             //services.AddTransient<IPurchasePaymentService, PurchasePaymentService>();
-            
+
             //services.AddTransient<ISalesPaymentReceiveRepository, SalesPaymentReceiveRepository>();
             //services.AddTransient<ISalesPaymentReceiveService, SalesPaymentReceiveService>();
         }
