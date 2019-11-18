@@ -11,8 +11,8 @@ namespace vms.entity.viewModels
         //{
         //    Rights = new List<Right>();
         //}
-        public int OrganizationId { get; set; }
-        public string OrganizationName { get; set; }
+        public int? BranchId { get; set; }
+        public string BranchName { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
         public int RoleId { get; set; }

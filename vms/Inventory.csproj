@@ -155,7 +155,6 @@
     <Compile Remove="Controllers\BasicInfoController.cs" />
     <Compile Remove="Controllers\ContactController.cs" />
     <Compile Remove="Controllers\DeliveryController.cs" />
-    <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Controllers\IssueMaterialController.cs" />
     <Compile Remove="Controllers\JournalController.cs" />
     <Compile Remove="Controllers\JurnalController.cs" />
@@ -177,6 +176,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Home\Dashboard.cshtml" />
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
