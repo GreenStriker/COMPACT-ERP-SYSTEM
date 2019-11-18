@@ -71,6 +71,9 @@ namespace Inventory.Controllers
                         BranchId = userData.BrachId,
                         BranchName = userData.Brach.Name,
                        /* Rights = rights */ //comes from role right
+
+
+
                     };
 
               
