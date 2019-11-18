@@ -4863,7 +4863,7 @@
   },
   "libraries": {
     "Dapper/1.60.6": {
-      "sha512": "mmnJNhKMeF2KhvVXDoVQlFxre8aJAo71YBJrKqFlvuqzYC2QiXUq94/GCDBJzU7paq4GqpkV2glw3308TcGibw==",
+      "sha512": "ZqK3znlm8dapfO8M0vCgV5+wJrl5Uv00WYmj27wQ6zufSLcklVNJ2fdVMUj59o89p+lmRD6QivTRe0Gdfm6UAQ==",
       "type": "package",
       "path": "dapper/1.60.6",
       "files": [
@@ -7500,7 +7500,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
-      "sha512": "T261YUlVUH1nINaPN7odLnV/Qx3nNXaM+ZqOfMRy+W9uP4ZmaDPMGIjzxzauKYF/Td0zBZx8VzUOW+QBOFq84g==",
+      "sha512": "xvNRQmZOYfuReVC9trT8sTYVRm7yJzI5z1YZ4iO6Im/EWOWoqqLNoYG0sY8EHnp4DOtioGJ/hmJ+ksqaJN8aBA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration/2.1.1",
       "files": [
@@ -7513,7 +7513,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Contracts/2.1.1": {
-      "sha512": "a42G/myvJTNq2D0aS/ryYR614V0RLlqNCv/pIQ+vrR96LlXhVo96n5xOrtGDWebfkMgFWlU+Bg0Wrks/pNXNZQ==",
+      "sha512": "Su++Q22kR3EaWmg7flhuAX0xZFPVL4z99HYc9CNQZksi4L/lCzxyIRXJUV3qTEyyX8wkl6sx3RDVUcYcBTdjlg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.contracts/2.1.1",
       "files": [
@@ -7526,7 +7526,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Core/2.1.1": {
-      "sha512": "8RlWoUsGqK/fxqQTIgFizBYJinUpVSkrNax1tKugqahYNtUsdhJlRYj/y5fRl+bdNzoMKnbz/9iRwU01oSBe8g==",
+      "sha512": "uIhfMpJOjQi/fBtKglWDP8lSuiX5AOQwomCS6hZ37EzKB5tMnaH+Z7DbkEFoZLaGcLDaskoOJ0nhIjA9A2i0Rg==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.core/2.1.1",
       "files": [
@@ -7539,7 +7539,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Design/2.1.1": {
-      "sha512": "ubJdwxSYJlvZsS3Ae7AKtAS5d1TjAO9+4GBTuyX13O/ek7INPJxqLLYGuD5TIvk6UQl0tHA1tvq+QrtjRCkLuA==",
+      "sha512": "d4xk6rWvW9HR2/QdwQ7OfrbmQcMi4EE3IlZT3JwfIRFdbtCXDFz+PCjs/qomLC+d+vlEXZuPvneX+G5FF9d1MA==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.design/2.1.1",
       "files": [
@@ -7562,7 +7562,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore/2.1.1": {
-      "sha512": "HvhP/iwUa9Y7ArQ0xIWOEp8HFz7si5EEC6r1WdpQSWr/l9iilNKnPzpmb4gb8SbmJAZ7Qt9nHEmHPH6+xbDVwg==",
+      "sha512": "03wiQubZKezzT5OKgnExDOnzrtn/TQG4QDQfOJI524yZ2CCC/h4PxtPmO5FDH7x1qP/99EXLaZYojE9fZ7u9Yw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.entityframeworkcore/2.1.1",
       "files": [
@@ -7576,7 +7576,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Templating/2.1.1": {
-      "sha512": "PTJYeSfXooNP77z2cpfo8TgCWE2G17qnpJ7c2GSREdJt65PBjA5/kuw2LMUIDGN+XbTDNREYwj0956Kp76+xyA==",
+      "sha512": "8rubHXs2ufTJ205H2c9aSga/X8ToURtGguISBHEGkAcz/1Qp922jAaGvGvvJNhoXiBg/9K5VupkfkJDvnhN3/Q==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.templating/2.1.1",
       "files": [
@@ -7589,7 +7589,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration.Utils/2.1.1": {
-      "sha512": "2CyDpIyKv/Ehoc5ds7tAMnVljAR9a+rKXKQ7WrWQ70/SXwrvlgFPklh+5GYeUJViNCVIoQO0aSi/oiixdTFdKw==",
+      "sha512": "MRtBhRi0CQ36yi9r08l/j7I24a2bfiAW9N6fSq69M5mZFw1vjijPaM2NPokWv9hqT0aUCLNKCX7A6E20XgYE1w==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegeneration.utils/2.1.1",
       "files": [
@@ -7602,7 +7602,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGenerators.Mvc/2.1.1": {
-      "sha512": "SOOsomV+rRKH9BrAK3IDs6NMT9qkpWqllF5nnd9meZsa7o7oFbJsX4hlJQaKAUgD7ACawgDfwPLNJehz7Ge2KQ==",
+      "sha512": "LhsJrKf4fMqOyaVqAexbpkR6GmHDuVeek+s1NFGwFYFZAgSbnLmBt8DIw41zGbEXO/GYiPLTOTA7F1fJknsf6g==",
       "type": "package",
       "path": "microsoft.visualstudio.web.codegenerators.mvc/2.1.1",
       "files": [
@@ -7932,7 +7932,7 @@
       ]
     },
     "Newtonsoft.Json/12.0.2": {
-      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "sha512": "mtweBXPWhp1CMQATtBT7ZfMZrbZBTKfjGwz6Y75NwGjx/GztDaUnfw8GK9KZ2T4fDIqKJyDjc9Rxlw5+G2FcVA==",
       "type": "package",
       "path": "newtonsoft.json/12.0.2",
       "files": [
@@ -8046,7 +8046,6 @@
       "path": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -8088,7 +8087,6 @@
       "path": "runtime.native.system.io.compression/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -8207,7 +8205,6 @@
       "path": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -8570,7 +8567,6 @@
       "path": "system.collections.specialized/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8815,7 +8811,7 @@
       ]
     },
     "System.Data.SqlClient/4.6.1": {
-      "sha512": "7MTJhBFt4/tSJ2VRpG+TQNPcDdbCnWuoYzbe0kD5O3mQ7aZ2Q+Q3D9Y5Y3/aper5Gp3Lrs+8edk9clvxyPYXPw==",
+      "sha512": "u980l3uFvJ3N/Hin95Po9wn3zzKMvogu/ZnrOZWM/lsMjEatFPXWbxN+coTMeEFUewsopy5xOP8rZD5oXcAZkA==",
       "type": "package",
       "path": "system.data.sqlclient/4.6.1",
       "files": [
@@ -9972,7 +9968,7 @@
       ]
     },
     "System.Linq.Queryable/4.3.0": {
-      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "sha512": "wdbQgzMijyDkBQySuqYnDcK/V70V6KIUUQdXpkXShHbgQRn0bn9wY3ar0VnsDwCcwu8ig6XBrpC2EU2xK+TuQg==",
       "type": "package",
       "path": "system.linq.queryable/4.3.0",
       "files": [
@@ -10704,7 +10700,7 @@
       ]
     },
     "System.Reflection.TypeExtensions/4.4.0": {
-      "sha512": "dkmh/ySlwnXJp/1qYP9uyKkCK1CXR/REFzl7abHcArxBcV91mY2CgrrzSRA5Z/X4MevJWwXsklGRdR3A7K9zbg==",
+      "sha512": "BWYdrACMy1Sbq7Kh1oISS+2qKX1dHhXNpRByG3c6M9i2fhU9BZqO3nFYIabmbZuQwd7svR5zfxNHgmgv2XkkIg==",
       "type": "package",
       "path": "system.reflection.typeextensions/4.4.0",
       "files": [
@@ -11244,7 +11240,6 @@
       "path": "system.runtime.serialization.primitives/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11571,7 +11566,6 @@
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -11643,7 +11637,6 @@
       "path": "system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
@@ -12829,7 +12822,7 @@
       ]
     },
     "TrackableEntities.Common.Core/1.1.0": {
-      "sha512": "knSTiqer2Lff+Q2jq1FSmkbPBTyy34Q5cuGtJWuH+tc6GR1WBWqfs+zOerSyn/jLi4eQ4PfCrIvKqYnjqxu4Rw==",
+      "sha512": "2ZHeDEHhQhY4bj2/kWYH0InqmMcmzai8PZpVLrUwGtWzT4SuxsmRVCMik+VpnsCtUAuJNuYip7tBG6nGsgBTgQ==",
       "type": "package",
       "path": "trackableentities.common.core/1.1.0",
       "files": [
@@ -12842,7 +12835,7 @@
       ]
     },
     "TrackableEntities.EF.Core/1.1.0": {
-      "sha512": "oVaF6bB0Q4XhNALaCCNmbGSkZDyNBnXv3WQnv7YhcYM8sTTnN+RllEUPciI3hStmSjmOX61IjGDWFcodcMn4ig==",
+      "sha512": "NCd1sNP0+AyK2pMn2+Lo9PpmldKCZ1sQrzB9m3NvlEufdv8TIT/RLepZT+0XkyJf2Q92tTOmiUTPLIiexrnGAQ==",
       "type": "package",
       "path": "trackableentities.ef.core/1.1.0",
       "files": [
@@ -12855,7 +12848,7 @@
       ]
     },
     "URF.Core.Abstractions/1.1.0": {
-      "sha512": "QYoX3rnoVppH9ovvxCIpWDzdHDfrjEQUT9AeJ+9uVTbJyNt9oEozA3l3J+lgpN+CBiPcUgYx09AeRowK1e9szQ==",
+      "sha512": "FwGnPWRMwZEHrsm8Tvot8k2CW9E8DT9d2NvytpSH95phtAPHvwM0GXrSvc8wlIYEQElcoZEXvcmx/sQMUEmGNw==",
       "type": "package",
       "path": "urf.core.abstractions/1.1.0",
       "files": [
@@ -12867,7 +12860,7 @@
       ]
     },
     "URF.Core.Abstractions.Services/1.1.0": {
-      "sha512": "55uVkW5GcaOqNBdmQkCWHI96H/UQaHGvxIAZBeWRT+WT3l1ml+yUNetjfYSGC4FjnFl37wysRBaxgz+p/5doSA==",
+      "sha512": "AxiLcTJprnSezqwQgh7+n0S8z6U+mb4R7g31SmawtLNXXAo6xG/qyXU66Oly+BJKvu4DFUh8eW+EFnNGk9nAfw==",
       "type": "package",
       "path": "urf.core.abstractions.services/1.1.0",
       "files": [
@@ -12879,7 +12872,7 @@
       ]
     },
     "URF.Core.Abstractions.Trackable/1.1.0": {
-      "sha512": "ax60hY92j3UcVBiQl0YDPP7jilD6XwXvCZGZwWYYQWEbV5Rx7krANwk7v6d63/oNcF6TTtjZ+ipZNPqCChVekQ==",
+      "sha512": "5xyo5xHASEtLYVFU6XdbGIaC4ycRoWMD/kB2Z2cqdgDmAebmBw+h8cqTO6bQ//oWCckRt7byprDFS1ERJS35fA==",
       "type": "package",
       "path": "urf.core.abstractions.trackable/1.1.0",
       "files": [
@@ -12891,7 +12884,7 @@
       ]
     },
     "URF.Core.EF/1.1.0": {
-      "sha512": "uQCCmrN7rRn7OfQcL68JKQRBeSrdTTEUDpPO84v5BXvCGBs7zryZwxGUNkTZX5vXAY2t++AAPg2eGhwdLXx22w==",
+      "sha512": "agsBsliMCpkt3yhQ3mfi8J7ykx/kDWfaqvjqKuxoEeRoy3HZQVQUQRhzIOLsk0G1Vx81tIojOJ5AW4T32GT72g==",
       "type": "package",
       "path": "urf.core.ef/1.1.0",
       "files": [
@@ -12903,7 +12896,7 @@
       ]
     },
     "URF.Core.EF.Trackable/1.1.0": {
-      "sha512": "u3hbxazyeZB8kUuPOnJbOOzDm5tCWT1j/3Ww7Urd35Y3sicvGx0FQFWpIZc/1mAeTVfFzEYR8X0jpTIkiR40Jw==",
+      "sha512": "ysW22Jkp3rJeNvUjp1vli4t71Q5W7p3RutolZhF+idIxZ8PIFGL/nZluygMnSjH8FsHTWLcmNuhQ1Ie91gctAA==",
       "type": "package",
       "path": "urf.core.ef.trackable/1.1.0",
       "files": [
@@ -12915,7 +12908,7 @@
       ]
     },
     "URF.Core.Services/1.1.0": {
-      "sha512": "mXDzMBbvJsylpHjz0nnyaQpXP+EY4cTFgkKpfHMy0vbAW6V3FJxE1bd4fGXO6aRb4QfPELy223sFy/0jJ/dyVg==",
+      "sha512": "in0eBXPtDDFvj1++NgerNK5l4fa6IqeTU2LoYB2xx9nguddE6ephnxT4ujLV+iaF6HyBxXtbLweCcLtSrwsRtg==",
       "type": "package",
       "path": "urf.core.services/1.1.0",
       "files": [
@@ -12927,7 +12920,7 @@
       ]
     },
     "X.PagedList/7.6.0": {
-      "sha512": "T6uZsHSixuE1dZj9Dtl9RXAH8Okigu+Kr327XEBbAKYt5cYpv+NRU70cGvqKmkg5qYN0VAb+9YbZtjz9p0onXg==",
+      "sha512": "JZiNGeQKLQl6MgJynKK4UTtrwQLpQtRO7VSkdlv1x3P4hMu7UWdgGwqZCT7ddqbJdjjUvdsm4R6kpnUTWZ5ogw==",
       "type": "package",
       "path": "x.pagedlist/7.6.0",
       "files": [
@@ -12942,7 +12935,7 @@
       ]
     },
     "X.PagedList.Mvc.Core/7.6.0": {
-      "sha512": "5fmLfdbnoIlitMdrXQ+a99xQinKNTq6HYo2GrML9MnM8dd99QqDWLzPWG7nBlki1dZIp4vO0f5JjVS1/JB2bJw==",
+      "sha512": "LGCVtN/bz3phZOuj8yMPmzUL6Ktznj3UBo9MS3Io/H/+AwHS4kZnF0Y3inAu6A1NAv4m2aP2U9dA1eiw6ljM3w==",
       "type": "package",
       "path": "x.pagedlist.mvc.core/7.6.0",
       "files": [
@@ -12997,25 +12990,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Moukh\\.nuget\\packages\\": {},
-    "D:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.api\\inventory.api.csproj",
+      "projectUniqueName": "E:\\personal\\New folder\\MoneyMoney\\vms.api\\inventory.api.csproj",
       "projectName": "inventory.api",
-      "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.api\\inventory.api.csproj",
-      "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.api\\obj\\",
+      "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.api\\inventory.api.csproj",
+      "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
+      "outputPath": "E:\\personal\\New folder\\MoneyMoney\\vms.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Moukh\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\mustafiz.rahman1645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -13027,14 +13019,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\vms.service\\inventory.service.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.service\\inventory.service.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
+            "E:\\personal\\New folder\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
+              "projectPath": "E:\\personal\\New folder\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
             }
           }
         }
@@ -13064,7 +13056,6 @@
             "version": "[2.1.2, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -13075,16 +13066,10 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
   }

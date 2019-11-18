@@ -10,10 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using vms.ActionFilter;
-using vms.entity.viewModels;
+//using vms.ActionFilter;
+//using vms.entity.viewModels;
 using vms.ioc;
-using vms.Utility;
+//using vms.Utility;
 
 namespace vms
 {
@@ -37,16 +37,16 @@ namespace vms
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddScoped<Logged>();
+           // services.AddScoped<Logged>();
             DefaultPageSize = Configuration.GetSection("DefaultPageSize").GetChildren().Select(item => new KeyValuePair<string, string>(item.Key, item.Value)).ToDictionary(x => x.Key, x => x.Value);
             services.RegisterVMSServiceInstance(this.Configuration);
-            services.Configure<ReportServer>(Configuration.GetSection("ReportServer"));
+           // services.Configure<ReportServer>(Configuration.GetSection("ReportServer"));
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             //services.AddMvc(options =>
             //{
             //    options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             //});
-            services.AddScoped<ControllerBaseParamModel, ControllerBaseParamModel>();
+          //  services.AddScoped<ControllerBaseParamModel, ControllerBaseParamModel>();
             services.AddHttpContextAccessor();
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
@@ -60,7 +60,7 @@ namespace vms
 
             services.AddDataProtection()
             .PersistKeysToFileSystem(new DirectoryInfo(@"c:\temp-keys\"));
-            services.AddScoped<ControllerBaseParamModel, ControllerBaseParamModel>();
+           // services.AddScoped<ControllerBaseParamModel, ControllerBaseParamModel>();
             services.AddHttpContextAccessor();
             //services.AddMvc()
             //    .AddJsonOptions(options =>
