@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using URF.Core.Abstractions;
 using URF.Core.EF;
 using vms.entity.models;
-using vms.entity.viewModels;
+//using vms.entity.viewModels;
 //using vms.repository.dbo;
 //using vms.repository.dbo.StoredProcedure;
 //using vms.service.dbo;
@@ -23,7 +23,7 @@ namespace vms.ioc
             services.AddScoped<DbContext, InventoryContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //services.AddScoped<IDataProtector, Microsoft.AspNetCore.DataProtection>();
-            services.AddSingleton<PurposeStringConstants>();
+            //services.AddSingleton<PurposeStringConstants>();
             //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
             //services.AddScoped<IAutocompleteService, AutocompleteService>();
             //services.AddScoped<IBankRepository, BankRepository>();
