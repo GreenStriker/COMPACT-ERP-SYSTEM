@@ -16,10 +16,12 @@
     <Compile Remove="Controllers\VATAccounts\**" />
     <Compile Remove="Controllers\VATReturn\**" />
     <Compile Remove="Views\AddressInfo\**" />
+    <Compile Remove="Views\Authentication\**" />
     <Compile Remove="Views\BasicInfo\**" />
     <Compile Remove="Views\Contact\**" />
     <Compile Remove="Views\ContraVoucher\**" />
     <Compile Remove="Views\Delivery\**" />
+    <Compile Remove="Views\Home\**" />
     <Compile Remove="Views\Inventory\**" />
     <Compile Remove="Views\IssueMaterial\**" />
     <Compile Remove="Views\JournalVoucher\**" />
@@ -49,10 +51,12 @@
     <Content Remove="Controllers\VATAccounts\**" />
     <Content Remove="Controllers\VATReturn\**" />
     <Content Remove="Views\AddressInfo\**" />
+    <Content Remove="Views\Authentication\**" />
     <Content Remove="Views\BasicInfo\**" />
     <Content Remove="Views\Contact\**" />
     <Content Remove="Views\ContraVoucher\**" />
     <Content Remove="Views\Delivery\**" />
+    <Content Remove="Views\Home\**" />
     <Content Remove="Views\Inventory\**" />
     <Content Remove="Views\IssueMaterial\**" />
     <Content Remove="Views\JournalVoucher\**" />
@@ -82,10 +86,12 @@
     <EmbeddedResource Remove="Controllers\VATAccounts\**" />
     <EmbeddedResource Remove="Controllers\VATReturn\**" />
     <EmbeddedResource Remove="Views\AddressInfo\**" />
+    <EmbeddedResource Remove="Views\Authentication\**" />
     <EmbeddedResource Remove="Views\BasicInfo\**" />
     <EmbeddedResource Remove="Views\Contact\**" />
     <EmbeddedResource Remove="Views\ContraVoucher\**" />
     <EmbeddedResource Remove="Views\Delivery\**" />
+    <EmbeddedResource Remove="Views\Home\**" />
     <EmbeddedResource Remove="Views\Inventory\**" />
     <EmbeddedResource Remove="Views\IssueMaterial\**" />
     <EmbeddedResource Remove="Views\JournalVoucher\**" />
@@ -115,10 +121,12 @@
     <None Remove="Controllers\VATAccounts\**" />
     <None Remove="Controllers\VATReturn\**" />
     <None Remove="Views\AddressInfo\**" />
+    <None Remove="Views\Authentication\**" />
     <None Remove="Views\BasicInfo\**" />
     <None Remove="Views\Contact\**" />
     <None Remove="Views\ContraVoucher\**" />
     <None Remove="Views\Delivery\**" />
+    <None Remove="Views\Home\**" />
     <None Remove="Views\Inventory\**" />
     <None Remove="Views\IssueMaterial\**" />
     <None Remove="Views\JournalVoucher\**" />
@@ -141,9 +149,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="ActionFilter\Logged.cs" />
+    <Compile Remove="Controllers\AuditLogsController.cs" />
+    <Compile Remove="Controllers\AuthenticationController.cs" />
     <Compile Remove="Controllers\BasicInfoController.cs" />
     <Compile Remove="Controllers\ContactController.cs" />
     <Compile Remove="Controllers\DeliveryController.cs" />
+    <Compile Remove="Controllers\HomeController.cs" />
     <Compile Remove="Controllers\IssueMaterialController.cs" />
     <Compile Remove="Controllers\JournalController.cs" />
     <Compile Remove="Controllers\JurnalController.cs" />
@@ -165,10 +177,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\About.cshtml" />
-    <None Include="Views\Home\Contact.cshtml" />
-    <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\Shared\_Layout.cshtml" />
@@ -218,6 +226,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ActionFilter\" />
     <Folder Include="wwwroot\assets\apps\img\" />
     <Folder Include="wwwroot\assets\global\img\portfolio\1200x900\" />
     <Folder Include="wwwroot\assets\global\img\portfolio\400x300\" />
@@ -268,9 +277,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Authentication\Index (old).cshtml">
-      <Pack>$(IncludeRazorContentInPack)</Pack>
-    </Content>
     <Content Update="Views\Products\Create.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
