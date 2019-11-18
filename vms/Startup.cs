@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using vms.ActionFilter;
+//using vms.ActionFilter;
 using vms.entity.viewModels;
 using vms.ioc;
 using vms.Utility;
@@ -37,7 +37,7 @@ namespace vms
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddScoped<Logged>();
+           // services.AddScoped<Logged>();
             DefaultPageSize = Configuration.GetSection("DefaultPageSize").GetChildren().Select(item => new KeyValuePair<string, string>(item.Key, item.Value)).ToDictionary(x => x.Key, x => x.Value);
             services.RegisterVMSServiceInstance(this.Configuration);
             services.Configure<ReportServer>(Configuration.GetSection("ReportServer"));

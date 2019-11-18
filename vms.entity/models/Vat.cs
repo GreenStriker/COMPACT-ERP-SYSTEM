@@ -3,18 +3,19 @@ using System.Collections.Generic;
 
 namespace vms.entity.models
 {
-    public partial class ProductGroup
+    public partial class Vat
     {
-        public ProductGroup()
+        public Vat()
         {
             Products = new HashSet<Product>();
         }
 
-        public int ProductGroupId { get; set; }
+        public int VatId { get; set; }
         public string Name { get; set; }
-        public int? ParentGroupId { get; set; }
-        public string Node { get; set; }
-        public bool IsActive { get; set; }
+        public decimal? Percentage { get; set; }
+        public DateTime? EfectiveFrom { get; set; }
+        public DateTime? EfectiveTo { get; set; }
+        public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 

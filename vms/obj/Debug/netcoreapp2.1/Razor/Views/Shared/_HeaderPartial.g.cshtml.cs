@@ -85,7 +85,7 @@ using vms.Utility;
                     ");
             EndContext();
             BeginContext(614, 119, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "868c318bf9ac4477922c11d60f73e047", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "48f2fc3bb8384a77bc9a62064229d54f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -384,7 +384,7 @@ using vms.Utility;
             WriteLiteral("\r\n\r\n                <li class=\"dropdown dropdown-user\">\r\n                    <a href=\"javascript:;\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" data-hover=\"dropdown\" data-close-others=\"true\">\r\n                        ");
             EndContext();
             BeginContext(16200, 75, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9abe8287839247b3b5c40dbf2b022264", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30ca37fa2db9421987bb0f021440edbd", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -458,7 +458,7 @@ WriteAttributeValue("", 17664, Url.Action("ChangePassword", "Users"), 17664, 38,
             WriteLiteral(" class=\"nav-link nav-toggle\">\r\n                                <i class=\"icon-lock\"></i> Change Password\r\n                            </a>\r\n                        </li>\r\n                        <li>\r\n                            ");
             EndContext();
             BeginContext(17932, 113, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e6e178e57cf940fab20e2f2d3f0c4cd5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5f646ea9cdd94738b588fe0f377e5bc1", async() => {
                 BeginContext(17945, 96, true);
                 WriteLiteral("\r\n                                <i class=\"icon-key\"></i> Log Out\r\n                            ");
                 EndContext();

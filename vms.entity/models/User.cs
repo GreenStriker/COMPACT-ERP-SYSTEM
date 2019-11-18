@@ -5,30 +5,21 @@ namespace vms.entity.models
 {
     public partial class User
     {
-        public User()
-        {
-            AuditLogs = new HashSet<AuditLog>();
-        }
-
-        public int UserId { get; set; }
-        public string FullName { get; set; }
-        public string UserName { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
-        public int UserTypeId { get; set; }
-        public int RoleId { get; set; }
-        public int? OrganizationId { get; set; }
-        public string Mobile { get; set; }
-        public bool IsActive { get; set; }
-        public DateTime? LastLoginTime { get; set; }
-        public bool IsDefaultPassword { get; set; }
-        public bool IsCompanyRepresentative { get; set; }
+        public int Uid { get; set; }
+        public string Name { get; set; }
+        public int? BrachId { get; set; }
+        public string Designation { get; set; }
+        public string Moble { get; set; }
+        public int? RoleId { get; set; }
+        public int? UserTypeId { get; set; }
+        public string Address { get; set; }
+        public DateTime? JoingDate { get; set; }
+        public DateTime? DeactiveDate { get; set; }
+        public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 
-        public virtual Organization Organization { get; set; }
-        public virtual Role Role { get; set; }
-        public virtual UserType UserType { get; set; }
-        public virtual ICollection<AuditLog> AuditLogs { get; set; }
+        public virtual Branch Brach { get; set; }
+        public virtual Branch Branch { get; set; }
     }
 }

@@ -5,6 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="models\BackUp\Content.cs" />
+    <Compile Remove="models\BackUp\PaymentMethod.cs" />
+    <Compile Remove="models\BackUp\Product.cs" />
+    <Compile Remove="models\BackUp\Purchase.cs" />
+    <Compile Remove="models\BackUp\PurchaseDetail.cs" />
+    <Compile Remove="models\BackUp\PurchasePayment.cs" />
+    <Compile Remove="models\BackUp\Sale.cs" />
+    <Compile Remove="models\BackUp\SalesDetail.cs" />
+    <Compile Remove="models\BackUp\User.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2019.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.0" />
