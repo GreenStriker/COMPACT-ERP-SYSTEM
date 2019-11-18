@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29503.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inventory.repository", "vms.repository\inventory.repository.csproj", "{A95CAAA4-15E4-4DCA-9D78-906B8BDFACDE}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inventory.data", "vms.data\inventory.data.csproj", "{3787191B-AF92-42CC-9EE9-F4E1B2666FE4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vms.web", "vms.web", "{2C0C9ADD-A3EE-4C19-9BEA-94AC48EFED17}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "inventory.api", "vms.api\inventory.api.csproj", "{44625458-F3D8-4AD1-93F0-CC83054D11F7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory", "vms\Inventory.csproj", "{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}"
 EndProject
@@ -53,10 +51,6 @@ Global
 		{3787191B-AF92-42CC-9EE9-F4E1B2666FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3787191B-AF92-42CC-9EE9-F4E1B2666FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3787191B-AF92-42CC-9EE9-F4E1B2666FE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44625458-F3D8-4AD1-93F0-CC83054D11F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44625458-F3D8-4AD1-93F0-CC83054D11F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44625458-F3D8-4AD1-93F0-CC83054D11F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44625458-F3D8-4AD1-93F0-CC83054D11F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU

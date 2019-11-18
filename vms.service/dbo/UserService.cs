@@ -7,11 +7,11 @@ using vms.repository.dbo;
 
 namespace vms.service.dbo
 {
-   
+
     public interface IUserService : IServiceBase<User>
     {
         Task<IEnumerable<User>> GetUsers(int p_orgId);
-        Task<User> GetUser(string p_encryptedId);
+        Task<User> GetUser(int id);
     }
 
     public class UserService : ServiceBase<User>, IUserService
@@ -25,9 +25,9 @@ namespace vms.service.dbo
         {
             return await _repository.GetUsers(p_orgId);
         }
-        public async Task<User> GetUser(string p_encryptedId)
+        public async Task<User> GetUser(int id)
         {
-            return await _repository.GetUser(p_encryptedId);
+            return await _repository.GetUser(id);
         }
     }
 }
