@@ -15,6 +15,9 @@ namespace Inventory.Controllers
 
         public IActionResult Dashboard()
         {
+
+
+
             return View();
         }
 
