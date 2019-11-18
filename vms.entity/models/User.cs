@@ -7,6 +7,8 @@ namespace vms.entity.models
     {
         public int Uid { get; set; }
         public string Name { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
         public int? BrachId { get; set; }
         public string Designation { get; set; }
         public string Moble { get; set; }
