@@ -40,10 +40,67 @@ namespace Inventory.Controllers
         public async Task<IActionResult> Index()
         {
 
-            var userData = await _service.GetUser(1);
+           // var userData = await _service.GetUser(1);
 
 
             return View();
+
+
+
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(User user)
+        {
+           
+          
+
+        var userData = await _service.Query().Include(c=> c.Brach).SingleOrDefaultAsync(w => w.UserName.ToLower() == user.UserName.Trim().ToLower() && w.Password == user.Password  , CancellationToken.None);
+
+            if (userData != null)
+            {
+
+               
+                    var session = new vmSession
+                    {
+
+                        UserId = userData.Uid,
+                        UserName = userData.Name,
+                        //RoleId = userData.RoleId,
+                        //RoleName = userData.Role.RoleName,
+                        BranchId = userData.BrachId,
+                        BranchName = userData.Brach.Name,
+                       /* Rights = rights */ //comes from role right
+
+
+
+                    };
+
+              
+
+                    return RedirectToAction(ControllerStaticData.DISPLAY_DASHBOARD, ControllerStaticData.HOME);
+                }
+                else
+                {
+                return RedirectToAction("Index", "Default");
+            }
+            
+        
+
+            //return RedirectToAction(ControllerStaticData.DISPLAY_INDEX, ControllerStaticData.AUTHENTICATION);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
