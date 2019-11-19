@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.DataProtection;
+﻿using inventory.service.dbo;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -87,9 +88,10 @@ namespace vms.ioc
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
-
-            //services.AddTransient<IUserTypeRepository, UserTypeRepository>();
-            //services.AddTransient<IUserTypeService, UserTypeService>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IVatRepository, VatRepository>();
+            services.AddTransient<IVatService, VatService>();
 
             //services.AddTransient<ICoagroupRepository, CoagroupRepository>();
             //services.AddTransient<ICoagroupService, CoagroupService>();
