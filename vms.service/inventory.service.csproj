@@ -10,11 +10,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\vms.repository\inventory.repository.csproj" />
+    <Folder Include="dbo\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="dbo\" />
+    <ProjectReference Include="..\vms.repository\inventory.repository.csproj" />
   </ItemGroup>
 
 </Project>
