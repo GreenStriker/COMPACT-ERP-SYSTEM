@@ -10,10 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="dbo\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\vms.repository\inventory.repository.csproj" />
   </ItemGroup>
 
