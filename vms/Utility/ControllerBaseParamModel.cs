@@ -8,7 +8,7 @@ namespace Inventory.Utility
 {
     public class ControllerBaseParamModel
     {
-        public ControllerBaseParamModel(PurposeStringConstants _purposeStringConstants,IDataProtectionProvider p_protectionProvider,  IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork)
+        public ControllerBaseParamModel(PurposeStringConstants _purposeStringConstants, IDataProtectionProvider p_protectionProvider, IHostingEnvironment hostingEnvironment, IHttpContextAccessor httpContextAccessor, IUnitOfWork unitOfWork)
         {
             HostingEnvironment = hostingEnvironment;
             HttpContextAccessor = httpContextAccessor;

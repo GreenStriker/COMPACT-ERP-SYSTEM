@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace vms.Utility
+namespace Inventory.Utility
 {
     public class SessionExpireFilterAttribute : ActionFilterAttribute
     {
