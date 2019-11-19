@@ -5,11 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-
 using Microsoft.Extensions.Configuration;
-
 using System.Threading;
-
 using vms.entity.models;
 using vms.entity.viewModels;
 using vms.service.dbo;
@@ -66,19 +63,21 @@ namespace Inventory.Controllers
 
                         UserId = userData.Uid,
                         UserName = userData.Name,
-                        //RoleId = userData.RoleId,
-                        //RoleName = userData.Role.RoleName,
                         BranchId = userData.BrachId,
                         BranchName = userData.Brach.Name,
-                       /* Rights = rights */ //comes from role right
+                        //RoleId = userData.RoleId,
+                        //RoleName = userData.Role.RoleName,
+                        /* Rights = rights */ //comes from role right
 
 
 
                     };
 
-              
+                HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, session);
 
-                    return RedirectToAction(ControllerStaticData.DISPLAY_DASHBOARD, ControllerStaticData.HOME);
+
+                
+                return RedirectToAction(ControllerStaticData.DISPLAY_DASHBOARD, ControllerStaticData.HOME);
                 }
                 else
                 {
