@@ -6,15 +6,6 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Compile Remove="Controllers\AddressInfo\**" />
-    <Compile Remove="Controllers\Adjustment\**" />
-    <Compile Remove="Controllers\Inventory\**" />
-    <Compile Remove="Controllers\Order\**" />
-    <Compile Remove="Controllers\Payment\**" />
-    <Compile Remove="Controllers\Procurement\**" />
-    <Compile Remove="Controllers\Purchase\**" />
-    <Compile Remove="Controllers\VATAccounts\**" />
-    <Compile Remove="Controllers\VATReturn\**" />
     <Compile Remove="Views\AddressInfo\**" />
     <Compile Remove="Views\Authentication\**" />
     <Compile Remove="Views\BasicInfo\**" />
@@ -41,15 +32,6 @@
     <Compile Remove="Views\VatAccounts\**" />
     <Compile Remove="Views\VendorInfoes\**" />
     <Compile Remove="wwwroot\Reports\**" />
-    <Content Remove="Controllers\AddressInfo\**" />
-    <Content Remove="Controllers\Adjustment\**" />
-    <Content Remove="Controllers\Inventory\**" />
-    <Content Remove="Controllers\Order\**" />
-    <Content Remove="Controllers\Payment\**" />
-    <Content Remove="Controllers\Procurement\**" />
-    <Content Remove="Controllers\Purchase\**" />
-    <Content Remove="Controllers\VATAccounts\**" />
-    <Content Remove="Controllers\VATReturn\**" />
     <Content Remove="Views\AddressInfo\**" />
     <Content Remove="Views\Authentication\**" />
     <Content Remove="Views\BasicInfo\**" />
@@ -76,15 +58,6 @@
     <Content Remove="Views\VatAccounts\**" />
     <Content Remove="Views\VendorInfoes\**" />
     <Content Remove="wwwroot\Reports\**" />
-    <EmbeddedResource Remove="Controllers\AddressInfo\**" />
-    <EmbeddedResource Remove="Controllers\Adjustment\**" />
-    <EmbeddedResource Remove="Controllers\Inventory\**" />
-    <EmbeddedResource Remove="Controllers\Order\**" />
-    <EmbeddedResource Remove="Controllers\Payment\**" />
-    <EmbeddedResource Remove="Controllers\Procurement\**" />
-    <EmbeddedResource Remove="Controllers\Purchase\**" />
-    <EmbeddedResource Remove="Controllers\VATAccounts\**" />
-    <EmbeddedResource Remove="Controllers\VATReturn\**" />
     <EmbeddedResource Remove="Views\AddressInfo\**" />
     <EmbeddedResource Remove="Views\Authentication\**" />
     <EmbeddedResource Remove="Views\BasicInfo\**" />
@@ -111,15 +84,6 @@
     <EmbeddedResource Remove="Views\VatAccounts\**" />
     <EmbeddedResource Remove="Views\VendorInfoes\**" />
     <EmbeddedResource Remove="wwwroot\Reports\**" />
-    <None Remove="Controllers\AddressInfo\**" />
-    <None Remove="Controllers\Adjustment\**" />
-    <None Remove="Controllers\Inventory\**" />
-    <None Remove="Controllers\Order\**" />
-    <None Remove="Controllers\Payment\**" />
-    <None Remove="Controllers\Procurement\**" />
-    <None Remove="Controllers\Purchase\**" />
-    <None Remove="Controllers\VATAccounts\**" />
-    <None Remove="Controllers\VATReturn\**" />
     <None Remove="Views\AddressInfo\**" />
     <None Remove="Views\Authentication\**" />
     <None Remove="Views\BasicInfo\**" />
@@ -150,17 +114,6 @@
 
   <ItemGroup>
     <Compile Remove="ActionFilter\Logged.cs" />
-    <Compile Remove="Controllers\AuditLogsController.cs" />
-    <Compile Remove="Controllers\AuthenticationController.cs" />
-    <Compile Remove="Controllers\BasicInfoController.cs" />
-    <Compile Remove="Controllers\ContactController.cs" />
-    <Compile Remove="Controllers\DeliveryController.cs" />
-    <Compile Remove="Controllers\IssueMaterialController.cs" />
-    <Compile Remove="Controllers\JournalController.cs" />
-    <Compile Remove="Controllers\JurnalController.cs" />
-    <Compile Remove="Controllers\ListOfProductsController.cs" />
-    <Compile Remove="Controllers\PurchaseOrdersController.cs" />
-    <Compile Remove="Controllers\VendorInfoesController.cs" />
   </ItemGroup>
 
   <ItemGroup>
