@@ -13,8 +13,4 @@
     <ProjectReference Include="..\vms.repository\inventory.repository.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="dbo\" />
-  </ItemGroup>
-
 </Project>

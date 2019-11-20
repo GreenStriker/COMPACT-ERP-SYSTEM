@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.DataProtection;
+﻿using inventory.service.dbo;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +8,7 @@ using URF.Core.EF;
 using vms.entity.models;
 using vms.entity.viewModels;
 using vms.repository.dbo;
+
 //using vms.repository.dbo.StoredProcedure;
 using vms.service.dbo;
 //using vms.service.dbo.acc;
@@ -22,8 +24,12 @@ namespace vms.ioc
             services.AddDbContext<InventoryContext>(options => options.UseSqlServer(connectionString));
             services.AddScoped<DbContext, InventoryContext>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            //services.AddScoped<IDataProtector, Microsoft.AspNetCore.DataProtection>();
+            
             services.AddSingleton<PurposeStringConstants>();
+
+            
+
+
             //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
             //services.AddScoped<IAutocompleteService, AutocompleteService>();
             //services.AddScoped<IBankRepository, BankRepository>();
@@ -87,9 +93,10 @@ namespace vms.ioc
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
-
-            //services.AddTransient<IUserTypeRepository, UserTypeRepository>();
-            //services.AddTransient<IUserTypeService, UserTypeService>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IVatRepository, VatRepository>();
+            services.AddTransient<IVatService, VatService>();
 
             //services.AddTransient<ICoagroupRepository, CoagroupRepository>();
             //services.AddTransient<ICoagroupService, CoagroupService>();
