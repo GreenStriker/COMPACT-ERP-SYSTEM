@@ -1,6 +1,6 @@
 ﻿@using Inventory.Utility
 @{
-//var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
+var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -35,7 +35,7 @@
 
                 <li class="btn">
 
-                    <h4 style="color:white ; font-weight: bold; font-style:italic;" class="pull-left">  @*@session.OrganizationName*@   </h4>
+                    <h4 style="color:white ; font-weight: bold; font-style:italic;" class="pull-left">BRANCH :  @session.BranchName   </h4>
 
                 </li>
                 <!-- BEGIN NOTIFICATION DROPDOWN -->
@@ -274,7 +274,7 @@
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                         <img alt="" class="img-circle" src="~/assets/company/logos/download.png" />
 
-                        @*<span class="username username-hide-on-mobile">@session.UserName (@session.RoleName)</span>*@
+                        <span class="username username-hide-on-mobile">@session.UserName (@*@session.RoleName*@)</span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
