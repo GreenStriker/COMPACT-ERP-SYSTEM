@@ -3,16 +3,9 @@
 @{
 //var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }<!-- BEGIN SIDEBAR -->
-<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+
 <div class="page-sidebar navbar-collapse collapse">
-    <!-- BEGIN SIDEBAR MENU -->
-    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+
     <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
         <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -21,13 +14,8 @@
                 <span></span>
             </div>
         </li>
-        <!-- END SIDEBAR TOGGLER BUTTON -->
-        <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
         <li class="sidebar-search-wrapper">
-            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-            <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
-            <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
-            <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
+             <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
                 <a href="javascript:;" class="remove">
                     <i class="icon-close"></i>
                 </a>
@@ -40,7 +28,7 @@
                     </span>
                 </div>
             </form>
-            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+           
         </li>
 
        
@@ -57,36 +45,65 @@
 
             <li class="nav-item  ">
                 <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="icon-wrench"></i>
-                    <span class="title">Adminstration</span>
+                    <i class="icon-settings"></i>
+                    <span class="title">Setup</span>
                     <span class="arrow"></span>
                 </a>
                 <ul class="sub-menu">
 
-                   
-                        <li class="nav-item  ">
 
-                            <a href="@Url.Action("Index", "Products")" class="nav-link ">
-                                <span class="title">Products</span>
-                            </a>
-                        </li>
-                   
-                        <li class="nav-item  ">
+                    <li class="nav-item  ">
 
-                            <a href="@Url.Action("Index", "Users")" class="nav-link ">
-                                <span class="title">Users</span>
-                            </a>
-                        </li>
-                    
-                        <li class="nav-item">
+                        <a href="@Url.Action("Index", "Products")" class="nav-link ">
+                            <span class="title">Products</span>
+                        </a>
+                    </li>
 
-                            <a href="@Url.Action("Index", "MushakGenerations")" class="nav-link ">
+                    <li class="nav-item  ">
+
+                        <a href="@Url.Action("Index", "Users")" class="nav-link ">
+                            <span class="title">Users</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="@Url.Action("Index", "vat")" class="nav-link ">
 
 
-                                <span class="title">Mushak Generation</span>
+                            <span class="title">VAT Setup</span>
 
-                            </a>
-                        </li>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a href="@Url.Action("Index", "ContentType")" class="nav-link ">
+
+
+                            <span class="title">Content Type</span>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a href="@Url.Action("Index", "PaymentMethod")" class="nav-link ">
+
+
+                            <span class="title">Payment Method </span>
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a href="@Url.Action("Index", "Payment")" class="nav-link ">
+
+
+                            <span class="title">Payment History </span>
+
+                        </a>
+                    </li>
+
 
 
                 </ul>

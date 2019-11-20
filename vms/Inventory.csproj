@@ -130,6 +130,7 @@
 
   <ItemGroup>
     <None Include="Views\Home\Dashboard.cshtml" />
+    <None Include="Views\Payment\Index.cshtml" />
     <None Include="Views\Shared\_CookieConsentPartial.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />
     <None Include="Views\_ViewStart.cshtml" />

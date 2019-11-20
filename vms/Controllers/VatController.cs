@@ -53,7 +53,7 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data = await _vatService.Query().SelectAsync();
+            var data = await _vatService.Query().Where(x=> x.IsActive == true).SelectAsync();
             string txt = search;
 
             if (search != null)
@@ -147,6 +147,7 @@ namespace Inventory.Controllers
                 vat.EfectiveFrom = DateTime.Now;
                 vat.CreatedBy = _session.UserId;
                 vat.CreatedTime = DateTime.Now;
+                vat.IsActive = true;
 
                 _vatService.Insert(vat);
                 await UnitOfWork.SaveChangesAsync();
@@ -181,6 +182,42 @@ namespace Inventory.Controllers
                 return View(vat);
             }
         }
+
+
+
+
+
+
+
+    
+
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
+                data.IsActive = false;
+                data.EfectiveTo = DateTime.Now;
+                _vatService.Update(data);
+               
+                await UnitOfWork.SaveChangesAsync();
+               
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
 
     }
 }

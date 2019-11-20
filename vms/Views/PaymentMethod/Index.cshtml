@@ -1,0 +1,130 @@
+﻿@model IEnumerable<vms.entity.models.PaymentMethod>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Inventory.Utility
+@using vms.entity.viewModels
+@{
+    // var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
+}
+
+@section breadcrumb
+    {
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Dashboard", "Home")">Root</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "Organizations")">Adminstration</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="@Url.Action("Index", "ExportTypes")">Export Type</a>
+        </li>
+    </ul>
+}
+@using (Html.BeginForm("Index", "PaymentMethod", FormMethod.Get, new { id = "frmProduct" }))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="custom-page-title">Payment Method</h1>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group Search" style="margin-top:10px">
+                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn submit ">
+                        <i class="icon-magnifier"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+
+        <div class="col-md-1">
+            <a style="margin-top:10px" href="@Url.Action("Create", "PaymentMethod")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+        </div>
+
+    </div>
+}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">
+                 Name
+            </th>
+            <th class="text-center">
+                Account Number
+            </th>
+            <th class="text-center">
+                Description
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    @if (Model.Any())
+    {
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Remark)
+                    </td>
+
+
+                    <td>
+                        <div class="btn-group">
+                            <div class="dropdown dropdown-user">
+                                <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span class=""> Action </span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default pull-right">
+
+
+                                    @*<li>
+                                        <a asp-action="Edit" asp-route-id="@item.PaymenttypeId"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                    </li>
+
+                                    <li>
+                                        <a asp-action="Delete" asp-route-id="@item.PaymenttypeId"><i class="fa fa-pencil-square-o"></i> Delete</a>
+                                    </li>*@
+                                </ul>
+                            </div>
+                        </div>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    }
+
+    else
+    {
+        <tr>
+            <td colspan="10">
+                <p style="text-align: center">No Records Found</p>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="pager">
+    @Html.PagedListPager(
+        (IPagedList)Model,
+        page => Url.Action("Index", new { page })
+        )
+</div>
