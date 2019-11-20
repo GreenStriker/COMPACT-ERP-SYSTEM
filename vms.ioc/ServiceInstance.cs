@@ -29,8 +29,8 @@ namespace vms.ioc
 
             //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
             //services.AddScoped<IAutocompleteService, AutocompleteService>();
-            //services.AddScoped<IBankRepository, BankRepository>();
-            //services.AddScoped<IBankService, BankService>();
+            services.AddScoped<IProductLogRepository, ProductLogRepository>();
+            services.AddScoped<IProductLogService, ProductLogService>();
             //services.AddScoped<IMushok6P3ViewRepositoy, Mushok6P3ViewRepositoy>();
             //services.AddScoped<IMushok6P3ViewService, Mushok6P3ViewService>();
             //services.AddScoped<ISpGetSalePagedRepository, SpGetSalePagedRepository>();
