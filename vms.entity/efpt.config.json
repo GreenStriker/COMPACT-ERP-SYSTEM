@@ -1,1 +1,93 @@
-﻿{"ContextClassName":"InventoryContext","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":false,"OutputPath":"models","ProjectRootNamespace":"vms.entity","SelectedToBeGenerated":0,"Tables":[{"HasPrimaryKey":true,"Name":"dbo.Branch"},{"HasPrimaryKey":true,"Name":"dbo.Content"},{"HasPrimaryKey":true,"Name":"dbo.Contenttype"},{"HasPrimaryKey":true,"Name":"dbo.Employe"},{"HasPrimaryKey":true,"Name":"dbo.payment"},{"HasPrimaryKey":true,"Name":"dbo.paymentMethod"},{"HasPrimaryKey":true,"Name":"dbo.Product"},{"HasPrimaryKey":true,"Name":"dbo.ProductPrice"},{"HasPrimaryKey":true,"Name":"dbo.Purchase"},{"HasPrimaryKey":true,"Name":"dbo.purchaseDetail"},{"HasPrimaryKey":true,"Name":"dbo.salary"},{"HasPrimaryKey":true,"Name":"dbo.Sales"},{"HasPrimaryKey":true,"Name":"dbo.SalesDetails"},{"HasPrimaryKey":true,"Name":"dbo.Stock"},{"HasPrimaryKey":true,"Name":"dbo.StocktypeId"},{"HasPrimaryKey":true,"Name":"dbo.User"},{"HasPrimaryKey":true,"Name":"dbo.vat"}],"UseDatabaseNames":false,"UseFluentApiOnly":true,"UseHandleBars":false,"UseInflector":true}
+﻿{
+   "ContextClassName": "InventoryContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "models",
+   "ProjectRootNamespace": "vms.entity",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Branch]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Content]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Contenttype]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Employe]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[payment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[paymentMethod]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Product]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProductLog]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProductPrice]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Purchase]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[purchaseDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[salary]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Sales]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SalesDetails]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Stock]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[StocktypeId]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[User]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[vat]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false
+}
