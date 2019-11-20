@@ -25,6 +25,7 @@ namespace Inventory.Controllers
 
         private readonly IUserService _service;
         private readonly IVatService _vatService;
+        private readonly IProductService _prodService;
         //private readonly IRightService _rightService;
         private readonly IConfiguration _configuration;
         //private readonly IOrganizationService _orgcConfiguration;
@@ -32,7 +33,8 @@ namespace Inventory.Controllers
         public VatController(
             ControllerBaseParamModel controllerBaseParamModel,
             IUserService service,
-            IVatService vatService
+            IVatService vatService,
+            IProductService prodService
             //IRightService rightService, 
             //IOrganizationService orgcConfiguration
             ) : base(controllerBaseParamModel)
@@ -41,6 +43,7 @@ namespace Inventory.Controllers
             _service = service;
             _configuration = Configuration;
             _vatService = vatService;
+            _prodService = prodService;
             //_rightService = rightService;
             //_orgcConfiguration = orgcConfiguration;
         }
@@ -123,36 +126,56 @@ namespace Inventory.Controllers
         }
 
 
-        //[HttpPost]
+        [HttpPost]
 
-        //public async Task<IActionResult> Edit(int id, [Bind(ControllerStaticData.EXPORT_TYPE_ID, ViewStaticData.DISPLAY_EXPORT_TYPE_NAME, ControllerStaticData.CREATED_BY, ControllerStaticData.CREATED_TIME)] ExportType exportType)
-        //{
-        //    if (id != exportType.ExportTypeId)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Edit(Vat vat)
+        {
+            
+            if (vat.VatId == null)
+            {
+                return NotFound();
+            }
+            
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //         //   var exportDt = await _service.Query()
-        //         //.SingleOrDefaultAsync(m => m.ExportTypeId == id, CancellationToken.None);
-        //         //   exportDt.ExportTypeName = exportType.ExportTypeName;
-        //         //   _service.Update(exportDt);
-        //         //   await UnitOfWork.SaveChangesAsync();
-        //         //   TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var id = vat.VatId;
+                   //
 
-        //        }
-        //        catch (Exception ex)
-        //        {
+                    var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
+                    data.IsActive = false;
+                    data.EfectiveTo = DateTime.Now;
+                    _vatService.Update(data);
+                    vat.VatId = 0;
+                    vat.EfectiveFrom = DateTime.Now;
+                    vat.CreatedBy = _session.UserId;
+                    vat.CreatedTime = DateTime.Now;
 
-        //        }
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //    return View(exportType);
-        //}
+                    _vatService.Insert(vat);
+                    await UnitOfWork.SaveChangesAsync();
+                    var prodData =  _prodService.Queryable().Where(c => c.VatId == id).AsQueryable();
+
+                    foreach(var item in prodData)
+                    {
+                        item.VatId = vat.VatId;
+                        _prodService.Update(item);
+                        
+                    }
+                    await UnitOfWork.SaveChangesAsync();
+                    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+            return View(vat);
+        }
 
 
 
