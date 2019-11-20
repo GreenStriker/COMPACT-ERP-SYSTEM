@@ -349,3 +349,4 @@ MigrationBackup/
 *.config
 /vms_v1.0.0.1/Controllers/GridLayoutController.cs
 /vms_v1.0.0.1/Views/GridLayout
+/Inventory.v12.suo
