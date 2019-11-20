@@ -19,8 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "vms.web", "vms.web", "{2C0C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory", "vms\Inventory.csproj", "{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "inventory.db", "vms.db\inventory.db.sqlproj", "{52F3B02E-5EF7-4684-8270-A63DFD82C795}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,12 +53,6 @@ Global
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD7E44CD-B849-4397-953F-67B6ABFCF6CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52F3B02E-5EF7-4684-8270-A63DFD82C795}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
