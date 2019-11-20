@@ -27,9 +27,6 @@ namespace vms.ioc
             
             services.AddSingleton<PurposeStringConstants>();
 
-            
-
-
             //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
             //services.AddScoped<IAutocompleteService, AutocompleteService>();
             //services.AddScoped<IBankRepository, BankRepository>();
@@ -97,6 +94,8 @@ namespace vms.ioc
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IVatRepository, VatRepository>();
             services.AddTransient<IVatService, VatService>();
+            services.AddTransient<IContentRepository, ContentRepository>();
+            services.AddTransient<IContentService, ContentService>();
 
             //services.AddTransient<ICoagroupRepository, CoagroupRepository>();
             //services.AddTransient<ICoagroupService, CoagroupService>();

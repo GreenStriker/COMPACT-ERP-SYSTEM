@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="modelExt\" />
     <Folder Include="viewModel\" />
   </ItemGroup>
 
