@@ -26,16 +26,13 @@ namespace Inventory.Controllers
         //private readonly IOrganizationService _orgcConfiguration;
 
         public HomeController(
-            ControllerBaseParamModel controllerBaseParamModel, 
-            IUserService service 
+            ControllerBaseParamModel controllerBaseParamModel,
+            IUserService service
             //IRoleRightService roleRightService, 
             //IRightService rightService, 
             //IOrganizationService orgcConfiguration
             ) : base(controllerBaseParamModel)
         {
-
-
-
 
             _service = service;
             _configuration = Configuration;
@@ -44,20 +41,8 @@ namespace Inventory.Controllers
             //_orgcConfiguration = orgcConfiguration;
         }
 
-
-
-
-        
-
-
-
-
         public IActionResult Index()
         {
-
-           
-          
-
 
             return View();
         }
@@ -65,7 +50,6 @@ namespace Inventory.Controllers
         public IActionResult Dashboard()
         {
             var id = _session.BranchId;
-
 
             return View();
         }
