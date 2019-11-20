@@ -92,13 +92,15 @@
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default pull-right">
-                      
 
-                            <li>
-                                <a asp-action="Edit" asp-route-id="@item.VatId"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                            </li>
-                        
 
+                        <li>
+                            <a asp-action="Edit" asp-route-id="@item.VatId"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                        </li>
+
+                        <li>
+                            <a asp-action="Delete" asp-route-id="@item.VatId"><i class="fa fa-pencil-square-o"></i> Delete</a>
+                        </li>
                     </ul>
                 </div>
             </div>
