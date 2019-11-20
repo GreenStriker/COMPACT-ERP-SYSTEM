@@ -46,12 +46,6 @@ namespace Inventory.Controllers
         }
 
 
-
-
-
-
-
-
         public async Task<IActionResult> Index(int? page, string search = null)
         {
             var data = await _service.Query().SelectAsync();
@@ -78,7 +72,6 @@ namespace Inventory.Controllers
 
         }
 
-
         public IActionResult Create()
         {
 
@@ -86,42 +79,20 @@ namespace Inventory.Controllers
         }
 
         [HttpPost]
-
-
         public async Task<IActionResult> Create(Contenttype Con)
         {
             if (ModelState.IsValid)
             {
                 Con.CreatedBy = _session.UserId;
                 Con.CreatedTime = DateTime.Now;
-              
-
-       
-
                 _service.Insert(Con);
                 await UnitOfWork.SaveChangesAsync();
-                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME
-;
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
                 return RedirectToAction(nameof(Index));
             }
             TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
             return View(Con);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
