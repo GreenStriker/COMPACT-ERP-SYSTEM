@@ -4,22 +4,17 @@ using System.Collections.Generic;
 
 namespace vms.entity.models
 {
-    public partial class Vat
+    public partial class ProductLog
     {
-        public Vat()
-        {
-            Products = new HashSet<Product>();
-        }
-
-        public int VatId { get; set; }
+        public int LogId { get; set; }
+        public int? ProductId { get; set; }
         public string Name { get; set; }
-        public decimal? Percentage { get; set; }
+        public int? VatId { get; set; }
+        public string Code { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
-
-        public virtual ICollection<Product> Products { get; set; }
     }
 }
