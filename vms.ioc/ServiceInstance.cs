@@ -97,8 +97,8 @@ namespace vms.ioc
             services.AddTransient<IContentRepository, ContentRepository>();
             services.AddTransient<IContentService, ContentService>();
 
-            //services.AddTransient<ICoagroupRepository, CoagroupRepository>();
-            //services.AddTransient<ICoagroupService, CoagroupService>();
+            services.AddTransient<IContentTypeRepository, ContentTypeRepository>();
+            services.AddTransient<IContentTypeService, ContentTypeService>();
 
             //services.AddTransient<ICustomerRepository, CustomerRepository>();
             //services.AddTransient<ICustomerService, CustomerService>();
