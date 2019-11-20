@@ -100,8 +100,9 @@ namespace vms.ioc
             services.AddTransient<IContentTypeRepository, ContentTypeRepository>();
             services.AddTransient<IContentTypeService, ContentTypeService>();
 
-            //services.AddTransient<ICustomerRepository, CustomerRepository>();
-            //services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IPaymentMethodRepository, PaymentMethodRepository>();
+            services.AddTransient<IPaymentMethodService, PaymentMethodService>();
+
             //services.AddTransient<IPriceSetupProductCostRepository, PriceSetupProductCostRepository>();
             //services.AddTransient<IPriceSetupProductCostService, PriceSetupProductCostService>();
 
