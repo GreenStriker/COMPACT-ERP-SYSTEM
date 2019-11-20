@@ -7,7 +7,7 @@ using vms.entity.models;
 using vms.repository.dbo;
 using vms.service;
 
-namespace inventory.service.dbo
+namespace vms.service.dbo
 {
     public interface IVatService : IServiceBase<Vat>
     {

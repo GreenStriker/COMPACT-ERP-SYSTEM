@@ -1,4 +1,4 @@
-﻿using inventory.service.dbo;
+﻿using vms.service.dbo;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -10,7 +10,7 @@ using vms.entity.viewModels;
 using vms.repository.dbo;
 
 //using vms.repository.dbo.StoredProcedure;
-using vms.service.dbo;
+
 //using vms.service.dbo.acc;
 //using vms.service.dbo.StoredProdecure;
 
