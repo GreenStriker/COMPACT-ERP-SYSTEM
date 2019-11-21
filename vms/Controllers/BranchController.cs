@@ -89,11 +89,12 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Create(Branch bra)
         {
-            if (ModelState.IsValid)
+            if (bra.Name.Any())
             {
                 bra.CreatedBy = _session.UserId;
                 bra.CreatedTime = DateTime.Now;
-              
+              bra.OpeningDate = DateTime.Now;
+                
                 bra.IsActive = true;
 
 
@@ -147,6 +148,7 @@ namespace Inventory.Controllers
                 
                 bra.CreatedBy = _session.UserId;
                 bra.CreatedTime = DateTime.Now;
+                bra.OpeningDate = DateTime.Now;
                 bra.IsActive = true;
                 _service.Insert(bra);
                 await UnitOfWork.SaveChangesAsync();
