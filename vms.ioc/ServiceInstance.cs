@@ -106,8 +106,8 @@ namespace vms.ioc
             services.AddTransient<IPaymentRepository, PaymentRepository>();
             services.AddTransient<IPaymentService, PaymentService>();
 
-            //services.AddTransient<IExportTypeRepository, ExportTypeRepository>();
-            //services.AddTransient<IExportTypeService, ExportTypeService>();
+            services.AddTransient<IBranchRepository, BranchRepository>();
+            services.AddTransient<IBranchService, BranchService>();
 
             //services.AddTransient<IPurchaseDetailRepository, PurchaseDetailRepository>();
             //services.AddTransient<IPurchaseDetailService, PurchaseDetailService>();
