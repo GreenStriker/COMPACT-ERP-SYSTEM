@@ -109,8 +109,8 @@ namespace vms.ioc
             services.AddTransient<IBranchRepository, BranchRepository>();
             services.AddTransient<IBranchService, BranchService>();
 
-            //services.AddTransient<IPurchaseDetailRepository, PurchaseDetailRepository>();
-            //services.AddTransient<IPurchaseDetailService, PurchaseDetailService>();
+            services.AddTransient<IMesureUnitRepository, MesureUnitRepository>();
+            services.AddTransient<IMesureUnitService, MesureUnitService>();
 
             //services.AddTransient<IVendorRepository, VendorRepository>();
             //services.AddTransient<IVendorService, VendorService>();
