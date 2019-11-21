@@ -80,7 +80,7 @@ namespace vms.entity.models
 
                 entity.Property(e => e.Remark).HasMaxLength(50);
 
-                entity.Property(e => e.Url).HasMaxLength(50);
+                entity.Property(e => e.Url).HasMaxLength(500);
 
                 entity.HasOne(d => d.ContentType)
                     .WithMany(p => p.Contents)
