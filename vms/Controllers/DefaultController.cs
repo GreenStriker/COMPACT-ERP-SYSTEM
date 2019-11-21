@@ -52,7 +52,7 @@ namespace Inventory.Controllers
            
           
 
-        var userData = await _service.Query().Include(c=> c.Brach).SingleOrDefaultAsync(w => w.UserName.ToLower() == user.UserName.Trim().ToLower() && w.Password == user.Password  , CancellationToken.None);
+        var userData = await _service.Query().Include(c=> c.Brach).SingleOrDefaultAsync(w => w.UserName.ToLower() == user.UserName.Trim().ToLower() && w.Password == user.Password  && w.IsActive==true , CancellationToken.None);
 
             if (userData != null)
             {

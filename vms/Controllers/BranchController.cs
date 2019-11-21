@@ -18,18 +18,18 @@ using System;
 
 namespace Inventory.Controllers
 {
-    public class UserController : ControllerBase
+    public class BranchController : ControllerBase
     {
-        private readonly IUserService _service;
+        private readonly IBranchService _service;
         private readonly IVatService _vatService;
         private readonly IProductService _prodService;
         //private readonly IRightService _rightService;
         private readonly IConfiguration _configuration;
         //private readonly IOrganizationService _orgcConfiguration;
         private readonly IProductLogService _logService;
-        public UserController(
+        public BranchController(
             ControllerBaseParamModel controllerBaseParamModel,
-            IUserService service,
+            IBranchService service,
             IVatService vatService,
             IProductService prodService,
             IProductLogService logService
@@ -50,13 +50,13 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data = await _service.Query().Include(x=>x.Brach).Where(x => x.IsActive == true).SelectAsync();
+            var data = await _service.Query().Where(x => x.IsActive == true).SelectAsync();
             string txt = search;
             //
             if (search != null)
             {
                 search = search.ToLower().Trim();
-                data = data.Where(c => c.Name.ToLower().Contains(search) || c.Designation.ToString().Contains(search) || c.Moble.ToString().Contains(search) || c.Brach.Name.ToString().Contains(search) || c.UserName.ToString().Contains(search) || c.Address.ToString().Contains(search));
+                data = data.Where(c => c.Name.ToLower().Contains(search) || c.Address.ToString().Contains(search) || c.Code.ToString().Contains(search) || c.Mobile.ToString().Contains(search));
 
             }
             if (txt != null)
@@ -87,24 +87,23 @@ namespace Inventory.Controllers
         [HttpPost]
 
 
-        public async Task<IActionResult> Create(User user)
+        public async Task<IActionResult> Create(Branch bra)
         {
             if (ModelState.IsValid)
             {
-                user.CreatedBy = _session.UserId;
-                user.CreatedTime = DateTime.Now;
-                user.JoingDate = DateTime.Now;
-                user.BrachId = _session.BranchId;
-                user.IsActive = true;
+                bra.CreatedBy = _session.UserId;
+                bra.CreatedTime = DateTime.Now;
+              
+                bra.IsActive = true;
 
 
-                _service.Insert(user);
+                _service.Insert(bra);
                 await UnitOfWork.SaveChangesAsync();
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
                 return RedirectToAction(nameof(Index));
             }
             TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-            return View(user);
+            return View(bra);
         }
 
 
@@ -118,7 +117,7 @@ namespace Inventory.Controllers
             }
 
             var User = await _service.Query()
-                .SingleOrDefaultAsync(m => m.Uid == id, CancellationToken.None);
+                .SingleOrDefaultAsync(m => m.BranchId == id, CancellationToken.None);
             if (User == null)
             {
                 return NotFound();
@@ -129,27 +128,27 @@ namespace Inventory.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Edit(User user)
+        public async Task<IActionResult> Edit(Branch bra)
         {
 
-            if (user.Uid == 0)
+            if (bra.BranchId == 0)
             {
                 return NotFound();
             }
 
             try
             {
-                var id = user.Uid;
-                var data = await _service.Query().SingleOrDefaultAsync(m => m.Uid == id, CancellationToken.None);
+                var id = bra.BranchId;
+                var data = await _service.Query().SingleOrDefaultAsync(m => m.BranchId == id, CancellationToken.None);
                 data.IsActive = false;
                 data.DeactiveDate = DateTime.Now;
                 _service.Update(data);
-                user.Uid = 0;
-                user.JoingDate = DateTime.Now;
-                user.CreatedBy = _session.UserId;
-                user.CreatedTime = DateTime.Now;
-                user.IsActive = true;
-                _service.Insert(user);
+                bra.BranchId = 0;
+                
+                bra.CreatedBy = _session.UserId;
+                bra.CreatedTime = DateTime.Now;
+                bra.IsActive = true;
+                _service.Insert(bra);
                 await UnitOfWork.SaveChangesAsync();
                 
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
@@ -158,7 +157,7 @@ namespace Inventory.Controllers
             catch (Exception ex)
             {
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-                return View(user);
+                return View(bra);
             }
         }
 
@@ -180,7 +179,7 @@ namespace Inventory.Controllers
 
             try
             {
-                var data = await _service.Query().SingleOrDefaultAsync(m => m.Uid == id, CancellationToken.None);
+                var data = await _service.Query().SingleOrDefaultAsync(m => m.BranchId == id, CancellationToken.None);
                 data.IsActive = false;
                 data.DeactiveDate = DateTime.Now;
                 _service.Update(data);
