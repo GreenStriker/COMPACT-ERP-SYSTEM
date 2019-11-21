@@ -19,19 +19,17 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("Index", "Organizations")">Adminstration</a>
+            <a href="@Url.Action("Index", "vat")">VAT</a>
             <i class="fa fa-circle"></i>
         </li>
-        <li>
-            <a href="@Url.Action("Index", "ExportTypes")">Export Type</a>
-        </li>
+    
     </ul>
 }
 @using (Html.BeginForm("Index", "vat", FormMethod.Get, new { id = "frmProduct" }))
 {
     <div class="row">
         <div class="col-md-6">
-            <h1 class="custom-page-title">Export Type</h1>
+            <h1 class="custom-page-title">Vat</h1>
         </div>
         <div class="col-md-5">
             <div class="input-group Search" style="margin-top:10px">
