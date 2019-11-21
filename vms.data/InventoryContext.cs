@@ -20,6 +20,7 @@ namespace vms.entity.models
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
+        public virtual DbSet<MeasureUnit> MeasureUnits { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -27,12 +28,14 @@ namespace vms.entity.models
         public virtual DbSet<ProductPrice> ProductPrices { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<SalesDetail> SalesDetails { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StocktypeId> StocktypeIds { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Vat> Vats { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -123,6 +126,17 @@ namespace vms.entity.models
                 entity.Property(e => e.Nid).HasMaxLength(50);
             });
 
+            modelBuilder.Entity<MeasureUnit>(entity =>
+            {
+                entity.HasKey(e => e.MunitId);
+
+                entity.ToTable("MeasureUnit");
+
+                entity.Property(e => e.MunitId).HasColumnName("MUnitId");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Payment>(entity =>
             {
                 entity.HasKey(e => e.PaymetId);
@@ -135,7 +149,7 @@ namespace vms.entity.models
 
                 entity.Property(e => e.PaymentMethodId).HasColumnName("PaymentMethodID");
 
-                entity.Property(e => e.Remark).HasMaxLength(50);
+                entity.Property(e => e.Remark).HasMaxLength(500);
 
                 entity.Property(e => e.TransactionId)
                     .HasColumnName("TransactionID")
@@ -159,7 +173,7 @@ namespace vms.entity.models
 
                 entity.Property(e => e.Number).HasMaxLength(50);
 
-                entity.Property(e => e.Remark).HasMaxLength(10);
+                entity.Property(e => e.Remark).HasMaxLength(500);
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -174,11 +188,20 @@ namespace vms.entity.models
 
                 entity.Property(e => e.EfectiveTo).HasColumnType("date");
 
+                entity.Property(e => e.ModelNo).HasMaxLength(50);
+
+                entity.Property(e => e.MunitId).HasColumnName("MUnitId");
+
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasMaxLength(50);
 
                 entity.Property(e => e.VatId).HasColumnName("vatID");
+
+                entity.HasOne(d => d.Munit)
+                    .WithMany(p => p.Products)
+                    .HasForeignKey(d => d.MunitId)
+                    .HasConstraintName("FK_Product_MeasureUnit");
 
                 entity.HasOne(d => d.Vat)
                     .WithMany(p => p.Products)
@@ -281,6 +304,15 @@ namespace vms.entity.models
                     .WithMany(p => p.PurchaseDetails)
                     .HasForeignKey(d => d.PurchaseId)
                     .HasConstraintName("FK_purchaseDetail_Purchase");
+            });
+
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("Role");
+
+                entity.Property(e => e.RoleId).ValueGeneratedNever();
+
+                entity.Property(e => e.RoleName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Salary>(entity =>
@@ -430,6 +462,23 @@ namespace vms.entity.models
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.BrachId)
                     .HasConstraintName("FK_User_Branch");
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_User_Role");
+
+                entity.HasOne(d => d.UserType)
+                    .WithMany(p => p.Users)
+                    .HasForeignKey(d => d.UserTypeId)
+                    .HasConstraintName("FK_User_UserType");
+            });
+
+            modelBuilder.Entity<UserType>(entity =>
+            {
+                entity.ToTable("UserType");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Vat>(entity =>

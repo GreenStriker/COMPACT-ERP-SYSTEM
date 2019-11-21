@@ -23,5 +23,7 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Brach { get; set; }
+        public virtual Role Role { get; set; }
+        public virtual UserType UserType { get; set; }
     }
 }
