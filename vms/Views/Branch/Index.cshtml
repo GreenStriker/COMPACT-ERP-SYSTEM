@@ -1,4 +1,4 @@
-﻿@model IEnumerable<vms.entity.models.Vat>
+﻿@model IEnumerable<vms.entity.models.Branch>
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @{
@@ -8,7 +8,7 @@
 @using Inventory.Utility
 @using vms.entity.viewModels
 @{
-   // var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
+    // var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }
 
 @section breadcrumb
@@ -19,17 +19,17 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <a href="@Url.Action("Index", "vat")">VAT</a>
+            <a href="@Url.Action("Index", "Branch")">VAT</a>
             <i class="fa fa-circle"></i>
         </li>
-    
+
     </ul>
 }
-@using (Html.BeginForm("Index", "vat", FormMethod.Get, new { id = "frmProduct" }))
+@using (Html.BeginForm("Index", "Branch", FormMethod.Get, new { id = "frmProduct" }))
 {
     <div class="row">
         <div class="col-md-6">
-            <h1 class="custom-page-title">Vat</h1>
+            <h1 class="custom-page-title">Branch</h1>
         </div>
         <div class="col-md-5">
             <div class="input-group Search" style="margin-top:10px">
@@ -41,25 +41,28 @@
                 </span>
             </div>
         </div>
-    
 
-            <div class="col-md-1">
-                <a style="margin-top:10px" href="@Url.Action("Create", "vat")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
-            </div>
-        
+
+        <div class="col-md-1">
+            <a style="margin-top:10px" href="@Url.Action("Create", "Branch")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+        </div>
+
     </div>
 }
 <table class="table table-bordered">
     <thead>
         <tr>
             <th class="text-center">
-                Vat Name 
+                Name
             </th>
             <th class="text-center">
-                Vat Percentage 
+                Code
             </th>
             <th class="text-center">
-                Is Active
+                Branch Address
+            </th>
+            <th class="text-center">
+                Branch Mobile
             </th>
             <th>Action</th>
         </tr>
@@ -75,35 +78,38 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Percentage)
+                    @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsActive)
+                    @Html.DisplayFor(modelItem => item.Address)
                 </td>
-             
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+
 
                 <td>
-            <div class="btn-group">
-                <div class="dropdown dropdown-user">
-                    <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                        <span class=""> Action </span>
-                        <i class="fa fa-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-default pull-right">
+                    <div class="btn-group">
+                        <div class="dropdown dropdown-user">
+                            <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <span class=""> Action </span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default pull-right">
 
 
-                        <li>
-                            <a asp-action="Edit" asp-route-id="@item.VatId"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                        </li>
+                                <li>
+                                    <a asp-action="Edit" asp-route-id="@item.BranchId"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                </li>
 
-                        <li>
-                            <a asp-action="Delete" asp-route-id="@item.VatId"><i class="fa fa-pencil-square-o"></i> Delete</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                                <li>
+                                    <a asp-action="Delete" asp-route-id="@item.BranchId"><i class="fa fa-pencil-square-o"></i> Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-        </td>
+                </td>
 
             </tr>
             }
