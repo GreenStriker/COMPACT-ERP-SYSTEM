@@ -81,7 +81,7 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Create(MeasureUnit bra)
         {
-            if (ModelState.IsValid)
+            if (bra.Name.Any())
             {
                 bra.CreatedBy = _session.UserId;
                 bra.CreatedTime = DateTime.Now;
