@@ -21,6 +21,7 @@ namespace Inventory.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly IVatService _vatService;
+        private readonly IProductPriceService _PriceService;
         private readonly IProductService _prodService;
         private readonly IProductLogService _logService;
         private readonly IMesureUnitService _unitService;
@@ -28,6 +29,7 @@ namespace Inventory.Controllers
         private readonly IContentService _contentService;
         public ProductsController(
             IContentService contentService,
+            IProductPriceService PriceService,
             ControllerBaseParamModel controllerBaseParamModel,
             IHostingEnvironment hostingEnvironment,
             IVatService vatService,
@@ -42,6 +44,7 @@ namespace Inventory.Controllers
             _prodService = prodService;
             _logService = logService;
             _unitService = unitService;
+            _PriceService = PriceService;
         }
         public async Task<IActionResult> Index(int? page, string search = null)
         {
@@ -165,5 +168,79 @@ namespace Inventory.Controllers
             }
             
         }
+
+
+
+        public IActionResult PriceSetup(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var price = new ProductPrice();
+            price.ProductId = id;
+
+            return View(price);
+        }
+
+        [HttpPost]
+
+
+        public async Task<IActionResult> PriceSetup(ProductPrice price)
+        {
+            if (price.ProductId!= null)
+            {
+                
+               
+                var previous = await _PriceService.Query().SingleOrDefaultAsync(p => p.ProductId == price.ProductId && p.IsActive == true, CancellationToken.None);
+
+                if (previous!= null)
+                {
+                    previous.IsActive = false;
+                    previous.EfectiveTo = DateTime.Now;
+
+                    _PriceService.Update(previous);
+
+                    await UnitOfWork.SaveChangesAsync();
+                }
+
+
+
+
+                price.CreatedBy = _session.UserId;
+                price.CreatedTime = DateTime.Now;
+                price.EfectiveFrom = DateTime.Now;
+
+                price.IsActive = true;
+                
+
+                _PriceService.Insert(price);
+                await UnitOfWork.SaveChangesAsync();
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+            return View(price);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

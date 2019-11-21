@@ -92,7 +92,32 @@
                     <td>@product.Munit.Name</td>
                     <td>@product.Vat.Percentage.Value</td>
                     <td>@product.ModelNo</td>
-                    <td></td>
+                    <td>
+
+                        <div class="btn-group">
+                            <div class="dropdown dropdown-user">
+                                <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span class=""> Action </span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default pull-right">
+
+
+                                    <li>
+                                        <a asp-action="PriceSetup" asp-route-id="@product.ProductId"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                    </li>
+
+                                    @*<li>
+                                        <a asp-action="Delete" asp-route-id="@item.BranchId"><i class="fa fa-pencil-square-o"></i> Delete</a>
+                                    </li>*@
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+                    </td>
                 </tr>
             }
         </tbody>
