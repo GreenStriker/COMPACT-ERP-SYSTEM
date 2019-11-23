@@ -13184,11 +13184,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms\\Inventory.csproj",
+      "projectUniqueName": "D:\\Project\\test\\MoneyMoney\\vms\\Inventory.csproj",
       "projectName": "Inventory",
-      "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms\\Inventory.csproj",
+      "projectPath": "D:\\Project\\test\\MoneyMoney\\vms\\Inventory.csproj",
       "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms\\obj\\",
+      "outputPath": "D:\\Project\\test\\MoneyMoney\\vms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -13208,17 +13208,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
             }
           }
         }

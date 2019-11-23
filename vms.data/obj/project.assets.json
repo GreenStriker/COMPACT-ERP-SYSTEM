@@ -5664,11 +5664,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.data\\inventory.data.csproj",
+      "projectUniqueName": "D:\\Project\\test\\MoneyMoney\\vms.data\\inventory.data.csproj",
       "projectName": "inventory.data",
-      "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.data\\inventory.data.csproj",
+      "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.data\\inventory.data.csproj",
       "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.data\\obj\\",
+      "outputPath": "D:\\Project\\test\\MoneyMoney\\vms.data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -5688,8 +5688,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
             }
           }
         }
