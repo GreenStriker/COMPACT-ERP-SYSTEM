@@ -5815,11 +5815,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj",
+      "projectUniqueName": "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj",
       "projectName": "inventory.ioc",
-      "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj",
+      "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj",
       "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.ioc\\obj\\",
+      "outputPath": "D:\\Project\\test\\MoneyMoney\\vms.ioc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -5839,11 +5839,11 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.data\\inventory.data.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.data\\inventory.data.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.data\\inventory.data.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.data\\inventory.data.csproj"
             },
-            "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj": {
-              "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.service\\inventory.service.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj"
             }
           }
         }

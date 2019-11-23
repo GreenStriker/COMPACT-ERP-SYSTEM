@@ -10,124 +10,104 @@
 @{
     //var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }
-@section breadcrumb
-    {
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="@Url.Action("Dashboard", "Home")">Root</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <a href="@Url.Action("Index","Products")">Product</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <a href="@Url.Action("Index","Products")">Product</a>
-        </li>
-    </ul>
-}
-@using (Html.BeginForm("Index", "Products", FormMethod.Get, new { id = "frmProduct" }))
-{
-
+class="product-status mg-tb-15">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-6">
-            <h1 class="custom-page-title">Product</h1>
-        </div>
-        <div class="col-md-5">
-            <div class="input-group Search" style="margin-top:10px">
-                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn submit ">
-                        <i class="icon-magnifier"></i>
-                    </button>
-                </span>
-            </div>
-        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="product-status-wrap">
+                <h4>Payment History </h4>
+                @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { id = "frmProduct" }))
+                {
 
-        <div class="col-md-1">
-            <a style="margin-top:10px" href="@Url.Action("Create", "Products")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
-        </div>
+                    <div class="row">
 
-    </div>
-}
-
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th class="text-center">
-                Image
-            </th>
-            <th  class="text-center">
-                Name
-            </th>
-            <th  class="text-center">
-                Code
-            </th>
-
-            <th class="text-center">
-                Unit
-            </th>
-
-            <th class="text-center">
-                Vat (%)
-            </th>
-            <th class="text-center">
-                Model No
-            </th>
-            <th>
-                Action
-            </th>
-        </tr>
-    </thead>
-
-    @if (Model.Any())
-    {
-        <tbody>
-            @foreach (var product in Model)
-            {
-                <tr>
-                    <td>@product.IsActive</td>
-                    <td>@product.Name</td>
-                    <td>@product.Code</td>
-                    <td>@product.Munit.Name</td>
-                    <td>@product.Vat.Percentage.Value</td>
-                    <td>@product.ModelNo</td>
-                    <td>
-
-                        <div class="btn-group">
-                            <div class="dropdown dropdown-user">
-                                <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <span class=""> Action </span>
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-default pull-right">
-
-
-                                    <li>
-                                        <a asp-action="PriceSetup" asp-route-id="@product.ProductId"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                                    </li>
-
-                                    @*<li>
-                                        <a asp-action="Delete" asp-route-id="@item.BranchId"><i class="fa fa-pencil-square-o"></i> Delete</a>
-                                    </li>*@
-                                </ul>
+                        <div class="col-md-5">
+                            <div class="input-group Search" style="margin-top:10px">
+                                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn submit ">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
                         </div>
 
 
+                        <div class="add-product">
+                            <a href="@Url.Action("Create", "Products")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+                        </div>
+
+                    </div>
+                }
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="text-center">
+                                Image
+                            </th>
+                            <th class="text-center">
+                                Name
+                            </th>
+                            <th class="text-center">
+                                Code
+                            </th>
+
+                            <th class="text-center">
+                                Unit
+                            </th>
+
+                            <th class="text-center">
+                                Vat (%)
+                            </th>
+                            <th class="text-center">
+                                Model No
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @if (Model.Any())
+                    {
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td>@product.IsActive</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.Code</td>
+                                    <td>@product.Munit.Name</td>
+                                    <td>@product.Vat.Percentage.Value</td>
+                                    <td>@product.ModelNo</td>
+                                    <td>
+
+                                        <button data-toggle="tooltip" title="Price Setp" class="pd-setting-ed"><i class="fa fa-money" aria-hidden="true"></i>  <a asp-action="PriceSetup" asp-route-id="@product.ProductId"> </a> </button>
+                                        @*<button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a asp-action="Edit" asp-route-id="@item.Uid"> </a> </button>
+
+                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>       <a asp-action="Delete" asp-route-id="@item.Uid"> </a></button>*@
 
 
-                    </td>
-                </tr>
-            }
-        </tbody>
-    }
 
-</table>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    }
 
-<div class="pager" style="z-index: 0;">
-    @Html.PagedListPager(
-        (IPagedList)Model,
-        page => Url.Action("Index", new { page })
-        )
+                </table>
+
+                <div class="pager" style="z-index: 0;">
+                    @Html.PagedListPager(
+                        (IPagedList)Model,
+                        page => Url.Action("Index", new { page })
+                        )
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+    </div>
+
+

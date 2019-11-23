@@ -117,6 +117,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="bundleconfig.json" />
     <Content Remove="Views\Products\Create -apu.cshtml" />
     <Content Remove="Views\Sales\SaleCancellations.cshtml" />
     <Content Remove="Views\Sales\SaleCancellationsAccountsView.cshtml" />

@@ -725,11 +725,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj",
+      "projectUniqueName": "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj",
       "projectName": "inventory.utility",
-      "projectPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\inventory.utility.csproj",
+      "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj",
       "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
-      "outputPath": "D:\\Project\\product\\Inven\\MoneyMoney\\MoneyMoney\\vms.utility\\obj\\",
+      "outputPath": "D:\\Project\\test\\MoneyMoney\\vms.utility\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\Microsoft\\Xamarin\\NuGet\\"
