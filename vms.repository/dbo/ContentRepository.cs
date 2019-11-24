@@ -38,7 +38,7 @@ namespace vms.repository.dbo
 
         public async Task<Content> GetById(int id)
         {
-            var contents = await this.Query().SingleOrDefaultAsync(p => p.ContentId == id, CancellationToken.None);
+            var contents = await this.Query().SingleOrDefaultAsync(p => p.TransId == id, CancellationToken.None);
 
             return contents;
         }
