@@ -3304,3 +3304,34 @@ element.style {
 div#sparklinehome canvas {
     width: 100% !important;
 }
+
+
+
+
+
+
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+.codes{
+	bottom: 5%;
+	left: 5%;
+	position: fixed;
+  }
+  .codes div {
+	border: 2px solid black;
+	font-size: 20px;
+	padding: 10px;
+	background-color: red;
+  }
+  .codes div a{
+	text-decoration: none;
+	color: white;
+	font-weight: 800;
+  }
