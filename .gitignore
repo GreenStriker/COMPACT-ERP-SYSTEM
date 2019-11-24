@@ -13,8 +13,8 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-obj/
-bin/
+/[Oo]bj/
+/[Bb]in/
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -349,4 +349,5 @@ MigrationBackup/
 *.config
 /vms_v1.0.0.1/Controllers/GridLayoutController.cs
 /vms_v1.0.0.1/Views/GridLayout
-/Inventory.v12.suo
+
+
