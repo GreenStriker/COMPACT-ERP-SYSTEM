@@ -39,7 +39,7 @@ namespace vms.repository.dbo
         public async Task<Product> GetById(int id)
         {
 
-            var products = await this.Query().SingleOrDefaultAsync(p=>p.ProductId==id,CancellationToken.None);
+            var products = await this.Query().Include(c=>c.ProductPrices).SingleOrDefaultAsync(p=>p.ProductId==id,CancellationToken.None);
 
             return products;
         }
