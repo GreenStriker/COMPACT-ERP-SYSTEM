@@ -142,11 +142,12 @@ namespace Inventory.Controllers
                 
                 _prodService.Insert(product);
                 await UnitOfWork.SaveChangesAsync();
-                if (product.UploadFile.Length > 0)
+                if (product.UploadFile != null && product.UploadFile.Length > 0)
                 {
                     var File = product.UploadFile;
                     var FileSaveFeedbackDto = await FileSaveAsync(File);
                     Content content = new Content();
+                    content.IsActive = true;
                     content.Name = "Images";
                     content.ContentTypeId = 1;
                     content.TransId = product.ProductId;
@@ -224,23 +225,148 @@ namespace Inventory.Controllers
             return View(price);
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
+            var prodVat = await _vatService.GetAll();
+            var prodUnit = await _unitService.GetAll();
+            IEnumerable<SelectListItems> prodVats = prodVat.Where(c => c.IsActive == true).Select(s => new SelectListItems
+            {
+                Id = s.VatId,
+                Name = s.Name
+            });
+            IEnumerable<SelectListItems> prodUnits = prodUnit.Where(c => c.IsActive == true).Select(s => new SelectListItems
+            {
+                Id = s.MunitId,
+                Name = s.Name
+            });
 
+            var data =await _prodService.GetById(id);
+            data.MeasurementUnits = prodUnits;
+            data.ProductVattypes = prodVats;
+            //Product pro = new Product
+            //{
+            //    // vmProductType = data.ToList(),
+            //    MeasurementUnits = prodUnits,
+            //    ProductVattypes = prodVats,
+            //    ProductId = id,
+            //    ModelNo = data.ModelNo,
+            //    Code = data.Code,
+            //    MunitId = data.MunitId,
+            //    VatId = data.VatId,
+            //    Name = data.Name
+            //};
+            return View(data);
+        }
+        [HttpPost]
 
+        public async Task<IActionResult> Edit(vmProduct product)
+        {
+            var editData =await _prodService.GetById(product.ProductId);
+            editData.ModelNo = product.ModelNo;
+            editData.Code = product.Code;
+            editData.MunitId = product.MunitId;
+            editData.VatId = product.VatId;
+            editData.Name = product.Name;
+           // product.EfectiveFrom = DateTime.Now;
+            product.CreatedBy = _session.UserId;
+            product.CreatedTime = DateTime.Now;
+           // product.IsActive = true;
 
+            try
+            {
 
+                _prodService.Update(editData);
+                await UnitOfWork.SaveChangesAsync();
+                if (product.UploadFile!=null && product.UploadFile.Length > 0)
+                {
+                    var contentData =await _contentService.GetById(product.ProductId);
+                    if (contentData!=null)
+                    {
+                        contentData.IsActive = false;
+                        _contentService.Update(contentData);
+                        await UnitOfWork.SaveChangesAsync();
+                    }
+                    
+                    var File = product.UploadFile;
+                    var FileSaveFeedbackDto = await FileSaveAsync(File);
+                    Content content = new Content();
+                    content.Name = "Images";
+                    content.ContentTypeId = 1;
+                    content.TransId = product.ProductId;
+                    content.Remark = "Test";
+                    content.CreatedBy = _session.UserId;
+                    content.CreatedTime = DateTime.Now;
+                    content.Url = FileSaveFeedbackDto.FileUrl;
+                    content.IsActive = true;
+                    _contentService.Insert(content);
+                    await UnitOfWork.SaveChangesAsync();
+                }
 
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(ControllerStaticData.DISPLAY_INDEX, ControllerStaticData.LIST_PRODUCTS);
+            }
+            catch (Exception e)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                var prodVat = await _vatService.GetAll();
+                var prodUnit = await _unitService.GetAll();
+                IEnumerable<SelectListItems> prodVats = prodVat.Where(c => c.IsActive == true).Select(s => new SelectListItems
+                {
+                    Id = s.VatId,
+                    Name = s.Name
+                });
+                IEnumerable<SelectListItems> prodUnits = prodUnit.Where(c => c.IsActive == true).Select(s => new SelectListItems
+                {
+                    Id = s.MunitId,
+                    Name = s.Name
+                });
 
+                var data = await _prodService.GetById(product.ProductId);
+                data.MeasurementUnits = prodUnits;
+                data.ProductVattypes = prodVats;
+                return View(data);
+            }
 
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id == 0)
+            {
+                return NotFound();
+            }
 
+            try
+            {
+                var data = await _prodService.GetById(id);
+                data.IsActive = false;
+                data.EfectiveTo=DateTime.Now;
+                _prodService.Update(data);
+                await UnitOfWork.SaveChangesAsync();
+                var priceData = await _PriceService.Query().Where(c => c.IsActive == true)
+                    .FirstOrDefaultAsync(c => c.ProductId == id, CancellationToken.None);
+                if (priceData!=null)
+                {
+                    priceData.IsActive = false;
+                    priceData.EfectiveTo = DateTime.Now;
+                    _PriceService.Update(priceData);
+                    await UnitOfWork.SaveChangesAsync();
 
+                }
 
-
-
-
-
-
-
-
-
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(ControllerStaticData.DISPLAY_INDEX, ControllerStaticData.LIST_PRODUCTS);
+            }
+            catch (Exception e)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return RedirectToAction(ControllerStaticData.DISPLAY_INDEX, ControllerStaticData.LIST_PRODUCTS);
+            }
+            
+           
+        }
     }
 }

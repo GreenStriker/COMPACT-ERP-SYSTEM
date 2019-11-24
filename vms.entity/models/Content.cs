@@ -14,6 +14,7 @@ namespace vms.entity.models
         public string Remark { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
+        public bool? IsActive { get; set; }
 
         public virtual Contenttype ContentType { get; set; }
     }
