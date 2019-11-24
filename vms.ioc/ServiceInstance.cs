@@ -115,8 +115,8 @@ namespace vms.ioc
             services.AddTransient<IProductPriceRepository, ProductPriceRepository>();
             services.AddTransient<IProductPriceService, ProductPriceService>();
 
-            //services.AddTransient<IProductVatRepository, ProductVatRepository>();
-            //services.AddTransient<IProductVatService, ProductVatService>();
+            services.AddTransient<IEmployeRepository, EmployeRepository>();
+            services.AddTransient<IEmployeService, EmployeService>();
 
             //services.AddTransient<ISaleRepository, SaleRepository>();
             //services.AddTransient<ISaleService, SaleService>();
