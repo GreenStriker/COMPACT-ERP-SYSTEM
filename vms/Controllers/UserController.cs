@@ -141,15 +141,15 @@ namespace Inventory.Controllers
             {
                 var id = user.Uid;
                 var data = await _service.Query().SingleOrDefaultAsync(m => m.Uid == id, CancellationToken.None);
-                data.IsActive = false;
-                data.DeactiveDate = DateTime.Now;
+
+
+                data.Name = user.Name;
+                data.Moble = user.Moble;
+                data.Designation = user.Designation;
+                data.Address = user.Address;
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
                 _service.Update(data);
-                user.Uid = 0;
-                user.JoingDate = DateTime.Now;
-                user.CreatedBy = _session.UserId;
-                user.CreatedTime = DateTime.Now;
-                user.IsActive = true;
-                _service.Insert(user);
                 await UnitOfWork.SaveChangesAsync();
                 
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;

@@ -94,5 +94,96 @@ namespace Inventory.Controllers
             return View(Con);
         }
 
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var User = await _service.Query()
+                .SingleOrDefaultAsync(m => m.ContentTypeId == id, CancellationToken.None);
+            if (User == null)
+            {
+                return NotFound();
+            }
+            return View(User);
+        }
+
+
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(Contenttype Maja)
+        {
+
+            if (Maja.ContentTypeId == 0)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var id = Maja.ContentTypeId;
+                var data = await _service.Query().SingleOrDefaultAsync(m => m.ContentTypeId == id, CancellationToken.None);
+                data.Name = Maja.Name;
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
+
+
+
+                _service.Update(data);
+                await UnitOfWork.SaveChangesAsync();
+
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return View(Maja);
+            }
+        }
+
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> Delete(int id)
+        //{
+
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    try
+        //    {
+        //        var data = await _service.Query().SingleOrDefaultAsync(m => m.ContentTypeId == id, CancellationToken.None);
+        //        data.IsActive = false;
+        //        data.EffectiveTo = DateTime.Now;
+        //        _service.Update(data);
+
+        //        await UnitOfWork.SaveChangesAsync();
+
+        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //}
+
     }
+
+
+
+
+
 }
