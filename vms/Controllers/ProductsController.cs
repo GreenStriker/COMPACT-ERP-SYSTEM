@@ -172,15 +172,24 @@ namespace Inventory.Controllers
 
 
 
-        public IActionResult PriceSetup(int id)
+        public async Task<IActionResult> PriceSetup(int id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var price = new ProductPrice();
-            price.ProductId = id;
+            var price =await _PriceService.Query().Include(c=>c.Product).SingleOrDefaultAsync(w => w.ProductId == id && w.IsActive == true, CancellationToken.None);
+
+
+            if(price==null)
+            {
+
+                price = new ProductPrice();
+                price.ProductId = id;
+            }
+
+            
 
             return View(price);
         }
@@ -207,7 +216,7 @@ namespace Inventory.Controllers
                 }
 
 
-
+                price.PriceId = 0;
 
                 price.CreatedBy = _session.UserId;
                 price.CreatedTime = DateTime.Now;
