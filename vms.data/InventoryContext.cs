@@ -113,6 +113,8 @@ namespace vms.entity.models
 
                 entity.Property(e => e.Designation).HasMaxLength(50);
 
+                entity.Property(e => e.Email).HasMaxLength(50);
+
                 entity.Property(e => e.Gender).HasMaxLength(50);
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
@@ -124,6 +126,11 @@ namespace vms.entity.models
                 entity.Property(e => e.Name).HasMaxLength(50);
 
                 entity.Property(e => e.Nid).HasMaxLength(50);
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Employes)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Employe_Branch");
             });
 
             modelBuilder.Entity<MeasureUnit>(entity =>
@@ -328,11 +335,6 @@ namespace vms.entity.models
                 entity.Property(e => e.JoingDate).HasColumnType("date");
 
                 entity.Property(e => e.SalaryAmount).HasColumnType("decimal(18, 2)");
-
-                entity.HasOne(d => d.Employe)
-                    .WithMany(p => p.Salaries)
-                    .HasForeignKey(d => d.EmployeId)
-                    .HasConstraintName("FK_salary_Employe");
             });
 
             modelBuilder.Entity<Sale>(entity =>
