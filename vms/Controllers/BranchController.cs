@@ -141,16 +141,30 @@ namespace Inventory.Controllers
             {
                 var id = bra.BranchId;
                 var data = await _service.Query().SingleOrDefaultAsync(m => m.BranchId == id, CancellationToken.None);
-                data.IsActive = false;
-                data.DeactiveDate = DateTime.Now;
-                _service.Update(data);
-                bra.BranchId = 0;
-                
-                bra.CreatedBy = _session.UserId;
-                bra.CreatedTime = DateTime.Now;
-                bra.OpeningDate = DateTime.Now;
-                bra.IsActive = true;
-                _service.Insert(bra);
+                //data.IsActive = false;
+                //data.DeactiveDate = DateTime.Now;
+                //_service.Update(data);
+               // data.BranchId=id;
+                data.Name = bra.Name;
+                data.Mobile = bra.Mobile;
+                data.Code = bra.Code;
+               // data.Mobile = bra.Mobile;
+                data.Address = bra.Address;
+               // data.BranchHeadId = bra.BranchHeadId;
+               // data.OpeningDate = bra.OpeningDate;
+                //data.DeactiveDate = bra.DeactiveDate;
+               // data.IsActive = bra.IsActive;
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
+               
+
+
+
+                //bra.CreatedBy = _session.UserId;
+                //bra.CreatedTime = DateTime.Now;
+                //bra.OpeningDate = DateTime.Now;
+                //bra.IsActive = true;
+                _service.Update(bra);
                 await UnitOfWork.SaveChangesAsync();
                 
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
