@@ -118,8 +118,8 @@ namespace vms.ioc
             services.AddTransient<IEmployeRepository, EmployeRepository>();
             services.AddTransient<IEmployeService, EmployeService>();
 
-            //services.AddTransient<ISaleRepository, SaleRepository>();
-            //services.AddTransient<ISaleService, SaleService>();
+            services.AddTransient<ISalaryRepository, SalaryRepository>();
+            services.AddTransient<ISalaryService, SalaryService>();
 
             //services.AddTransient<ISalesDeliveryTypeRepository, SalesDeliveryTypeRepository>();
             //services.AddTransient<ISalesDeliveryTypeService, SalesDeliveryTypeService>();
