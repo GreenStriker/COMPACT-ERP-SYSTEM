@@ -1,9 +1,11 @@
 ﻿@model IEnumerable<vms.entity.models.Product>
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
-
+@using System.IO;
 @{
     ViewData["Title"] = "Index";
+    var service = Context.RequestServices.GetService(typeof(Microsoft.AspNetCore.Hosting.IHostingEnvironment)) as Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+
 }
 @using Inventory.Utility
 @using vms.entity.viewModels
@@ -11,102 +13,115 @@
     //var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }
 <div class="product-status mg-tb-15">
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="product-status-wrap">
-                <h4>Payment History </h4>
-                @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { id = "frmProduct" }))
-                {
-
-                    <div class="row">
-
-                        <div class="col-md-5">
-                            <div class="input-group Search" style="margin-top:10px">
-                                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn submit ">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-
-
-                        <div class="add-product">
-                            <a href="@Url.Action("Create", "Products")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
-                        </div>
-
-                    </div>
-                }
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="text-center">
-                                Image
-                            </th>
-                            <th class="text-center">
-                                Name
-                            </th>
-                            <th class="text-center">
-                                Code
-                            </th>
-
-                            <th class="text-center">
-                                Unit
-                            </th>
-
-                            <th class="text-center">
-                                Vat (%)
-                            </th>
-                            <th class="text-center">
-                                Model No
-                            </th>
-                            <th>
-                                Settings
-                            </th>
-                        </tr>
-                    </thead>
-
-                    @if (Model.Any())
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>Payment History </h4>
+                    @using (Html.BeginForm("Index", "Products", FormMethod.Get, new { id = "frmProduct" }))
                     {
-                        <tbody>
-                            @foreach (var product in Model)
-                            {
-                                <tr>
-                                    <td>@product.IsActive</td>
-                                    <td>@product.Name</td>
-                                    <td>@product.Code</td>
-                                    <td>@product.Munit.Name</td>
-                                    <td>@product.Vat.Percentage.Value</td>
-                                    <td>@product.ModelNo</td>
-                                    <td>
 
-                                        <button data-toggle="tooltip" title="Price Setp" class="pd-setting-ed">  <a asp-action="PriceSetup" asp-route-id="@product.ProductId"><i class="fa fa-money" aria-hidden="true"></i> </a> </button>
-                                        @*<button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a asp-action="Edit" asp-route-id="@item.Uid"> </a> </button>
+                        <div class="row">
 
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>       <a asp-action="Delete" asp-route-id="@item.Uid"> </a></button>*@
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">  <a asp-action="Edit" asp-route-id="@product.ProductId"><i class="fa fa-edit" aria-hidden="true"></i> </a> </button>
-                                        <button data-toggle="tooltip" title="Delete" class="pd-setting-ed">  <a asp-action="Delete" asp-route-id="@product.ProductId"><i class="fa fa-remove" aria-hidden="true"></i> </a> </button>
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
+                            <div class="col-md-5">
+                                <div class="input-group Search" style="margin-top:10px">
+                                    <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn submit ">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+
+                            <div class="add-product">
+                                <a href="@Url.Action("Create", "Products")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+                            </div>
+
+                        </div>
                     }
 
-                </table>
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    Image
+                                </th>
+                                <th class="text-center">
+                                    Name
+                                </th>
+                                <th class="text-center">
+                                    Code
+                                </th>
 
-                <div class="pager" style="z-index: 0;">
-                    @Html.PagedListPager(
-                        (IPagedList)Model,
-                        page => Url.Action("Index", new { page })
-                        )
+                                <th class="text-center">
+                                    Unit
+                                </th>
+
+                                <th class="text-center">
+                                    Vat (%)
+                                </th>
+                                <th class="text-center">
+                                    Model No
+                                </th>
+                                <th>
+                                    Settings
+                                </th>
+                            </tr>
+                        </thead>
+
+                        @if (Model.Any())
+                        {
+                            <tbody>
+                                @foreach (var product in Model)
+                                {
+
+                                    <tr>
+                                        @if (product.Contents.Any())
+                                        {
+                                            var imageName = System.IO.Path.GetFileName(product.Contents.Select(c => c.Url).FirstOrDefault());
+                                            var parentImage = Directory.GetParent(product.Contents.Select(c => c.Url).FirstOrDefault());
+                                            var parentOrder = Directory.GetParent(parentImage.FullName);
+                                            var parentDate = Directory.GetParent(parentOrder.FullName);
+                                            <td><img src="~/@parentOrder.Name/@parentImage.Name/@imageName" alt="Image"/></td>
+
+                                        }
+                                        else
+                                        {
+                                            <td><h5>No Image</h5></td>
+                                        }
+                                        <td>@product.Name</td>
+                                        <td>@product.Code</td>
+                                        <td>@product.Munit.Name</td>
+                                        <td>@product.Vat.Percentage.Value</td>
+                                        <td>@product.ModelNo</td>
+                                        <td>
+
+                                            <button data-toggle="tooltip" title="Price Setp" class="pd-setting-ed"> <a asp-action="PriceSetup" asp-route-id="@product.ProductId"><i class="fa fa-money" aria-hidden="true"></i> </a> </button>
+                                            @*<button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a asp-action="Edit" asp-route-id="@item.Uid"> </a> </button>
+
+                                                <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i>       <a asp-action="Delete" asp-route-id="@item.Uid"> </a></button>*@
+                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"> <a asp-action="Edit" asp-route-id="@product.ProductId"><i class="fa fa-edit" aria-hidden="true"></i> </a> </button>
+                                            <button data-toggle="tooltip" title="Delete" class="pd-setting-ed"> <a asp-action="Delete" asp-route-id="@product.ProductId"><i class="fa fa-remove" aria-hidden="true"></i> </a> </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        }
+
+                    </table>
+
+                    <div class="pager" style="z-index: 0;">
+                        @Html.PagedListPager(
+                            (IPagedList)Model,
+                            page => Url.Action("Index", new { page })
+                            )
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-    </div>
 
 
