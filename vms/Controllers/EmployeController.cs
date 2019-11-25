@@ -22,22 +22,22 @@ namespace Inventory.Controllers
     {
         private readonly IEmployeService _service;
         //private readonly IVatService _vatService;
-        //private readonly IProductService _prodService;
+        private readonly ISalaryService _salaryService;
         //private readonly IRightService _rightService;
         private readonly IConfiguration _configuration;
         //private readonly IOrganizationService _orgcConfiguration;
-        private readonly IProductLogService _logService;
+        //private readonly IProductLogService _logService;
         public EmployeController(
             ControllerBaseParamModel controllerBaseParamModel,
             IEmployeService service,
-            IVatService vatService,
-            IProductService prodService,
-            IProductLogService logService
+           // IVatService vatService,
+            //ISalaryService prodService,
+            ISalaryService salaryService
             //IRightService rightService, 
             //IOrganizationService orgcConfiguration
             ) : base(controllerBaseParamModel)
         {
-            _logService = logService;
+            _salaryService = salaryService;
             _service = service;
             _configuration = Configuration;
             //_vatService = vatService;
@@ -195,6 +195,82 @@ namespace Inventory.Controllers
                 return RedirectToAction(nameof(Index));
             }
         }
+
+
+
+
+        public async Task<IActionResult> PriceSetup(int id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var price = await _salaryService.Query().SingleOrDefaultAsync(w => w.EmployeId == id && w.IsActive == true, CancellationToken.None);
+
+
+            if (price == null)
+            {
+
+                price = new Salary();
+                price.EmployeId = id;
+            }
+
+
+
+            return View(price);
+        }
+
+        [HttpPost]
+
+
+        public async Task<IActionResult> PriceSetup(Salary price)
+        {
+            if (price.EmployeId != null)
+            {
+
+
+                var previous = await _salaryService.Query().SingleOrDefaultAsync(p => p.EmployeId == price.EmployeId && p.IsActive == true, CancellationToken.None);
+
+                if (previous != null)
+                {
+                    previous.IsActive = false;
+                    previous.DeactiveDate = DateTime.Now;
+
+                    _salaryService.Update(previous);
+
+                    await UnitOfWork.SaveChangesAsync();
+                }
+
+
+                price.SalaryId = 0;
+
+                price.Createdby = _session.UserId;
+                price.CreatedTime = DateTime.Now;
+                price.JoingDate = DateTime.Now;
+
+                price.IsActive = true;
+
+
+                _salaryService.Insert(price);
+                await UnitOfWork.SaveChangesAsync();
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+            return View(price);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }
