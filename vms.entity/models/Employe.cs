@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class Employe
     {
+        public Employe()
+        {
+            Salaries = new HashSet<Salary>();
+        }
+
         public int EmployeId { get; set; }
         public string Name { get; set; }
         public int? BranchId { get; set; }
@@ -23,5 +28,6 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Branch { get; set; }
+        public virtual ICollection<Salary> Salaries { get; set; }
     }
 }

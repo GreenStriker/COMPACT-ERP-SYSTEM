@@ -333,6 +333,11 @@ namespace vms.entity.models
                 entity.Property(e => e.JoingDate).HasColumnType("date");
 
                 entity.Property(e => e.SalaryAmount).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.Employe)
+                    .WithMany(p => p.Salaries)
+                    .HasForeignKey(d => d.EmployeId)
+                    .HasConstraintName("FK_salary_Employe");
             });
 
             modelBuilder.Entity<Sale>(entity =>
