@@ -146,7 +146,7 @@ namespace Inventory.Controllers
                 data.AlterMobile = empa.AlterMobile;
                 data.Designation = empa.Designation;
                 data.Gender = empa.Gender;
-
+                data.Email = empa.Email;
                 _service.Update(data);
            
                 await UnitOfWork.SaveChangesAsync();
