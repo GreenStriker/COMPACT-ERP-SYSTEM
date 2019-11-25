@@ -14,5 +14,7 @@ namespace vms.entity.models
         public bool? IsActive { get; set; }
         public int? Createdby { get; set; }
         public DateTime? CreatedTime { get; set; }
+
+        public virtual Employe Employe { get; set; }
     }
 }
