@@ -164,7 +164,7 @@ namespace Inventory.Controllers
                 //bra.CreatedTime = DateTime.Now;
                 //bra.OpeningDate = DateTime.Now;
                 //bra.IsActive = true;
-                _service.Update(bra);
+                _service.Update(data);
                 await UnitOfWork.SaveChangesAsync();
                 
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
