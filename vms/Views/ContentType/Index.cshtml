@@ -47,7 +47,7 @@
                                         Content Name
                                     </th>
 
-                                    @*<th>Action</th>*@
+                                    <th>Settings</th>
                                 </tr>
                             </thead>
 
@@ -56,35 +56,22 @@
                                 <tbody>
                                     @foreach (var item in Model)
                                     {
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.Name)
-                                            </td>
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
 
 
 
-                                            @*<td>
-                                                <div class="btn-group">
-                                                    <div class="dropdown dropdown-user">
-                                                        <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                                            <span class=""> Action </span>
-                                                            <i class="fa fa-angle-down"></i>
-                                                        </a>
-                                                        <ul class="dropdown-menu dropdown-menu-default pull-right">
+                                        <td>
+            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">  <a asp-action="Edit" asp-route-id="@item.ContentTypeId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </button>
+
+            @*<button data-toggle="tooltip" title="Trash" class="pd-setting-ed">    <a asp-action="Delete" asp-route-id="@item.VatId"><i class="fa fa-trash-o" aria-hidden="true"></i>    </a></button>*@
 
 
-                                                            <li>
-                                                                <a asp-action="Edit" asp-route-id="@item.ContentTypeId"><i class="fa fa-pencil-square-o"></i> Edit</a>
-                                                            </li>
+        </td>
 
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </td>*@
-
-                                        </tr>
+                                    </tr>
                                     }
                                 </tbody>
                             }

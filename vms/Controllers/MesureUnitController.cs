@@ -120,28 +120,25 @@ namespace Inventory.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Edit(MeasureUnit bra)
+        public async Task<IActionResult> Edit(MeasureUnit Maja)
         {
 
-            if (bra.MunitId == 0)
+            if (Maja.MunitId == 0)
             {
                 return NotFound();
             }
 
             try
             {
-                var id = bra.MunitId;
+                var id = Maja.MunitId;
                 var data = await _service.Query().SingleOrDefaultAsync(m => m.MunitId == id, CancellationToken.None);
-                data.IsActive = false;
-                data.EffectiveTo = DateTime.Now;
-                _service.Update(data);
-                bra.MunitId = 0;
+                data.Name = Maja.Name;
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
 
-                bra.CreatedBy = _session.UserId;
-                bra.CreatedTime = DateTime.Now;
-                bra.EffectiveFrom = DateTime.Now;
-                bra.IsActive = true;
-                _service.Insert(bra);
+               
+              
+                _service.Update(data);
                 await UnitOfWork.SaveChangesAsync();
 
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
@@ -150,7 +147,7 @@ namespace Inventory.Controllers
             catch (Exception ex)
             {
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-                return View(bra);
+                return View(Maja);
             }
         }
 

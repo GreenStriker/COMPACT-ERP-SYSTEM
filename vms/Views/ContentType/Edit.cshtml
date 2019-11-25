@@ -1,9 +1,8 @@
-﻿@model vms.entity.models.Vat
+﻿@model vms.entity.models.Contenttype
 
 @{
     ViewData["Title"] = "Edit";
 }
-
 
 <div class="single-product-tab-area mg-tb-15">
     <!-- Single pro tab review Start-->
@@ -18,7 +17,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="review-tab-pro-inner">
                             <ul id="myTab3" class="tab-review-design">
-                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Edit VAT Category</a></li>
+                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Content Type</a></li>
                                 @*<li><a href="#reviews"><i class="fa fa-file-image-o" aria-hidden="true"></i> Pictures</a></li>
                                     <li><a href="#INFORMATION"><i class="fa fa-commenting" aria-hidden="true"></i> Review</a></li>*@
                             </ul>
@@ -28,19 +27,17 @@
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
                                                 <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input asp-for="Name" class="form-control" placeholder="VAT Name" />
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <input asp-for="Name" class="form-control" placeholder="Name" />
+                                                    <input asp-for="ContentTypeId" class="form-control hidden" placeholder="Name" />
                                                 </div>
-                                                <input asp-for="VatId" class="hidden" placeholder="VAT Name" />
+
 
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
-                                                <div class="input-group mg-b-pro-edt">
-                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input asp-for="Percentage" class="form-control" placeholder="Percentage" />
-                                                </div>
+
 
 
                                             </div>

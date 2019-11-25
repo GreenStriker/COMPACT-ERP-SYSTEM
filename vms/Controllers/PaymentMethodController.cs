@@ -98,6 +98,91 @@ namespace Inventory.Controllers
         }
 
 
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var exportType = await _service.Query()
+                .SingleOrDefaultAsync(m => m.PaymenttypeId == id, CancellationToken.None);
+            if (exportType == null)
+            {
+                return NotFound();
+            }
+            return View(exportType);
+        }
+
+
+        [HttpPost]
+
+        public async Task<IActionResult> Edit(PaymentMethod pay)
+        {
+
+            if (pay.PaymenttypeId == 0)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                var id = pay.PaymenttypeId;
+                var data = await _service.Query().SingleOrDefaultAsync(m => m.PaymenttypeId == id, CancellationToken.None);
+
+                data.Name = pay.Name;
+                data.Number = pay.Number;
+                data.Remark = pay.Remark;
+
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
+                _service.Update(data);
+                await UnitOfWork.SaveChangesAsync();
+             
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return View(pay);
+            }
+        }
+
+
+
+
+
+
+
+
+
+        //public async Task<IActionResult> Delete(int id)
+        //{
+
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //try
+            //{
+            //    var data = await _service.Query().SingleOrDefaultAsync(m => m.PaymenttypeId == id, CancellationToken.None);
+            //    data. = false;
+            //    data.EfectiveTo = DateTime.Now;
+            //    _service.Update(data);
+
+            //    await UnitOfWork.SaveChangesAsync();
+
+            //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
+            //    return RedirectToAction(nameof(Index));
+            //}
+            //catch (Exception ex)
+            //{
+            //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+            //    return RedirectToAction(nameof(Index));
+            //}
+        //}
 
 
 
