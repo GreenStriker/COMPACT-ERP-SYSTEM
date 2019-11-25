@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+
 using Inventory.Models;
 using Inventory.Utility;
 using Microsoft.AspNetCore.Hosting;
@@ -48,22 +49,18 @@ namespace Inventory.Controllers
         }
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data =await _prodService.Query()
-                .Include(c=>c.Munit)
-                .Include(c=>c.Vat)
-               // .Include(c=>c.Contents)
-                .Where(c=>c.IsActive==true)
-                .SelectAsync(CancellationToken.None);
+
+            var data =await _prodService.Query().Include(c => c.Munit).Include(c => c.Vat).Include(c => c.Contents)
+                .Where(c => c.IsActive == true).SelectAsync(CancellationToken.None);
+            
             string txt = search;
 
             if (search != null)
             {
                 search = search.ToLower().Trim();
                 data = data.Where(c => c.Name.ToLower().Contains(search)
-                                              
-                                               || (c.Code != null && (c.Code.ToLower().Contains(search)))
-                                               || (c.ModelNo != null && (c.ModelNo.ToString().Contains(search)))   
-                );
+                                       || (c.Code != null && c.Code.ToLower().Contains(search))
+                                        || (c.ModelNo != null && (c.ModelNo.ToString().Contains(search))));
             }
 
             var pageNumber = page ?? 1;
@@ -149,8 +146,8 @@ namespace Inventory.Controllers
                     Content content = new Content();
                     content.IsActive = true;
                     content.Name = "Images";
-                    content.ContentTypeId = 1;
-                    content.TransId = product.ProductId;
+                   // content.ContentTypeId = 1;
+                    content.ProductId = product.ProductId;
                     content.Remark = "Test";
                     content.CreatedBy = _session.UserId;
                     content.CreatedTime=DateTime.Now;
@@ -304,8 +301,8 @@ namespace Inventory.Controllers
                     var FileSaveFeedbackDto = await FileSaveAsync(File);
                     Content content = new Content();
                     content.Name = "Images";
-                    content.ContentTypeId = 1;
-                    content.TransId = product.ProductId;
+                    //content.ContentTypeId = 1;
+                    content.ProductId = product.ProductId;
                     content.Remark = "Test";
                     content.CreatedBy = _session.UserId;
                     content.CreatedTime = DateTime.Now;

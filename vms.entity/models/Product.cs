@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public Product()
         {
+            Contents = new HashSet<Content>();
             ProductPrices = new HashSet<ProductPrice>();
             PurchaseDetails = new HashSet<PurchaseDetail>();
             SalesDetails = new HashSet<SalesDetail>();
@@ -27,6 +28,7 @@ namespace vms.entity.models
 
         public virtual MeasureUnit Munit { get; set; }
         public virtual Vat Vat { get; set; }
+        public virtual ICollection<Content> Contents { get; set; }
         public virtual ICollection<ProductPrice> ProductPrices { get; set; }
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }

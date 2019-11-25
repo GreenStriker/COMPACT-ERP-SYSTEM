@@ -74,18 +74,16 @@ namespace vms.entity.models
 
                 entity.Property(e => e.ContentId).HasColumnName("ContentID");
 
-                entity.Property(e => e.ContentTypeId).HasColumnName("ContentTypeID");
-
                 entity.Property(e => e.Name).HasMaxLength(50);
 
                 entity.Property(e => e.Remark).HasMaxLength(50);
 
                 entity.Property(e => e.Url).HasMaxLength(500);
 
-                entity.HasOne(d => d.ContentType)
+                entity.HasOne(d => d.Product)
                     .WithMany(p => p.Contents)
-                    .HasForeignKey(d => d.ContentTypeId)
-                    .HasConstraintName("FK_Content_Contenttype");
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_Content_Product");
             });
 
             modelBuilder.Entity<Contenttype>(entity =>
