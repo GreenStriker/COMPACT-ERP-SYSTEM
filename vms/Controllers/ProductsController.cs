@@ -374,5 +374,60 @@ namespace Inventory.Controllers
             
            
         }
+        public  IActionResult ProductBarCode(int id)
+        {
+            BarCode code=new BarCode();
+            code.ProductId = id;
+            return View(code);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ProductBarCode(BarCode barCode)
+        {
+           // ViewData["ProductId"] = new SelectList(await _prodService.Query().Where(c => c.IsActive == true).SelectAsync(), "ProductId", "Code");
+
+            var salesPRice = await _PriceService.Query().Include(c => c.Product).SingleOrDefaultAsync(c => c.ProductId == barCode.ProductId && c.IsActive == true, CancellationToken.None);
+
+            if (barCode.ProductId == 0 || salesPRice == null)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return View(barCode);
+            }
+            ViewBag.Price = salesPRice.Amount;
+            ViewBag.SaleCode = salesPRice.Product.Code;
+            ViewBag.NumberOfBarCode = barCode.Value;
+            ViewBag.Flag = true;
+            var barcodeValue = salesPRice.Product.Code;
+            Zen.Barcode.Code128BarcodeDraw barcode = Zen.Barcode.BarcodeDrawFactory.Code128WithChecksum;
+            var image = barcode.Draw(barcodeValue, 25, 1);
+            // ViewBag.Image = image;
+            var imgName = "sabbir";
+            var FileExtenstion = Path.GetExtension(imgName);
+
+            string FileName = Guid.NewGuid().ToString();
+
+            FileName += FileExtenstion;
+            var FolderName = ControllerStaticData.APPLICATION_DOCUMENT + "BarCode";
+            var uploads = Path.Combine(_hostingEnvironment.WebRootPath, FolderName);
+            // string ImageFolder = Server.MapPath("~/img");
+            //image.Save(ImageFolder + "/" + imgName.Trim() + ".bmp");
+
+
+            bool exists = Directory.Exists(uploads);
+            if (!exists)
+            {
+                Directory.CreateDirectory(uploads);
+            }
+
+            var filePath = Path.Combine(uploads, imgName);
+
+            image.Save(uploads + "/" + imgName.Trim() + ".bmp");
+
+            //image to displa in view  
+            var virtualPath = string.Format("~/Images/{0}.bmp", imgName.Trim());
+            //ViewBag.Image = virtualPath;
+           
+            return View(barCode);
+
+        }
     }
 }
