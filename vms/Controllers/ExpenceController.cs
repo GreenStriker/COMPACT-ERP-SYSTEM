@@ -98,7 +98,7 @@ namespace Inventory.Controllers
             });
             IEnumerable<SelectListItems> PayTypes = paytype.Select(s => new SelectListItems
             {
-                Id = s.PaymenttypeId,
+                Id = s.PaymentMethodId,
                 Name = s.Name
             });
 
