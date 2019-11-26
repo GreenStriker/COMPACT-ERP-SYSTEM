@@ -39,7 +39,7 @@ namespace vms.repository.dbo
         public async Task<PaymentMethod> GetById(int id)
         {
 
-            var vats = await this.Query().SingleOrDefaultAsync(c=>c.PaymenttypeId== id,CancellationToken.None);
+            var vats = await this.Query().SingleOrDefaultAsync(c=>c.PaymentMethodId== id,CancellationToken.None);
 
             return vats;
         }
