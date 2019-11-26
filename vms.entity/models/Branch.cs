@@ -12,6 +12,7 @@ namespace vms.entity.models
             Expences = new HashSet<Expence>();
             Purchases = new HashSet<Purchase>();
             Sales = new HashSet<Sale>();
+            Stocks = new HashSet<Stock>();
             Users = new HashSet<User>();
         }
 
@@ -31,6 +32,7 @@ namespace vms.entity.models
         public virtual ICollection<Expence> Expences { get; set; }
         public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
+        public virtual ICollection<Stock> Stocks { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

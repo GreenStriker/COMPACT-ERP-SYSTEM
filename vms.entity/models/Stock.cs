@@ -6,15 +6,28 @@ namespace vms.entity.models
 {
     public partial class Stock
     {
+        public Stock()
+        {
+            SalesDetails = new HashSet<SalesDetail>();
+        }
+
         public int StockId { get; set; }
-        public int? StoicktypeId { get; set; }
-        public int? TranId { get; set; }
-        public bool? IsReturn { get; set; }
-        public decimal? Qty { get; set; }
+        public int? ProductId { get; set; }
+        public decimal? InitialQty { get; set; }
+        public int? PurchaseDetailId { get; set; }
+        public decimal? InQty { get; set; }
+        public decimal? SaleQuantity { get; set; }
+        public decimal? SaleReturnQty { get; set; }
+        public decimal? PurchaseReturnQty { get; set; }
+        public int? BranchId { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreateTime { get; set; }
         public bool? IsActive { get; set; }
 
-        public virtual StocktypeId Stoicktype { get; set; }
+        public virtual Branch Branch { get; set; }
+        public virtual User CreatedByNavigation { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual PurchaseDetail PurchaseDetail { get; set; }
+        public virtual ICollection<SalesDetail> SalesDetails { get; set; }
     }
 }

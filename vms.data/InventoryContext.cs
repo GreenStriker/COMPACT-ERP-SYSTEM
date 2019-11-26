@@ -442,22 +442,48 @@ namespace vms.entity.models
                     .WithMany(p => p.SalesDetails)
                     .HasForeignKey(d => d.SaleId)
                     .HasConstraintName("FK_SalesDetails_Sales");
+
+                entity.HasOne(d => d.Stock)
+                    .WithMany(p => p.SalesDetails)
+                    .HasForeignKey(d => d.StockId)
+                    .HasConstraintName("FK_SalesDetails_Stock");
             });
 
             modelBuilder.Entity<Stock>(entity =>
             {
                 entity.ToTable("Stock");
 
+                entity.Property(e => e.InQty).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.InitialQty).HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
 
-                entity.Property(e => e.Qty).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.PurchaseReturnQty).HasColumnType("decimal(18, 0)");
 
-                entity.Property(e => e.TranId).HasColumnName("TranID");
+                entity.Property(e => e.SaleQuantity).HasColumnType("decimal(18, 0)");
 
-                entity.HasOne(d => d.Stoicktype)
+                entity.Property(e => e.SaleReturnQty).HasColumnType("decimal(18, 0)");
+
+                entity.HasOne(d => d.Branch)
                     .WithMany(p => p.Stocks)
-                    .HasForeignKey(d => d.StoicktypeId)
-                    .HasConstraintName("FK_Stock_StocktypeId");
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Stock_Branch");
+
+                entity.HasOne(d => d.CreatedByNavigation)
+                    .WithMany(p => p.Stocks)
+                    .HasForeignKey(d => d.CreatedBy)
+                    .HasConstraintName("FK_Stock_User");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Stocks)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_Stock_Product");
+
+                entity.HasOne(d => d.PurchaseDetail)
+                    .WithMany(p => p.Stocks)
+                    .HasForeignKey(d => d.PurchaseDetailId)
+                    .HasConstraintName("FK_Stock_purchaseDetail");
             });
 
             modelBuilder.Entity<StocktypeId>(entity =>

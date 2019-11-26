@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class User
     {
+        public User()
+        {
+            Stocks = new HashSet<Stock>();
+        }
+
         public int Uid { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
@@ -25,5 +30,6 @@ namespace vms.entity.models
         public virtual Branch Brach { get; set; }
         public virtual Role Role { get; set; }
         public virtual UserType UserType { get; set; }
+        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }
