@@ -9,9 +9,11 @@ namespace vms.entity.models
         public PaymentMethod()
         {
             Payments = new HashSet<Payment>();
+            PurchasePayments = new HashSet<PurchasePayment>();
+            SalePayments = new HashSet<SalePayment>();
         }
 
-        public int PaymenttypeId { get; set; }
+        public int PaymentMethodId { get; set; }
         public string Name { get; set; }
         public string Number { get; set; }
         public string Remark { get; set; }
@@ -19,5 +21,7 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual ICollection<Payment> Payments { get; set; }
+        public virtual ICollection<PurchasePayment> PurchasePayments { get; set; }
+        public virtual ICollection<SalePayment> SalePayments { get; set; }
     }
 }
