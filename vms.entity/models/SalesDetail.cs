@@ -9,11 +9,13 @@ namespace vms.entity.models
         public int SalesDetailId { get; set; }
         public int? SaleId { get; set; }
         public int? ProductId { get; set; }
+        public int? StockId { get; set; }
         public decimal? Qty { get; set; }
         public decimal? UnitPrice { get; set; }
         public decimal? Amount { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual Sale Sale { get; set; }
+        public virtual Stock Stock { get; set; }
     }
 }

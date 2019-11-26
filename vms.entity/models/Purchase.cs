@@ -9,12 +9,14 @@ namespace vms.entity.models
         public Purchase()
         {
             PurchaseDetails = new HashSet<PurchaseDetail>();
+            PurchasePayments = new HashSet<PurchasePayment>();
         }
 
         public int PurchaseId { get; set; }
         public byte[] VendorMobile { get; set; }
         public int? BranchId { get; set; }
-        public int? PaymentId { get; set; }
+        public decimal? PayableAmount { get; set; }
+        public decimal? PaidAmount { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public bool? IsActive { get; set; }
@@ -22,7 +24,7 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Branch { get; set; }
-        public virtual Payment Payment { get; set; }
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual ICollection<PurchasePayment> PurchasePayments { get; set; }
     }
 }

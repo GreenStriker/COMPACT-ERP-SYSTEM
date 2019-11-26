@@ -30,6 +30,14 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Expence]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ExpenceType]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[MeasureUnit]"
       },
       {
@@ -38,7 +46,7 @@
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[paymentMethod]"
+         "Name": "[dbo].[PaymentMethod]"
       },
       {
          "HasPrimaryKey": true,
@@ -62,11 +70,19 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[PurchasePayment]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
       },
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[salary]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SalePayment]"
       },
       {
          "HasPrimaryKey": true,

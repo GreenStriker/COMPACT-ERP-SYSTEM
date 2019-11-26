@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class PurchaseDetail
     {
+        public PurchaseDetail()
+        {
+            Stocks = new HashSet<Stock>();
+        }
+
         public int PurchaseDetailId { get; set; }
         public int? PurchaseId { get; set; }
         public int? ProductId { get; set; }
@@ -14,5 +19,6 @@ namespace vms.entity.models
 
         public virtual Product Product { get; set; }
         public virtual Purchase Purchase { get; set; }
+        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }
