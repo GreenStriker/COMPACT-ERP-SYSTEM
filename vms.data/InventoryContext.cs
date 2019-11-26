@@ -20,6 +20,8 @@ namespace vms.entity.models
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
+        public virtual DbSet<Expence> Expences { get; set; }
+        public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
         public virtual DbSet<MeasureUnit> MeasureUnits { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
@@ -129,6 +131,54 @@ namespace vms.entity.models
                     .WithMany(p => p.Employes)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Employe_Branch");
+            });
+
+            modelBuilder.Entity<Expence>(entity =>
+            {
+                entity.ToTable("Expence");
+
+                entity.Property(e => e.ExpenceId).HasColumnName("ExpenceID");
+
+                entity.Property(e => e.BranchId).HasColumnName("BranchID");
+
+                entity.Property(e => e.ExpenceAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.ExpencePurpose).HasMaxLength(500);
+
+                entity.Property(e => e.ExpenceTypeId).HasColumnName("ExpenceTypeID");
+
+                entity.Property(e => e.PaymentId).HasColumnName("PaymentID");
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Expences)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Expence_Branch");
+
+                entity.HasOne(d => d.ExpencePersonNavigation)
+                    .WithMany(p => p.Expences)
+                    .HasForeignKey(d => d.ExpencePerson)
+                    .HasConstraintName("FK_Expence_Employe");
+
+                entity.HasOne(d => d.ExpenceType)
+                    .WithMany(p => p.Expences)
+                    .HasForeignKey(d => d.ExpenceTypeId)
+                    .HasConstraintName("FK_Expence_ExpenceType");
+
+                entity.HasOne(d => d.Payment)
+                    .WithMany(p => p.Expences)
+                    .HasForeignKey(d => d.PaymentId)
+                    .HasConstraintName("FK_Expence_payment");
+            });
+
+            modelBuilder.Entity<ExpenceType>(entity =>
+            {
+                entity.ToTable("ExpenceType");
+
+                entity.Property(e => e.ExpenceTypeId).HasColumnName("ExpenceTypeID");
+
+                entity.Property(e => e.Name).HasMaxLength(500);
+
+                entity.Property(e => e.Remark).HasMaxLength(500);
             });
 
             modelBuilder.Entity<MeasureUnit>(entity =>

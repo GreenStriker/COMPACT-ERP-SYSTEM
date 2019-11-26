@@ -9,6 +9,7 @@ namespace vms.entity.models
         public Branch()
         {
             Employes = new HashSet<Employe>();
+            Expences = new HashSet<Expence>();
             Purchases = new HashSet<Purchase>();
             Sales = new HashSet<Sale>();
             Users = new HashSet<User>();
@@ -27,6 +28,7 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual ICollection<Employe> Employes { get; set; }
+        public virtual ICollection<Expence> Expences { get; set; }
         public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
         public virtual ICollection<User> Users { get; set; }
