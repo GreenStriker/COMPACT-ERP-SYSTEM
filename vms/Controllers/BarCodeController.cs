@@ -49,7 +49,7 @@ namespace Inventory.Controllers
 
             var salesPRice = await _price.Query().Include(c => c.Product).SingleOrDefaultAsync(c => c.ProductId == barCode.ProductId && c.IsActive == true, CancellationToken.None);
           
-            if (barCode.ProductId == 0 && salesPRice == null)  
+            if (barCode.ProductId == 0 || salesPRice == null)  
             {
                 return View();
             }
