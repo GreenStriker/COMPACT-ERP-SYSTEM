@@ -30,6 +30,14 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Expence]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ExpenceType]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[MeasureUnit]"
       },
       {

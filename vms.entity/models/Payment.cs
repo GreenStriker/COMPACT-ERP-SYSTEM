@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public Payment()
         {
+            Expences = new HashSet<Expence>();
             Purchases = new HashSet<Purchase>();
             Sales = new HashSet<Sale>();
         }
@@ -21,6 +22,7 @@ namespace vms.entity.models
         public DateTime? Createdtime { get; set; }
 
         public virtual PaymentMethod PaymentMethod { get; set; }
+        public virtual ICollection<Expence> Expences { get; set; }
         public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
     }
