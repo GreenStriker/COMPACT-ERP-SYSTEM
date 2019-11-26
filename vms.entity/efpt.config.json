@@ -46,7 +46,7 @@
       },
       {
          "HasPrimaryKey": true,
-         "Name": "[dbo].[paymentMethod]"
+         "Name": "[dbo].[PaymentMethod]"
       },
       {
          "HasPrimaryKey": true,
@@ -70,11 +70,19 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[PurchasePayment]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
       },
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[salary]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SalePayment]"
       },
       {
          "HasPrimaryKey": true,

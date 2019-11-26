@@ -9,8 +9,6 @@ namespace vms.entity.models
         public Payment()
         {
             Expences = new HashSet<Expence>();
-            Purchases = new HashSet<Purchase>();
-            Sales = new HashSet<Sale>();
         }
 
         public int PaymetId { get; set; }
@@ -23,7 +21,5 @@ namespace vms.entity.models
 
         public virtual PaymentMethod PaymentMethod { get; set; }
         public virtual ICollection<Expence> Expences { get; set; }
-        public virtual ICollection<Purchase> Purchases { get; set; }
-        public virtual ICollection<Sale> Sales { get; set; }
     }
 }

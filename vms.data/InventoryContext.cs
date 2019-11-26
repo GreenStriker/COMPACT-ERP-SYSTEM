@@ -30,9 +30,11 @@ namespace vms.entity.models
         public virtual DbSet<ProductPrice> ProductPrices { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+        public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<SalePayment> SalePayments { get; set; }
         public virtual DbSet<SalesDetail> SalesDetails { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StocktypeId> StocktypeIds { get; set; }
@@ -218,11 +220,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<PaymentMethod>(entity =>
             {
-                entity.HasKey(e => e.PaymenttypeId);
-
-                entity.ToTable("paymentMethod");
-
-                entity.Property(e => e.PaymenttypeId).HasColumnName("PaymenttypeID");
+                entity.ToTable("PaymentMethod");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
@@ -321,6 +319,10 @@ namespace vms.entity.models
 
                 entity.Property(e => e.EfectiveTo).HasColumnType("date");
 
+                entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PayableAmount).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.VendorMobile)
                     .HasColumnName("Vendor_mobile")
                     .HasMaxLength(50);
@@ -329,11 +331,6 @@ namespace vms.entity.models
                     .WithMany(p => p.Purchases)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Purchase_Branch");
-
-                entity.HasOne(d => d.Payment)
-                    .WithMany(p => p.Purchases)
-                    .HasForeignKey(d => d.PaymentId)
-                    .HasConstraintName("FK_Purchase_payment");
             });
 
             modelBuilder.Entity<PurchaseDetail>(entity =>
@@ -359,6 +356,23 @@ namespace vms.entity.models
                     .WithMany(p => p.PurchaseDetails)
                     .HasForeignKey(d => d.PurchaseId)
                     .HasConstraintName("FK_purchaseDetail_Purchase");
+            });
+
+            modelBuilder.Entity<PurchasePayment>(entity =>
+            {
+                entity.ToTable("PurchasePayment");
+
+                entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.PaymentMethod)
+                    .WithMany(p => p.PurchasePayments)
+                    .HasForeignKey(d => d.PaymentMethodId)
+                    .HasConstraintName("FK_PurchasePayment_paymentMethod");
+
+                entity.HasOne(d => d.Purchase)
+                    .WithMany(p => p.PurchasePayments)
+                    .HasForeignKey(d => d.PurchaseId)
+                    .HasConstraintName("FK_PurchasePayment_Purchase");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -402,6 +416,10 @@ namespace vms.entity.models
 
                 entity.Property(e => e.Discount).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PayableAmount).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Vat)
@@ -412,11 +430,23 @@ namespace vms.entity.models
                     .WithMany(p => p.Sales)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Sales_Branch");
+            });
 
-                entity.HasOne(d => d.Payment)
-                    .WithMany(p => p.Sales)
-                    .HasForeignKey(d => d.PaymentId)
-                    .HasConstraintName("FK_Sales_payment");
+            modelBuilder.Entity<SalePayment>(entity =>
+            {
+                entity.ToTable("SalePayment");
+
+                entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.PaymentMethod)
+                    .WithMany(p => p.SalePayments)
+                    .HasForeignKey(d => d.PaymentMethodId)
+                    .HasConstraintName("FK_SalePayment_paymentMethod");
+
+                entity.HasOne(d => d.Sale)
+                    .WithMany(p => p.SalePayments)
+                    .HasForeignKey(d => d.SaleId)
+                    .HasConstraintName("FK_SalePayment_Sales");
             });
 
             modelBuilder.Entity<SalesDetail>(entity =>
