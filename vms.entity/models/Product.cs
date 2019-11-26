@@ -12,6 +12,7 @@ namespace vms.entity.models
             ProductPrices = new HashSet<ProductPrice>();
             PurchaseDetails = new HashSet<PurchaseDetail>();
             SalesDetails = new HashSet<SalesDetail>();
+            Stocks = new HashSet<Stock>();
         }
 
         public int ProductId { get; set; }
@@ -32,5 +33,6 @@ namespace vms.entity.models
         public virtual ICollection<ProductPrice> ProductPrices { get; set; }
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }
+        public virtual ICollection<Stock> Stocks { get; set; }
     }
 }
