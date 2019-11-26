@@ -106,7 +106,7 @@ namespace Inventory.Controllers
             }
 
             var exportType = await _service.Query()
-                .SingleOrDefaultAsync(m => m.PaymenttypeId == id, CancellationToken.None);
+                .SingleOrDefaultAsync(m => m.PaymentMethodId == id, CancellationToken.None);
             if (exportType == null)
             {
                 return NotFound();
@@ -120,15 +120,15 @@ namespace Inventory.Controllers
         public async Task<IActionResult> Edit(PaymentMethod pay)
         {
 
-            if (pay.PaymenttypeId == 0)
+            if (pay.PaymentMethodId == 0)
             {
                 return NotFound();
             }
 
             try
             {
-                var id = pay.PaymenttypeId;
-                var data = await _service.Query().SingleOrDefaultAsync(m => m.PaymenttypeId == id, CancellationToken.None);
+                var id = pay.PaymentMethodId;
+                var data = await _service.Query().SingleOrDefaultAsync(m => m.PaymentMethodId == id, CancellationToken.None);
 
                 data.Name = pay.Name;
                 data.Number = pay.Number;
