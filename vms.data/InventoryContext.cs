@@ -41,6 +41,7 @@ namespace vms.entity.models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Vat> Vats { get; set; }
+        public virtual DbSet<Vendor> Vendors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -607,6 +608,19 @@ namespace vms.entity.models
                     .HasMaxLength(50);
 
                 entity.Property(e => e.Percentage).HasColumnType("decimal(18, 2)");
+            });
+
+            modelBuilder.Entity<Vendor>(entity =>
+            {
+                entity.ToTable("Vendor");
+
+                entity.Property(e => e.Address).HasMaxLength(50);
+
+                entity.Property(e => e.ContactNo).HasMaxLength(50);
+
+                entity.Property(e => e.Description).HasMaxLength(50);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

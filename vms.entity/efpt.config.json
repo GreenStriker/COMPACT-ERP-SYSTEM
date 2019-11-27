@@ -111,6 +111,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[vat]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Vendor]"
       }
    ],
    "UseDatabaseNames": false,
