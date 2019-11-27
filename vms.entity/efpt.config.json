@@ -26,6 +26,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Customer]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Employe]"
       },
       {
@@ -74,6 +78,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[RewardPoint]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
       },
       {
@@ -94,6 +102,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Settings]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Stock]"
       },
       {
@@ -111,6 +123,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[vat]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Vendor]"
       }
    ],
    "UseDatabaseNames": false,

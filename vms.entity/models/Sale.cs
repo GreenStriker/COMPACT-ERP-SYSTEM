@@ -13,7 +13,7 @@ namespace vms.entity.models
         }
 
         public int SalesId { get; set; }
-        public string CusMobile { get; set; }
+        public int? CustomerId { get; set; }
         public decimal? Vat { get; set; }
         public int? BranchId { get; set; }
         public decimal? PayableAmount { get; set; }
@@ -26,6 +26,7 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Branch { get; set; }
+        public virtual Customer Customer { get; set; }
         public virtual ICollection<SalePayment> SalePayments { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }
     }

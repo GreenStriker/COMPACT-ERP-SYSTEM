@@ -1,4 +1,4 @@
-﻿@model IEnumerable<vms.entity.models.ExpenceType>
+﻿@model IEnumerable<vms.entity.models.Customer>
     @using X.PagedList.Mvc.Core;
     @using X.PagedList;
     @{
@@ -10,14 +10,14 @@
     @{
         // var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
     }
-
     <div class="product-status mg-tb-15">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-status-wrap">
-                        <h4>Expense Type </h4>
-                        @using (Html.BeginForm("Index", "ExpenceType", FormMethod.Get, new { id = "frmProduct" }))
+                        <h4>Customer List</h4>
+
+                        @using (Html.BeginForm("Index", "Branch", FormMethod.Get, new { id = "frmProduct" }))
                         {
                             <div class="row">
 
@@ -34,20 +34,31 @@
 
 
                                 <div class="add-product">
-                                    <a href="@Url.Action("Create", "ExpenceType")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+                                    <a href="@Url.Action("Create", "Customer")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
                                 </div>
+
                             </div>
-
-
                         }
                         <table>
                             <thead>
                                 <tr>
                                     <th class="text-center">
-                                        Expense Type
+                                        Name
                                     </th>
                                     <th class="text-center">
-                                        Remark
+                                      Joined Branch 
+                                    </th>
+                                    <th class="text-center">
+                                        Birth Day
+                                    </th>
+                                    <th class="text-center">
+                                        Email
+                                    </th>
+                                    <th class="text-center">
+                                         Address
+                                    </th>
+                                    <th class="text-center">
+                                         Mobile
                                     </th>
                                     <th>Settings</th>
                                 </tr>
@@ -62,16 +73,28 @@
                                         <td>
                                             @Html.DisplayFor(modelItem => item.Name)
                                         </td>
-
                                         <td>
-                                            @Html.DisplayFor(modelItem => item.Remark)
+                                            @Html.DisplayFor(modelItem => item.Branch.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateOfbirth)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Address)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Mobile)
                                         </td>
 
+
                                         <td>
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">  <a asp-action="Edit" asp-route-id="@item.ExpenceTypeId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </button>
 
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed">    <a asp-action="Delete" asp-route-id="@item.ExpenceTypeId"><i class="fa fa-trash-o" aria-hidden="true"></i>    </a></button>
+                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed">  <a asp-action="Edit" asp-route-id="@item.BranchId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </button>
 
+                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed">    <a asp-action="Delete" asp-route-id="@item.BranchId"><i class="fa fa-trash-o" aria-hidden="true"></i>    </a></button>
 
                                         </td>
 
