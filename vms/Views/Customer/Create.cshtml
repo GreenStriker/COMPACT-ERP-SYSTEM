@@ -1,4 +1,4 @@
-﻿@model vms.entity.models.ExpenceType
+﻿@model vms.entity.models.Customer
 
 @{
     ViewData["Title"] = "Create";
@@ -8,16 +8,16 @@
     <!-- Single pro tab review Start-->
     <div class="single-pro-review-area">
         <div class="container-fluid">
-            <form asp-action="Edit">
+            <form asp-action="Create">
 
                 <div class="form-group hidden">
-                    <input asp-for="ExpenceTypeId" class="form-control" placeholder="Name" />
+
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="review-tab-pro-inner">
                             <ul id="myTab3" class="tab-review-design">
-                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Edit Expense Type</a></li>
+                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> New Customer</a></li>
                                 @*<li><a href="#reviews"><i class="fa fa-file-image-o" aria-hidden="true"></i> Pictures</a></li>
                                     <li><a href="#INFORMATION"><i class="fa fa-commenting" aria-hidden="true"></i> Review</a></li>*@
                             </ul>
@@ -26,21 +26,38 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
-                                                Expense Name:
+                                                Customer Name:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
                                                     <input asp-for="Name" class="form-control" placeholder="Name" />
                                                 </div>
+                                                Customer Mobile:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <input asp-for="Mobile" class="form-control" placeholder="Mobile" />
+                                                </div>
 
+                                                Customer Address:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <input asp-for="Address" class="form-control" placeholder="Address" />
+                                                </div>
 
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
-                                                Remark:
+
+
+                                                Customer Email:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-dropbox" aria-hidden="true"></i></span>
+                                                    <input asp-for="Email" class="form-control" placeholder="Email Address" />
+                                                </div>
+                                                Customer Birth Day:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
-                                                    <input asp-for="Remark" class="form-control" placeholder="REMARKS" />
+                                                    <input asp-for="DateOfbirth" class="form-control" placeholder="Date Of birth" type="date" />
                                                 </div>
 
 

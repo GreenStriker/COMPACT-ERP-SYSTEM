@@ -19,6 +19,7 @@ namespace vms.entity.models
         public virtual DbSet<Branch> Branches { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
@@ -31,11 +32,13 @@ namespace vms.entity.models
         public virtual DbSet<Purchase> Purchases { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
+        public virtual DbSet<RewardPoint> RewardPoints { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<SalePayment> SalePayments { get; set; }
         public virtual DbSet<SalesDetail> SalesDetails { get; set; }
+        public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StocktypeId> StocktypeIds { get; set; }
         public virtual DbSet<User> Users { get; set; }
@@ -98,6 +101,30 @@ namespace vms.entity.models
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Customer>(entity =>
+            {
+                entity.ToTable("Customer");
+
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+
+                entity.Property(e => e.Address).HasMaxLength(500);
+
+                entity.Property(e => e.BranchId).HasColumnName("BranchID");
+
+                entity.Property(e => e.DateOfbirth).HasColumnName("DateOFBirth");
+
+                entity.Property(e => e.Email).HasMaxLength(50);
+
+                entity.Property(e => e.Mobile).HasMaxLength(50);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Customers)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Customer_Branch");
             });
 
             modelBuilder.Entity<Employe>(entity =>
@@ -376,6 +403,31 @@ namespace vms.entity.models
                     .HasConstraintName("FK_PurchasePayment_Purchase");
             });
 
+            modelBuilder.Entity<RewardPoint>(entity =>
+            {
+                entity.HasKey(e => e.RewardPoinId);
+
+                entity.ToTable("RewardPoint");
+
+                entity.Property(e => e.RewardPoinId).HasColumnName("RewardPoinID");
+
+                entity.Property(e => e.Addpoint).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+
+                entity.Property(e => e.PreviousPoint).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Remarks).HasMaxLength(500);
+
+                entity.Property(e => e.SalesId).HasColumnName("salesID");
+
+                entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
+
+                entity.Property(e => e.Totalpoint).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.UsePoins).HasColumnType("decimal(18, 2)");
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
@@ -411,9 +463,7 @@ namespace vms.entity.models
 
                 entity.Property(e => e.BranchId).HasColumnName("BranchID");
 
-                entity.Property(e => e.CusMobile)
-                    .HasColumnName("Cus_mobile")
-                    .HasMaxLength(50);
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
                 entity.Property(e => e.Discount).HasColumnType("decimal(18, 2)");
 
@@ -431,6 +481,11 @@ namespace vms.entity.models
                     .WithMany(p => p.Sales)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Sales_Branch");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Sales)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_Sales_Customer");
             });
 
             modelBuilder.Entity<SalePayment>(entity =>
@@ -478,6 +533,21 @@ namespace vms.entity.models
                     .WithMany(p => p.SalesDetails)
                     .HasForeignKey(d => d.StockId)
                     .HasConstraintName("FK_SalesDetails_Stock");
+            });
+
+            modelBuilder.Entity<Setting>(entity =>
+            {
+                entity.HasKey(e => e.SettingsId);
+
+                entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
+
+                entity.Property(e => e.IncentiveRetion).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.IsattendenceCount).HasColumnName("ISAttendenceCount");
+
+                entity.Property(e => e.IsrewardPoitCount).HasColumnName("ISRewardPoitCount");
+
+                entity.Property(e => e.RewardPointRethio).HasColumnType("decimal(18, 2)");
             });
 
             modelBuilder.Entity<Stock>(entity =>

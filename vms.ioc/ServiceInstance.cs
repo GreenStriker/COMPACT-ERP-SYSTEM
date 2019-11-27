@@ -127,8 +127,8 @@ namespace vms.ioc
             services.AddTransient<IExpenceTypeRepository, ExpenceTypeRepository>();
             services.AddTransient<IExpenceTypeService, ExpenceTypeService>();
 
-            //services.AddTransient<ISalesTypeRepository, SalesTypeRepository>();
-            //services.AddTransient<ISalesTypeService, SalesTypeService>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<ICustomerService, CustomerService>();
 
             //services.AddTransient<ITransectionTypeRepository, TransectionTypeRepository>();
             //services.AddTransient<ITransectionTypeService, TransectionTypeService>();

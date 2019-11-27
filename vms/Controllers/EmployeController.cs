@@ -94,7 +94,7 @@ namespace Inventory.Controllers
                 emp.CreatedBy = _session.UserId;
                 emp.CreatedTime = DateTime.Now;
                 emp.JoiningDate = DateTime.Now;
-
+                emp.BranchId = _session.BranchId;
                 emp.IsActive = true;
 
 

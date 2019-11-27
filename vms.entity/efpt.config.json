@@ -26,6 +26,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Customer]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Employe]"
       },
       {
@@ -74,6 +78,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[RewardPoint]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
       },
       {
@@ -91,6 +99,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[SalesDetails]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Settings]"
       },
       {
          "HasPrimaryKey": true,
