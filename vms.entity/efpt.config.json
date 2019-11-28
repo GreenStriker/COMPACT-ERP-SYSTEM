@@ -14,6 +14,10 @@
    "Tables": [
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[AdvancedSalary]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Branch]"
       },
       {
@@ -43,6 +47,10 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[MeasureUnit]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Overtime]"
       },
       {
          "HasPrimaryKey": true,
