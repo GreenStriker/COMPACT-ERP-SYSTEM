@@ -130,11 +130,11 @@ namespace vms.ioc
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<ICustomerService, CustomerService>();
 
-            //services.AddTransient<ITransectionTypeRepository, TransectionTypeRepository>();
-            //services.AddTransient<ITransectionTypeService, TransectionTypeService>();
+            services.AddTransient<IAdvancedSalaryRepository, AdvancedSalaryRepository>();
+            services.AddTransient<IAdvancedSalaryService, AdvancedSalaryService>();
 
-            //services.AddTransient<IProductVatTypeRepository, ProductVatTypeRepository>();
-            //services.AddTransient<IProductVatTypeService, ProductVatTypeService>();
+            services.AddTransient<IOvertimeRepository, OvertimeRepository>();
+            services.AddTransient<IOvertimeService, OvertimeService>();
 
             //services.AddTransient<IAuditLogRepository, AuditLogRepository>();
             //services.AddTransient<IAuditLogService, AuditLogService>();

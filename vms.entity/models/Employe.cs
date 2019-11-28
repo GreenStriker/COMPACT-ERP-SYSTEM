@@ -8,7 +8,9 @@ namespace vms.entity.models
     {
         public Employe()
         {
+            AdvancedSalaries = new HashSet<AdvancedSalary>();
             Expences = new HashSet<Expence>();
+            Overtimes = new HashSet<Overtime>();
             Salaries = new HashSet<Salary>();
         }
 
@@ -29,7 +31,9 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Branch { get; set; }
+        public virtual ICollection<AdvancedSalary> AdvancedSalaries { get; set; }
         public virtual ICollection<Expence> Expences { get; set; }
+        public virtual ICollection<Overtime> Overtimes { get; set; }
         public virtual ICollection<Salary> Salaries { get; set; }
     }
 }
