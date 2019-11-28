@@ -77,7 +77,7 @@ namespace Inventory.Controllers
 
 
                 
-                return RedirectToAction(ControllerStaticData.DISPLAY_DASHBOARD, ControllerStaticData.HOME);
+                return RedirectToAction("Index", "Dashboard");
                 }
                 else
                 {
