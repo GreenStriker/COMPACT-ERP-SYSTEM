@@ -16,6 +16,7 @@ namespace vms.entity.models
         {
         }
 
+        public virtual DbSet<AdvancedSalary> AdvancedSalaries { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
@@ -24,6 +25,7 @@ namespace vms.entity.models
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
         public virtual DbSet<MeasureUnit> MeasureUnits { get; set; }
+        public virtual DbSet<Overtime> Overtimes { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
         public virtual DbSet<Product> Products { get; set; }
@@ -56,6 +58,24 @@ namespace vms.entity.models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+
+            modelBuilder.Entity<AdvancedSalary>(entity =>
+            {
+                entity.HasKey(e => e.AdvanceSalaryId);
+
+                entity.ToTable("AdvancedSalary");
+
+                entity.Property(e => e.AdvanceSalaryId).HasColumnName("AdvanceSalaryID");
+
+                entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Remarks).HasMaxLength(500);
+
+                entity.HasOne(d => d.Emloy)
+                    .WithMany(p => p.AdvancedSalaries)
+                    .HasForeignKey(d => d.EmloyId)
+                    .HasConstraintName("FK_AdvancedSalary_Employe");
+            });
 
             modelBuilder.Entity<Branch>(entity =>
             {
@@ -220,6 +240,26 @@ namespace vms.entity.models
                 entity.Property(e => e.MunitId).HasColumnName("MUnitId");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Overtime>(entity =>
+            {
+                entity.ToTable("Overtime");
+
+                entity.Property(e => e.OvertimeId).HasColumnName("OvertimeID");
+
+                entity.Property(e => e.EmployId).HasColumnName("EmployID");
+
+                entity.Property(e => e.OverTimeHoure).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.ReasonOfOverTime).HasMaxLength(500);
+
+                entity.Property(e => e.Remarks).HasMaxLength(500);
+
+                entity.HasOne(d => d.Employ)
+                    .WithMany(p => p.Overtimes)
+                    .HasForeignKey(d => d.EmployId)
+                    .HasConstraintName("FK_Overtime_Employe");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -541,11 +581,17 @@ namespace vms.entity.models
 
                 entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
 
+                entity.Property(e => e.AdvanceSalaryTakePercentage).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.IncentiveRetion).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.IsAdvanceSalaryActive).HasMaxLength(10);
 
                 entity.Property(e => e.IsattendenceCount).HasColumnName("ISAttendenceCount");
 
                 entity.Property(e => e.IsrewardPoitCount).HasColumnName("ISRewardPoitCount");
+
+                entity.Property(e => e.OverTimeRetio).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.RewardPointRethio).HasColumnType("decimal(18, 2)");
             });
