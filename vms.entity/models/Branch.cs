@@ -8,9 +8,11 @@ namespace vms.entity.models
     {
         public Branch()
         {
+            Atendences = new HashSet<Atendence>();
             Customers = new HashSet<Customer>();
             Employes = new HashSet<Employe>();
             Expences = new HashSet<Expence>();
+            Payrolls = new HashSet<Payroll>();
             Purchases = new HashSet<Purchase>();
             Sales = new HashSet<Sale>();
             Stocks = new HashSet<Stock>();
@@ -29,9 +31,11 @@ namespace vms.entity.models
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 
+        public virtual ICollection<Atendence> Atendences { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Employe> Employes { get; set; }
         public virtual ICollection<Expence> Expences { get; set; }
+        public virtual ICollection<Payroll> Payrolls { get; set; }
         public virtual ICollection<Purchase> Purchases { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }

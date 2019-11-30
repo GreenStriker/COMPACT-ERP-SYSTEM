@@ -9,8 +9,11 @@ namespace vms.entity.models
         public Employe()
         {
             AdvancedSalaries = new HashSet<AdvancedSalary>();
+            AttendenceDetails = new HashSet<AttendenceDetail>();
             Expences = new HashSet<Expence>();
+            Incentives = new HashSet<Incentive>();
             Overtimes = new HashSet<Overtime>();
+            PayrollDetails = new HashSet<PayrollDetail>();
             Salaries = new HashSet<Salary>();
         }
 
@@ -18,6 +21,7 @@ namespace vms.entity.models
         public string Name { get; set; }
         public int? BranchId { get; set; }
         public string Address { get; set; }
+        public string BanckAccountNo { get; set; }
         public string Designation { get; set; }
         public string Nid { get; set; }
         public string Mobile { get; set; }
@@ -32,8 +36,11 @@ namespace vms.entity.models
 
         public virtual Branch Branch { get; set; }
         public virtual ICollection<AdvancedSalary> AdvancedSalaries { get; set; }
+        public virtual ICollection<AttendenceDetail> AttendenceDetails { get; set; }
         public virtual ICollection<Expence> Expences { get; set; }
+        public virtual ICollection<Incentive> Incentives { get; set; }
         public virtual ICollection<Overtime> Overtimes { get; set; }
+        public virtual ICollection<PayrollDetail> PayrollDetails { get; set; }
         public virtual ICollection<Salary> Salaries { get; set; }
     }
 }

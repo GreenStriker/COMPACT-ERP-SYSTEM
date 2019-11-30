@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class Expence
     {
+        public Expence()
+        {
+            Payrolls = new HashSet<Payroll>();
+        }
+
         public int ExpenceId { get; set; }
         public int? BranchId { get; set; }
         public int? ExpenceTypeId { get; set; }
@@ -22,5 +27,6 @@ namespace vms.entity.models
         public virtual Employe ExpencePersonNavigation { get; set; }
         public virtual ExpenceType ExpenceType { get; set; }
         public virtual Payment Payment { get; set; }
+        public virtual ICollection<Payroll> Payrolls { get; set; }
     }
 }

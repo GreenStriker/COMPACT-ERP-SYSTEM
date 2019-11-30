@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public Sale()
         {
+            Incentives = new HashSet<Incentive>();
             SalePayments = new HashSet<SalePayment>();
             SalesDetails = new HashSet<SalesDetail>();
         }
@@ -27,6 +28,7 @@ namespace vms.entity.models
 
         public virtual Branch Branch { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual ICollection<Incentive> Incentives { get; set; }
         public virtual ICollection<SalePayment> SalePayments { get; set; }
         public virtual ICollection<SalesDetail> SalesDetails { get; set; }
     }

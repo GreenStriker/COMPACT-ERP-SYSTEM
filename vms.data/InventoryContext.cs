@@ -17,6 +17,8 @@ namespace vms.entity.models
         }
 
         public virtual DbSet<AdvancedSalary> AdvancedSalaries { get; set; }
+        public virtual DbSet<Atendence> Atendences { get; set; }
+        public virtual DbSet<AttendenceDetail> AttendenceDetails { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
@@ -24,10 +26,13 @@ namespace vms.entity.models
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
+        public virtual DbSet<Incentive> Incentives { get; set; }
         public virtual DbSet<MeasureUnit> MeasureUnits { get; set; }
         public virtual DbSet<Overtime> Overtimes { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public virtual DbSet<Payroll> Payrolls { get; set; }
+        public virtual DbSet<PayrollDetail> PayrollDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductLog> ProductLogs { get; set; }
         public virtual DbSet<ProductPrice> ProductPrices { get; set; }
@@ -75,6 +80,43 @@ namespace vms.entity.models
                     .WithMany(p => p.AdvancedSalaries)
                     .HasForeignKey(d => d.EmloyId)
                     .HasConstraintName("FK_AdvancedSalary_Employe");
+            });
+
+            modelBuilder.Entity<Atendence>(entity =>
+            {
+                entity.ToTable("Atendence");
+
+                entity.Property(e => e.AtendenceId).HasColumnName("AtendenceID");
+
+                entity.Property(e => e.BranchId).HasColumnName("BranchID");
+
+                entity.Property(e => e.Isclosed).HasColumnName("ISClosed");
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Atendences)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Atendence_Branch");
+            });
+
+            modelBuilder.Entity<AttendenceDetail>(entity =>
+            {
+                entity.HasKey(e => e.AttendenceDetailsId);
+
+                entity.Property(e => e.AttendenceDetailsId).HasColumnName("AttendenceDetailsID");
+
+                entity.Property(e => e.AttendenceId).HasColumnName("AttendenceID");
+
+                entity.Property(e => e.EmployId).HasColumnName("EmployID");
+
+                entity.HasOne(d => d.Attendence)
+                    .WithMany(p => p.AttendenceDetails)
+                    .HasForeignKey(d => d.AttendenceId)
+                    .HasConstraintName("FK_AttendenceDetails_Atendence");
+
+                entity.HasOne(d => d.Employ)
+                    .WithMany(p => p.AttendenceDetails)
+                    .HasForeignKey(d => d.EmployId)
+                    .HasConstraintName("FK_AttendenceDetails_Employe");
             });
 
             modelBuilder.Entity<Branch>(entity =>
@@ -159,6 +201,8 @@ namespace vms.entity.models
                     .HasColumnName("Alter_mobile")
                     .HasMaxLength(50);
 
+                entity.Property(e => e.BanckAccountNo).HasMaxLength(10);
+
                 entity.Property(e => e.DeactiveDate).HasColumnType("date");
 
                 entity.Property(e => e.Designation).HasMaxLength(50);
@@ -231,6 +275,29 @@ namespace vms.entity.models
                 entity.Property(e => e.Remark).HasMaxLength(500);
             });
 
+            modelBuilder.Entity<Incentive>(entity =>
+            {
+                entity.ToTable("Incentive");
+
+                entity.Property(e => e.IncentiveId).HasColumnName("IncentiveID");
+
+                entity.Property(e => e.EmployId).HasColumnName("EmployID");
+
+                entity.Property(e => e.IncentivePoint).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.SalesId).HasColumnName("SalesID");
+
+                entity.HasOne(d => d.Employ)
+                    .WithMany(p => p.Incentives)
+                    .HasForeignKey(d => d.EmployId)
+                    .HasConstraintName("FK_Incentive_Employe");
+
+                entity.HasOne(d => d.Sales)
+                    .WithMany(p => p.Incentives)
+                    .HasForeignKey(d => d.SalesId)
+                    .HasConstraintName("FK_Incentive_Sales");
+            });
+
             modelBuilder.Entity<MeasureUnit>(entity =>
             {
                 entity.HasKey(e => e.MunitId);
@@ -295,6 +362,70 @@ namespace vms.entity.models
                 entity.Property(e => e.Number).HasMaxLength(50);
 
                 entity.Property(e => e.Remark).HasMaxLength(500);
+            });
+
+            modelBuilder.Entity<Payroll>(entity =>
+            {
+                entity.ToTable("Payroll");
+
+                entity.Property(e => e.PayrollId).HasColumnName("PayrollID");
+
+                entity.Property(e => e.BranchId).HasColumnName("BranchID");
+
+                entity.Property(e => e.ExpenceId).HasColumnName("ExpenceID");
+
+                entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
+
+                entity.HasOne(d => d.Branch)
+                    .WithMany(p => p.Payrolls)
+                    .HasForeignKey(d => d.BranchId)
+                    .HasConstraintName("FK_Payroll_Branch");
+
+                entity.HasOne(d => d.Expence)
+                    .WithMany(p => p.Payrolls)
+                    .HasForeignKey(d => d.ExpenceId)
+                    .HasConstraintName("FK_Payroll_Expence");
+
+                entity.HasOne(d => d.Settings)
+                    .WithMany(p => p.Payrolls)
+                    .HasForeignKey(d => d.SettingsId)
+                    .HasConstraintName("FK_Payroll_Settings");
+            });
+
+            modelBuilder.Entity<PayrollDetail>(entity =>
+            {
+                entity.HasKey(e => e.PayrollDetailsId);
+
+                entity.Property(e => e.PayrollDetailsId).HasColumnName("PayrollDetailsID");
+
+                entity.Property(e => e.AdvancedAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.BaseSalary).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.IncentiveAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.OverTimeAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PayableSalary).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.PayrollId).HasColumnName("PayrollID");
+
+                entity.Property(e => e.SalaryId).HasColumnName("SalaryID");
+
+                entity.HasOne(d => d.Employe)
+                    .WithMany(p => p.PayrollDetails)
+                    .HasForeignKey(d => d.EmployeId)
+                    .HasConstraintName("FK_PayrollDetails_Employe");
+
+                entity.HasOne(d => d.Payroll)
+                    .WithMany(p => p.PayrollDetails)
+                    .HasForeignKey(d => d.PayrollId)
+                    .HasConstraintName("FK_PayrollDetails_Payroll");
+
+                entity.HasOne(d => d.Salary)
+                    .WithMany(p => p.PayrollDetails)
+                    .HasForeignKey(d => d.SalaryId)
+                    .HasConstraintName("FK_PayrollDetails_salary");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -483,13 +614,11 @@ namespace vms.entity.models
 
                 entity.Property(e => e.SalaryId).HasColumnName("SalaryID");
 
+                entity.Property(e => e.BaseSalary).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.DeactiveDate).HasColumnType("date");
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
-
-                entity.Property(e => e.JoingDate).HasColumnType("date");
-
-                entity.Property(e => e.SalaryAmount).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Employe)
                     .WithMany(p => p.Salaries)
