@@ -392,7 +392,7 @@ namespace Inventory.Controllers
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
                 return View(barCode);
             }
-            ViewBag.Price = salesPRice.Amount;
+            ViewBag.Price = salesPRice.SaleAmount;
             ViewBag.SaleCode = salesPRice.Product.Code;
             ViewBag.NumberOfBarCode = barCode.Value;
             ViewBag.Flag = true;
@@ -428,6 +428,19 @@ namespace Inventory.Controllers
            
             return View(barCode);
 
+        }
+        public async Task<JsonResult> PurchaseProductAutoComplete(string filterText)
+        {
+            //var organizationId = _session.OrganizationId;
+            var productList = await _PriceService.Query().Include(c=>c.Product.Vat).Where(c=>c.IsActive==true && c.Product.IsActive==true && c.Product.Name.Contains(filterText)).SelectAsync(CancellationToken.None);
+            // var product = await _productVatService.Query().Include(c => c.Product).Include(c => c.Product.PriceSetups).Include(c => c.ProductVattype).Where(c => c.Product.Name.Contains(filterText) && c.Product.OrganizationId == organizationId).SelectAsync(CancellationToken.None);
+            return new JsonResult(productList.Select(x => new
+            {
+                Id = x.ProductId,
+                Name = x.Product.Name,
+                UnitPrice = x.PurchaseAmount,
+                Vat = x.Product.Vat.Percentage
+            }).ToList());
         }
     }
 }

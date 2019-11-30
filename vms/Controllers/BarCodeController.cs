@@ -53,7 +53,7 @@ namespace Inventory.Controllers
             {
                 return View();
             }
-            ViewBag.Price = salesPRice.Amount;
+            ViewBag.Price = salesPRice.SaleAmount;
             ViewBag.SaleCode = salesPRice.Product.Code;
             ViewBag.NumberOfBarCode = barCode.Value;
             ViewBag.Flag = true;

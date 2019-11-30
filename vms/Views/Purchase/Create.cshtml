@@ -6,7 +6,7 @@
 <input type="hidden" class="form-control" id="ProductId" name="ProductId" />
 
 <div class="custom-page-title">
-    Purchase 
+    Purchase
 </div>
 <form method="post">
     <div class="row">
@@ -20,7 +20,7 @@
                         <label>Vendor  </label>
                     </div>
                 </div>
-        
+
                 <div class="col-md-3">
                     <div class="form-group form-md-line-input has-info">
                         <input type="text" class="form-control" id="VendorInvoiceNo" name="VendorInvoiceNo" placeholder="#">
@@ -41,7 +41,7 @@
                         <label>Disc.Total</label>
                     </div>
                 </div>
-  
+
             </div>
         </div>
 
@@ -134,10 +134,6 @@
                         <th style="width:100px">Amount</th>
                         <th style="width:100px">Discount</th>
                         <th style="width:150px">Price</th>
-                
-                        <th>VAT(%)</th>
-                        <th>VAT</th>
-                        <th>Total</th>
                         <th>
 
                         </th>
@@ -152,22 +148,16 @@
                             <input type="text" class="form-control" id="item" name="item">
                         </td>
                         <td class="form-group form-md-line-input has-info">
-                            <input class="form-control" id="amount" name="amount"/></td>
+                            <input class="form-control" id="amount" name="amount" readonly="readonly"/>
+                            @*<input type="text" class="form-control" id="amount" name="amount">*@
+                        </td>
                         <td class="form-group form-md-line-input has-info">
                             <input type="text" class="form-control" id="DiscountPerItem" value="0" name="DiscountPerItem" />
                         </td>
-                     
+
                         <td><label id="Amount" name="Amount" /></td>
 
-                        <td class="form-group form-md-line-input has-info">
-                            <label id="VAT" name="VAT"/>
-                        </td>
-                        <td>
-                            <label id="vatValue" name="vatValue"></label>
-                        </td>
-                        <td>
-                            <label id="totalValue" name="totalValue"></label>
-                        </td>
+               
                         <td>
                             <a id="add" class="" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -180,8 +170,6 @@
                 <tfoot>
                     <tr>
                         <td colspan="9">Total</td>
-
-                        <td colspan="1"><label id="TotalVat" name="TotalVat" /></td>
 
                         <td><label id="TotalPrice" name="TotalPrice" /></td>
 
@@ -218,8 +206,9 @@
             PurchasePaymenJson:[],
             item: [],
             calculateTotal: function () {
+                
                 var vatPercent = $('#VAT').text();
-                var unitAmount = $('#amount').val();
+                var unitAmount = $('#Amount').text();
                 var vatValue = parseFloat(unitAmount);
                 var vat = parseFloat(vatPercent) / 100;
                 vatValue = vatValue * (vat);
@@ -296,7 +285,7 @@
                 $('#TotalVat').text(purchasOrder.totalVat);
             },
             add: function () {
-
+                debugger
                 var productName = $('#Product').val();
                 var productId = $('#ProductId').val();
                 var item = $('#item').val();
@@ -332,10 +321,6 @@
                     }
                     if (canAdd) {
 
-                        if (!purchasOrder.isNumber(vatPercent)) {
-                            return alert("Input VAT %");
-                        }
-
                         var vat = parseFloat(vatPercent)/100;
                         var data = new Object();
                         //PurchaseDetails
@@ -343,19 +328,10 @@
                         data.Quantity = item;
                         data.UnitPrice = unitAmount;
                         data.DiscountPerItem = DiscountPerItem;
-                        data.SupplementaryDutyPercent = SupplementaryDutyPercent;
-                        data.VATPercent = vatPercent;
-                        data.MeasurementUnitId = unitId;
-                        var vatValue = parseFloat(amount);
-                        vatValue = vatValue * (vat);
-                        var total = parseFloat(amount) + vatValue;
-                        data.total = total;
-                        data.vatValue = vatValue;
+                      
+                        data.total = unitAmount;
                         purchasOrder.PurchaseOrderDetailList.push(data);
-                        if (IsVatDeductedInSource) {
-                            var previousAmount = parseFloat(VDSAmount);
-                            $('#VDSAmount').val(vatValue + previousAmount)
-                        }
+                       
                         var html = '<tr id="' +
                             data.ProductId +
                             '">' +
@@ -374,26 +350,11 @@
                             '<td>' +
                             DiscountPerItem +
                             '</td>' +
-                            '<td>' +
-                            unit +
-                            '</td>' +
+                          
                             '<td>' +
                             unitAmount +
                             '</td>' +
 
-                            '<td>' +
-                            SupplementaryDutyPercent +
-                            '</td>' +
-                            '<td>' +
-                            vatPercent +
-                            '</td>' +
-                            '<td>' +
-                            vatValue +
-                            '</td>' +
-
-                            '<td>' +
-                            total +
-                            '</td>' +
                             '<td><span onclick="Delete(' +
                             data.ProductId +
                             ')"  class="glyphicon glyphicon-minus btn-xs"></a></span></td>';
@@ -401,7 +362,7 @@
                         html += '</tr>';
 
                         $("table#gridTable > tbody").append(html);
-                        purchasOrder.CalculateTotalPriceAndVat(total, vatValue);
+                        //purchasOrder.CalculateTotalPriceAndVat(total, vatValue);
                         purchasOrder.gridTableEmpty();
                         purchasOrder.count++;
 
@@ -506,7 +467,7 @@
                 for (var key in purchasOrder.PurchaseOrderDetailList) {
                     var value = purchasOrder.PurchaseOrderDetailList[key].ProductId;
                     if (purchasOrder.PurchaseOrderDetailList[key].ProductId == id) {
-                        purchasOrder.CalculateTotalPriceAndVat(-purchasOrder.PurchaseOrderDetailList[key].total, -purchasOrder.PurchaseOrderDetailList[key].vatValue);
+                       // purchasOrder.CalculateTotalPriceAndVat(-purchasOrder.PurchaseOrderDetailList[key].total, -purchasOrder.PurchaseOrderDetailList[key].vatValue);
                     }
                 }
                 $.each(purchasOrder.PurchaseOrderDetailList,
@@ -558,7 +519,7 @@
                 } else {
                     //unitAmount = unitAmount * value;
                     //$('#amount').val(unitAmount );
-                    $("#Amount").text(unitAmount / value);
+                    $("#Amount").text(unitAmount * value);
                     purchasOrder.calculateTotal();
                 }
 
@@ -715,7 +676,7 @@
                                     $("#ProductId").val(datum.id);
                                     $('#Amount').text(datum.unitPrice);
                                      $('#item').val('1');
-                                    $('#amount').val('0');
+                                    $('#amount').val(datum.unitPrice);
                                     $('#SupplementaryDutyPercent').val(datum.supplimentaryDuty);
                                     if (purchasOrder.typeId == 3) {
                                         $('#VAT').text('0');
