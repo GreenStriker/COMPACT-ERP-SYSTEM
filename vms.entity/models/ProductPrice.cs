@@ -8,7 +8,8 @@ namespace vms.entity.models
     {
         public int PriceId { get; set; }
         public int? ProductId { get; set; }
-        public decimal? Amount { get; set; }
+        public decimal? PurchaseAmount { get; set; }
+        public decimal? SaleAmount { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public bool? IsActive { get; set; }

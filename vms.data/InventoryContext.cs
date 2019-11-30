@@ -391,15 +391,15 @@ namespace vms.entity.models
 
                 entity.Property(e => e.PriceId).HasColumnName("priceId");
 
-                entity.Property(e => e.Amount)
-                    .HasColumnName("amount")
-                    .HasColumnType("decimal(18, 2)");
-
                 entity.Property(e => e.EfectiveFrom).HasColumnType("date");
 
                 entity.Property(e => e.EfectiveTo).HasColumnType("date");
 
                 entity.Property(e => e.ProductId).HasColumnName("productId");
+
+                entity.Property(e => e.PurchaseAmount).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.SaleAmount).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductPrices)
