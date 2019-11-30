@@ -767,11 +767,15 @@ namespace vms.entity.models
 
                 entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
 
+                entity.Property(e => e.AdvanceSalaryPercentage).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.IncentiveRetion).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.IsattendenceCount).HasColumnName("ISAttendenceCount");
 
                 entity.Property(e => e.IsrewardPoitCount).HasColumnName("ISRewardPoitCount");
+
+                entity.Property(e => e.OverTimeRatio).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.RewardPointRethio).HasColumnType("decimal(18, 2)");
             });
