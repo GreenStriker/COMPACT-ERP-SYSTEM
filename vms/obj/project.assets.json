@@ -28,6 +28,15 @@
           "lib/netstandard2.0/Dapper.dll": {}
         }
       },
+      "FSharp.Data/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/FSharp.Data.dll": {}
+        },
+        "runtime": {
+          "lib/net40/FSharp.Data.dll": {}
+        }
+      },
       "JetBrains.Annotations/2019.1.3": {
         "type": "package",
         "compile": {
@@ -56,6 +65,20 @@
         "type": "package",
         "dependencies": {
           "Microsoft.jQuery.Unobtrusive.Validation": "2.0.20613"
+        }
+      },
+      "LiveReload.NET/1.0.3": {
+        "type": "package",
+        "dependencies": {
+          "FSharp.Data": "(, )",
+          "Newtonsoft.JSON": "(, )",
+          "vtortola.WebSocketListener": "(, )"
+        },
+        "compile": {
+          "lib/net45/LiveReload.NET.dll": {}
+        },
+        "runtime": {
+          "lib/net45/LiveReload.NET.dll": {}
         }
       },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
@@ -114,7 +137,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll": {}
         }
       },
-      "Microsoft.AspNetCore.App/2.1.12": {
+      "Microsoft.AspNetCore.App/2.1.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "[5.2.6, 5.3.0)",
@@ -205,7 +228,7 @@
           "Microsoft.AspNetCore.SignalR.Common": "[1.0.4, 1.1.0)",
           "Microsoft.AspNetCore.SignalR.Core": "[1.0.4, 1.1.0)",
           "Microsoft.AspNetCore.SignalR.Protocols.Json": "[1.0.4, 1.1.0)",
-          "Microsoft.AspNetCore.SpaServices": "[2.1.1, 2.2.0)",
+          "Microsoft.AspNetCore.SpaServices": "[2.1.13, 2.2.0)",
           "Microsoft.AspNetCore.SpaServices.Extensions": "[2.1.1, 2.2.0)",
           "Microsoft.AspNetCore.StaticFiles": "[2.1.1, 2.2.0)",
           "Microsoft.AspNetCore.WebSockets": "[2.1.7, 2.2.0)",
@@ -1488,7 +1511,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.SignalR.Protocols.Json.dll": {}
         }
       },
-      "Microsoft.AspNetCore.SpaServices/2.1.1": {
+      "Microsoft.AspNetCore.SpaServices/2.1.13": {
         "type": "package",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.TagHelpers": "2.1.1",
@@ -2481,11 +2504,11 @@
           "lib/netstandard2.0/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Microsoft.NETCore.App/2.1.12": {
+      "Microsoft.NETCore.App/2.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostPolicy": "2.1.12",
-          "Microsoft.NETCore.Platforms": "2.1.5",
+          "Microsoft.NETCore.DotNetHostPolicy": "2.1.13",
+          "Microsoft.NETCore.Platforms": "2.1.6",
           "Microsoft.NETCore.Targets": "2.0.0",
           "NETStandard.Library": "2.0.3"
         },
@@ -2639,19 +2662,19 @@
           "build/netcoreapp2.1/Microsoft.NETCore.App.targets": {}
         }
       },
-      "Microsoft.NETCore.DotNetAppHost/2.1.12": {
+      "Microsoft.NETCore.DotNetAppHost/2.1.13": {
         "type": "package"
       },
-      "Microsoft.NETCore.DotNetHostPolicy/2.1.12": {
+      "Microsoft.NETCore.DotNetHostPolicy/2.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetHostResolver": "2.1.12"
+          "Microsoft.NETCore.DotNetHostResolver": "2.1.13"
         }
       },
-      "Microsoft.NETCore.DotNetHostResolver/2.1.12": {
+      "Microsoft.NETCore.DotNetHostResolver/2.1.13": {
         "type": "package",
         "dependencies": {
-          "Microsoft.NETCore.DotNetAppHost": "2.1.12"
+          "Microsoft.NETCore.DotNetAppHost": "2.1.13"
         }
       },
       "Microsoft.NETCore.Platforms/3.0.0": {
@@ -2670,6 +2693,15 @@
         },
         "runtime": {
           "lib/netstandard1.0/_._": {}
+        }
+      },
+      "Microsoft.Tpl.Dataflow/4.5.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/System.Threading.Tasks.Dataflow.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Threading.Tasks.Dataflow.dll": {}
         }
       },
       "Microsoft.VisualStudio.Web.CodeGeneration/2.1.10": {
@@ -4831,6 +4863,18 @@
           "lib/netstandard2.0/URF.Core.Services.dll": {}
         }
       },
+      "vtortola.WebSocketListener/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Tpl.Dataflow": "4.5.9"
+        },
+        "compile": {
+          "lib/net45/vtortola.WebSockets.dll": {}
+        },
+        "runtime": {
+          "lib/net45/vtortola.WebSockets.dll": {}
+        }
+      },
       "X.PagedList/7.6.0": {
         "type": "package",
         "dependencies": {
@@ -4966,7 +5010,7 @@
   },
   "libraries": {
     "bootstrap/3.0.0": {
-      "sha512": "U9BwUwZs3IykigVUouyEWUzs/P0gjgLgjuZJ3OHoAKcgNdbHH7ryZtRpgp4e7uMr4CjLIECcTIxF25zBGJjR3g==",
+      "sha512": "d1JUd1ZjfbhGGTxjBSjCLIV+O//hZDcvI0hnaeTL3VHAD+6Z89vgPwV0K/nmPM4hZKq172iPV55lCSpohT6WmA==",
       "type": "package",
       "path": "bootstrap/3.0.0",
       "files": [
@@ -5009,7 +5053,7 @@
       ]
     },
     "Dapper/1.60.6": {
-      "sha512": "ZqK3znlm8dapfO8M0vCgV5+wJrl5Uv00WYmj27wQ6zufSLcklVNJ2fdVMUj59o89p+lmRD6QivTRe0Gdfm6UAQ==",
+      "sha512": "mmnJNhKMeF2KhvVXDoVQlFxre8aJAo71YBJrKqFlvuqzYC2QiXUq94/GCDBJzU7paq4GqpkV2glw3308TcGibw==",
       "type": "package",
       "path": "dapper/1.60.6",
       "files": [
@@ -5023,6 +5067,19 @@
         "lib/netstandard1.3/Dapper.xml",
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml"
+      ]
+    },
+    "FSharp.Data/1.0.0": {
+      "sha512": "o86q+3SECUEmneM1HlfrQDcu+xCDN4vwj5pr919uFk9kKUoI0P5QlkBkUFOCw8lhL7rESYcH6XWUIgA5DtjmdA==",
+      "type": "package",
+      "path": "fsharp.data/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fsharp.data.1.0.0.nupkg.sha512",
+        "fsharp.data.nuspec",
+        "lib/net40/FSharp.Data.dll",
+        "lib/net40/FSharp.Data.pdb"
       ]
     },
     "JetBrains.Annotations/2019.1.3": {
@@ -5047,7 +5104,7 @@
       ]
     },
     "jQuery/3.4.1": {
-      "sha512": "r/cbTa9g145W7vnKHO43YEBPIhURzsA8oRlt/0Zvo9t6MmjgCewfdf8+9w7B1S+gI0UZMwdWzBLG7OvzkVSRIQ==",
+      "sha512": "vDD5O2nuVN2rF0rTASFSJNM5ef50niEP5HsXDQyXPPZH1rBaAaLtCutHG5wvXOPmrQw+MEZHOcOk9kYmdnL/Xw==",
       "type": "package",
       "path": "jquery/3.4.1",
       "hasTools": true,
@@ -5070,7 +5127,7 @@
       ]
     },
     "jQuery.UI.Combined/1.12.1": {
-      "sha512": "lm5zM0cuosG5U795wjKW30S5W3h43OCjwIHzDc39xP96An/Ngm4DAHyFcdNZ3Bp6O5+4rxphoxbts4DMXm4P1Q==",
+      "sha512": "5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ==",
       "type": "package",
       "path": "jquery.ui.combined/1.12.1",
       "hasTools": true,
@@ -5152,6 +5209,20 @@
         "jquery.validation.unobtrusive.nuspec"
       ]
     },
+    "LiveReload.NET/1.0.3": {
+      "sha512": "9mGSsDug5HV5ZyhaIWjabCm6pt3S8gC5Tu9p6WqwtcMrDqHOPBUw26bKuB3dzO5CGpJjCzovFy8EouPhoh838g==",
+      "type": "package",
+      "path": "livereload.net/1.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/LiveReload.NET.dll",
+        "lib/net45/LiveReload.NET.pdb",
+        "lib/net45/LiveReload.NET.xml",
+        "livereload.net.1.0.3.nupkg.sha512",
+        "livereload.net.nuspec"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",
@@ -5195,17 +5266,17 @@
         "microsoft.aspnetcore.antiforgery.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.App/2.1.12": {
-      "sha512": "z1bZfW12U4lVR4kBbaHts3FYfVm6frepmZdvxF/jc3+3h8UD0INPtVrXtZ57sDiNwuMtHHS8emAnRmgliZVpGQ==",
+    "Microsoft.AspNetCore.App/2.1.13": {
+      "sha512": "c93EcBxFBaC4tLRLJ8q9ELw08bMlTfGyyxX5iRwoo8g4gBzU1zsKWjKSGEHOZ75c2AS+uLso/z0We3up/WdneQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.app/2.1.12",
+      "path": "microsoft.aspnetcore.app/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/netcoreapp2.1/Microsoft.AspNetCore.App.props",
         "build/netcoreapp2.1/Microsoft.AspNetCore.App.targets",
         "lib/netcoreapp2.1/_._",
-        "microsoft.aspnetcore.app.2.1.12.nupkg.sha512",
+        "microsoft.aspnetcore.app.2.1.13.nupkg.sha512",
         "microsoft.aspnetcore.app.nuspec"
       ]
     },
@@ -6351,16 +6422,15 @@
         "microsoft.aspnetcore.signalr.protocols.json.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.SpaServices/2.1.1": {
-      "sha512": "pPQr67lzfZzLEk4UXw4Y3zQZrrh3drsnB223q5citrB9y0QualC7Oqpmq3Vq48nsaTBnwYPM5IoEOlWL5gYmPg==",
+    "Microsoft.AspNetCore.SpaServices/2.1.13": {
+      "sha512": "1ilq+NDd7KeNGiato+FAC1+ogOAegzqBFYybJTDGgrComwjFOswLcrN/S8BpGegGbXRUeChiAuitfc0ZRW5wOg==",
       "type": "package",
-      "path": "microsoft.aspnetcore.spaservices/2.1.1",
+      "path": "microsoft.aspnetcore.spaservices/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/netstandard2.0/Microsoft.AspNetCore.SpaServices.dll",
-        "lib/netstandard2.0/Microsoft.AspNetCore.SpaServices.xml",
-        "microsoft.aspnetcore.spaservices.2.1.1.nupkg.sha512",
+        "microsoft.aspnetcore.spaservices.2.1.13.nupkg.sha512",
         "microsoft.aspnetcore.spaservices.nuspec"
       ]
     },
@@ -7422,10 +7492,10 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
-    "Microsoft.NETCore.App/2.1.12": {
-      "sha512": "oVeSsnIqzD0VuS3xoZRA1SAfq/aLscEy12TaeIP5H6FIOBo9Ta1sMkyc7Pj3ZDJz3fsWeYf/4fR5Ft8Y+oqdzg==",
+    "Microsoft.NETCore.App/2.1.13": {
+      "sha512": "oB/yobEiuhNDI5M6Lr52vlyWFbwIumLK6sqaOZ4pLe7jR1w5nBjoFXhrBJOr/EWqu8DNraaquTkhN/EaOib62g==",
       "type": "package",
-      "path": "microsoft.netcore.app/2.1.12",
+      "path": "microsoft.netcore.app/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7435,7 +7505,7 @@
         "build/netcoreapp2.1/Microsoft.NETCore.App.PlatformManifest.txt",
         "build/netcoreapp2.1/Microsoft.NETCore.App.props",
         "build/netcoreapp2.1/Microsoft.NETCore.App.targets",
-        "microsoft.netcore.app.2.1.12.nupkg.sha512",
+        "microsoft.netcore.app.2.1.13.nupkg.sha512",
         "microsoft.netcore.app.nuspec",
         "ref/netcoreapp/_._",
         "ref/netcoreapp2.1/Microsoft.CSharp.dll",
@@ -7688,44 +7758,44 @@
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetAppHost/2.1.12": {
-      "sha512": "bjRuqLIp7JLORwwH5PTZOKIozs68ulLLcSMRcTmOymOqV35PFE+VE6M2SmR6OQsxG0ViIuxM1YwQdYwlIzG3cQ==",
+    "Microsoft.NETCore.DotNetAppHost/2.1.13": {
+      "sha512": "V2S2OlQnSh5/aWhfVip9UuIBCaz45AeOpmeiqO9Kf+9mtWhcCSRX3WbqQ9529IIbOsUFhLPqRnDE+mfWO9chWw==",
       "type": "package",
-      "path": "microsoft.netcore.dotnetapphost/2.1.12",
+      "path": "microsoft.netcore.dotnetapphost/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnetapphost.2.1.12.nupkg.sha512",
+        "microsoft.netcore.dotnetapphost.2.1.13.nupkg.sha512",
         "microsoft.netcore.dotnetapphost.nuspec",
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetHostPolicy/2.1.12": {
-      "sha512": "A1tafTgEtO7yLIst4n7PrZJtqyc25JHEPII5/2tTIqTymaUA8p8wun9SpwX0dTYxcQbQmfK2yp402kuHU3oVcQ==",
+    "Microsoft.NETCore.DotNetHostPolicy/2.1.13": {
+      "sha512": "0B8AmWJe3pL1lOM8cIfkQ0VwsZ9sd03EjBsdM64enVi7Ufrc+B7yjnBlUFIXzCfzoHL4BLYKxbYI8fnKQ02pRA==",
       "type": "package",
-      "path": "microsoft.netcore.dotnethostpolicy/2.1.12",
+      "path": "microsoft.netcore.dotnethostpolicy/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnethostpolicy.2.1.12.nupkg.sha512",
+        "microsoft.netcore.dotnethostpolicy.2.1.13.nupkg.sha512",
         "microsoft.netcore.dotnethostpolicy.nuspec",
         "runtime.json"
       ]
     },
-    "Microsoft.NETCore.DotNetHostResolver/2.1.12": {
-      "sha512": "S7trRhPhQ/O+ZapKoKyjmiveC78yUAQ1usE3qsVT2W9NfI1Hk04aIwDwmio9GWNqUljXzCbK+B7h9CQe5GPJMQ==",
+    "Microsoft.NETCore.DotNetHostResolver/2.1.13": {
+      "sha512": "dyG06+WY38ite0ObF6TBZN9Vivbgd7Isdd5lwb5rmsGfPdKdLGv/5ZdM7QP+YHV7pjEQD2Ee3EU+RNhkfV8Ptw==",
       "type": "package",
-      "path": "microsoft.netcore.dotnethostresolver/2.1.12",
+      "path": "microsoft.netcore.dotnethostresolver/2.1.13",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "microsoft.netcore.dotnethostresolver.2.1.12.nupkg.sha512",
+        "microsoft.netcore.dotnethostresolver.2.1.13.nupkg.sha512",
         "microsoft.netcore.dotnethostresolver.nuspec",
         "runtime.json"
       ]
@@ -7761,6 +7831,25 @@
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Microsoft.Tpl.Dataflow/4.5.9": {
+      "sha512": "5x4N9xkspvznAyVZS7nseuXEsrqQJ/Q5SyvVMBvzOoEniZQwOEGMbmqBM6h6GLcNGsNNxvKJgOqyR88tib02Aw==",
+      "type": "package",
+      "path": "microsoft.tpl.dataflow/4.5.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.rtf",
+        "ReleaseNotes.txt",
+        "lib/net45/System.Threading.Tasks.Dataflow.dll",
+        "lib/net45/system.threading.tasks.dataflow.xml",
+        "lib/netcore45/System.Threading.Tasks.Dataflow.dll",
+        "lib/netcore45/system.threading.tasks.dataflow.xml",
+        "lib/portable-net45+win8/System.Threading.Tasks.Dataflow.dll",
+        "lib/portable-net45+win8/system.threading.tasks.dataflow.xml",
+        "microsoft.tpl.dataflow.4.5.9.nupkg.sha512",
+        "microsoft.tpl.dataflow.nuspec"
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.10": {
@@ -8224,7 +8313,7 @@
       ]
     },
     "Newtonsoft.Json/12.0.2": {
-      "sha512": "mtweBXPWhp1CMQATtBT7ZfMZrbZBTKfjGwz6Y75NwGjx/GztDaUnfw8GK9KZ2T4fDIqKJyDjc9Rxlw5+G2FcVA==",
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
       "type": "package",
       "path": "newtonsoft.json/12.0.2",
       "files": [
@@ -9103,7 +9192,7 @@
       ]
     },
     "System.Data.SqlClient/4.6.1": {
-      "sha512": "u980l3uFvJ3N/Hin95Po9wn3zzKMvogu/ZnrOZWM/lsMjEatFPXWbxN+coTMeEFUewsopy5xOP8rZD5oXcAZkA==",
+      "sha512": "7MTJhBFt4/tSJ2VRpG+TQNPcDdbCnWuoYzbe0kD5O3mQ7aZ2Q+Q3D9Y5Y3/aper5Gp3Lrs+8edk9clvxyPYXPw==",
       "type": "package",
       "path": "system.data.sqlclient/4.6.1",
       "files": [
@@ -10298,7 +10387,7 @@
       ]
     },
     "System.Linq.Queryable/4.3.0": {
-      "sha512": "wdbQgzMijyDkBQySuqYnDcK/V70V6KIUUQdXpkXShHbgQRn0bn9wY3ar0VnsDwCcwu8ig6XBrpC2EU2xK+TuQg==",
+      "sha512": "In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
       "type": "package",
       "path": "system.linq.queryable/4.3.0",
       "files": [
@@ -11026,7 +11115,7 @@
       ]
     },
     "System.Reflection.TypeExtensions/4.4.0": {
-      "sha512": "BWYdrACMy1Sbq7Kh1oISS+2qKX1dHhXNpRByG3c6M9i2fhU9BZqO3nFYIabmbZuQwd7svR5zfxNHgmgv2XkkIg==",
+      "sha512": "dkmh/ySlwnXJp/1qYP9uyKkCK1CXR/REFzl7abHcArxBcV91mY2CgrrzSRA5Z/X4MevJWwXsklGRdR3A7K9zbg==",
       "type": "package",
       "path": "system.reflection.typeextensions/4.4.0",
       "files": [
@@ -13144,7 +13233,7 @@
       ]
     },
     "TrackableEntities.Common.Core/1.1.0": {
-      "sha512": "2ZHeDEHhQhY4bj2/kWYH0InqmMcmzai8PZpVLrUwGtWzT4SuxsmRVCMik+VpnsCtUAuJNuYip7tBG6nGsgBTgQ==",
+      "sha512": "knSTiqer2Lff+Q2jq1FSmkbPBTyy34Q5cuGtJWuH+tc6GR1WBWqfs+zOerSyn/jLi4eQ4PfCrIvKqYnjqxu4Rw==",
       "type": "package",
       "path": "trackableentities.common.core/1.1.0",
       "files": [
@@ -13157,7 +13246,7 @@
       ]
     },
     "TrackableEntities.EF.Core/1.1.0": {
-      "sha512": "NCd1sNP0+AyK2pMn2+Lo9PpmldKCZ1sQrzB9m3NvlEufdv8TIT/RLepZT+0XkyJf2Q92tTOmiUTPLIiexrnGAQ==",
+      "sha512": "oVaF6bB0Q4XhNALaCCNmbGSkZDyNBnXv3WQnv7YhcYM8sTTnN+RllEUPciI3hStmSjmOX61IjGDWFcodcMn4ig==",
       "type": "package",
       "path": "trackableentities.ef.core/1.1.0",
       "files": [
@@ -13170,7 +13259,7 @@
       ]
     },
     "Twitter.Typeahead/0.10.0": {
-      "sha512": "NHZ5IBX7hcD9ztmAsvbLr0efm2a5Lb7rv8Ef69E6scosh5ir0iGBWum1YwhZbXisVS9+0AS81ibwUQuSIRLZZA==",
+      "sha512": "UInNTJACKxxSFbyd5S744+a0RlEQGbxQr1dmz1X9ZDwKsSG3CacTF/PH5FoJHHC29tvlXI7oLrSCHXFV28GlcA==",
       "type": "package",
       "path": "twitter.typeahead/0.10.0",
       "files": [
@@ -13185,7 +13274,7 @@
       ]
     },
     "typeahead.js-bootstrap.css/0.0.4": {
-      "sha512": "CI8C5DUhLMRaIkplgkFHyOqB+An56bSPepXqt8QvzYcyqOdDD5YETTrNjdIH5PkutFV8wJZv17dSpW6NNOB1wA==",
+      "sha512": "ePpcmGXS5g6ovxvxUjfK9bdiEoo2lLv4D7sZIOgddz4k7UqTmEaiUv+kp8C85F6NzYXNqwqKwTUd9kF/4akzUQ==",
       "type": "package",
       "path": "typeahead.js-bootstrap.css/0.0.4",
       "files": [
@@ -13197,7 +13286,7 @@
       ]
     },
     "URF.Core.Abstractions/1.1.0": {
-      "sha512": "FwGnPWRMwZEHrsm8Tvot8k2CW9E8DT9d2NvytpSH95phtAPHvwM0GXrSvc8wlIYEQElcoZEXvcmx/sQMUEmGNw==",
+      "sha512": "QYoX3rnoVppH9ovvxCIpWDzdHDfrjEQUT9AeJ+9uVTbJyNt9oEozA3l3J+lgpN+CBiPcUgYx09AeRowK1e9szQ==",
       "type": "package",
       "path": "urf.core.abstractions/1.1.0",
       "files": [
@@ -13209,7 +13298,7 @@
       ]
     },
     "URF.Core.Abstractions.Services/1.1.0": {
-      "sha512": "AxiLcTJprnSezqwQgh7+n0S8z6U+mb4R7g31SmawtLNXXAo6xG/qyXU66Oly+BJKvu4DFUh8eW+EFnNGk9nAfw==",
+      "sha512": "55uVkW5GcaOqNBdmQkCWHI96H/UQaHGvxIAZBeWRT+WT3l1ml+yUNetjfYSGC4FjnFl37wysRBaxgz+p/5doSA==",
       "type": "package",
       "path": "urf.core.abstractions.services/1.1.0",
       "files": [
@@ -13221,7 +13310,7 @@
       ]
     },
     "URF.Core.Abstractions.Trackable/1.1.0": {
-      "sha512": "5xyo5xHASEtLYVFU6XdbGIaC4ycRoWMD/kB2Z2cqdgDmAebmBw+h8cqTO6bQ//oWCckRt7byprDFS1ERJS35fA==",
+      "sha512": "ax60hY92j3UcVBiQl0YDPP7jilD6XwXvCZGZwWYYQWEbV5Rx7krANwk7v6d63/oNcF6TTtjZ+ipZNPqCChVekQ==",
       "type": "package",
       "path": "urf.core.abstractions.trackable/1.1.0",
       "files": [
@@ -13233,7 +13322,7 @@
       ]
     },
     "URF.Core.EF/1.1.0": {
-      "sha512": "agsBsliMCpkt3yhQ3mfi8J7ykx/kDWfaqvjqKuxoEeRoy3HZQVQUQRhzIOLsk0G1Vx81tIojOJ5AW4T32GT72g==",
+      "sha512": "uQCCmrN7rRn7OfQcL68JKQRBeSrdTTEUDpPO84v5BXvCGBs7zryZwxGUNkTZX5vXAY2t++AAPg2eGhwdLXx22w==",
       "type": "package",
       "path": "urf.core.ef/1.1.0",
       "files": [
@@ -13245,7 +13334,7 @@
       ]
     },
     "URF.Core.EF.Trackable/1.1.0": {
-      "sha512": "ysW22Jkp3rJeNvUjp1vli4t71Q5W7p3RutolZhF+idIxZ8PIFGL/nZluygMnSjH8FsHTWLcmNuhQ1Ie91gctAA==",
+      "sha512": "u3hbxazyeZB8kUuPOnJbOOzDm5tCWT1j/3Ww7Urd35Y3sicvGx0FQFWpIZc/1mAeTVfFzEYR8X0jpTIkiR40Jw==",
       "type": "package",
       "path": "urf.core.ef.trackable/1.1.0",
       "files": [
@@ -13257,7 +13346,7 @@
       ]
     },
     "URF.Core.Services/1.1.0": {
-      "sha512": "in0eBXPtDDFvj1++NgerNK5l4fa6IqeTU2LoYB2xx9nguddE6ephnxT4ujLV+iaF6HyBxXtbLweCcLtSrwsRtg==",
+      "sha512": "mXDzMBbvJsylpHjz0nnyaQpXP+EY4cTFgkKpfHMy0vbAW6V3FJxE1bd4fGXO6aRb4QfPELy223sFy/0jJ/dyVg==",
       "type": "package",
       "path": "urf.core.services/1.1.0",
       "files": [
@@ -13268,8 +13357,22 @@
         "urf.core.services.nuspec"
       ]
     },
+    "vtortola.WebSocketListener/1.0.0": {
+      "sha512": "9baFCVmV7I83HArtQJipNUsuwCmfXDSWzcJ00+ev6JsqCsQ2TRJ0BJoknMyCPHAKq2wgUJncWAmyL7rrQyFThw==",
+      "type": "package",
+      "path": "vtortola.websocketlistener/1.0.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/vtortola.WebSockets.dll",
+        "tools/install.ps1",
+        "vtortola.websocketlistener.1.0.0.nupkg.sha512",
+        "vtortola.websocketlistener.nuspec"
+      ]
+    },
     "X.PagedList/7.6.0": {
-      "sha512": "JZiNGeQKLQl6MgJynKK4UTtrwQLpQtRO7VSkdlv1x3P4hMu7UWdgGwqZCT7ddqbJdjjUvdsm4R6kpnUTWZ5ogw==",
+      "sha512": "T6uZsHSixuE1dZj9Dtl9RXAH8Okigu+Kr327XEBbAKYt5cYpv+NRU70cGvqKmkg5qYN0VAb+9YbZtjz9p0onXg==",
       "type": "package",
       "path": "x.pagedlist/7.6.0",
       "files": [
@@ -13284,7 +13387,7 @@
       ]
     },
     "X.PagedList.Mvc.Core/7.6.0": {
-      "sha512": "LGCVtN/bz3phZOuj8yMPmzUL6Ktznj3UBo9MS3Io/H/+AwHS4kZnF0Y3inAu6A1NAv4m2aP2U9dA1eiw6ljM3w==",
+      "sha512": "5fmLfdbnoIlitMdrXQ+a99xQinKNTq6HYo2GrML9MnM8dd99QqDWLzPWG7nBlki1dZIp4vO0f5JjVS1/JB2bJw==",
       "type": "package",
       "path": "x.pagedlist.mvc.core/7.6.0",
       "files": [
@@ -13342,10 +13445,11 @@
     ".NETCoreApp,Version=v2.1": [
       "BuildBundlerMinifier >= 2.9.406",
       "JetBrains.Annotations >= 2019.1.3",
-      "Microsoft.AspNetCore.App >= 2.1.12",
+      "LiveReload.NET >= 1.0.3",
+      "Microsoft.AspNetCore.App >= 2.1.13",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.AspNetCore.Session >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.12",
+      "Microsoft.NETCore.App >= 2.1.13",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.1.10",
       "System.Drawing.Common >= 4.6.1",
       "X.PagedList.Mvc.Core >= 7.6.0",
@@ -13362,25 +13466,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Moukh\\.nuget\\packages\\": {},
+    "D:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\personal\\New folder (3)\\MoneyMoney\\vms\\Inventory.csproj",
+      "projectUniqueName": "D:\\Project\\test\\MoneyMoney\\vms\\Inventory.csproj",
       "projectName": "Inventory",
-      "projectPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms\\Inventory.csproj",
-      "packagesPath": "C:\\Users\\mustafiz.rahman1645\\.nuget\\packages\\",
-      "outputPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms\\obj\\",
+      "projectPath": "D:\\Project\\test\\MoneyMoney\\vms\\Inventory.csproj",
+      "packagesPath": "C:\\Users\\Moukh\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\test\\MoneyMoney\\vms\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "D:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\mustafiz.rahman1645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Moukh\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -13394,17 +13496,17 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "E:\\personal\\New folder (3)\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
-              "projectPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.entity\\inventory.entity.csproj"
             },
-            "E:\\personal\\New folder (3)\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
-              "projectPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.ioc\\inventory.ioc.csproj"
             },
-            "E:\\personal\\New folder (3)\\MoneyMoney\\vms.service\\inventory.service.csproj": {
-              "projectPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms.service\\inventory.service.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.service\\inventory.service.csproj"
             },
-            "E:\\personal\\New folder (3)\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
-              "projectPath": "E:\\personal\\New folder (3)\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
+            "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj": {
+              "projectPath": "D:\\Project\\test\\MoneyMoney\\vms.utility\\inventory.utility.csproj"
             }
           }
         }
@@ -13426,10 +13528,14 @@
             "target": "Package",
             "version": "[2019.1.3, )"
           },
+          "LiveReload.NET": {
+            "target": "Package",
+            "version": "[1.0.3, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.12, )",
+            "version": "[2.1.13, )",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.Razor.Design": {
@@ -13442,8 +13548,9 @@
             "version": "[2.1.1, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.12, )",
+            "version": "[2.1.13, )",
             "autoReferenced": true
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
@@ -13484,14 +13591,50 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "LiveReload.NET 1.0.3 does not provide an inclusive lower bound for dependency FSharp.Data. An approximate best match of FSharp.Data 1.0.0 was resolved.",
+      "libraryId": "FSharp.Data",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "LiveReload.NET 1.0.3 does not provide an inclusive lower bound for dependency Newtonsoft.Json. An approximate best match of Newtonsoft.Json 3.5.8 was resolved.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "LiveReload.NET 1.0.3 does not provide an inclusive lower bound for dependency vtortola.WebSocketListener. An approximate best match of vtortola.WebSocketListener 1.0.0 was resolved.",
+      "libraryId": "vtortola.WebSocketListener",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
     {
       "code": "NU1603",
       "level": "Warning",
@@ -13506,7 +13649,47 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Zen.Barcode.Core 2.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "Package 'FSharp.Data 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "FSharp.Data",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'LiveReload.NET 1.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "LiveReload.NET",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Tpl.Dataflow 4.5.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Tpl.Dataflow",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'vtortola.WebSocketListener 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "libraryId": "vtortola.WebSocketListener",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Zen.Barcode.Core 2.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Zen.Barcode.Core",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"

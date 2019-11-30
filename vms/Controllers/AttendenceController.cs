@@ -101,7 +101,8 @@ namespace Inventory.Controllers
                 IEnumerable<SelectListItems> Employes = Employe.Where(c => c.IsActive == true && c.BranchId == _session.BranchId).Select(s => new SelectListItems
                 {
                     Id = s.EmployeId,
-                    Name = s.Name
+                    Name = s.Name,
+                    Present = 0,
                 });
 
 
@@ -136,43 +137,43 @@ namespace Inventory.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[HttpPost]
+        [HttpPost]
 
 
-        //public async Task<IActionResult> Create(Vat vat)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        vat.CreatedBy = _session.UserId;
-        //        vat.CreatedTime = DateTime.Now;
-        //        vat.EfectiveFrom = DateTime.Now;
+        public IActionResult Create(Atendence vat)
+        {
+            //    if (ModelState.IsValid)
+            //    {
+            //        vat.CreatedBy = _session.UserId;
+            //        vat.CreatedTime = DateTime.Now;
+            //        vat.EfectiveFrom = DateTime.Now;
 
-        //        vat.IsActive = true;
+            //        vat.IsActive = true;
 
-        //        _vatService.Insert(vat);
-        //        await UnitOfWork.SaveChangesAsync();
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //    return View(vat);
-        //}
+            //        _vatService.Insert(vat);
+            //        await UnitOfWork.SaveChangesAsync();
+            //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+            //        return RedirectToAction(nameof(Index));
+            //    }
+            //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+            //    return View(vat);
+            //}
 
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+            //public async Task<IActionResult> Edit(int? id)
+            //{
+            //    if (id == null)
+            //    {
+            //        return NotFound();
+            //    }
 
-        //    var exportType = await _vatService.Query()
-        //        .SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //    if (exportType == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(exportType);
-        //}
+            //    var exportType = await _vatService.Query()
+            //        .SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
+            //    if (exportType == null)
+            //    {
+            //        return NotFound();
+            //    }
+            return View(vat);
+        }
 
 
         //[HttpPost]

@@ -87,7 +87,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Atendence>(entity =>
             {
-                entity.ToTable("Atendence");
+                entity.ToTable("Atendence", "dbo");
 
                 entity.Property(e => e.AtendenceId).HasColumnName("AtendenceID");
 
@@ -104,6 +104,8 @@ namespace vms.entity.models
             modelBuilder.Entity<AttendenceDetail>(entity =>
             {
                 entity.HasKey(e => e.AttendenceDetailsId);
+
+                entity.ToTable("AttendenceDetails", "dbo");
 
                 entity.Property(e => e.AttendenceDetailsId).HasColumnName("AttendenceDetailsID");
 
@@ -233,7 +235,7 @@ namespace vms.entity.models
                     .HasColumnName("Alter_mobile")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.BanckAccountNo).HasMaxLength(10);
+                entity.Property(e => e.BanckAccountNo).HasMaxLength(50);
 
                 entity.Property(e => e.DeactiveDate).HasColumnType("date");
 
@@ -309,7 +311,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Incentive>(entity =>
             {
-                entity.ToTable("Incentive");
+                entity.ToTable("Incentive", "dbo");
 
                 entity.Property(e => e.IncentiveId).HasColumnName("IncentiveID");
 
@@ -398,7 +400,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Payroll>(entity =>
             {
-                entity.ToTable("Payroll");
+                entity.ToTable("Payroll", "dbo");
 
                 entity.Property(e => e.PayrollId).HasColumnName("PayrollID");
 
@@ -427,6 +429,8 @@ namespace vms.entity.models
             modelBuilder.Entity<PayrollDetail>(entity =>
             {
                 entity.HasKey(e => e.PayrollDetailsId);
+
+                entity.ToTable("PayrollDetails", "dbo");
 
                 entity.Property(e => e.PayrollDetailsId).HasColumnName("PayrollDetailsID");
 
@@ -660,6 +664,8 @@ namespace vms.entity.models
                 entity.Property(e => e.DeactiveDate).HasColumnType("date");
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
+
+                entity.Property(e => e.JoingDate).HasColumnType("date");
 
                 entity.HasOne(d => d.Employe)
                     .WithMany(p => p.Salaries)

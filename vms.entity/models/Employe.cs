@@ -21,7 +21,6 @@ namespace vms.entity.models
         public string Name { get; set; }
         public int? BranchId { get; set; }
         public string Address { get; set; }
-        public string BanckAccountNo { get; set; }
         public string Designation { get; set; }
         public string Nid { get; set; }
         public string Mobile { get; set; }
@@ -33,6 +32,7 @@ namespace vms.entity.models
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
+        public string BanckAccountNo { get; set; }
 
         public virtual Branch Branch { get; set; }
         public virtual ICollection<AdvancedSalary> AdvancedSalaries { get; set; }
