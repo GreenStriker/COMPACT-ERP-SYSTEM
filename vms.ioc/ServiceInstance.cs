@@ -143,10 +143,12 @@ namespace vms.ioc
             services.AddTransient<IOvertimeRepository, OvertimeRepository>();
             services.AddTransient<IOvertimeService, OvertimeService>();
 
-            //services.AddTransient<IAuditLogRepository, AuditLogRepository>();
-            //services.AddTransient<IAuditLogService, AuditLogService>();
-            //services.AddTransient<IOverHeadCostRepository, OverHeadCostRepository>();
-            //services.AddTransient<IOverHeadCostService, OverHeadCostService>();
+            services.AddTransient<IAtendenceRepository, AtendenceRepository>();
+            services.AddTransient<IAtendenceService, AtendenceService>();
+
+
+            services.AddTransient<IAttendenceDetailRepository, AttendenceDetailRepository>();
+            services.AddTransient<IAttendenceDetailService, AttendenceDetailService>();
 
             //services.AddTransient<IAuditOperationRepository, AuditOperationRepository>();
             //services.AddTransient<IAuditOperationService, AuditOperationService>();

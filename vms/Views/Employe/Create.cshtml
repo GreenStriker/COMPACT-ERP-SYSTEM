@@ -1,4 +1,4 @@
-﻿@model vms.entity.models.Employe
+﻿@model vms.entity.models.Salary
 
 @{
     ViewData["Title"] = "Create";
@@ -27,26 +27,36 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
+
+                                                Full Name:
                                                 <div class="input-group mg-b-pro-edt">
+
                                                     <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input asp-for="Name" class="form-control" placeholder="Branch Name" />
+                                                    <input asp-for="Employe.Name" class="form-control" placeholder="Branch Name" />
                                                 </div>
+                                                Address:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                                    <input asp-for="Address" class="form-control" placeholder="Address" />
+                                                    <input asp-for="Employe.Address" class="form-control" placeholder="Address" />
                                                 </div>
+                                                NID:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                                    <input asp-for="Nid" class="form-control" placeholder="Nid" />
+                                                    <input asp-for="Employe.Nid" class="form-control" placeholder="Nid" />
+                                                </div>
+                                                Salary:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                                                    <input asp-for="BaseSalary" class="form-control" placeholder="Salary" />
                                                 </div>
 
-
+                                                Gender:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
-                                                    <select asp-for="Gender" class="form-control" >
+                                                    <select asp-for="Employe.Gender" class="form-control">
                                                         <option>Male</option>
                                                         <option>Female</option>
-                                                        <option>Jahangir Bhai</option>
+                                                        <option>Others</option>
                                                     </select>
                                                 </div>
 
@@ -54,21 +64,31 @@
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
+
+                                                Designation:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
-                                                    <input asp-for="Designation" class="form-control" placeholder="Designation" />
+                                                    <input asp-for="Employe.Designation" class="form-control" placeholder="Designation" />
                                                 </div>
+                                                Account NO:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <input asp-for="Employe.BanckAccountNo" class="form-control" placeholder="BanckAccountNo" />
+                                                </div>
+                                                Mobile No:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                    <input asp-for="Mobile" class="form-control" placeholder=" Mobile Number" />
+                                                    <input asp-for="Employe.Mobile" class="form-control" placeholder=" Mobile Number" />
                                                 </div>
+                                                Alernate No:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                    <input asp-for="AlterMobile" class="form-control" placeholder="Alternate Mobile Number" />
+                                                    <input asp-for="Employe.AlterMobile" class="form-control" placeholder="Alternate Mobile Number" />
                                                 </div>
+                                                Email:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-ticket" aria-hidden="true"></i></span>
-                                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                                    <input asp-for="Employe.Email" class="form-control" placeholder="Email" />
                                                 </div>
 
                                             </div>
@@ -77,7 +97,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                             <div class="text-center mg-b-pro-edt custom-pro-edt-ds">
-                                                <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">
+                                                <button type="submit"   data-requiredconfirmation="true"  class="btn btn-primary waves-effect waves-light m-r-10">
                                                     Save
                                                 </button>
 

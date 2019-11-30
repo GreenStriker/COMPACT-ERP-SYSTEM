@@ -39,6 +39,7 @@ namespace vms.utility.StaticData
         public const string USER_AGENT = "User-Agent";
         public const string ERROR_CLASSNAME = "Error";
         public const string ERROR_Mobile = "Mobile Number Allready Excists";
+        public const string ERROR_month = "Month is Allready Closed";
         public const char AUDIT_OBJECT_TYPE_NAME = 's';
         public const string LIST_PRODUCTS = "Products";
         public const string EXCISE_DUTY = "ExciseDuty";

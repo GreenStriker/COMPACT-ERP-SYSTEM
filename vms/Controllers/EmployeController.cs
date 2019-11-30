@@ -21,42 +21,36 @@ namespace Inventory.Controllers
     public class EmployeController : ControllerBase
     {
         private readonly IEmployeService _service;
-        //private readonly IVatService _vatService;
+    
         private readonly ISalaryService _salaryService;
-        //private readonly IRightService _rightService;
+      
         private readonly IConfiguration _configuration;
-        //private readonly IOrganizationService _orgcConfiguration;
-        //private readonly IProductLogService _logService;
+
         public EmployeController(
             ControllerBaseParamModel controllerBaseParamModel,
             IEmployeService service,
-           // IVatService vatService,
-            //ISalaryService prodService,
+         
             ISalaryService salaryService
-            //IRightService rightService, 
-            //IOrganizationService orgcConfiguration
+           
             ) : base(controllerBaseParamModel)
         {
             _salaryService = salaryService;
             _service = service;
             _configuration = Configuration;
-            //_vatService = vatService;
-            //_prodService = prodService;
-            //_rightService = rightService;
-            //_orgcConfiguration = orgcConfiguration;
+        
         }
 
 
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data = await _service.Query().Where(x => x.IsActive == true).SelectAsync();
+            var data = await _salaryService.Query().Include(c=>c.Employe).Where(x => x.IsActive == true && x.Employe.IsActive==true).SelectAsync();
             string txt = search;
             //
             if (search != null)
             {
                 search = search.ToLower().Trim();
-                data = data.Where(c => c.Name.ToLower().Contains(search) || c.Address.ToString().Contains(search) || c.Mobile.ToString().Contains(search) || c.Nid.ToString().Contains(search) || c.JoiningDate.ToString().Contains(search));
+                data = data.Where(c => c.Employe.Name.ToLower().Contains(search) || c.Employe.Address.ToString().Contains(search) || c.Employe.Mobile.ToString().Contains(search) || c.Employe.Nid.ToString().Contains(search) || c.Employe.JoiningDate.ToString().Contains(search));
 
             }
             if (txt != null)
@@ -87,19 +81,30 @@ namespace Inventory.Controllers
         [HttpPost]
 
 
-        public async Task<IActionResult> Create(Employe emp)
+        public async Task<IActionResult> Create(Salary emp)
         {
-            if (emp.Name.Any())
+            if (emp.Employe.Name.Any())
             {
-                emp.CreatedBy = _session.UserId;
-                emp.CreatedTime = DateTime.Now;
-                emp.JoiningDate = DateTime.Now;
-                emp.BranchId = _session.BranchId;
+                emp.Employe.CreatedBy = _session.UserId;
+                emp.Employe.CreatedTime = DateTime.Now;
+                emp.Employe.JoiningDate = DateTime.Now;
+                emp.Employe.BranchId = _session.BranchId;
+                emp.Employe.IsActive = true;
+
+
+                _service.Insert(emp.Employe);
+                await UnitOfWork.SaveChangesAsync();
+
+
                 emp.IsActive = true;
 
+                emp.Createdby = _session.UserId;
+                emp.CreatedTime = DateTime.Now;
 
-                _service.Insert(emp);
+                _salaryService.Insert(emp);
                 await UnitOfWork.SaveChangesAsync();
+
+
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
                 return RedirectToAction(nameof(Index));
             }
@@ -247,7 +252,7 @@ namespace Inventory.Controllers
 
                 price.Createdby = _session.UserId;
                 price.CreatedTime = DateTime.Now;
-                price.JoingDate = DateTime.Now;
+                
 
                 price.IsActive = true;
 

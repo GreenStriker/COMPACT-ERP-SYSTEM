@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class Setting
     {
+        public Setting()
+        {
+            Payrolls = new HashSet<Payroll>();
+        }
+
         public int SettingsId { get; set; }
         public bool? IsattendenceCount { get; set; }
         public bool? IsProductDiscount { get; set; }
@@ -17,5 +22,7 @@ namespace vms.entity.models
         public DateTime? EfectiveTo { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
+
+        public virtual ICollection<Payroll> Payrolls { get; set; }
     }
 }
