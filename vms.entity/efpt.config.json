@@ -135,11 +135,20 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[Vendor]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[futureso].[DebitNote]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[futureso].[DebitNoteDetail]"
       }
    ],
    "UseDatabaseNames": false,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
    "UseInflector": true,
-   "UseLegacyPluralizer": false
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
 }

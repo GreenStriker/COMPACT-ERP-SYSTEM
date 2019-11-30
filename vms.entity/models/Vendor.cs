@@ -6,6 +6,11 @@ namespace vms.entity.models
 {
     public partial class Vendor
     {
+        public Vendor()
+        {
+            Purchases = new HashSet<Purchase>();
+        }
+
         public int VendorId { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
@@ -13,5 +18,7 @@ namespace vms.entity.models
         public string Description { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
+
+        public virtual ICollection<Purchase> Purchases { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public PurchaseDetail()
         {
+            DebitNoteDetails = new HashSet<DebitNoteDetail>();
             Stocks = new HashSet<Stock>();
         }
 
@@ -16,9 +17,11 @@ namespace vms.entity.models
         public int? ProductId { get; set; }
         public decimal? Qty { get; set; }
         public decimal? Amount { get; set; }
+        public decimal? DiscountPerItem { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual Purchase Purchase { get; set; }
+        public virtual ICollection<DebitNoteDetail> DebitNoteDetails { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }
     }
 }

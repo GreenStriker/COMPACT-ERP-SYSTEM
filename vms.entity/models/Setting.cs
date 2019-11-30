@@ -13,10 +13,6 @@ namespace vms.entity.models
         public decimal? IncentiveRetion { get; set; }
         public bool? IsrewardPoitCount { get; set; }
         public decimal? RewardPointRethio { get; set; }
-        public bool? IsOverTimePayActive { get; set; }
-        public decimal? OverTimeRetio { get; set; }
-        public string IsAdvanceSalaryActive { get; set; }
-        public decimal? AdvanceSalaryTakePercentage { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public int? CreatedBy { get; set; }
