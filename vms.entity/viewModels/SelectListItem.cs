@@ -8,5 +8,7 @@ namespace vms.entity.viewModels
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public int? Present { get; set; }
+        public decimal? Amount { get; set; }
     }
 }

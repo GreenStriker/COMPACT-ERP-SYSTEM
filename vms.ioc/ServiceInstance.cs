@@ -150,17 +150,17 @@ namespace vms.ioc
             services.AddTransient<IAttendenceDetailRepository, AttendenceDetailRepository>();
             services.AddTransient<IAttendenceDetailService, AttendenceDetailService>();
 
-            //services.AddTransient<IAuditOperationRepository, AuditOperationRepository>();
-            //services.AddTransient<IAuditOperationService, AuditOperationService>();
+            services.AddTransient<ISettingRepository, SettingRepository>();
+            services.AddTransient<ISettingService, SettingService>();
 
-            //services.AddTransient<IObjectTypeRepository, ObjectTypeRepository>();
-            //services.AddTransient<IObjectTypeService, ObjectTypeService>();
+            services.AddTransient<IIncentiveRepository, IncentiveRepository>();
+            services.AddTransient<IIncentiveService, IncentiveService>();
 
-            //services.AddTransient<IPurchaseReasonRepository, PurchaseReasonRepository>();
-            //services.AddTransient<IPurchaseReasonService, PurchaseReasonService>();
+            services.AddTransient<IPayrollRepository, PayrollRepository>();
+            services.AddTransient<IPayrollService, PayrollService>();
 
-            //services.AddTransient<IPriceSetupRepository, PriceSetupRepository>();
-            //services.AddTransient<IPriceSetupService, PriceSetupService>();
+            services.AddTransient<IPayrollDetailRepository, PayrollDetailRepository>();
+            services.AddTransient<IPayrollDetailService, PayrollDetailService>();
 
             //services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
             //services.AddTransient<IProductTypeService, ProductTypeService>();

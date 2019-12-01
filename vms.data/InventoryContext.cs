@@ -87,7 +87,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Atendence>(entity =>
             {
-                entity.ToTable("Atendence");
+                entity.ToTable("Atendence", "dbo");
 
                 entity.Property(e => e.AtendenceId).HasColumnName("AtendenceID");
 
@@ -104,6 +104,8 @@ namespace vms.entity.models
             modelBuilder.Entity<AttendenceDetail>(entity =>
             {
                 entity.HasKey(e => e.AttendenceDetailsId);
+
+                entity.ToTable("AttendenceDetails", "dbo");
 
                 entity.Property(e => e.AttendenceDetailsId).HasColumnName("AttendenceDetailsID");
 
@@ -233,7 +235,7 @@ namespace vms.entity.models
                     .HasColumnName("Alter_mobile")
                     .HasMaxLength(50);
 
-                entity.Property(e => e.BanckAccountNo).HasMaxLength(10);
+                entity.Property(e => e.BanckAccountNo).HasMaxLength(50);
 
                 entity.Property(e => e.DeactiveDate).HasColumnType("date");
 
@@ -309,7 +311,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Incentive>(entity =>
             {
-                entity.ToTable("Incentive");
+                entity.ToTable("Incentive", "dbo");
 
                 entity.Property(e => e.IncentiveId).HasColumnName("IncentiveID");
 
@@ -398,7 +400,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Payroll>(entity =>
             {
-                entity.ToTable("Payroll");
+                entity.ToTable("Payroll", "dbo");
 
                 entity.Property(e => e.PayrollId).HasColumnName("PayrollID");
 
@@ -427,6 +429,8 @@ namespace vms.entity.models
             modelBuilder.Entity<PayrollDetail>(entity =>
             {
                 entity.HasKey(e => e.PayrollDetailsId);
+
+                entity.ToTable("PayrollDetails", "dbo");
 
                 entity.Property(e => e.PayrollDetailsId).HasColumnName("PayrollDetailsID");
 
@@ -661,6 +665,8 @@ namespace vms.entity.models
 
                 entity.Property(e => e.IsActive).HasColumnName("isActive");
 
+                entity.Property(e => e.JoingDate).HasColumnType("date");
+
                 entity.HasOne(d => d.Employe)
                     .WithMany(p => p.Salaries)
                     .HasForeignKey(d => d.EmployeId)
@@ -761,11 +767,15 @@ namespace vms.entity.models
 
                 entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
 
+                entity.Property(e => e.AdvanceSalaryPercentage).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.IncentiveRetion).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.IsattendenceCount).HasColumnName("ISAttendenceCount");
 
                 entity.Property(e => e.IsrewardPoitCount).HasColumnName("ISRewardPoitCount");
+
+                entity.Property(e => e.OverTimeRatio).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.RewardPointRethio).HasColumnType("decimal(18, 2)");
             });

@@ -1,0 +1,196 @@
+﻿@*@model vms.entity.models.Setting
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<h4>Setting</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SettingsId" class="control-label"></label>
+                <input asp-for="SettingsId" class="form-control" />
+                <span asp-validation-for="SettingsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsattendenceCount" class="control-label"></label>
+                <input asp-for="IsattendenceCount" class="form-control" />
+                <span asp-validation-for="IsattendenceCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsProductDiscount" class="control-label"></label>
+                <input asp-for="IsProductDiscount" class="form-control" />
+                <span asp-validation-for="IsProductDiscount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsIncentiveCount" class="control-label"></label>
+                <input asp-for="IsIncentiveCount" class="form-control" />
+                <span asp-validation-for="IsIncentiveCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncentiveRetion" class="control-label"></label>
+                <input asp-for="IncentiveRetion" class="form-control" />
+                <span asp-validation-for="IncentiveRetion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsrewardPoitCount" class="control-label"></label>
+                <input asp-for="IsrewardPoitCount" class="form-control" />
+                <span asp-validation-for="IsrewardPoitCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RewardPointRethio" class="control-label"></label>
+                <input asp-for="RewardPointRethio" class="form-control" />
+                <span asp-validation-for="RewardPointRethio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdvanceSalaryPercentage" class="control-label"></label>
+                <input asp-for="AdvanceSalaryPercentage" class="form-control" />
+                <span asp-validation-for="AdvanceSalaryPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsCanGiveSalary" class="control-label"></label>
+                <input asp-for="IsCanGiveSalary" class="form-control" />
+                <span asp-validation-for="IsCanGiveSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverTimeRatio" class="control-label"></label>
+                <input asp-for="OverTimeRatio" class="form-control" />
+                <span asp-validation-for="OverTimeRatio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsOvertime" class="control-label"></label>
+                <input asp-for="IsOvertime" class="form-control" />
+                <span asp-validation-for="IsOvertime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsadvanceSalary" class="control-label"></label>
+                <input asp-for="IsadvanceSalary" class="form-control" />
+                <span asp-validation-for="IsadvanceSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label"></label>
+                <input asp-for="IsActive" class="form-control" />
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EfectiveFrom" class="control-label"></label>
+                <input asp-for="EfectiveFrom" class="form-control" />
+                <span asp-validation-for="EfectiveFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EfectiveTo" class="control-label"></label>
+                <input asp-for="EfectiveTo" class="form-control" />
+                <span asp-validation-for="EfectiveTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedTime" class="control-label"></label>
+                <input asp-for="CreatedTime" class="form-control" />
+                <span asp-validation-for="CreatedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrackingState" class="control-label"></label>
+                <input asp-for="TrackingState" class="form-control" />
+                <span asp-validation-for="TrackingState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntityIdentifier" class="control-label"></label>
+                <input asp-for="EntityIdentifier" class="form-control" />
+                <span asp-validation-for="EntityIdentifier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+
+
+
+
+@model vms.entity.models.Setting
+
+@*@{
+    ViewData["Title"] = "Edit";
+}*@
+
+
+<div class="single-product-tab-area mg-tb-15">
+    <!-- Single pro tab review Start-->
+    <div class="single-pro-review-area">
+        <div class="container-fluid">
+            <form asp-action="Edit">
+
+                <div class="form-group hidden">
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="review-tab-pro-inner">
+                            <ul id="myTab3" class="tab-review-design">
+                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i> Setting </a></li>
+                                @*<li><a href="#reviews"><i class="fa fa-file-image-o" aria-hidden="true"></i> Pictures</a></li>
+                                    <li><a href="#INFORMATION"><i class="fa fa-commenting" aria-hidden="true"></i> Review</a></li>*@
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <div class="switch-agileits">
+                                                        <label class="switch">
+                                                            <input type="checkbox"asp-for="IsattendenceCount"  />
+                                                            <span class="slider round"></span>
+                                                            IsattendenceCount
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <input asp-for="SettingsId" class="hidden" />
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+                                                @*<div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                                                    <input asp-for="Percentage" class="form-control" placeholder="Percentage" />
+                                                </div>*@
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="text-center mg-b-pro-edt custom-pro-edt-ds">
+                                                <button type="submit" class="btn btn-primary waves-effect waves-light m-r-10">
+                                                    Save
+                                                </button>
+
+                                                <a asp-action="Index" class="btn btn-warning waves-effect waves-light">Discard</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

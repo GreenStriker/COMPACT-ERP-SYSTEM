@@ -12,12 +12,18 @@ namespace vms.entity.models
         }
 
         public int SettingsId { get; set; }
-        public bool? IsattendenceCount { get; set; }
-        public bool? IsProductDiscount { get; set; }
-        public bool? IsIncentiveCount { get; set; }
+        public bool IsattendenceCount { get; set; }
+        public bool IsProductDiscount { get; set; }
+        public bool IsIncentiveCount { get; set; }
         public decimal? IncentiveRetion { get; set; }
-        public bool? IsrewardPoitCount { get; set; }
+        public bool IsrewardPoitCount { get; set; }
         public decimal? RewardPointRethio { get; set; }
+        public decimal? AdvanceSalaryPercentage { get; set; }
+        public bool IsCanGiveSalary { get; set; }
+        public decimal? OverTimeRatio { get; set; }
+        public bool IsOvertime { get; set; }
+        public bool IsadvanceSalary { get; set; }
+        public bool IsActive { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public int? CreatedBy { get; set; }
