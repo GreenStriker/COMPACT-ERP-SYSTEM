@@ -50,7 +50,7 @@ namespace Inventory.Controllers
                 data = new Setting();
                 data.IsActive = false;
                 data.IsIncentiveCount = false;
-                data.IsattendenceCount = true;
+                data.IsattendenceCount = false;
                 data.IsProductDiscount = false;
                 data.IsrewardPoitCount = false;
                 data.IsadvanceSalary = false;
@@ -118,62 +118,53 @@ namespace Inventory.Controllers
         //}
 
 
-        //[HttpPost]
+        [HttpPost]
 
-        //public async Task<IActionResult> Edit(Vat vat)
-        //{
+        public async Task<IActionResult> Edit(Setting set)
+        {
 
-        //    if (vat.VatId == 0)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    try
-        //    {
-        //        var id = vat.VatId;
-        //        var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //        data.IsActive = false;
-        //        data.EfectiveTo = DateTime.Now;
-        //        _vatService.Update(data);
-        //        vat.VatId = 0;
-        //        vat.EfectiveFrom = DateTime.Now;
-        //        vat.CreatedBy = _session.UserId;
-        //        vat.CreatedTime = DateTime.Now;
-        //        vat.IsActive = true;
 
-        //        _vatService.Insert(vat);
-        //        await UnitOfWork.SaveChangesAsync();
-        //        var prodData = _prodService.Queryable().Where(c => c.VatId == id).AsQueryable();
-        //        var log = new ProductLog();
-        //        foreach (var item in prodData)
-        //        {
-        //            log.VatId = item.VatId;
-        //            log.Code = item.Code;
-        //            log.Name = item.Name;
-        //            log.CreatedBy = item.CreatedBy;
-        //            log.EfectiveFrom = item.EfectiveFrom;
-        //            log.EfectiveTo = item.EfectiveTo;
-        //            log.ProductId = item.ProductId;
-        //            _logService.Insert(log);
+            try
+            {
 
-        //        }
-        //        await UnitOfWork.SaveChangesAsync();
-        //        foreach (var item in prodData)
-        //        {
-        //            item.VatId = vat.VatId;
-        //            _prodService.Update(item);
 
-        //        }
-        //        await UnitOfWork.SaveChangesAsync();
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //        return View(vat);
-        //    }
-        //}
+                var data = new Setting();
+
+                if (set.SettingsId != 0)
+                {
+
+                    
+
+                    set.EfectiveTo = DateTime.Now;
+                    set.IsActive = false;
+
+                    _service.Update(set);
+                    await UnitOfWork.SaveChangesAsync();
+
+                    data.SettingsId = 0;
+
+                }
+
+                
+
+                data.IsActive = true;
+                data.CreatedBy = _session.UserId;
+                data.CreatedTime = DateTime.Now;
+                data.EfectiveFrom = DateTime.Now;
+                data.EfectiveTo = null;
+
+                _service.Insert(data);
+                await UnitOfWork.SaveChangesAsync();
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+                return RedirectToAction(nameof(Index));
+            }
+        }
 
 
 
@@ -181,7 +172,7 @@ namespace Inventory.Controllers
 
 
 
-    
+
 
         //public async Task<IActionResult> Delete(int id)
         //{
@@ -197,9 +188,9 @@ namespace Inventory.Controllers
         //        data.IsActive = false;
         //        data.EfectiveTo = DateTime.Now;
         //        _vatService.Update(data);
-               
+
         //        await UnitOfWork.SaveChangesAsync();
-               
+
         //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
         //        return RedirectToAction(nameof(Index));
         //    }
