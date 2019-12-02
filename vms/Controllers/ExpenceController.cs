@@ -51,13 +51,13 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data = await _service.Query().Include(x => x.ExpenceType).Include(x=>x.ExpencePersonNavigation).Include(x=>x.Branch).Include(x=>x.Payment).Where(x => x.IsActive == true).SelectAsync();
+            var data = await _service.Query().Include(x => x.ExpenceType).Include(x=>x.ExpencePersonNavigation).Include(x=>x.Branch).Include(x=>x.Payment).Where(x => x.IsActive == true).OrderByDescending(c=>c.ExpenceId).SelectAsync();
             string txt = search;
             
             if (search != null)
             {
                 search = search.ToLower().Trim();
-                data = data.Where(c => c.ExpenceType.Name.ToLower().Contains(search) || c.ExpencePersonNavigation.Name.ToString().Contains(search) || c.Branch.Name.ToString().Contains(search) || c.ExpenceAmount.ToString().Contains(search) || c.ExpenceDate.ToString().Contains(search) || c.ExpencePurpose.ToString().Contains(search));
+                data = data.Where(c => c.ExpenceType.Name.ToLower().Contains(search) || c.ExpencePersonNavigation.Name.ToString().Contains(search) || c.ExpenceId.ToString().Contains(search) || c.Branch.Name.ToString().Contains(search) || c.ExpenceAmount.ToString().Contains(search) || c.ExpenceDate.ToString().Contains(search) || c.ExpencePurpose.ToString().Contains(search));
 
             }
             if (txt != null)
