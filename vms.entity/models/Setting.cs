@@ -16,10 +16,10 @@ namespace vms.entity.models
         public bool IsattendenceCount { get; set; }
         public bool IsProductDiscount { get; set; }
         public bool IsIncentiveCount { get; set; }
-        public decimal? IncentiveRetion { get; set; }
+        public decimal IncentiveRetion { get; set; }
         public bool IsrewardPoitCount { get; set; }
-        public decimal? RewardPointRethio { get; set; }
-        public decimal? AdvanceSalaryPercentage { get; set; }
+        public decimal RewardPointRethio { get; set; }
+        public decimal AdvanceSalaryPercentage { get; set; }
         public bool IsCanGiveSalary { get; set; }
         public decimal OverTimeRatio { get; set; }
         public bool IsOvertime { get; set; }

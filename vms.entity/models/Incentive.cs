@@ -10,11 +10,13 @@ namespace vms.entity.models
         public int? EmployId { get; set; }
         public int? SalesId { get; set; }
         public decimal IncentivePoint { get; set; }
+        public int? PayrollId { get; set; }
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 
         public virtual Employe Employ { get; set; }
+        public virtual Payroll Payroll { get; set; }
         public virtual Sale Sales { get; set; }
     }
 }

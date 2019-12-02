@@ -143,7 +143,7 @@ namespace Inventory.Controllers
 
                 _service.Insert(payroll);
 
-
+                await UnitOfWork.SaveChangesAsync();
 
                 var employes = await _empservice.Query().Where(x => x.BranchId == _session.BranchId && x.IsActive==true).SelectAsync();
                 decimal count = 0;
@@ -159,6 +159,7 @@ namespace Inventory.Controllers
 
 
                     }
+            
 
                     var advancedSalary = await _Advancedservice.Query().Where(x => x.EmloyId == item.EmployeId && x.IsActive == true).SelectAsync();
                     var Overtime = await _OverTimeservice.Query().Where(x => x.EmployId == item.EmployeId && x.IsActive == true).SelectAsync();
@@ -178,9 +179,11 @@ namespace Inventory.Controllers
 
                             itms.IsActive = false;
                             itms.Remarks = itms.Remarks + "Colosed in payroll " + payroll.PayrollId.ToString();
-
+                            itms.PayrollId = payroll.PayrollId;
                             _Advancedservice.Update(itms);
+                            await UnitOfWork.SaveChangesAsync();
 
+                           
                         }
 
 
@@ -196,18 +199,15 @@ namespace Inventory.Controllers
 
                             itms.IsActive = false;
                             itms.Remarks = itms.Remarks + "Colosed in payroll " + payroll.PayrollId.ToString();
-
+                            itms.PayrollId = payroll.PayrollId;
                             _OverTimeservice.Update(itms);
+                            await UnitOfWork.SaveChangesAsync();
 
                         }
 
-                        eover = eover * set.OverTimeRatio;
+                        eover *= set.OverTimeRatio;
 
                     }
-
-
-
-
 
                     if (Incentive != null)
                     {
@@ -219,8 +219,10 @@ namespace Inventory.Controllers
 
                             itms.IsActive = false;
                             // itms.Remarks = itms.Remarks + "Colosed in payroll " + payroll.PayrollId.ToString();
-
+                            itms.PayrollId = payroll.PayrollId;
                             _Incentiveservice.Update(itms);
+
+                            await UnitOfWork.SaveChangesAsync();
 
                         }
 
@@ -228,9 +230,7 @@ namespace Inventory.Controllers
 
                     }
 
-
-
-                    if (salryBase.BaseSalary != null) { 
+                    if (salryBase != null) { 
 
 
                     salaryOFtheMonth = salryBase.BaseSalary - eadvance +eover+eincentive;
@@ -252,9 +252,12 @@ namespace Inventory.Controllers
 
 
                     }
+
+
+                    await UnitOfWork.SaveChangesAsync();
                 }
 
-                await UnitOfWork.SaveChangesAsync();
+               
 
 
                 //
@@ -267,6 +270,10 @@ namespace Inventory.Controllers
                 expence.ExpenceAmount = count;
                 expence.ExpencePerson = _session.UserId;
                 expence.ExpencePurpose = "Monthly Salary :"+month.ToString()+"-"+year.ToString();
+                expence.IsActive = true;
+                expence.CreatedTime = DateTime.Now;
+                expence.ExpenceDate = DateTime.Now; 
+                
 
 
                 _expenceeservice.Insert(expence);
@@ -294,106 +301,8 @@ namespace Inventory.Controllers
             return RedirectToAction(nameof(Index));
 
 
-
-
-            return View();
         }
 
-        //[HttpPost]
-
-
-        //public async Task<IActionResult> Create(Vat vat)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        vat.CreatedBy = _session.UserId;
-        //        vat.CreatedTime = DateTime.Now;
-        //        vat.EfectiveFrom = DateTime.Now;
-
-        //        vat.IsActive = true;
-
-        //        _vatService.Insert(vat);
-        //        await UnitOfWork.SaveChangesAsync();
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //    return View(vat);
-        //}
-
-        //public async Task<IActionResult> Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var exportType = await _vatService.Query()
-        //        .SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //    if (exportType == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(exportType);
-        //}
-
-
-        //[HttpPost]
-
-        //public async Task<IActionResult> Edit(Vat vat)
-        //{
-
-        //    if (vat.VatId == 0)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    try
-        //    {
-        //        var id = vat.VatId;
-        //        var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //        data.IsActive = false;
-        //        data.EfectiveTo = DateTime.Now;
-        //        _vatService.Update(data);
-        //        vat.VatId = 0;
-        //        vat.EfectiveFrom = DateTime.Now;
-        //        vat.CreatedBy = _session.UserId;
-        //        vat.CreatedTime = DateTime.Now;
-        //        vat.IsActive = true;
-
-        //        _vatService.Insert(vat);
-        //        await UnitOfWork.SaveChangesAsync();
-        //        var prodData = _prodService.Queryable().Where(c => c.VatId == id).AsQueryable();
-        //        var log = new ProductLog();
-        //        foreach (var item in prodData)
-        //        {
-        //            log.VatId = item.VatId;
-        //            log.Code = item.Code;
-        //            log.Name = item.Name;
-        //            log.CreatedBy = item.CreatedBy;
-        //            log.EfectiveFrom = item.EfectiveFrom;
-        //            log.EfectiveTo = item.EfectiveTo;
-        //            log.ProductId = item.ProductId;
-        //            _logService.Insert(log);
-
-        //        }
-        //        await UnitOfWork.SaveChangesAsync();
-        //        foreach (var item in prodData)
-        //        {
-        //            item.VatId = vat.VatId;
-        //            _prodService.Update(item);
-
-        //        }
-        //        await UnitOfWork.SaveChangesAsync();
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //        return View(vat);
-        //    }
-        //}
 
 
 
@@ -401,34 +310,43 @@ namespace Inventory.Controllers
 
 
 
-    
 
-        //public async Task<IActionResult> Delete(int id)
-        //{
 
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
 
-        //    try
-        //    {
-        //        var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //        data.IsActive = false;
-        //        data.EfectiveTo = DateTime.Now;
-        //        _vatService.Update(data);
-               
-        //        await UnitOfWork.SaveChangesAsync();
-               
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //}
+        public async Task<IActionResult> PayrollDetails(int id , int? page, string search = null)
+        {
+
+           // var set = await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
+
+
+            var data = await _Detailservice.Query().Include(c => c.Employe).Include(c => c.Salary).Where(x => x.PayrollId == id).SelectAsync();
+            string txt = search;
+
+            if (search != null)
+            {
+                search = search.ToLower().Trim();
+                data = data.Where(c => c.Employe.Name.ToString().ToLower().Contains(search) || c.Employe.BanckAccountNo.ToString().ToLower().Contains(search));
+
+            }
+            if (txt != null)
+            {
+                ViewData[ViewStaticData.SEARCH_TEXT] = txt;
+            }
+            else
+            {
+                ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
+
+            }
+
+            //ViewBag.Active = set.IsCanGiveSalary;
+            var pageNumber = page ?? 1;
+            var listOfdata = data.ToPagedList(pageNumber, 10);
+            return View(listOfdata);
+
+        }
+
+
+
 
 
     }

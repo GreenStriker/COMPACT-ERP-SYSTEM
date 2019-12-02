@@ -12,10 +12,12 @@ namespace vms.entity.models
         public decimal OverTimeHoure { get; set; }
         public string ReasonOfOverTime { get; set; }
         public string Remarks { get; set; }
+        public int? PayrollId { get; set; }
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 
         public virtual Employe Employ { get; set; }
+        public virtual Payroll Payroll { get; set; }
     }
 }
