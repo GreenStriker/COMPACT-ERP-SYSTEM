@@ -642,6 +642,21 @@ namespace vms.entity.models
                 entity.Property(e => e.Totalpoint).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.UsePoins).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_RewardPoint_Customer");
+
+                entity.HasOne(d => d.Sales)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.SalesId)
+                    .HasConstraintName("FK_RewardPoint_Sales");
+
+                entity.HasOne(d => d.Settings)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.SettingsId)
+                    .HasConstraintName("FK_RewardPoint_Settings");
             });
 
             modelBuilder.Entity<Role>(entity =>

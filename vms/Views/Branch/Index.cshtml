@@ -2,7 +2,7 @@
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Branch List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Inventory.Utility
@@ -19,28 +19,31 @@
 
                         @using (Html.BeginForm("Index", "Branch", FormMethod.Get, new { id = "frmProduct" }))
                         {
-                    <div class="row">
+                            <div class="row">
 
-                        <div class="col-md-5">
-                            <div class="input-group Search" style="margin-top:10px">
-                                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
-                                <span class="input-group-btn">
-                                    <button type="submit" class="btn submit ">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
+                                <div class="col-md-5">
+                                    <div class="input-group Search" style="margin-top:10px">
+                                        <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn submit ">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+
+
+                                <div class="add-product">
+                                    <a href="@Url.Action("Create", "Branch")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+                                </div>
+
                             </div>
-                        </div>
-
-
-                        <div class="add-product">
-                            <a href="@Url.Action("Create", "Branch")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
-                        </div>
-
-                    </div>
                         }
-                        <table>
-                            <thead>
+
+                <br />
+
+                        <table class="table table-bordered table-striped">
+                            <thead >
                                 <tr>
                                     <th class="text-center">
                                         Name

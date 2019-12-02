@@ -22,7 +22,7 @@ namespace Inventory.Controllers
     {
 
 
-
+        private readonly ISettingService _setservice;
         private readonly IAtendenceService _service;
         private readonly IAttendenceDetailService _DetailsService;
         private readonly IProductService _prodService;
@@ -32,6 +32,7 @@ namespace Inventory.Controllers
         private readonly IProductLogService _logService;
         public AttendenceController(
             ControllerBaseParamModel controllerBaseParamModel,
+            ISettingService setservice,
             IAtendenceService service,
             IEmployeService Empservice,
         IAttendenceDetailService DetailsService,
@@ -48,12 +49,14 @@ namespace Inventory.Controllers
             _prodService = prodService;
             //_rightService = rightService;
             _Empservice = Empservice;
+            _setservice = setservice;
         }
 
 
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
+
             var data = await _service.Query().Where(x=> x.IsActive == true).OrderByDescending(c=>c.AtendenceId).SelectAsync();
             string txt = search;
 
@@ -72,6 +75,8 @@ namespace Inventory.Controllers
                 ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
 
             }
+
+
             var pageNumber = page ?? 1;
             var listOfdata = data.ToPagedList(pageNumber, 10);
             return View(listOfdata);

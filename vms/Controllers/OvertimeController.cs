@@ -22,13 +22,14 @@ namespace Inventory.Controllers
     {
 
 
-
+        private readonly ISettingService _setservice;
         private readonly IOvertimeService _service;
         private readonly IEmployeService _Empservice;
         private readonly IConfiguration _configuration;
    
         public OvertimeController(
             ControllerBaseParamModel controllerBaseParamModel,
+                ISettingService setservice,
             IOvertimeService service,
                IEmployeService Empservice
 
@@ -37,12 +38,15 @@ namespace Inventory.Controllers
 
             _service = service;
             _Empservice = Empservice;
+            _setservice = setservice;
         }
 
 
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
+
+            var set = await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
             var data = await _service.Query().Include(c=> c.Employ).Include(c => c.Employ.Branch).Where(x=> x.IsActive == true).SelectAsync();
             string txt = search;
 
@@ -61,6 +65,10 @@ namespace Inventory.Controllers
                 ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
 
             }
+
+
+
+            ViewBag.Active = set.IsOvertime;
             var pageNumber = page ?? 1;
             var listOfdata = data.ToPagedList(pageNumber, 10);
             return View(listOfdata);
@@ -100,7 +108,9 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Create(Overtime vat)
         {
-            if (ModelState.IsValid)
+
+            var set = await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
+            if (ModelState.IsValid &&  set.IsOvertime == true)
             {
                 vat.CreatedBy = _session.UserId;
                 vat.CreatedTime = DateTime.Now;

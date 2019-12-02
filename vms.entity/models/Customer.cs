@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public Customer()
         {
+            RewardPoints = new HashSet<RewardPoint>();
             Sales = new HashSet<Sale>();
         }
 
@@ -23,6 +24,7 @@ namespace vms.entity.models
         public bool? IsActive { get; set; }
 
         public virtual Branch Branch { get; set; }
+        public virtual ICollection<RewardPoint> RewardPoints { get; set; }
         public virtual ICollection<Sale> Sales { get; set; }
     }
 }
