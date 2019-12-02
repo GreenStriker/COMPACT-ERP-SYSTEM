@@ -42,13 +42,13 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-            var data = await _service.Query().Include(x=> x.PaymentMethod).SelectAsync();
+            var data = await _service.Query().Include(x=> x.PaymentMethod).OrderByDescending(c => c.PaymetId).SelectAsync();
             string txt = search;
 
             if (search != null)
             {
                 search = search.ToLower().Trim();
-                data = data.Where(c => c.AmountPaid.ToString().ToLower().Contains(search) || c.TransactionId.ToLower().Contains(search) || c.PaymentMethod.Name.ToLower().Contains(search)|| c.Remark.ToLower().Contains(search));
+                data = data.Where(c => c.AmountPaid.ToString().ToLower().Contains(search) || c.TransactionId.ToLower().Contains(search) || c.PaymetId.ToString().ToLower().Contains(search) || c.PaymentMethod.Name.ToLower().Contains(search)|| c.Remark.ToLower().Contains(search));
 
             }
             if (txt != null)

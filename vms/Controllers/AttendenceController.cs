@@ -99,6 +99,7 @@ namespace Inventory.Controllers
 
             var data =  await _service.Query().SingleOrDefaultAsync(m => m.Month == month && m.Year==year && m.IsActive == true && m.BranchId == _session.BranchId, CancellationToken.None);
 
+
             if (data==null)
             {
                 var Employe = await _Empservice.GetAll();

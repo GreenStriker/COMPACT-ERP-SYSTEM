@@ -40,10 +40,16 @@
 
 
                     }
-                    <table>
+
+                    <br />
+                    <table class="table table-bordered table-striped" >
                         <thead>
                             <tr>
                                 <th class="text-center">
+                                     ID
+                                </th>
+                                <th class="text-center">
+
                                     Date
                                 </th>
                                 <th class="text-center">
@@ -58,13 +64,16 @@
                                 <th class="text-center">
                                     Purpose
                                 </th>
+                                <th class="text-center">
+                                    Pay.ID
+                                </th>
 
                                 <th class="text-center">
                                     Amount
                                 </th>
 
                                 <th class="text-center">
-                                  Paid  Amount
+                                    Paid
                                 </th>
                                 <th class="text-center">
                                     Payment
@@ -79,6 +88,9 @@
                                 @foreach (var item in Model)
                                 {
                                 <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ExpenceId)
+                                    </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.ExpenceDate)
                                     </td>
@@ -99,6 +111,25 @@
                                     </td>
 
                                     <td>
+
+                                        @if (item.Payment != null)
+                                        {
+
+
+                                            @Html.DisplayFor(modelItem => item.PaymentId)
+
+                                        }
+
+                                        else
+                                        { <div class="btn btn-danger">No Payment</div>}
+
+
+                                    </td>
+
+
+
+
+                                    <td>
                                         @Html.DisplayFor(modelItem => item.ExpenceAmount)
                                     </td>
                                     <td>
@@ -109,14 +140,14 @@
                                         {
                                             if (item.ExpenceAmount == item.Payment.AmountPaid)
                                             {
-                                                <div class="pd-setting">Done</div> 
+                                                <div class="pd-setting">Done</div>
 
-                                        }
-                                        else
-                                        {
-                                            <div class="btn btn-warning">Partial</div>
+                                            }
+                                            else
+                                            {
+                                                <div class="btn btn-warning">Partial</div>
 
-                                        }
+                                            }
 
 
 

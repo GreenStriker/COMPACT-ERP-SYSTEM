@@ -9,7 +9,7 @@ namespace vms.entity.models
         public int AdvanceSalaryId { get; set; }
         public int? EmloyId { get; set; }
         public DateTime? DateTaben { get; set; }
-        public decimal? Amount { get; set; }
+        public decimal Amount { get; set; }
         public string Remarks { get; set; }
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }

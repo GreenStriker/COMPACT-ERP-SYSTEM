@@ -21,7 +21,7 @@ namespace vms.entity.models
         public decimal? RewardPointRethio { get; set; }
         public decimal? AdvanceSalaryPercentage { get; set; }
         public bool IsCanGiveSalary { get; set; }
-        public decimal? OverTimeRatio { get; set; }
+        public decimal OverTimeRatio { get; set; }
         public bool IsOvertime { get; set; }
         public bool IsadvanceSalary { get; set; }
         public bool IsActive { get; set; }

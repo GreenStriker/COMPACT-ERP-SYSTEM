@@ -9,7 +9,7 @@ namespace vms.entity.models
         public int OvertimeId { get; set; }
         public int? EmployId { get; set; }
         public DateTime? Date { get; set; }
-        public decimal? OverTimeHoure { get; set; }
+        public decimal OverTimeHoure { get; set; }
         public string ReasonOfOverTime { get; set; }
         public string Remarks { get; set; }
         public bool? IsActive { get; set; }
