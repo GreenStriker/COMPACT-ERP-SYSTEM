@@ -162,8 +162,8 @@ namespace vms.ioc
             services.AddTransient<IPayrollDetailRepository, PayrollDetailRepository>();
             services.AddTransient<IPayrollDetailService, PayrollDetailService>();
 
-            //services.AddTransient<IProductTypeRepository, ProductTypeRepository>();
-            //services.AddTransient<IProductTypeService, ProductTypeService>();
+            services.AddTransient<IRewardPointRepository, RewardPointRepository>();
+            services.AddTransient<IRewardPointService, RewardPointService>();
 
             //services.AddTransient<IProductProductTypeMappingRepository, ProductProductTypeMappingRepository>();
             //services.AddTransient<IProductProductTypeMappingService, ProductProductTypeMappingService>();

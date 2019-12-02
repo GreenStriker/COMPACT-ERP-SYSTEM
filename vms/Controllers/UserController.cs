@@ -80,8 +80,8 @@ namespace Inventory.Controllers
 
         public IActionResult Create()
         {
-
-            return View();
+            var data = new User();
+            return View(data);
         }
 
         [HttpPost]

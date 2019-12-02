@@ -18,47 +18,48 @@ using System;
 
 namespace Inventory.Controllers
 {
-    public class AdvancedSalaryController : ControllerBase
+    public class RewardPointController : ControllerBase
     {
 
 
 
-        private readonly ISettingService _setservice;
-        private readonly IAdvancedSalaryService _service;
-        private readonly IEmployeService _Empservice;
+        private readonly IRewardPointService _service;
+        private readonly IVatService _vatService;
+        private readonly IProductService _prodService;
+        //private readonly IRightService _rightService;
         private readonly IConfiguration _configuration;
-   
-        public AdvancedSalaryController(
+        //private readonly IOrganizationService _orgcConfiguration;
+        private readonly IProductLogService _logService;
+        public RewardPointController(
             ControllerBaseParamModel controllerBaseParamModel,
-            ISettingService setservice,
-        IAdvancedSalaryService service,
-               IEmployeService Empservice
-
+            IRewardPointService service,
+            IVatService vatService,
+            IProductService prodService,
+            IProductLogService logService
+            //IRightService rightService, 
+            //IOrganizationService orgcConfiguration
             ) : base(controllerBaseParamModel)
         {
-
+            _logService = logService;
             _service = service;
-            _Empservice = Empservice;
-
-            _setservice = setservice;
+            _configuration = Configuration;
+            _vatService = vatService;
+            _prodService = prodService;
+            //_rightService = rightService;
+            //_orgcConfiguration = orgcConfiguration;
         }
 
 
 
         public async Task<IActionResult> Index(int? page, string search = null)
         {
-
-
-            var set =await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
-
-
-            var data = await _service.Query().Include(c=> c.Emloy).Include(c => c.Emloy.Branch).Where(x=> x.IsActive == true).SelectAsync();
+            var data = await _service.Query().Include(c=>c.Customer).Where(x=> x.IsActive == true).SelectAsync();
             string txt = search;
 
             if (search != null)
             {
                 search = search.ToLower().Trim();
-                data = data.Where(c => c.Emloy.Name.ToLower().Contains(search) || c.DateTaben.ToString().Contains(search));
+                data = data.Where(c => c.Customer.Name.ToLower().Contains(search) || c.Customer.Mobile.ToString().Contains(search));
 
             }
             if (txt != null)
@@ -70,9 +71,6 @@ namespace Inventory.Controllers
                 ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
 
             }
-            ViewBag.Active = set.IsadvanceSalary;
-
-
             var pageNumber = page ?? 1;
             var listOfdata = data.ToPagedList(pageNumber, 10);
             return View(listOfdata);
@@ -83,53 +81,33 @@ namespace Inventory.Controllers
 
 
 
-        public async Task<IActionResult> Create()
-        {
+        //public IActionResult Create()
+        //{
+
+        //    return View();
+        //}
+
+        //[HttpPost]
 
 
-            var Employe = await _Empservice.GetAll();
-         
-            IEnumerable<SelectListItems> Employes = Employe.Where(c => c.IsActive == true && c.BranchId == _session.BranchId).Select(s => new SelectListItems
-            {
-                Id = s.EmployeId,
-                Name = s.Name
-            });
+        //public async Task<IActionResult> Create(Vat vat)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        vat.CreatedBy = _session.UserId;
+        //        vat.CreatedTime = DateTime.Now;
+        //        vat.EfectiveFrom = DateTime.Now;
 
+        //        vat.IsActive = true;
 
-            var advanced = new AdvancedSalary()
-            {
-
-                Employes = Employes
-
-
-
-            };
-            return View(advanced);
-        }
-
-        [HttpPost]
-
-
-        public async Task<IActionResult> Create(AdvancedSalary vat)
-        {
-
-            var set = await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
-            if (ModelState.IsValid  && set.IsadvanceSalary==true )
-            {
-                vat.CreatedBy = _session.UserId;
-                vat.CreatedTime = DateTime.Now;
-                
-
-                vat.IsActive = true;
-
-                _service.Insert(vat);
-                await UnitOfWork.SaveChangesAsync();
-                TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
-                return RedirectToAction(nameof(Index));
-            }
-            TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-            return View(vat);
-        }
+        //        _vatService.Insert(vat);
+        //        await UnitOfWork.SaveChangesAsync();
+        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
+        //    return View(vat);
+        //}
 
         //public async Task<IActionResult> Edit(int? id)
         //{
@@ -211,7 +189,7 @@ namespace Inventory.Controllers
 
 
 
-
+    
 
         //public async Task<IActionResult> Delete(int id)
         //{
@@ -227,9 +205,9 @@ namespace Inventory.Controllers
         //        data.IsActive = false;
         //        data.EfectiveTo = DateTime.Now;
         //        _vatService.Update(data);
-
+               
         //        await UnitOfWork.SaveChangesAsync();
-
+               
         //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
         //        return RedirectToAction(nameof(Index));
         //    }

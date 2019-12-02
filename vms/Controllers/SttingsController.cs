@@ -127,34 +127,29 @@ namespace Inventory.Controllers
 
             try
             {
-
-
-                var data = new Setting();
+                
 
                 if (set.SettingsId != 0)
                 {
 
+                    var data =await _service.GetById(set.SettingsId);
+                    
+                    data.EfectiveTo = DateTime.Now;
+                    data.IsActive = false;
+
+                    _service.Update(data);
                     
 
-                    set.EfectiveTo = DateTime.Now;
-                    set.IsActive = false;
-
-                    _service.Update(set);
-                    await UnitOfWork.SaveChangesAsync();
-
-                    data.SettingsId = 0;
+                    set.SettingsId = 0;
 
                 }
-
                 
-
-                data.IsActive = true;
-                data.CreatedBy = _session.UserId;
-                data.CreatedTime = DateTime.Now;
-                data.EfectiveFrom = DateTime.Now;
-                data.EfectiveTo = null;
-
-                _service.Insert(data);
+                set.IsActive = true;
+                set.CreatedBy = _session.UserId;
+                set.CreatedTime = DateTime.Now;
+                set.EfectiveFrom = DateTime.Now;
+                set.EfectiveTo = null;
+                _service.Insert(set);
                 await UnitOfWork.SaveChangesAsync();
                 TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
                 return RedirectToAction(nameof(Index));
@@ -166,41 +161,7 @@ namespace Inventory.Controllers
             }
         }
 
-
-
-
-
-
-
-
-
-        //public async Task<IActionResult> Delete(int id)
-        //{
-
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    try
-        //    {
-        //        var data = await _vatService.Query().SingleOrDefaultAsync(m => m.VatId == id, CancellationToken.None);
-        //        data.IsActive = false;
-        //        data.EfectiveTo = DateTime.Now;
-        //        _vatService.Update(data);
-
-        //        await UnitOfWork.SaveChangesAsync();
-
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.DELETE_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //}
-
+        
 
     }
 }

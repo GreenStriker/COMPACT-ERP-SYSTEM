@@ -8,7 +8,7 @@
 @using Inventory.Utility
 @using vms.entity.viewModels
 @{
-    // var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
+// var session = Context.Session.GetComplexData<vms.entity.viewModels.vmSession>("session");
 }
 
 <div class="product-status mg-tb-15">
@@ -19,26 +19,48 @@
                     <h4>Over Time List</h4>
                     @using (Html.BeginForm("Index", "Overtime", FormMethod.Get, new { id = "frmProduct" }))
                     {
-                        <div class="row">
+                    <div class="row">
 
-                            <div class="col-md-5">
-                                <div class="input-group Search" style="margin-top:10px">
-                                    <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn submit ">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
+                        <div class="col-md-5">
+                            <div class="input-group Search" style="margin-top:10px">
+                                <input type="text" class="form-control" placeholder="Search..." id="search" name="search" value="@ViewBag.searchText">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn submit ">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
                             </div>
-
-
-                            <div class="add-product">
-                                <a href="@Url.Action("Create", "Overtime")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
-                            </div>
-
                         </div>
-                    }
+                        @{
+
+                            bool? x = ViewBag.Active;
+
+
+
+
+
+                            if (x == true)
+                            {
+
+
+                                <div class="add-product">
+                                    <a href="@Url.Action("Create", "Overtime")" class="btn btn-success btn-sm pull-right"><i class="fa fa-plus"></i> Add</a>
+                                </div>
+                            }
+
+                            else
+                            {
+
+                                <div class="add-product">
+                                    <a  class="btn btn-success btn-sm pull-right"> Currently New Overtime Entry IS OFF By The Admin</a>
+                                </div>
+                            }
+
+                        }
+
+
+                    </div>
+                            }
                     <table>
                         <thead>
                             <tr>
