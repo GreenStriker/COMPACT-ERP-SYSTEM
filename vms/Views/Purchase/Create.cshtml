@@ -5,183 +5,274 @@
 
 <input type="hidden" class="form-control" id="ProductId" name="ProductId" />
 
-<div class="custom-page-title">
-    Purchase
+
+<div class="single-product-tab-area mg-tb-15">
+    <!-- Single pro tab review Start-->
+    <div class="single-pro-review-area">
+        <div class="container-fluid">
+            <form asp-action="Create">
+
+                <div class="form-group hidden">
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="review-tab-pro-inner">
+                            <ul id="myTab3" class="tab-review-design">
+                                <li class="active"><a href="#description"><i class="fa fa-pencil" aria-hidden="true"></i>New  Purchase Order</a></li>
+                                @*<li><a href="#reviews"><i class="fa fa-file-image-o" aria-hidden="true"></i> Purchase Details</a></li>
+        <li><a href="#INFORMATION"><i class="fa fa-commenting" aria-hidden="true"></i> Review</a></li>*@
+                            </ul>
+                            <div id="myTabContent" class="tab-content custom-product-edit">
+                                <div class="product-tab-list tab-pane fade active in" id="description">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+                                                Vendor Name:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <select id="VendorId" name="VendorId" class="form-control" asp-items="ViewBag.VendorId"></select>
+                                                </div>
+                                                Invoice No:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" id="PurchaseInvoice" name="PurchaseInvoice" placeholder="#">
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+
+
+                                                Voucher No:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-dropbox" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" id="VoucherNo" name="VoucherNo" placeholder="#">
+                                                </div>
+                                                Discount:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <input type="text" class="form-control" id="DiscountOnTotal" name="DiscountOnTotal" placeholder="00" value="0">
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                                            <h4 class="form-header">Purchase Details</h4>
+                                            <table class="table table-bordered " id="gridTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sl</th>
+                                                        <th>Product</th>
+                                                        <th>Quantity</th>
+                                                        <th>Amount</th>
+                                                        <th>Discount</th>
+                                                        <th>Price</th>
+                                                        <th></th>
+                                                    </tr>
+                                                    <tr>
+
+                                                        <td></td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input type="text" class="form-control" id="Product" name="Product">
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input type="text" class="form-control" id="item" name="item">
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input class="form-control" id="amount" name="amount" readonly="readonly" />
+
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input type="text" class="form-control" id="DiscountPerItem" value="0" name="DiscountPerItem" />
+                                                        </td>
+
+                                                        <td><label id="Amount" name="Amount" /></td>
+
+
+                                                        <td>
+                                                            <a id="add" class="" aria-label="Left Align">
+                                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody id="tblPurchaseOD"></tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="6">Total</td>
+
+                                                        <td><label id="TotalPrice" name="TotalPrice" /></td>
+
+
+                                                    </tr>
+                                                </tfoot>
+                                                <tfoot>
+                                                </tfoot>
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+                                                <h4 class="form-header">Document</h4>
+                                                <table class="table table-bordered " id="contentTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Sl</th>
+
+                                                            <th>File</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td></td>
+
+                                                            <td class="form-group form-md-line-input has-info">
+                                                                <input type="file" name="FileUpload" id="FileUpload" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                <a id="addDocument" class="" aria-label="Left Align">
+                                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+
+                                                <h4 class="form-header">Payment</h4>
+                                                <table class="table table-bordered " id="payment">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Sl</th>
+                                                            <th>Method</th>
+                                                            <th>Paid Amount</th>
+                                                            <th>Date</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody></tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td class="form-group form-md-line-input has-info">
+
+                                                                <select class="form-control" id="PaymentMethodId" name="PaymentMethodId">
+                                                                    <option value="1">cash</option>
+                                                                    <option value="2">Money Order</option>
+                                                                    <option value="3">Online</option>
+                                                                </select>
+                                                            </td>
+                                                            <td class="form-group form-md-line-input has-info">
+                                                                <input type="text" name="PaidAmount" id="PaidAmount" class="form-control" />
+                                                            </td>
+                                                            <td class="form-group form-md-line-input has-info">
+                                                                <input type="text" name="PaymentDate" id="PaymentDate" class="form-control" autocomplete="off" />
+                                                            </td>
+                                                            <td>
+                                                                <a id="addPayment" class="" aria-label="Left Align">
+                                                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="text-center mg-b-pro-edt custom-pro-edt-ds">
+                                                <button type="submit" data-requiredconfirmation="true" class="btn btn-primary waves-effect waves-light m-r-10">
+                                                    Save
+                                                </button>
+
+                                                <a asp-action="Index" class="btn btn-warning waves-effect waves-light">Discard</a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            
+                               
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<form method="post">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="row">
-
-                <div class="col-md-3">
-                    <div class="form-group form-md-line-input has-info">
-
-                        <select id="VendorId" name="VendorId" class="form-control" asp-items="ViewBag.VendorId"></select>
-                        <label>Vendor  </label>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="PurchaseInvoice" name="PurchaseInvoice" placeholder="#">
-                        <label>Invoice</label>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="VoucherNo" name="VoucherNo" placeholder="#">
-                        <label> Voucher No.</label>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="DiscountOnTotal" name="DiscountOnTotal" placeholder="00" value="0">
-                        <label>Disc.Total</label>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-md-4" style="border-left: 1px solid #eee">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="form-header">Document</h4>
-                    <table class="table table-bordered form-table" id="contentTable">
-                        <thead>
-                            <tr>
-                                <th>Sl</th>
-
-                                <th>File</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                            <tr>
-                                <td></td>
-
-                                <td class="form-group form-md-line-input has-info">
-                                    <input type="file" name="FileUpload" id="FileUpload" class="form-control" />
-                                </td>
-                                <td>
-                                    <a id="addDocument" class="" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-
-                <div class="col-md-12">
-                    <h4 class="form-header">Payment</h4>
-                    <table class="table table-bordered form-table" id="payment">
-                        <thead>
-                            <tr>
-                                <th>Sl</th>
-                                <th>Method</th>
-                                <th>Paid Amount</th>
-                                <th>Date</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                        <tfoot>
-                            <tr>
-                                <td></td>
-                                <td class="form-group form-md-line-input has-info">
-
-                                    <select class="form-control" id="PaymentMethodId" name="PaymentMethodId">
-                                        <option value="1">cash</option>
-                                        <option value="2">Money Order</option>
-                                        <option value="3">Online</option>
-                                    </select>
-                                </td>
-                                <td class="form-group form-md-line-input has-info">
-                                    <input type="text" name="PaidAmount" id="PaidAmount" class="form-control" />
-                                </td>
-                                <td class="form-group form-md-line-input has-info">
-                                    <input type="text" name="PaymentDate" id="PaymentDate" class="form-control" autocomplete="off"/>
-                                </td>
-                                <td>
-                                    <a id="addPayment" class="" aria-label="Left Align">
-                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 ">
-            <h4 class="form-header">Purchase Details</h4>
-            <table class="table table-bordered form-table" id="gridTable">
-                <thead>
-                    <tr>
-                        <th style="width:40px">Sl</th>
-                        <th style="width:180px">Product</th>
-                        <th style="width:100px">Quantity</th>
-                        <th style="width:100px">Amount</th>
-                        <th style="width:100px">Discount</th>
-                        <th style="width:150px">Price</th>
-                        <th>
-
-                        </th>
-                    </tr>
-                    <tr>
-
-                        <td></td>
-                        <td class="form-group form-md-line-input has-info">
-                            <input type="text" class="form-control" id="Product" name="Product">
-                        </td>
-                        <td class="form-group form-md-line-input has-info">
-                            <input type="text" class="form-control" id="item" name="item">
-                        </td>
-                        <td class="form-group form-md-line-input has-info">
-                            <input class="form-control" id="amount" name="amount" readonly="readonly" />
-
-                        </td>
-                        <td class="form-group form-md-line-input has-info">
-                            <input type="text" class="form-control" id="DiscountPerItem" value="0" name="DiscountPerItem" />
-                        </td>
-
-                        <td><label id="Amount" name="Amount" /></td>
 
 
-                        <td>
-                            <a id="add" class="" aria-label="Left Align">
-                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                            </a>
-                        </td>
-                    </tr>
-                </thead>
 
-                <tbody id="tblPurchaseOD"></tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="9">Total</td>
 
-                        <td><label id="TotalPrice" name="TotalPrice" /></td>
 
-                        <td></td>
-                    </tr>
-                </tfoot>
-                <tfoot>
-                </tfoot>
-            </table>
-        </div>
-    </div>
-    <div class="form-actions">
-        <button type="button" class="btn blue" id="save"><i class="fa fa-floppy-o"></i> Save</button>
-        <a href="~/Purchase/Index" class="btn btn-default"><i class="fa fa-ban"></i> Cancel</a>
-    </div>
-</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @section Scripts{
 
