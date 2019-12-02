@@ -23,21 +23,21 @@
 
                 <div class="col-md-3">
                     <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="VendorInvoiceNo" name="VendorInvoiceNo" placeholder="#">
+                        <input type="text" class="form-control" id="PurchaseInvoice" name="PurchaseInvoice" placeholder="#">
                         <label>Invoice</label>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="InvoiceNo" name="InvoiceNo" placeholder="#">
+                        <input type="text" class="form-control" id="VoucherNo" name="VoucherNo" placeholder="#">
                         <label> Voucher No.</label>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="form-group form-md-line-input has-info">
-                        <input type="text" class="form-control" id="Discount" name="Discount" placeholder="00" value="0">
+                        <input type="text" class="form-control" id="DiscountOnTotal" name="DiscountOnTotal" placeholder="00" value="0">
                         <label>Disc.Total</label>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         <thead>
                             <tr>
                                 <th>Sl</th>
-                                <th>Type</th>
+
                                 <th>File</th>
                                 <th></th>
                             </tr>
@@ -62,11 +62,7 @@
                         <tfoot>
                             <tr>
                                 <td></td>
-                                <td class="form-group form-md-line-input has-info">
-                                    <select class="form-control" id="DocumentTypeId" name="DocumentTypeId">
-                                        <option value="1">Invoice</option>
-                                    </select>
-                                </td>
+
                                 <td class="form-group form-md-line-input has-info">
                                     <input type="file" name="FileUpload" id="FileUpload" class="form-control" />
                                 </td>
@@ -108,7 +104,7 @@
                                     <input type="text" name="PaidAmount" id="PaidAmount" class="form-control" />
                                 </td>
                                 <td class="form-group form-md-line-input has-info">
-                                    <input type="text" name="PaymentDate" id="PaymentDate" class="form-control" />
+                                    <input type="text" name="PaymentDate" id="PaymentDate" class="form-control" autocomplete="off"/>
                                 </td>
                                 <td>
                                     <a id="addPayment" class="" aria-label="Left Align">
@@ -148,8 +144,8 @@
                             <input type="text" class="form-control" id="item" name="item">
                         </td>
                         <td class="form-group form-md-line-input has-info">
-                            <input class="form-control" id="amount" name="amount" readonly="readonly"/>
-                            @*<input type="text" class="form-control" id="amount" name="amount">*@
+                            <input class="form-control" id="amount" name="amount" readonly="readonly" />
+
                         </td>
                         <td class="form-group form-md-line-input has-info">
                             <input type="text" class="form-control" id="DiscountPerItem" value="0" name="DiscountPerItem" />
@@ -157,7 +153,7 @@
 
                         <td><label id="Amount" name="Amount" /></td>
 
-               
+
                         <td>
                             <a id="add" class="" aria-label="Left Align">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -206,7 +202,7 @@
             PurchasePaymenJson:[],
             item: [],
             calculateTotal: function () {
-                
+
                 var vatPercent = $('#VAT').text();
                 var unitAmount = $('#Amount').text();
                 var vatValue = parseFloat(unitAmount);
@@ -216,52 +212,6 @@
                 $('#vatValue').text(vatValue);
                 $('#totalValue').text(total);
             },
-            purchaseForLocal: function () {
-                var purchaseTypeId = $('#PurchaseTypeId').val();
-                if (purchaseTypeId == 1) {
-
-                    $('#PurchaseTypeId').attr("disabled", true);
-                    $('#gridTable tbody').empty();
-                    $("#ImportDutyPercent").val(0);
-                    $("#RegulatoryDutyPercent").val(0);
-                    $("#AdvanceTaxPercent").val(0);
-                    $("#AdvanceIncomeTaxPercent").val(0);
-                    $("#ImportDutyPercent").attr('readonly', 'readonly');
-                    $("#RegulatoryDutyPercent").attr('readonly', 'readonly');
-                    $("#AdvanceTaxPercent").attr('readonly', 'readonly');
-                    $("#AdvanceIncomeTaxPercent").attr('readonly', 'readonly');
-                }
-            },
-            purchaseForImport: function (purchaseTypeId) {
-                if (purchaseTypeId == 3) {
-
-                    $('#PurchaseTypeId').attr("disabled", true);
-                    $('#gridTable tbody').empty();
-
-                    purchasOrder.gridTableEmpty();
-                    purchasOrder.PurchaseOrderDetailList.length = 0;
-                    purchasOrder.count = 1;
-                    purchasOrder.totalPrice = 0;
-                    purchasOrder.totalVat = 0;
-                    $('#TotalPrice').text('0');
-                    $('#TotalVat').text('0');
-                }
-            },
-            purchaseForVDS: function (purchaseTypeId) {
-                if (purchaseTypeId == 3) {
-
-                    $('#PurchaseTypeId').attr("disabled", true);
-                    $('#gridTable tbody').empty();
-
-                    purchasOrder.gridTableEmpty();
-                    purchasOrder.PurchaseOrderDetailList.length = 0;
-                    purchasOrder.count = 1;
-                    purchasOrder.totalPrice = 0;
-                    purchasOrder.totalVat = 0;
-                    $('#TotalPrice').text('0');
-                    $('#TotalVat').text('0');
-                }
-            },
 
             gridTableEmpty: function() {
                 $('#ProductId').val('');
@@ -269,10 +219,6 @@
                 $('#Amount').text('');
                 $('#item').val('');
                 $('#amount').val('0');
-                $('#VAT').text('');
-                $('#InitialAmount').val('');
-                $('#vatValue').text('');
-                $('#totalValue').text('');
             },
             isNumber:function (n) {
                 return !isNaN(parseFloat(n)) && isFinite(n);
@@ -290,14 +236,9 @@
                 var productId = $('#ProductId').val();
                 var item = $('#item').val();
                 var amount = $('#amount').val();
-                var vatPercent = $('#VAT').text();
-                var unit = $('#unit option:selected').text();
-                var unitId = $('#unit').val();
                 var unitAmount = $('#Amount').text();
                 var DiscountPerItem = $('#DiscountPerItem').val();
-                var SupplementaryDutyPercent = $('#SupplementaryDutyPercent').val();
-                var IsVatDeductedInSource = $('#IsVatDeductedInSource').is(":checked");
-                var VDSAmount = $('#VDSAmount').val();
+
                 if (productId>0) {
 
                     var canAdd = true;
@@ -320,18 +261,15 @@
                         canAdd = false;
                     }
                     if (canAdd) {
-
-                        var vat = parseFloat(vatPercent)/100;
                         var data = new Object();
                         //PurchaseDetails
                         data.ProductId = productId;
                         data.Quantity = item;
-                        data.UnitPrice = unitAmount;
+                        data.UnitPrice = amount;
                         data.DiscountPerItem = DiscountPerItem;
-                      
-                        data.total = unitAmount;
+
                         purchasOrder.PurchaseOrderDetailList.push(data);
-                       
+
                         var html = '<tr id="' +
                             data.ProductId +
                             '">' +
@@ -350,7 +288,7 @@
                             '<td>' +
                             DiscountPerItem +
                             '</td>' +
-                          
+
                             '<td>' +
                             unitAmount +
                             '</td>' +
@@ -372,19 +310,17 @@
             },
             addDocument: function () {
 
-                var DocumentName = $('#DocumentTypeId option:selected').text();
-                var DocumentTypeId = $('#DocumentTypeId').val();
                 var files = $("#FileUpload").get(0).files;
                 var table = document.getElementById('contentTable');
                 var rowCount = table.rows.length;
-                if (DocumentTypeId > 0) {
+                if (files) {
                     var canAdd = true;
 
                     if (canAdd) {
                         var data = new Object();
                         //PurchaseDetails
                         data.rowCount = rowCount;
-                        data.DocumentTypeId = DocumentTypeId;
+                        //data.DocumentTypeId = DocumentTypeId;
                         data.UploadFile = files[0];
                         purchasOrder.ContentInfoJson.push(data);
 
@@ -393,9 +329,6 @@
                             '">' +
                             '<td>' +
                             rowCount +
-                            '</td>' +
-                            '<td>' +
-                            DocumentName +
                             '</td>' +
                             '<td>' +
                             files[0].name +
@@ -515,10 +448,9 @@
                 var unitAmount = $('#amount').val();
 
                 if (!purchasOrder.isNumber(unitAmount) || !(purchasOrder.isNumber(value))) {
-                    return; //alert("Error! You must enter a number into the qty and cost fields!");
+                    return;
                 } else {
-                    //unitAmount = unitAmount * value;
-                    //$('#amount').val(unitAmount );
+
                     $("#Amount").text(unitAmount * value);
                     purchasOrder.calculateTotal();
                 }
@@ -537,54 +469,25 @@
             Save: function () {
                 debugger
                 var VendorId = $('#VendorId').val();
-                var VatChallanNo = $('#VatChallanNo').val();
-                var VatChallanIssueDate = $('#VatChallanIssueDate').val();
-                var VendorInvoiceNo = $('#VendorInvoiceNo').val();
-                var InvoiceNo = $('#InvoiceNo').val();
-                var PurchaseTypeId = $('#PurchaseTypeId').val();
-                var files = $("#FileUpload").get(0).files;
-                var Amount = $('#PurchaseAmount').val();
-                var ExpectedDeleveryDate = $('#ExpectedDeleveryDate').val();
-                var DeliveryDate = $('#DeliveryDate').val();
-                var Iteams = $('#PurchaseIteams').val();
-                var Vat = $('#PurchaseVat').val();
-                var DiscountOnTotalPrice = $('#DiscountOnTotalPrice').val();
-                var PurchaseReasonId = $('#PurchaseReasonId').val();
-                var IsVatDeductedInSource = $('#IsVatDeductedInSource').is(":checked");
-                var VDSAmount = null;
-                if (IsVatDeductedInSource) {
-                    VDSAmount = $('#VDSAmount').val();
-                }
+                var PurchaseInvoice = $('#PurchaseInvoice').val();
+                var VoucherNo = $('#VoucherNo').val();
+                var DiscountOnTotal = $('#DiscountOnTotal').val();
 
-                var PaidAmount = $('#PaidAmount').val();
-                var LcNo = $('#LcNo').val();
-                var LcDate = $('#LcDate').val();
-                var BillOfEntry = $('#BillOfEntry').val();
-                var BillOfEntryDate = $('#BillOfEntryDate').val();
-                var DueDate = $('#DueDate').val();
-                var TermsOfLc = $('#TermsOfLc').val();
-                var PoNumber = $('#PoNumber').val();
-                var MushakGenerationId = $('#MushakGenerationId').val();
 
                 //Bind Data for Purchase
                 var data = new FormData();
 
                 for (var i = 0; i < purchasOrder.PurchaseOrderDetailList.length; i++) {
                     data.append('PurchaseOrderDetailList[' + i + '].ProductId', purchasOrder.PurchaseOrderDetailList[i].ProductId);
-                    data.append('PurchaseOrderDetailList[' + i + '].Quantity', purchasOrder.PurchaseOrderDetailList[i].Quantity);
-                    data.append('PurchaseOrderDetailList[' + i + '].UnitPrice', purchasOrder.PurchaseOrderDetailList[i].UnitPrice);
+                    data.append('PurchaseOrderDetailList[' + i + '].Qty', purchasOrder.PurchaseOrderDetailList[i].Quantity);
+                    data.append('PurchaseOrderDetailList[' + i + '].Amount', purchasOrder.PurchaseOrderDetailList[i].UnitPrice);
                     data.append('PurchaseOrderDetailList[' + i + '].DiscountPerItem', purchasOrder.PurchaseOrderDetailList[i].DiscountPerItem);
-                    data.append('PurchaseOrderDetailList[' + i + '].ImportDutyPercent', purchasOrder.PurchaseOrderDetailList[i].ImportDutyPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].RegulatoryDutyPercent', purchasOrder.PurchaseOrderDetailList[i].RegulatoryDutyPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].SupplementaryDutyPercent', purchasOrder.PurchaseOrderDetailList[i].SupplementaryDutyPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].VATPercent', purchasOrder.PurchaseOrderDetailList[i].VATPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].AdvanceTaxPercent', purchasOrder.PurchaseOrderDetailList[i].AdvanceTaxPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].AdvanceIncomeTaxPercent', purchasOrder.PurchaseOrderDetailList[i].AdvanceIncomeTaxPercent);
-                    data.append('PurchaseOrderDetailList[' + i + '].MeasurementUnitId', purchasOrder.PurchaseOrderDetailList[i].MeasurementUnitId);
+
                 }
                 //TODO
                 for (var i = 0; i < purchasOrder.ContentInfoJson.length; i++) {
-                    data.append('ContentInfoJson[' + i + '].DocumentTypeId', purchasOrder.ContentInfoJson[i].DocumentTypeId);
+                    data.append('ContentInfoJson[' + i + '].DocumentTypeId',
+                        1);
                     data.append('ContentInfoJson[' + i + '].UploadFile', purchasOrder.ContentInfoJson[i].UploadFile);
                 }
                 //TODO
@@ -593,28 +496,15 @@
                     data.append('PurchasePaymenJson[' + i + '].PaidAmount', purchasOrder.PurchasePaymenJson[i].PaidAmount);
                     data.append('PurchasePaymenJson[' + i + '].PaymentDate', purchasOrder.PurchasePaymenJson[i].PaymentDate);
                 }
-                data.append("VDSAmount", VDSAmount);
-                data.append("VatChallanNo", VatChallanNo);
-                data.append("VatChallanIssueDate", VatChallanIssueDate);
+                data.append("PurchaseInvoice", PurchaseInvoice);
+                data.append("VoucherNo", VoucherNo);
+                data.append("DiscountOnTotal", DiscountOnTotal);
                 data.append("VendorId", VendorId);
-                data.append("VendorInvoiceNo", VendorInvoiceNo);
-                data.append("InvoiceNo", InvoiceNo);
-                data.append("PurchaseDate", '2019-07-15');
-                data.append("PurchaseTypeId", PurchaseTypeId);
-                data.append("PurchaseReasonId", PurchaseReasonId);
-                data.append("DiscountOnTotalPrice", DiscountOnTotalPrice);
-                data.append("IsVatDeductedInSource", IsVatDeductedInSource);
-                data.append("MushakGenerationId", 1);//TODO
-                data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
 
-                //if (files.length > 0) {
-                //    data.append("UploadFile", files[0]);
-                //} else {
-                //    alert("Please add  file.");
-                //    return false;
-                //}
+                //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
+
                 $.ajax({
-                    url: '@Url.Action("CreateAsync", "Purchase")',
+                    url: '@Url.Action("Create", "Purchase")',
                     data: data,
                     type: "POST",
                     processData: false,
@@ -711,21 +601,13 @@
             });
 
             purchasOrder.product.productAutoComplete();
-            purchasOrder.purchaseForLocal();
-            $("#ExpectedDeleveryDate").datepicker();
-            $("#ExpectedDeleveryDate").datepicker('option', 'dateFormat', 'dd M, yy');
-            $("#VatChallanIssueDate").datepicker();
-            $("#VatChallanIssueDate").datepicker('option', 'dateFormat', 'dd M, yy');
-            $("#DeliveryDate").datepicker();
-            $("#DeliveryDate").datepicker('option', 'dateFormat', 'dd M, yy');
+
+
             $("#PaymentDate").datepicker();
             $("#PaymentDate").datepicker('option', 'dateFormat', 'dd M, yy');
-            $("#BillOfEntryDate").datepicker();
-            $("#BillOfEntryDate").datepicker('option', 'dateFormat', 'dd M, yy');
-            $("#DueDate").datepicker();
-            $("#DueDate").datepicker('option', 'dateFormat', 'dd M, yy');
-            $("#DeliveryDate").datepicker();
-            $("#DeliveryDate").datepicker('option', 'dateFormat', 'dd M, yy');
+
+
+
 
         });
 
@@ -753,12 +635,7 @@
 
         });
 
-        $("#PurchaseTypeId").change(function () {
-            purchasOrder.typeId = $('#PurchaseTypeId').val();
-           var value= $('#PurchaseTypeId').val();
-            purchasOrder.purchaseForVDS(value);
 
-        });
     </script>
 
 }

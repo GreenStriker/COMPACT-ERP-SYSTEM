@@ -39,6 +39,7 @@ namespace vms.entity.models
         public virtual DbSet<ProductLog> ProductLogs { get; set; }
         public virtual DbSet<ProductPrice> ProductPrices { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
+        public virtual DbSet<PurchaseContent> PurchaseContents { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<RewardPoint> RewardPoints { get; set; }
@@ -573,6 +574,24 @@ namespace vms.entity.models
                     .WithMany(p => p.Purchases)
                     .HasForeignKey(d => d.VendorId)
                     .HasConstraintName("FK_Purchase_Vendor");
+            });
+
+            modelBuilder.Entity<PurchaseContent>(entity =>
+            {
+                entity.HasKey(e => e.ContentId);
+
+                entity.ToTable("PurchaseContent", "dbo");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Remark).HasMaxLength(50);
+
+                entity.Property(e => e.Url).HasMaxLength(500);
+
+                entity.HasOne(d => d.Purchase)
+                    .WithMany(p => p.PurchaseContents)
+                    .HasForeignKey(d => d.PurchaseId)
+                    .HasConstraintName("FK_PurchaseContent_Purchase");
             });
 
             modelBuilder.Entity<PurchaseDetail>(entity =>

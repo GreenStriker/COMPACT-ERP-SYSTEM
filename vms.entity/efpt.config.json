@@ -98,6 +98,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[PurchaseContent]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[purchaseDetail]"
       },
       {
