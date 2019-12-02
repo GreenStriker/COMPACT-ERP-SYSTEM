@@ -39,6 +39,7 @@ namespace vms.entity.models
         public virtual DbSet<ProductLog> ProductLogs { get; set; }
         public virtual DbSet<ProductPrice> ProductPrices { get; set; }
         public virtual DbSet<Purchase> Purchases { get; set; }
+        public virtual DbSet<PurchaseContent> PurchaseContents { get; set; }
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<RewardPoint> RewardPoints { get; set; }
@@ -575,6 +576,24 @@ namespace vms.entity.models
                     .HasConstraintName("FK_Purchase_Vendor");
             });
 
+            modelBuilder.Entity<PurchaseContent>(entity =>
+            {
+                entity.HasKey(e => e.ContentId);
+
+                entity.ToTable("PurchaseContent", "dbo");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Remark).HasMaxLength(50);
+
+                entity.Property(e => e.Url).HasMaxLength(500);
+
+                entity.HasOne(d => d.Purchase)
+                    .WithMany(p => p.PurchaseContents)
+                    .HasForeignKey(d => d.PurchaseId)
+                    .HasConstraintName("FK_PurchaseContent_Purchase");
+            });
+
             modelBuilder.Entity<PurchaseDetail>(entity =>
             {
                 entity.ToTable("purchaseDetail", "dbo");
@@ -642,6 +661,21 @@ namespace vms.entity.models
                 entity.Property(e => e.Totalpoint).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.UsePoins).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.CustomerId)
+                    .HasConstraintName("FK_RewardPoint_Customer");
+
+                entity.HasOne(d => d.Sales)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.SalesId)
+                    .HasConstraintName("FK_RewardPoint_Sales");
+
+                entity.HasOne(d => d.Settings)
+                    .WithMany(p => p.RewardPoints)
+                    .HasForeignKey(d => d.SettingsId)
+                    .HasConstraintName("FK_RewardPoint_Settings");
             });
 
             modelBuilder.Entity<Role>(entity =>

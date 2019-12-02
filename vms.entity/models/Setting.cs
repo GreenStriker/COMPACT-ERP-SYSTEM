@@ -9,6 +9,7 @@ namespace vms.entity.models
         public Setting()
         {
             Payrolls = new HashSet<Payroll>();
+            RewardPoints = new HashSet<RewardPoint>();
         }
 
         public int SettingsId { get; set; }
@@ -30,5 +31,6 @@ namespace vms.entity.models
         public DateTime? CreatedTime { get; set; }
 
         public virtual ICollection<Payroll> Payrolls { get; set; }
+        public virtual ICollection<RewardPoint> RewardPoints { get; set; }
     }
 }
