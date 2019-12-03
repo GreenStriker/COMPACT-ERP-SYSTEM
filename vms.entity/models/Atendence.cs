@@ -16,12 +16,14 @@ namespace vms.entity.models
         public int? Month { get; set; }
         public int? Year { get; set; }
         public int? WorkingDays { get; set; }
+        public int? PayrollId { get; set; }
         public bool? IsActive { get; set; }
         public bool? Isclosed { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 
         public virtual Branch Branch { get; set; }
+        public virtual Payroll Payroll { get; set; }
         public virtual ICollection<AttendenceDetail> AttendenceDetails { get; set; }
     }
 }
