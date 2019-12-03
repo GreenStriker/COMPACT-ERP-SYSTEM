@@ -103,9 +103,10 @@
                                     <td>
 
 
-                                        @*<button data-toggle="tooltip" title="Edit" class="pd-setting-ed">  <a asp-action="Edit" asp-route-id="@item.PayrollId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </button>
+                                        <button data-toggle="tooltip" title="OverDetails" class="pd-setting-ed">  <a asp-action="OverDetails" asp-route-id="@item.PayrollDetailsId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </button>
 
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed">    <a asp-action="Delete" asp-route-id="@item.PayrollId"><i class="fa fa-trash-o" aria-hidden="true"></i>    </a></button>*@
+                                        <button data-toggle="tooltip" title="AdvancedDetails" class="pd-setting-ed">    <a asp-action="AdvancedDetails" asp-route-id="@item.PayrollDetailsId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>    </a></button>
+                                        <button data-toggle="tooltip" title="IncentiveDetails" class="pd-setting-ed">    <a asp-action="IncenDetails" asp-route-id="@item.PayrollDetailsId"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>    </a></button>
 
 
                                     </td>
