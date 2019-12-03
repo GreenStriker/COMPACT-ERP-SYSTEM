@@ -50,7 +50,10 @@ namespace Inventory.Controllers
 
         public async System.Threading.Tasks.Task<IActionResult> Index(int? page, string search = null)
         {
-            var getPurchase = await _service.Query().Where(c => c.BranchId == _session.BranchId).Include(c => c.Vendor).OrderByDescending(c => c.PurchaseId).SelectAsync(CancellationToken.None);
+            var getPurchase = await _service.Query().Where(c => c.BranchId == _session.BranchId)
+                .Include(c => c.Vendor)
+                .Include(c=>c.Branch)
+                .OrderByDescending(c => c.PurchaseId).SelectAsync(CancellationToken.None);
             if (search != null)
             {
                 search = search.ToLower().Trim();
@@ -234,6 +237,13 @@ namespace Inventory.Controllers
                 return Json(status);
             }
 
+        }
+        public async System.Threading.Tasks.Task<IActionResult> Details(int id)
+        {
+           
+            var purchase = await _service.GetById(id);
+           
+            return View(purchase);
         }
     }
 }

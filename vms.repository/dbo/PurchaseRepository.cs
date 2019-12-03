@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using vms.entity.models;
@@ -36,7 +37,12 @@ namespace vms.repository.dbo
         public async Task<Purchase> GetById(int ids)
         {
             int id = ids;
-            var data = await this.Query().SingleOrDefaultAsync(x => x.PurchaseId == id, System.Threading.CancellationToken.None);
+            var data = await this.Query().Include("PurchaseDetails.Product.Munit")
+                .Include("PurchasePayments.PaymentMethod")
+                .Include(c=>c.PurchaseContents)
+                .Include(c=>c.Vendor)
+                .Include(c=>c.Branch)
+                .SingleOrDefaultAsync(x => x.PurchaseId == id, System.Threading.CancellationToken.None);
             return data;
         }
     }
