@@ -161,18 +161,20 @@ namespace Inventory.Controllers
                     }
             
 
-                    var advancedSalary = await _Advancedservice.Query().Where(x => x.EmloyId == item.EmployeId && x.IsActive == true).SelectAsync();
-                    var Overtime = await _OverTimeservice.Query().Where(x => x.EmployId == item.EmployeId && x.IsActive == true).SelectAsync();
-                    var Incentive = await _Incentiveservice.Query().Where(x => x.EmployId == item.EmployeId && x.IsActive == true).SelectAsync();
+                  var advancedSalary = _Advancedservice.Queryable().Where (x => x.EmloyId == item.EmployeId && x.IsActive == true).AsQueryable();
+                    // var advancedSalary = await _Advancedservice.Query().Where(x => x.EmloyId == item.EmployeId && x.IsActive == true).SelectAsync();
+                    // var advancedSalary = await _Advancedservice.Query().SingleOrDefaultAsync(m => m.EmloyId == item.EmployeId && m.IsActive == true, CancellationToken.None);
+                    var Overtime =  _OverTimeservice.Queryable().Where(x => x.EmployId == item.EmployeId && x.IsActive == true).AsQueryable();
+                    var Incentive =  _Incentiveservice.Queryable().Where(x => x.EmployId == item.EmployeId && x.IsActive == true).AsQueryable();
                     var salryBase = await _salaryeservice.Query().SingleOrDefaultAsync(m => m.EmployeId == item.EmployeId && m.IsActive == true, CancellationToken.None);
                     
 
                     decimal eadvance = 0, eover = 0, eincentive = 0;
 
-                    if(advancedSalary!=null)
+                    if (advancedSalary != null)
                     {
 
-                        foreach(var itms in advancedSalary)
+                        foreach (var itms in advancedSalary)
                         {
                             eadvance = eadvance + itms.Amount;
 
@@ -181,9 +183,9 @@ namespace Inventory.Controllers
                             itms.Remarks = itms.Remarks + "Colosed in payroll " + payroll.PayrollId.ToString();
                             itms.PayrollId = payroll.PayrollId;
                             _Advancedservice.Update(itms);
-                            await UnitOfWork.SaveChangesAsync();
+                            //await UnitOfWork.SaveChangesAsync();
 
-                           
+
                         }
 
 
@@ -201,7 +203,7 @@ namespace Inventory.Controllers
                             itms.Remarks = itms.Remarks + "Colosed in payroll " + payroll.PayrollId.ToString();
                             itms.PayrollId = payroll.PayrollId;
                             _OverTimeservice.Update(itms);
-                            await UnitOfWork.SaveChangesAsync();
+                            //await UnitOfWork.SaveChangesAsync();
 
                         }
 
@@ -222,7 +224,7 @@ namespace Inventory.Controllers
                             itms.PayrollId = payroll.PayrollId;
                             _Incentiveservice.Update(itms);
 
-                            await UnitOfWork.SaveChangesAsync();
+                            //await UnitOfWork.SaveChangesAsync();
 
                         }
 
@@ -254,11 +256,11 @@ namespace Inventory.Controllers
                     }
 
 
-                    await UnitOfWork.SaveChangesAsync();
+                    //await UnitOfWork.SaveChangesAsync();
                 }
 
-               
 
+               // await UnitOfWork.SaveChangesAsync();
 
                 //
 
@@ -278,7 +280,7 @@ namespace Inventory.Controllers
 
                 _expenceeservice.Insert(expence);
 
-                await UnitOfWork.SaveChangesAsync();
+               // await UnitOfWork.SaveChangesAsync();
 
 
 
@@ -345,6 +347,54 @@ namespace Inventory.Controllers
 
         }
 
+
+
+
+
+
+
+
+        public async Task<IActionResult> AdvancedDetails(int id)
+        {
+
+            // var set = await _setservice.Query().SingleOrDefaultAsync(m => m.IsActive == true, CancellationToken.None);
+
+            var details = await _Detailservice.Query().SingleOrDefaultAsync(m => m.PayrollDetailsId == id, CancellationToken.None);
+
+
+            var data = await _Advancedservice.Query().Include(c => c.Emloy).Where(x => x.PayrollId == details.PayrollId && x.EmloyId == details.EmployeId).SelectAsync();
+           
+            return View(data);
+
+        }
+
+
+        public async Task<IActionResult> OverDetails(int id)
+        {
+
+            var details = await _Detailservice.Query().SingleOrDefaultAsync(m => m.PayrollDetailsId == id, CancellationToken.None);
+
+
+            var data = await _OverTimeservice.Query().Include(c => c.Employ).Include(c=>c.Payroll.Settings).Where(x => x.PayrollId == details.PayrollId && x.EmployId == details.EmployeId).SelectAsync();
+
+            return View(data);
+
+        }
+
+
+
+
+        public async Task<IActionResult> IncenDetails(int id)
+        {
+
+            var details = await _Detailservice.Query().SingleOrDefaultAsync(m => m.PayrollDetailsId == id, CancellationToken.None);
+
+
+            var data = await _Incentiveservice.Query().Include(c => c.Employ).Where(x => x.PayrollId == details.PayrollId && x.EmployId == details.EmployeId).SelectAsync();
+
+            return View(data);
+
+        }
 
 
 
