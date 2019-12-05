@@ -12,7 +12,10 @@ namespace vms.entity.models
         public int? StockId { get; set; }
         public decimal? Qty { get; set; }
         public decimal? UnitPrice { get; set; }
-        public decimal? Amount { get; set; }
+        public decimal? DiscountPerItem { get; set; }
+        public decimal? Vatpercent { get; set; }
+        public int? CreatedBy { get; set; }
+        public DateTime? CreatedTime { get; set; }
 
         public virtual Product Product { get; set; }
         public virtual Sale Sale { get; set; }
