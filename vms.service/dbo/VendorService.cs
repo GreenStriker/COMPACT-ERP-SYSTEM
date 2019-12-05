@@ -11,6 +11,7 @@ namespace vms.service.dbo
     {
         Task<IEnumerable<Vendor>> GetAll();
         Task<Vendor> GetById(int id);
+        Task<Vendor> GetByMobile(string id);
     }
     public class VendorService : ServiceBase<Vendor>, IVendorService
     {
@@ -26,6 +27,11 @@ namespace vms.service.dbo
         public async Task<Vendor> GetById(int id)
         {
             return await _repository.GetById(id);
+        }
+
+        public async Task<Vendor> GetByMobile(string id)
+        {
+            return await _repository.GetByMobile(id);
         }
     }
 }
