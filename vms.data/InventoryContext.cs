@@ -65,13 +65,14 @@ namespace vms.entity.models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("Relational:DefaultSchema", "futureso");
 
             modelBuilder.Entity<AdvancedSalary>(entity =>
             {
                 entity.HasKey(e => e.AdvanceSalaryId);
 
-                entity.ToTable("AdvancedSalary");
+                entity.ToTable("AdvancedSalary", "dbo");
 
                 entity.Property(e => e.AdvanceSalaryId).HasColumnName("AdvanceSalaryID");
 
@@ -94,7 +95,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Atendence>(entity =>
             {
-                entity.ToTable("Atendence");
+                entity.ToTable("Atendence", "dbo");
 
                 entity.Property(e => e.AtendenceId).HasColumnName("AtendenceID");
 
@@ -119,6 +120,8 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.AttendenceDetailsId);
 
+                entity.ToTable("AttendenceDetails", "dbo");
+
                 entity.Property(e => e.AttendenceDetailsId).HasColumnName("AttendenceDetailsID");
 
                 entity.Property(e => e.AttendenceId).HasColumnName("AttendenceID");
@@ -138,7 +141,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Branch>(entity =>
             {
-                entity.ToTable("Branch");
+                entity.ToTable("Branch", "dbo");
 
                 entity.Property(e => e.Address).HasMaxLength(500);
 
@@ -157,7 +160,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Content>(entity =>
             {
-                entity.ToTable("Content");
+                entity.ToTable("Content", "dbo");
 
                 entity.Property(e => e.ContentId).HasColumnName("ContentID");
 
@@ -175,7 +178,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Contenttype>(entity =>
             {
-                entity.ToTable("Contenttype");
+                entity.ToTable("Contenttype", "dbo");
 
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
@@ -184,7 +187,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.ToTable("Customer");
+                entity.ToTable("Customer", "dbo");
 
                 entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
@@ -208,7 +211,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<DebitNote>(entity =>
             {
-                entity.ToTable("DebitNote", "futureso");
+                entity.ToTable("DebitNote");
 
                 entity.Property(e => e.ReasonOfReturn).HasMaxLength(50);
 
@@ -220,7 +223,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<DebitNoteDetail>(entity =>
             {
-                entity.ToTable("DebitNoteDetail", "futureso");
+                entity.ToTable("DebitNoteDetail");
 
                 entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
 
@@ -237,7 +240,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Employe>(entity =>
             {
-                entity.ToTable("Employe");
+                entity.ToTable("Employe", "dbo");
 
                 entity.Property(e => e.EmployeId).HasColumnName("EmployeID");
 
@@ -275,7 +278,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Expence>(entity =>
             {
-                entity.ToTable("Expence");
+                entity.ToTable("Expence", "dbo");
 
                 entity.Property(e => e.ExpenceId).HasColumnName("ExpenceID");
 
@@ -312,7 +315,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<ExpenceType>(entity =>
             {
-                entity.ToTable("ExpenceType");
+                entity.ToTable("ExpenceType", "dbo");
 
                 entity.Property(e => e.ExpenceTypeId).HasColumnName("ExpenceTypeID");
 
@@ -323,7 +326,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Incentive>(entity =>
             {
-                entity.ToTable("Incentive");
+                entity.ToTable("Incentive", "dbo");
 
                 entity.Property(e => e.IncentiveId).HasColumnName("IncentiveID");
 
@@ -355,7 +358,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.MunitId);
 
-                entity.ToTable("MeasureUnit");
+                entity.ToTable("MeasureUnit", "dbo");
 
                 entity.Property(e => e.MunitId).HasColumnName("MUnitId");
 
@@ -364,7 +367,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Overtime>(entity =>
             {
-                entity.ToTable("Overtime");
+                entity.ToTable("Overtime", "dbo");
 
                 entity.Property(e => e.OvertimeId).HasColumnName("OvertimeID");
 
@@ -393,7 +396,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.PaymetId);
 
-                entity.ToTable("payment");
+                entity.ToTable("payment", "dbo");
 
                 entity.Property(e => e.PaymetId).HasColumnName("paymetID");
 
@@ -415,7 +418,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<PaymentMethod>(entity =>
             {
-                entity.ToTable("PaymentMethod");
+                entity.ToTable("PaymentMethod", "dbo");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
@@ -426,7 +429,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Payroll>(entity =>
             {
-                entity.ToTable("Payroll");
+                entity.ToTable("Payroll", "dbo");
 
                 entity.Property(e => e.PayrollId).HasColumnName("PayrollID");
 
@@ -455,6 +458,8 @@ namespace vms.entity.models
             modelBuilder.Entity<PayrollDetail>(entity =>
             {
                 entity.HasKey(e => e.PayrollDetailsId);
+
+                entity.ToTable("PayrollDetails", "dbo");
 
                 entity.Property(e => e.PayrollDetailsId).HasColumnName("PayrollDetailsID");
 
@@ -490,7 +495,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.ToTable("Product");
+                entity.ToTable("Product", "dbo");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -525,7 +530,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.LogId);
 
-                entity.ToTable("ProductLog");
+                entity.ToTable("ProductLog", "dbo");
 
                 entity.Property(e => e.Code).HasMaxLength(50);
 
@@ -546,7 +551,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.PriceId);
 
-                entity.ToTable("ProductPrice");
+                entity.ToTable("ProductPrice", "dbo");
 
                 entity.Property(e => e.PriceId).HasColumnName("priceId");
 
@@ -568,7 +573,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Purchase>(entity =>
             {
-                entity.ToTable("Purchase");
+                entity.ToTable("Purchase", "dbo");
 
                 entity.Property(e => e.PurchaseId).HasColumnName("PurchaseID");
 
@@ -585,6 +590,8 @@ namespace vms.entity.models
                 entity.Property(e => e.PayableAmount).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.PurchaseInvoice).HasMaxLength(500);
+
+                entity.Property(e => e.TotalDiscountOnIndividualProduct).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.VoucherNo).HasMaxLength(50);
 
@@ -603,7 +610,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.ContentId);
 
-                entity.ToTable("PurchaseContent");
+                entity.ToTable("PurchaseContent", "dbo");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
@@ -619,7 +626,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<PurchaseDetail>(entity =>
             {
-                entity.ToTable("purchaseDetail");
+                entity.ToTable("purchaseDetail", "dbo");
 
                 entity.Property(e => e.PurchaseDetailId).HasColumnName("PurchaseDetailID");
 
@@ -646,7 +653,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<PurchasePayment>(entity =>
             {
-                entity.ToTable("PurchasePayment");
+                entity.ToTable("PurchasePayment", "dbo");
 
                 entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
 
@@ -665,7 +672,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.RewardPoinId);
 
-                entity.ToTable("RewardPoint");
+                entity.ToTable("RewardPoint", "dbo");
 
                 entity.Property(e => e.RewardPoinId).HasColumnName("RewardPoinID");
 
@@ -703,7 +710,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Role>(entity =>
             {
-                entity.ToTable("Role");
+                entity.ToTable("Role", "dbo");
 
                 entity.Property(e => e.RoleId).ValueGeneratedNever();
 
@@ -712,7 +719,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Salary>(entity =>
             {
-                entity.ToTable("salary");
+                entity.ToTable("salary", "dbo");
 
                 entity.Property(e => e.SalaryId).HasColumnName("SalaryID");
 
@@ -733,6 +740,8 @@ namespace vms.entity.models
             modelBuilder.Entity<Sale>(entity =>
             {
                 entity.HasKey(e => e.SalesId);
+
+                entity.ToTable("Sales", "dbo");
 
                 entity.Property(e => e.BranchId).HasColumnName("BranchID");
 
@@ -767,7 +776,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<SalePayment>(entity =>
             {
-                entity.ToTable("SalePayment");
+                entity.ToTable("SalePayment", "dbo");
 
                 entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
 
@@ -784,6 +793,8 @@ namespace vms.entity.models
 
             modelBuilder.Entity<SalesDetail>(entity =>
             {
+                entity.ToTable("SalesDetails", "dbo");
+
                 entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.ProductId).HasColumnName("productID");
@@ -816,6 +827,8 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.SettingsId);
 
+                entity.ToTable("Settings", "dbo");
+
                 entity.Property(e => e.SettingsId).HasColumnName("SettingsID");
 
                 entity.Property(e => e.AdvanceSalaryPercentage).HasColumnType("decimal(18, 2)");
@@ -833,7 +846,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Stock>(entity =>
             {
-                entity.ToTable("Stock");
+                entity.ToTable("Stock", "dbo");
 
                 entity.Property(e => e.InQty).HasColumnType("decimal(18, 0)");
 
@@ -872,7 +885,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.StocktypeId1);
 
-                entity.ToTable("StocktypeId");
+                entity.ToTable("StocktypeId", "dbo");
 
                 entity.Property(e => e.StocktypeId1).HasColumnName("StocktypeId");
 
@@ -883,7 +896,7 @@ namespace vms.entity.models
             {
                 entity.HasKey(e => e.Uid);
 
-                entity.ToTable("User");
+                entity.ToTable("User", "dbo");
 
                 entity.Property(e => e.Address)
                     .HasColumnName("address")
@@ -939,14 +952,14 @@ namespace vms.entity.models
 
             modelBuilder.Entity<UserType>(entity =>
             {
-                entity.ToTable("UserType");
+                entity.ToTable("UserType", "dbo");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Vat>(entity =>
             {
-                entity.ToTable("vat");
+                entity.ToTable("vat", "dbo");
 
                 entity.Property(e => e.VatId).HasColumnName("VatID");
 
@@ -963,7 +976,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Vendor>(entity =>
             {
-                entity.ToTable("Vendor");
+                entity.ToTable("Vendor", "dbo");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
 

@@ -124,10 +124,11 @@ namespace Inventory.Controllers
                 //Get Payable Amount 
                 decimal payableAmount = 0;
                 decimal paidAmount = 0;
-
+                decimal totalDiscountPerItem = 0;
                 foreach (var detail in vm.PurchaseOrderDetailList)
                 {
                     payableAmount += detail.Amount.Value * detail.Qty.Value;
+                    totalDiscountPerItem += detail.DiscountPerItem.Value;
                 }
 
                 if (vm.PurchasePaymenJson==null)
@@ -151,6 +152,7 @@ namespace Inventory.Controllers
                 purchase.BranchId = _session.BranchId;
                 purchase.PayableAmount = payableAmount;
                 purchase.DiscountOnTotal = vm.DiscountOnTotal;
+                purchase.TotalDiscountOnIndividualProduct = totalDiscountPerItem;
                 purchase.PaidAmount = paidAmount;
                 purchase.EfectiveFrom = DateTime.Now;
                 purchase.EfectiveTo = null;
@@ -244,6 +246,30 @@ namespace Inventory.Controllers
             var purchase = await _service.GetById(id);
            
             return View(purchase);
+        }
+
+        public async Task<IActionResult> PurchaseDue(int? page, string search = null)
+        {
+            var getPurchase = await _service.Query().Where(c => c.BranchId == _session.BranchId)
+                .Include(c => c.Vendor)
+                .Include(c => c.Branch)
+                .OrderByDescending(c => c.PurchaseId).SelectAsync(CancellationToken.None);
+            if (search != null)
+            {
+                search = search.ToLower().Trim();
+                getPurchase = getPurchase.Where(c => c.PurchaseInvoice.ToLower().Contains(search)
+                );
+                ViewData[ViewStaticData.SEARCH_TEXT] = search;
+            }
+            else
+            {
+                ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
+            }
+            var pageNumber = page ?? 1;
+            var listOfPurchase = getPurchase.ToPagedList(pageNumber, 10);
+
+            return View(listOfPurchase);
+
         }
     }
 }
