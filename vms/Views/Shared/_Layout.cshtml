@@ -104,7 +104,10 @@
             .header-top-menu .navbar-nav > li .dropdown-menu a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:focus, .header-drl-controller-btn.btn-info:active:focus, .btn-info:active:hover {
                 background: @session.thirdThe;
             }
-
+        .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a, .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a:focus, .menu-setting-wrap.menu-setting-wrap-bg .nav-tabs>li.active>a:hover
+ .notes-img {
+    background: @session.thirdThe;
+}
         .sidebar-nav .metismenu a:hover,
         .sidebar-nav .metismenu a:focus,
         .sidebar-nav .metismenu a:active {
@@ -113,7 +116,16 @@
             background: @session.thirdThe;
         }
 
-
+        #myTab3.tab-review-design li.active a:before, #myTab4.tab-review-design li.active a:before {
+    position: absolute;
+    bottom: -15px;
+    left: 0px;
+    width: 80%;
+    height: 2px;
+    background: @session.FristThe;
+    content: "";
+	transition:all .4s ease 0s;
+}
         .add-product a {
             float: right;
             position: absolute;
@@ -126,6 +138,16 @@
             border-radius: 4px;
         }
 
+
+        .custom-pro-edt-ds .btn-primary {
+           background: @session.FristThe;
+	     border-color: @session.FroreThe;
+             }
+
+        .pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: @session.secThe;
+    border-color: @session.thirdThe;
+}
         /* switch */
 
         label.switch {
@@ -174,7 +196,7 @@
             }
 
         input:checked + .slider {
-            background-color: #e12503;
+            background-color: @session.FristThe ;
         }
 
         input:focus + .slider {
