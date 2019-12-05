@@ -21,6 +21,7 @@ namespace vms.entity.models
         public int? BranchId { get; set; }
         public decimal? PayableAmount { get; set; }
         public decimal? DiscountOnTotal { get; set; }
+        public decimal? TotalDiscountOnIndividualProduct { get; set; }
         public decimal? PaidAmount { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }

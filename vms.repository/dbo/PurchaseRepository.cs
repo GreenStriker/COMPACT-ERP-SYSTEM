@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using vms.entity.models;
 using vms.entity.viewModels;
@@ -14,6 +15,7 @@ namespace vms.repository.dbo
     {
         Task<IEnumerable<Purchase>> GetAll();
         Task<Purchase> GetById(int id);
+        
     }
     public class PurchaseRepository : RepositoryBase<Purchase>, IPurchaseRepository
     {
@@ -45,5 +47,6 @@ namespace vms.repository.dbo
                 .SingleOrDefaultAsync(x => x.PurchaseId == id, System.Threading.CancellationToken.None);
             return data;
         }
+   
     }
 }
