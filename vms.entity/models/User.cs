@@ -9,6 +9,7 @@ namespace vms.entity.models
         public User()
         {
             Stocks = new HashSet<Stock>();
+            Themes = new HashSet<Theme>();
         }
 
         public int Uid { get; set; }
@@ -31,5 +32,6 @@ namespace vms.entity.models
         public virtual Role Role { get; set; }
         public virtual UserType UserType { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }
+        public virtual ICollection<Theme> Themes { get; set; }
     }
 }

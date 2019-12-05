@@ -20,6 +20,7 @@ namespace vms.entity.models
         public virtual DbSet<Atendence> Atendences { get; set; }
         public virtual DbSet<AttendenceDetail> AttendenceDetails { get; set; }
         public virtual DbSet<Branch> Branches { get; set; }
+        public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
@@ -51,6 +52,7 @@ namespace vms.entity.models
         public virtual DbSet<Setting> Settings { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<StocktypeId> StocktypeIds { get; set; }
+        public virtual DbSet<Theme> Themes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
         public virtual DbSet<Vat> Vats { get; set; }
@@ -156,6 +158,23 @@ namespace vms.entity.models
                 entity.Property(e => e.Name).HasMaxLength(500);
 
                 entity.Property(e => e.OpeningDate).HasColumnType("date");
+            });
+
+            modelBuilder.Entity<Color>(entity =>
+            {
+                entity.ToTable("Color");
+
+                entity.Property(e => e.ColorId).HasColumnName("ColorID");
+
+                entity.Property(e => e.Forth).HasMaxLength(50);
+
+                entity.Property(e => e.Frist).HasMaxLength(50);
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Sec).HasMaxLength(50);
+
+                entity.Property(e => e.Third).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Content>(entity =>
@@ -890,6 +909,31 @@ namespace vms.entity.models
                 entity.Property(e => e.StocktypeId1).HasColumnName("StocktypeId");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Theme>(entity =>
+            {
+                entity.ToTable("theme");
+
+                entity.Property(e => e.ThemeId).HasColumnName("themeID");
+
+                entity.Property(e => e.ColorId).HasColumnName("colorID");
+
+                entity.Property(e => e.Createdby).HasColumnName("createdby");
+
+                entity.Property(e => e.Createdtime).HasColumnName("createdtime");
+
+                entity.Property(e => e.Uid).HasColumnName("uid");
+
+                entity.HasOne(d => d.Color)
+                    .WithMany(p => p.Themes)
+                    .HasForeignKey(d => d.ColorId)
+                    .HasConstraintName("FK_theme_Color");
+
+                entity.HasOne(d => d.U)
+                    .WithMany(p => p.Themes)
+                    .HasForeignKey(d => d.Uid)
+                    .HasConstraintName("FK_theme_User");
             });
 
             modelBuilder.Entity<User>(entity =>

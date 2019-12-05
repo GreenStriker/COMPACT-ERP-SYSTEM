@@ -20,12 +20,13 @@ namespace Inventory.Controllers
     public class DefaultController : Controller
     {
         private readonly IUserService _service;
-
+        private readonly IThemeService _themeservice;
         public DefaultController(
-          
-           IUserService service
+          IThemeService themeservice,
+        IUserService service
           )
         {
+            _themeservice = themeservice;
             _service = service;
          
         }
@@ -54,10 +55,39 @@ namespace Inventory.Controllers
 
         var userData = await _service.Query().Include(c=> c.Brach).SingleOrDefaultAsync(w => w.UserName.ToLower() == user.UserName.Trim().ToLower() && w.Password == user.Password  && w.IsActive==true , CancellationToken.None);
 
+
+            var theme = await _themeservice.Query().Include(c => c.Color).SingleOrDefaultAsync(w => w.Uid== userData.Uid, CancellationToken.None);
+
+
+
             if (userData != null)
             {
 
-               
+               if(theme != null) { 
+                    var session = new vmSession
+                    {
+
+                          UserId = userData.Uid,
+                          UserName = userData.Name,
+                          BranchId = userData.BrachId,
+                          BranchName = userData.Brach.Name,
+                          FristThe = theme.Color.Frist,
+                          secThe = theme.Color.Sec,
+                          thirdThe = theme.Color.Third,
+                          FroreThe =theme.Color.Forth,
+
+
+
+                    };
+
+                    HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, session);
+                }
+
+
+                else
+                {
+
+
                     var session = new vmSession
                     {
 
@@ -65,15 +95,19 @@ namespace Inventory.Controllers
                         UserName = userData.Name,
                         BranchId = userData.BrachId,
                         BranchName = userData.Brach.Name,
-                        //RoleId = userData.RoleId,
-                        //RoleName = userData.Role.RoleName,
-                        /* Rights = rights */ //comes from role right
+                        FristThe = theme.Color.Frist,
+                        secThe = theme.Color.Sec,
+                        thirdThe = theme.Color.Third,
+                        FroreThe = theme.Color.Forth,
 
 
 
                     };
 
-                HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, session);
+                    HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, session);
+                }
+
+               
 
 
                 
