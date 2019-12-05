@@ -99,11 +99,11 @@ namespace vms.ioc
             //services.AddTransient<IRightRepository, RightRepository>();
             //services.AddTransient<IRightService, RightService>();
 
-            //services.AddTransient<IRoleRepository, RoleRepository>();
-            //services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IThemeRepository, ThemeRepository>();
+            services.AddTransient<IThemeService, ThemeService>();
 
-            //services.AddTransient<IRoleRightRepository, RoleRightRepository>();
-            //services.AddTransient<IRoleRightService, RoleRightService>();
+            services.AddTransient<IColorRepository, ColorRepository>();
+            services.AddTransient<IColorService, ColorService>();
 
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();

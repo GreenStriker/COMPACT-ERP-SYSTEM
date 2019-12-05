@@ -15,10 +15,14 @@ namespace vms.entity.viewModels
         public string BranchName { get; set; }
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public string FristThe { get; set; }
+        public string secThe { get; set; }
+        public string thirdThe { get; set; }
+        public string FroreThe { get; set; }
         //public int RoleId { get; set; }
         //public string RoleName { get; set; }
         //public string PreviousData { get; set; }
-     //   public List<Right> Rights { get; set; }
+        //   public List<Right> Rights { get; set; }
     }
     
 }
