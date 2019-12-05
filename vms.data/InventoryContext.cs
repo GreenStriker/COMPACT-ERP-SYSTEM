@@ -162,7 +162,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Color>(entity =>
             {
-                entity.ToTable("Color");
+                entity.ToTable("Color", "dbo");
 
                 entity.Property(e => e.ColorId).HasColumnName("ColorID");
 
@@ -913,7 +913,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Theme>(entity =>
             {
-                entity.ToTable("theme");
+                entity.ToTable("theme", "dbo");
 
                 entity.Property(e => e.ThemeId).HasColumnName("themeID");
 
