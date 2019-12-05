@@ -17,13 +17,16 @@ namespace vms.entity.models
         public int SalesId { get; set; }
         public string SaleInvoiceNo { get; set; }
         public string VoucherNo { get; set; }
+        public int? NoOfIteams { get; set; }
         public int? CustomerId { get; set; }
-        public decimal? Vat { get; set; }
+        public decimal? TotalVat { get; set; }
         public int? BranchId { get; set; }
-        public decimal? PayableAmount { get; set; }
-        public decimal? PaidAmount { get; set; }
-        public decimal? TotalPrice { get; set; }
-        public decimal? Discount { get; set; }
+        public decimal? TotalPriceWithoutVat { get; set; }
+        public decimal? PaymentReceiveAmount { get; set; }
+        public decimal? ReceivableAmount { get; set; }
+        public decimal? TotalDiscountOnIndividualProduct { get; set; }
+        public decimal? DiscountOnTotalPrice { get; set; }
+        public decimal? PaymentDueAmount { get; set; }
         public int? SoldBy { get; set; }
         public bool? IsActive { get; set; }
         public int? CreatedBy { get; set; }

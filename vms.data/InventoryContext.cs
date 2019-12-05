@@ -743,23 +743,25 @@ namespace vms.entity.models
 
                 entity.ToTable("Sales", "dbo");
 
-                entity.Property(e => e.BranchId).HasColumnName("BranchID");
+                entity.Property(e => e.DiscountOnTotalPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+                entity.Property(e => e.PaymentDueAmount)
+                    .HasColumnType("decimal(21, 2)")
+                    .HasComputedColumnSql("(((isnull([TotalPriceWithoutVat],(0))+isnull([TotalVat],(0)))-(isnull([DiscountOnTotalPrice],(0))+isnull([TotalDiscountOnIndividualProduct],(0))))-isnull([PaymentReceiveAmount],(0)))");
 
-                entity.Property(e => e.Discount).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.PaymentReceiveAmount).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.PaidAmount).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.PayableAmount).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.ReceivableAmount)
+                    .HasColumnType("decimal(20, 2)")
+                    .HasComputedColumnSql("((isnull([TotalPriceWithoutVat],(0))+isnull([TotalVat],(0)))-(isnull([DiscountOnTotalPrice],(0))+isnull([TotalDiscountOnIndividualProduct],(0))))");
 
                 entity.Property(e => e.SaleInvoiceNo).HasMaxLength(500);
 
-                entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.TotalDiscountOnIndividualProduct).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.Vat)
-                    .HasColumnName("vat")
-                    .HasColumnType("decimal(18, 2)");
+                entity.Property(e => e.TotalPriceWithoutVat).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.TotalVat).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.VoucherNo).HasMaxLength(50);
 
@@ -795,16 +797,14 @@ namespace vms.entity.models
             {
                 entity.ToTable("SalesDetails", "dbo");
 
-                entity.Property(e => e.Amount).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.ProductId).HasColumnName("productID");
+                entity.Property(e => e.DiscountPerItem).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Qty).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.SaleId).HasColumnName("SaleID");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.UnitPrice)
-                    .HasColumnName("unitPrice")
+                entity.Property(e => e.Vatpercent)
+                    .HasColumnName("VATPercent")
                     .HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Product)
