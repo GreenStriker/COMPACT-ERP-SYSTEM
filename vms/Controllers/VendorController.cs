@@ -83,8 +83,8 @@ namespace Inventory.Controllers
             {
 
 
-
-                var data = _service.GetByMobile(Cus.ContactNo);
+                var data = new Vendor();
+                 data = await   _service.GetByMobile(Cus.ContactNo);
 
                 if (data == null) { 
                 Cus.CreatedBy = _session.UserId;
