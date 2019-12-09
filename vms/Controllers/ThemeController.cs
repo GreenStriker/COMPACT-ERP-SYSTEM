@@ -115,7 +115,13 @@ namespace Inventory.Controllers
             try
             {
                 var data = await _service.Query().SingleOrDefaultAsync(m => m.Uid == _session.UserId, CancellationToken.None);
-                if(data.ColorId == id)
+
+
+                var datacol = await _Colservice.Query().SingleOrDefaultAsync(m => m.ColorId == id, CancellationToken.None);
+
+
+
+                if (data.ColorId == id)
                 {
                     TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.ERROR_CLASSNAME;
                     return RedirectToAction(nameof(Index));
@@ -124,7 +130,23 @@ namespace Inventory.Controllers
                 data.ColorId = id;
                 _service.Update(data);
                 await UnitOfWork.SaveChangesAsync();
-                return RedirectToAction("Index", "Default");
+                //  return RedirectToAction("Index", "Default");
+
+
+
+                _session.FristThe = datacol.Frist;
+                _session.secThe = datacol.Sec;
+                _session.thirdThe = datacol.Third;
+                _session.FroreThe = datacol.Forth;
+
+
+                var ses = new vmSession();
+
+                ses = _session;
+
+                HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, ses);
+
+                return RedirectToAction("Index", "Dashboard");
             }
             catch (Exception ex)
             {
