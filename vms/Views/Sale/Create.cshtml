@@ -200,7 +200,7 @@
                                                             <input type="text" class="form-control" id="item" name="item">
                                                         </td>
                                                         <td class="form-group form-md-line-input has-info">
-                                                            <input class="form-control" id="amount" name="amount" readonly="readonly" value="0" />
+                                                            <input class="form-control" id="amount" name="amount" readonly />
 
                                                         </td>
                                                         <td class="form-group form-md-line-input has-info">
@@ -722,7 +722,9 @@
             }
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
+            debugger
+            $('#amount').val('0');
             $('#add').click(function() {
                 purchasOrder.add();
             });
