@@ -151,10 +151,25 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div class="review-content-section">
-                                                Vendor Name:
+                                                Customer Mobile:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
-                                                    <select id="VendorId" name="VendorId" class="form-control" asp-items="ViewBag.VendorId"></select>
+                                                    <input type="text" class="form-control" id="CustomerMbl" name="CustomerMbl" placeholder="01000000000">
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div class="review-content-section">
+                                                Sold By:
+                                                <div class="input-group mg-b-pro-edt">
+                                                    <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
+                                                    <select id="SoldBy" name="SoldBy" class="form-control" asp-items="ViewBag.Emp">
+                                                        <option value=null>
+                                                            Select
+                                                        </option>
+                                                    </select>
                                                 </div>
 
 
@@ -185,9 +200,12 @@
                                                         <th>Sl</th>
                                                         <th>Product</th>
                                                         <th>Quantity</th>
-                                                        <th>Amount</th>
+                                                        <th>Rate</th>
+                                                        <th>VAT</th>
+                                                        <th>VAT Value</th>
                                                         <th>Discount</th>
-                                                        <th>Price</th>
+                                                        @*<th>V</th>*@
+                                                        <th>Total</th>
                                                         <th></th>
                                                     </tr>
                                                     <tr>
@@ -202,6 +220,13 @@
                                                         <td class="form-group form-md-line-input has-info">
                                                             <input class="form-control" id="amount" name="amount" readonly />
 
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input class="form-control" id="VAT" name="VAT" readonly />
+
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input class="form-control" id="VATValue" name="VATValue" readonly />
                                                         </td>
                                                         <td class="form-group form-md-line-input has-info">
                                                             <input type="text" class="form-control" id="DiscountPerItem" value="0" name="DiscountPerItem" />
@@ -226,7 +251,10 @@
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
+                                                        <td></td>
+                                                        <td></td>
                                                         <td><label id="TotalPrice" name="TotalPrice" /></td>
+                                                        <td></td>
                                                     </tr>
                                                 </tfoot>
                                                 <tfoot>
@@ -347,17 +375,17 @@
     <script src="~/js/jquery-ui.js"></script>
     <script>
 
-        var purchasOrder = {
+        var saleOrder = {
             init: function() {},
             count: 1,
             unitAmount: 0,
             totalPrice: 0,
             totalVat: 0,
             typeId: 0,
-            purchaseOrders:[],
-            PurchaseOrderDetailList: [],
+            saleOrders:[],
+            SaleOrderDetailList: [],
             ContentInfoJson: [],
-            PurchasePaymenJson:[],
+            SalePaymenJson:[],
             item: [],
 
 
@@ -372,6 +400,16 @@
             isNumber:function (n) {
                 return !isNaN(parseFloat(n)) && isFinite(n);
             },
+            CalculateVatValueWithTotal: function(vatPercent) {
+                var totalAmount = $('#amount').val();
+                var vatPercentage = $('#VAT').val();
+
+                var vatValue = parseFloat(vatPercentage) / 100;
+                vatValue = parseFloat(totalAmount) * vatValue;
+                $('#VATValue').val(vatValue);
+                $('#Amount').text(parseFloat(totalAmount) + vatValue);
+
+            },
 
             add: function () {
 
@@ -381,14 +419,15 @@
                 var amount = $('#amount').val();
                 var unitAmount = $('#Amount').text();
                 var DiscountPerItem = $('#DiscountPerItem').val();
-
+                var VAT = $('#VAT').val();
+                var VATValue = $('#VATValue').val();
                 if (productId>0) {
 
                     var canAdd = true;
 
-                    $.each(purchasOrder.PurchaseOrderDetailList,
+                    $.each(saleOrder.SaleOrderDetailList,
                         function (i, v) {
-                            if (purchasOrder.PurchaseOrderDetailList[i].ProductId == productId) {
+                            if (saleOrder.SaleOrderDetailList[i].ProductId == productId) {
                                 alert('Sorry! product Order Exists.');
                                 canAdd = false;
 
@@ -410,14 +449,14 @@
                         data.UnitPrice = amount;
                         data.DiscountPerItem = DiscountPerItem;
                         data.TotalAmount = unitAmount;
-                        purchasOrder.totalPrice += parseFloat(unitAmount);
-                        purchasOrder.PurchaseOrderDetailList.push(data);
+                        saleOrder.totalPrice += parseFloat(unitAmount);
+                        saleOrder.SaleOrderDetailList.push(data);
 
                         var html = '<tr id="' +
                             data.ProductId +
                             '">' +
                             '<td>' +
-                            purchasOrder.count +
+                            saleOrder.count +
                             '</td>' +
                             '<td>' +
                             productName +
@@ -427,6 +466,12 @@
                             '</td>' +
                             '<td>' +
                             amount +
+                            '</td>' +
+                            '<td>' +
+                            VAT +
+                            '</td>' +
+                            '<td>' +
+                            VATValue +
                             '</td>' +
                             '<td>' +
                             DiscountPerItem +
@@ -443,10 +488,10 @@
                         html += '</tr>';
 
                         $("table#gridTable > tbody").append(html);
-                        $('#TotalPrice').text(purchasOrder.totalPrice);
-                        $('#PaidAmount').val(purchasOrder.totalPrice);
-                        purchasOrder.gridTableEmpty();
-                        purchasOrder.count++;
+                        $('#TotalPrice').text(saleOrder.totalPrice);
+                        $('#PaidAmount').val(saleOrder.totalPrice);
+                        saleOrder.gridTableEmpty();
+                        saleOrder.count++;
 
                     }
                 }
@@ -464,7 +509,7 @@
                         var data = new Object();
                         data.rowCount = rowCount;
                         data.UploadFile = files[0];
-                        purchasOrder.ContentInfoJson.push(data);
+                        saleOrder.ContentInfoJson.push(data);
 
                         var html = '<tr id="' +
                             rowCount +
@@ -505,7 +550,7 @@
                         data.PaymentMethodId = PaymentMethodId;
                         data.PaidAmount = PaidAmount;
                         data.PaymentDate = PaymentDate;
-                        purchasOrder.PurchasePaymenJson.push(data);
+                        saleOrder.SalePaymenJson.push(data);
 
                         var html = '<tr id="' +
                             rowCount +
@@ -529,7 +574,7 @@
                         html += '</tr>';
 
                         $("table#payment > tbody").append(html);
-                        //purchasOrder.count++;
+                        //saleOrder.count++;
 
                     }
                 }
@@ -538,20 +583,20 @@
             delete: function (id) {
                 // var j = 0;
                 debugger
-                for (var key in purchasOrder.PurchaseOrderDetailList) {
-                    var value = purchasOrder.PurchaseOrderDetailList[key].ProductId;
-                    if (purchasOrder.PurchaseOrderDetailList[key].ProductId == id) {
-                        purchasOrder.totalPrice -= parseFloat(purchasOrder.PurchaseOrderDetailList[key].TotalAmount);
-                        $('#TotalPrice').text(purchasOrder.totalPrice);
-                        $('#PaidAmount').val(purchasOrder.totalPrice);
+                for (var key in saleOrder.SaleOrderDetailList) {
+                    var value = saleOrder.SaleOrderDetailList[key].ProductId;
+                    if (saleOrder.SaleOrderDetailList[key].ProductId == id) {
+                        saleOrder.totalPrice -= parseFloat(saleOrder.SaleOrderDetailList[key].TotalAmount);
+                        $('#TotalPrice').text(saleOrder.totalPrice);
+                        $('#PaidAmount').val(saleOrder.totalPrice);
                     }
                 }
-                $.each(purchasOrder.PurchaseOrderDetailList,
+                $.each(saleOrder.SaleOrderDetailList,
                     function (i, v) {
 
-                        if (purchasOrder.PurchaseOrderDetailList[i].ProductId == id) {
+                        if (saleOrder.SaleOrderDetailList[i].ProductId == id) {
 
-                            purchasOrder.PurchaseOrderDetailList.splice(i, 1);
+                            saleOrder.SaleOrderDetailList.splice(i, 1);
 
                         }
                         $("tr#" + id).remove().fadeOut();
@@ -561,11 +606,11 @@
             },
             deletePayment: function (id) {
 
-                $.each(purchasOrder.PurchasePaymenJson,
+                $.each(saleOrder.SalePaymenJson,
                     function (i, v) {
-                        if (purchasOrder.PurchasePaymenJson[i].rowCount == id) {
+                        if (saleOrder.SalePaymenJson[i].rowCount == id) {
 
-                            purchasOrder.PurchasePaymenJson.splice(i, 1);
+                            saleOrder.SalePaymenJson.splice(i, 1);
 
                         }
                         $("tr#" + id).remove().fadeOut();
@@ -575,11 +620,11 @@
             },
             deleteDocument: function (id) {
 
-                $.each(purchasOrder.ContentInfoJson,
+                $.each(saleOrder.ContentInfoJson,
                     function (i, v) {
-                        if (purchasOrder.ContentInfoJson[i].rowCount == id) {
+                        if (saleOrder.ContentInfoJson[i].rowCount == id) {
 
-                            purchasOrder.ContentInfoJson.splice(i, 1);
+                            saleOrder.ContentInfoJson.splice(i, 1);
 
                         }
                         $("tr#" + id).remove().fadeOut();
@@ -592,11 +637,17 @@
                 var unitAmount = $('#amount').val();
                 var discount = $('#DiscountPerItem').val();
 
-                if (!purchasOrder.isNumber(unitAmount) || !(purchasOrder.isNumber(value)) || !(purchasOrder.isNumber(discount))) {
+                if (!saleOrder.isNumber(unitAmount) || !(saleOrder.isNumber(value)) || !(saleOrder.isNumber(discount))) {
                     return;
                 } else {
+                    //var totalAmount = $('#amount').val();
+                    var vatPercentage = $('#VAT').val();
 
-                    $("#Amount").text((unitAmount * value)-discount);
+                    var vatValue = parseFloat(vatPercentage) / 100;
+                    vatValue = parseFloat(unitAmount) * vatValue;
+                    var totalAmount = (parseFloat(unitAmount) * value)+vatValue-discount;
+                   // $('#Amount').text(parseFloat(totalAmount) + vatValue);
+                    $("#Amount").text(totalAmount);
 
                 }
 
@@ -613,24 +664,24 @@
                 //Bind Data for Purchase
                 var data = new FormData();
 
-                for (var i = 0; i < purchasOrder.PurchaseOrderDetailList.length; i++) {
-                    data.append('PurchaseOrderDetailList[' + i + '].ProductId', purchasOrder.PurchaseOrderDetailList[i].ProductId);
-                    data.append('PurchaseOrderDetailList[' + i + '].Qty', purchasOrder.PurchaseOrderDetailList[i].Quantity);
-                    data.append('PurchaseOrderDetailList[' + i + '].Amount', purchasOrder.PurchaseOrderDetailList[i].UnitPrice);
-                    data.append('PurchaseOrderDetailList[' + i + '].DiscountPerItem', purchasOrder.PurchaseOrderDetailList[i].DiscountPerItem);
+                for (var i = 0; i < saleOrder.SaleOrderDetailList.length; i++) {
+                    data.append('SaleOrderDetailList[' + i + '].ProductId', saleOrder.SaleOrderDetailList[i].ProductId);
+                    data.append('SaleOrderDetailList[' + i + '].Qty', saleOrder.SaleOrderDetailList[i].Quantity);
+                    data.append('SaleOrderDetailList[' + i + '].Amount', saleOrder.SaleOrderDetailList[i].UnitPrice);
+                    data.append('SaleOrderDetailList[' + i + '].DiscountPerItem', saleOrder.SaleOrderDetailList[i].DiscountPerItem);
 
                 }
                 //TODO
-                for (var i = 0; i < purchasOrder.ContentInfoJson.length; i++) {
+                for (var i = 0; i < saleOrder.ContentInfoJson.length; i++) {
                     data.append('ContentInfoJson[' + i + '].DocumentTypeId',
                         1);
-                    data.append('ContentInfoJson[' + i + '].UploadFile', purchasOrder.ContentInfoJson[i].UploadFile);
+                    data.append('ContentInfoJson[' + i + '].UploadFile', saleOrder.ContentInfoJson[i].UploadFile);
                 }
                 //TODO
-                for (var i = 0; i < purchasOrder.PurchasePaymenJson.length; i++) {
-                    data.append('PurchasePaymenJson[' + i + '].PaymentMethodId', purchasOrder.PurchasePaymenJson[i].PaymentMethodId);
-                    data.append('PurchasePaymenJson[' + i + '].PaidAmount', purchasOrder.PurchasePaymenJson[i].PaidAmount);
-                    data.append('PurchasePaymenJson[' + i + '].PaymentDate', purchasOrder.PurchasePaymenJson[i].PaymentDate);
+                for (var i = 0; i < saleOrder.SalePaymenJson.length; i++) {
+                    data.append('SalePaymenJson[' + i + '].PaymentMethodId', saleOrder.SalePaymenJson[i].PaymentMethodId);
+                    data.append('SalePaymenJson[' + i + '].PaidAmount', saleOrder.SalePaymenJson[i].PaidAmount);
+                    data.append('SalePaymenJson[' + i + '].PaymentDate', saleOrder.SalePaymenJson[i].PaymentDate);
                 }
                 data.append("PurchaseInvoice", PurchaseInvoice);
                 data.append("VoucherNo", VoucherNo);
@@ -689,7 +740,7 @@
                                     },
                                     property: "ProductId",
                                     source: function (strmaterial, process) {
-                                        var url = '@Url.Content("~/Products/PurchaseProductAutoComplete")';
+                                        var url = '@Url.Content("~/Products/SaleProductAutoComplete")';
                                         return $.getJSON(url, { filterText: $("#Product").val() }, function (Data) {
 
                                             return process(Data);
@@ -701,17 +752,11 @@
                                 }).on('typeahead:selected', function (obj, datum) {
 
                                     $("#ProductId").val(datum.id);
-                                    $('#Amount').text(datum.unitPrice);
-                                     $('#item').val('1');
+                                    //$('#Amount').text(datum.unitPrice);
+                                    $('#item').val('1');
                                     $('#amount').val(datum.unitPrice);
-                                    $('#SupplementaryDutyPercent').val(datum.supplimentaryDuty);
-                                    if (purchasOrder.typeId == 3) {
-                                        $('#VAT').text('0');
-                                    } else {
-                                        $('#VAT').text(datum.vat);
-                                    }
-                                  // purchasOrder.unitAmount = datum.unitPrice;
-                                   //purchasOrder.calculateTotal();
+                                    $('#VAT').val(datum.vat);
+                                saleOrder.CalculateVatValueWithTotal(datum.vat);
                             });
                             $("#Product").focus();
 
@@ -726,20 +771,20 @@
             debugger
             $('#amount').val('0');
             $('#add').click(function() {
-                purchasOrder.add();
+                saleOrder.add();
             });
             $('#addDocument').click(function() {
-                purchasOrder.addDocument();
+                saleOrder.addDocument();
             });
             $('#addPayment').click(function() {
-                purchasOrder.addPayment();
+                saleOrder.addPayment();
             });
 
             $('#save').click(function () {
-                purchasOrder.Save();
+                saleOrder.Save();
             });
 
-            purchasOrder.product.productAutoComplete();
+            saleOrder.product.productAutoComplete();
 
 
             $("#PaymentDate").datepicker();
@@ -751,26 +796,26 @@
         });
 
         function Delete(id) {
-            purchasOrder.delete(id);
+            saleOrder.delete(id);
         }
        function DeleteDocument(id) {
-            purchasOrder.deleteDocument(id);
+            saleOrder.deleteDocument(id);
         }
         function DeletePayment(id) {
-            purchasOrder.deletePayment(id);
+            saleOrder.deletePayment(id);
         }
 
         $("#item").keyup(function () {
             var that = this,
             numberOfItem = $(this).val();
-            purchasOrder.calculate(numberOfItem);
+            saleOrder.calculate(numberOfItem);
 
         });
 
         $("#amount").keyup(function () {
             var that = this,
                 amount = $(this).val();
-            purchasOrder.calculateUnitPrice(amount);
+            saleOrder.calculateUnitPrice(amount);
 
         });
 
@@ -792,7 +837,7 @@
            // var paidAmount = $("#PaidAmount").val();
 
            // var afterDiscount = currentTotal - discount;
-            $("#PaidAmount").val(purchasOrder.totalPrice - discount);
+            $("#PaidAmount").val(saleOrder.totalPrice - discount);
         });
 
 

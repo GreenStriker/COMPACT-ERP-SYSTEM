@@ -11,9 +11,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using vms.entity.models;
+using vms.entity.StoredProcedureModel;
 using vms.entity.viewModels;
 using vms.Models;
 using vms.service.dbo;
+using vms.service.dbo.StoredProdecure;
 using vms.utility.StaticData;
 using X.PagedList;
 
@@ -28,7 +30,9 @@ namespace Inventory.Controllers
         private readonly IMesureUnitService _unitService;
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IContentService _contentService;
+        private  IAutocompleteService _autocompleteService;
         public ProductsController(
+            IAutocompleteService autocompleteService,
             IContentService contentService,
             IProductPriceService PriceService,
             ControllerBaseParamModel controllerBaseParamModel,
@@ -39,6 +43,7 @@ namespace Inventory.Controllers
             IMesureUnitService unitService
         ) : base(controllerBaseParamModel)
         {
+            _autocompleteService = autocompleteService;
             _contentService = contentService;
             _hostingEnvironment = hostingEnvironment;
             _vatService = vatService;
@@ -440,6 +445,30 @@ namespace Inventory.Controllers
                 Name = x.Product.Name,
                 UnitPrice = x.PurchaseAmount,
                 Vat = x.Product.Vat.Percentage
+            }).ToList());
+        }
+        public async Task<JsonResult> SaleProductAutoComplete(string filterText)
+        {
+            var branchId = _session.BranchId;
+            List<SpGetProductAutocompleteForSale> productList;
+            try
+            {
+                 productList = await _autocompleteService.GetProductAutocompleteForSales(branchId.Value, filterText);
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return new JsonResult(productList.Select(x => new
+            {
+                Id = x.ProductId,
+                Name = x.ProductName,
+                UnitPrice = x.SaleAmount,
+                Unit = x.MUnitId,
+                Vat = x.VatPercent,
+                MaxSaleQty = x.MaxSaleQty
             }).ToList());
         }
     }

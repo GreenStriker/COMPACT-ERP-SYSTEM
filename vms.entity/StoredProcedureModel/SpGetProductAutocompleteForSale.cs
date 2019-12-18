@@ -6,15 +6,13 @@ namespace vms.entity.StoredProcedureModel
     {
         [Key]
         public int ProductId { get; set; }
-
         public string ProductName { get; set; }
         public string ModelNo { get; set; }
         public string Code { get; set; }
-        public decimal SalesUnitPrice { get; set; }
-        public decimal DefaultVatPercent { get; set; }
-        public decimal SupplimentaryDutyPercent { get; set; }
+        public decimal SaleAmount { get; set; }
+        public decimal VatPercent { get; set; }
         public decimal MaxSaleQty { get; set; }
-        public int MeasurementUnitId { get; set; }
+        public int MUnitId { get; set; }
         public string MeasurementUnitName { get; set; }
     }
 }

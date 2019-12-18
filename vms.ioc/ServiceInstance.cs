@@ -8,6 +8,8 @@ using URF.Core.EF;
 using vms.entity.models;
 using vms.entity.viewModels;
 using vms.repository.dbo;
+using vms.repository.dbo.StoredProcedure;
+using vms.service.dbo.StoredProdecure;
 
 //using vms.repository.dbo.StoredProcedure;
 
@@ -33,8 +35,16 @@ namespace vms.ioc
             services.AddScoped<IProductLogService, ProductLogService>();
             services.AddScoped<IPurchaseRepository, PurchaseRepository>();
             services.AddScoped<IPurchaseService, PurchaseService>();
+            services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
+            services.AddScoped<IAutocompleteService, AutocompleteService>();
+            services.AddScoped<ISaleRepository, SaleRepository>();
+            services.AddScoped<ISaleService, SaleService>();
+
             services.AddScoped<IPurchaseDetailRepository, PurchaseDetailRepository>();
             services.AddScoped<IPurchaseDetailService, PurchaseDetailService>();
+
+            services.AddScoped<ISaleDetailRepository, SaleDetailRepository>();
+            services.AddScoped<ISaleDetailService, SaleDetailService>();
 
             services.AddScoped<IVendorRepository, VendorRepository>();
             services.AddScoped<IVendorService, VendorService>();
