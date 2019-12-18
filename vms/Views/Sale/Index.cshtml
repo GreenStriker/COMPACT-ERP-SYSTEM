@@ -1,9 +1,9 @@
-﻿@model IEnumerable<vms.entity.models.Purchase>
+﻿@model IEnumerable<vms.entity.models.Sale>
 @using X.PagedList.Mvc.Core;
 @using X.PagedList;
 @using vms.entity.viewModels
 @{
-    ViewData["Title"] = "Purchase List";
+    ViewData["Title"] = "Sale List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Inventory.Utility
@@ -14,7 +14,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="product-status-wrap">
                     <h4>Sale List</h4>
-                    @using (Html.BeginForm("Index", "Purchase", FormMethod.Get, new { id = "frmPurchase" }))
+                    @using (Html.BeginForm("Index", "Sale", FormMethod.Get, new { id = "frmSale" }))
                     {<div class="row">
 
                             <div class="col-md-5">
@@ -41,7 +41,7 @@
                         <thead>
                             <tr>
                                 <th>Invoice</th>
-                                <th>Vendor</th>
+                                @*<th>Vendor</th>*@
                                 <th>Payable amount</th>
                                 <th>Branch</th>
                                 <th>Action</th>
@@ -55,13 +55,13 @@
                                 {
                                     <tr>
                                         <td class="text-center">
-                                            @Html.DisplayFor(modelItem => item.PurchaseInvoice)
+                                            @Html.DisplayFor(modelItem => item.SaleInvoiceNo)
                                         </td>
-                                        <td class="text-center">
+                                        @*<td class="text-center">
                                             @item.Vendor.Name
-                                        </td>
+                                        </td>*@
                                         <td class="text-center">
-                                            @item.PayableAmount
+                                            @item.PaymentReceiveAmount
                                         </td>
                                         <td class="text-center">
                                             @item.Branch.Name
@@ -77,7 +77,7 @@
                                                     </a>
                                                     <ul class="dropdown-menu dropdown-menu-default pull-right">
                                                         <li>
-                                                            <a asp-action="Details" asp-route-id="@item.PurchaseId"><i class="fa fa-info"></i> Details</a>
+                                                            <a asp-action="Details" asp-route-id="@item.SalesId"><i class="fa fa-info"></i> Details</a>
                                                         </li>
                                                         @*<li>
                                                                 <a asp-action="DebitNote" asp-route-id="@item.EncryptedId"><i class="fa fa-money"></i> Debit Note</a>
