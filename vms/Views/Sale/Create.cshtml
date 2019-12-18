@@ -825,7 +825,8 @@
                 discount = $(this).val();
             var unitPrice = $("#amount").val();
             var qty = $("#item").val();
-            var currentTotal = parseFloat(unitPrice) * parseFloat(qty);
+            var vatValue = $('#VATValue').val();
+            var currentTotal = parseFloat(unitPrice) * parseFloat(qty) + parseFloat(vatValue);
             var afterDiscount = currentTotal - discount;
             $("#Amount").text(afterDiscount);
         });
