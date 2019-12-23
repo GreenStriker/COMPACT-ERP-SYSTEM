@@ -39,6 +39,10 @@ namespace vms.ioc
             services.AddScoped<IAutocompleteService, AutocompleteService>();
             services.AddScoped<ISaleRepository, SaleRepository>();
             services.AddScoped<ISaleService, SaleService>();
+            services.AddScoped<ISalePaymentRepository, SalePaymentRepository>();
+            services.AddScoped<ISalePaymentService, SalePaymentService>();
+            services.AddScoped<ISaleContentRepository, SaleContentRepository>();
+            services.AddScoped<ISaleContentService, SaleContentService>();
 
             services.AddScoped<IPurchaseDetailRepository, PurchaseDetailRepository>();
             services.AddScoped<IPurchaseDetailService, PurchaseDetailService>();

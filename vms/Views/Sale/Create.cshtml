@@ -667,10 +667,10 @@
                 var data = new FormData();
 
                 for (var i = 0; i < saleOrder.SaleOrderDetailList.length; i++) {
-                    data.append('SaleOrderDetailList[' + i + '].ProductId', saleOrder.SaleOrderDetailList[i].ProductId);
-                    data.append('SaleOrderDetailList[' + i + '].Qty', saleOrder.SaleOrderDetailList[i].Quantity);
-                    data.append('SaleOrderDetailList[' + i + '].Amount', saleOrder.SaleOrderDetailList[i].UnitPrice);
-                    data.append('SaleOrderDetailList[' + i + '].DiscountPerItem', saleOrder.SaleOrderDetailList[i].DiscountPerItem);
+                    data.append('SalesDetailList[' + i + '].ProductId', saleOrder.SaleOrderDetailList[i].ProductId);
+                    data.append('SalesDetailList[' + i + '].Qty', saleOrder.SaleOrderDetailList[i].Quantity);
+                    data.append('SalesDetailList[' + i + '].Amount', saleOrder.SaleOrderDetailList[i].UnitPrice);
+                    data.append('SalesDetailList[' + i + '].DiscountPerItem', saleOrder.SaleOrderDetailList[i].DiscountPerItem);
 
                 }
                 //TODO

@@ -126,6 +126,10 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[SaleContent]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[SalePayment]"
       },
       {
@@ -167,14 +171,6 @@
       {
          "HasPrimaryKey": true,
          "Name": "[dbo].[Vendor]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[futureso].[DebitNote]"
-      },
-      {
-         "HasPrimaryKey": true,
-         "Name": "[futureso].[DebitNoteDetail]"
       }
    ],
    "UseDatabaseNames": false,
