@@ -24,8 +24,6 @@ namespace vms.entity.models
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<DebitNote> DebitNotes { get; set; }
-        public virtual DbSet<DebitNoteDetail> DebitNoteDetails { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
@@ -47,6 +45,7 @@ namespace vms.entity.models
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
+        public virtual DbSet<SaleContent> SaleContents { get; set; }
         public virtual DbSet<SalePayment> SalePayments { get; set; }
         public virtual DbSet<SalesDetail> SalesDetails { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
@@ -159,7 +158,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Color>(entity =>
             {
-                entity.ToTable("Color", "dbo");
+                entity.ToTable("Color");
 
                 entity.Property(e => e.ColorId).HasColumnName("ColorID");
 
@@ -223,35 +222,6 @@ namespace vms.entity.models
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Customer_Branch");
-            });
-
-            modelBuilder.Entity<DebitNote>(entity =>
-            {
-                entity.ToTable("DebitNote", "futureso");
-
-                entity.Property(e => e.ReasonOfReturn).HasMaxLength(50);
-
-                entity.HasOne(d => d.Purchase)
-                    .WithMany(p => p.DebitNotes)
-                    .HasForeignKey(d => d.PurchaseId)
-                    .HasConstraintName("FK_DebitNote_Purchase");
-            });
-
-            modelBuilder.Entity<DebitNoteDetail>(entity =>
-            {
-                entity.ToTable("DebitNoteDetail", "futureso");
-
-                entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
-
-                entity.HasOne(d => d.DebitNote)
-                    .WithMany(p => p.DebitNoteDetails)
-                    .HasForeignKey(d => d.DebitNoteId)
-                    .HasConstraintName("FK_DebitNoteDetail_DebitNote");
-
-                entity.HasOne(d => d.PurchaseDetail)
-                    .WithMany(p => p.DebitNoteDetails)
-                    .HasForeignKey(d => d.PurchaseDetailId)
-                    .HasConstraintName("FK_DebitNoteDetail_purchaseDetail");
             });
 
             modelBuilder.Entity<Employe>(entity =>
@@ -788,6 +758,24 @@ namespace vms.entity.models
                     .HasConstraintName("FK_Sales_Customer");
             });
 
+            modelBuilder.Entity<SaleContent>(entity =>
+            {
+                entity.HasKey(e => e.ContentId);
+
+                entity.ToTable("SaleContent");
+
+                entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.Property(e => e.Remark).HasMaxLength(50);
+
+                entity.Property(e => e.Url).HasMaxLength(500);
+
+                entity.HasOne(d => d.Sale)
+                    .WithMany(p => p.SaleContents)
+                    .HasForeignKey(d => d.SaleId)
+                    .HasConstraintName("FK_SaleContent_Sales");
+            });
+
             modelBuilder.Entity<SalePayment>(entity =>
             {
                 entity.ToTable("SalePayment");
@@ -856,6 +844,12 @@ namespace vms.entity.models
             {
                 entity.ToTable("Stock");
 
+                entity.Property(e => e.CurrentStock)
+                    .HasColumnType("decimal(25, 2)")
+                    .HasComputedColumnSql("(((((isnull([InQty],(0))-isnull([SaleQuantity],(0)))-isnull([DamageQty],(0)))-isnull([UsedInProductionQuantity],(0)))-isnull([PurchaseReturnQty],(0)))+isnull([SaleReturnQty],(0)))");
+
+                entity.Property(e => e.DamageQty).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.InQty).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.InitialQty).HasColumnType("decimal(18, 0)");
@@ -867,6 +861,8 @@ namespace vms.entity.models
                 entity.Property(e => e.SaleQuantity).HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.SaleReturnQty).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.UsedInProductionQuantity).HasColumnType("decimal(18, 2)");
 
                 entity.HasOne(d => d.Branch)
                     .WithMany(p => p.Stocks)
@@ -902,7 +898,7 @@ namespace vms.entity.models
 
             modelBuilder.Entity<Theme>(entity =>
             {
-                entity.ToTable("theme", "dbo");
+                entity.ToTable("theme");
 
                 entity.Property(e => e.ThemeId).HasColumnName("themeID");
 

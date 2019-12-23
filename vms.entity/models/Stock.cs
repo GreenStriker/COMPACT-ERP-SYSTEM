@@ -18,7 +18,10 @@ namespace vms.entity.models
         public decimal? InQty { get; set; }
         public decimal? SaleQuantity { get; set; }
         public decimal? SaleReturnQty { get; set; }
+        public decimal? UsedInProductionQuantity { get; set; }
+        public decimal? DamageQty { get; set; }
         public decimal? PurchaseReturnQty { get; set; }
+        public decimal? CurrentStock { get; set; }
         public int? BranchId { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreateTime { get; set; }
