@@ -199,12 +199,12 @@
                                                     <tr>
                                                         <th>Sl</th>
                                                         <th>Product</th>
+                                                        <th>Stock</th>
                                                         <th>Quantity</th>
                                                         <th>Rate</th>
                                                         <th>VAT</th>
                                                         <th>VAT Value</th>
                                                         <th>Discount</th>
-                                                        @*<th>V</th>*@
                                                         <th>Total</th>
                                                         <th></th>
                                                     </tr>
@@ -213,6 +213,9 @@
                                                         <td></td>
                                                         <td class="form-group form-md-line-input has-info">
                                                             <input type="text" class="form-control" id="Product" name="Product">
+                                                        </td>
+                                                        <td class="form-group form-md-line-input has-info">
+                                                            <input type="text" readonly class="form-control" id="MaxSaleQty" name="MaxSaleQty">
                                                         </td>
                                                         <td class="form-group form-md-line-input has-info">
                                                             <input type="text" class="form-control" id="item" name="item">
@@ -247,6 +250,7 @@
                                                 <tfoot>
                                                     <tr>
                                                         <td>Total</td>
+                                                        <td></td>
                                                         <td></td>
                                                         <td></td>
                                                         <td></td>
@@ -398,6 +402,7 @@
                 $('#DiscountPerItem').val('0');
                 $('#VAT').val('0');
                 $('#VATValue').val('0');
+                $('#MaxSaleQty').val('');
             },
             isNumber:function (n) {
                 return !isNaN(parseFloat(n)) && isFinite(n);
@@ -423,6 +428,7 @@
                 var DiscountPerItem = $('#DiscountPerItem').val();
                 var VAT = $('#VAT').val();
                 var VATValue = $('#VATValue').val();
+                var MaxSaleQty = $('#MaxSaleQty').val();
                 if (productId>0) {
 
                     var canAdd = true;
@@ -447,9 +453,10 @@
                     if (canAdd) {
                         var data = new Object();
                         data.ProductId = productId;
-                        data.Quantity = item;
+                        data.Qty = item;
                         data.UnitPrice = amount;
                         data.DiscountPerItem = DiscountPerItem;
+                        data.Vatpercent = VAT;
                         data.TotalAmount = unitAmount;
                         saleOrder.totalPrice += parseFloat(unitAmount);
                         saleOrder.SaleOrderDetailList.push(data);
@@ -462,6 +469,9 @@
                             '</td>' +
                             '<td>' +
                             productName +
+                            '</td>' +
+                            '<td>' +
+                            MaxSaleQty +
                             '</td>' +
                             '<td>' +
                             item +
@@ -661,37 +671,36 @@
                 //var PurchaseInvoice = $('#PurchaseInvoice').val();
                 //var VoucherNo = $('#VoucherNo').val();
                 var DiscountOnTotal = $('#DiscountOnTotal').val();
-
+                var SoldBy = $('#SoldBy').val();
 
                 //Bind Data for Purchase
                 var data = new FormData();
 
                 for (var i = 0; i < saleOrder.SaleOrderDetailList.length; i++) {
                     data.append('SalesDetailList[' + i + '].ProductId', saleOrder.SaleOrderDetailList[i].ProductId);
-                    data.append('SalesDetailList[' + i + '].Qty', saleOrder.SaleOrderDetailList[i].Quantity);
-                    data.append('SalesDetailList[' + i + '].Amount', saleOrder.SaleOrderDetailList[i].UnitPrice);
+                    data.append('SalesDetailList[' + i + '].Qty', saleOrder.SaleOrderDetailList[i].Qty);
+                    data.append('SalesDetailList[' + i + '].UnitPrice', saleOrder.SaleOrderDetailList[i].UnitPrice);
                     data.append('SalesDetailList[' + i + '].DiscountPerItem', saleOrder.SaleOrderDetailList[i].DiscountPerItem);
-
+                    data.append('SalesDetailList[' + i + '].Vatpercent', saleOrder.SaleOrderDetailList[i].Vatpercent);
                 }
                 //TODO
                 for (var i = 0; i < saleOrder.ContentInfoJson.length; i++) {
-                    data.append('ContentInfoJson[' + i + '].DocumentTypeId',
-                        1);
+                    data.append('ContentInfoJson[' + i + '].DocumentTypeId',1);
                     data.append('ContentInfoJson[' + i + '].UploadFile', saleOrder.ContentInfoJson[i].UploadFile);
                 }
                 //TODO
                 for (var i = 0; i < saleOrder.SalePaymenJson.length; i++) {
-                    data.append('SalePaymenJson[' + i + '].PaymentMethodId', saleOrder.SalePaymenJson[i].PaymentMethodId);
-                    data.append('SalePaymenJson[' + i + '].PaidAmount', saleOrder.SalePaymenJson[i].PaidAmount);
-                    data.append('SalePaymenJson[' + i + '].PaymentDate', saleOrder.SalePaymenJson[i].PaymentDate);
+                    data.append('SalesPaymentReceiveJson[' + i + '].PaymentMethodId', saleOrder.SalePaymenJson[i].PaymentMethodId);
+                    data.append('SalesPaymentReceiveJson[' + i + '].PaidAmount', saleOrder.SalePaymenJson[i].PaidAmount);
+                    data.append('SalesPaymentReceiveJson[' + i + '].PaymentDate', saleOrder.SalePaymenJson[i].PaymentDate);
                 }
                 data.append("CustomerMobile", CustomerMobile);
                 data.append("DiscountOnTotal", DiscountOnTotal);
-
+                data.append("SoldBy", SoldBy);
                 //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
 
                 $.ajax({
-                    url: '@Url.Action("Create", "Purchase")',
+                    url: '@Url.Action("Create", "Sale")',
                     data: data,
                     type: "POST",
                     processData: false,
@@ -705,10 +714,10 @@
                         $("#AjaxLoader").hide();
 
                         if (result == false) {
-                            alert("Please add atleast on purchase Details");
+                            alert("Please add atleast one  Item");
                         }
                         else {
-                            window.location.href = '@Url.Action("Index", "Purchase")';
+                            window.location.href = '@Url.Action("Index", "Sale")';
                         }
                     },
                     error: function (x, e) {
@@ -756,6 +765,7 @@
                                     $('#item').val('1');
                                     $('#amount').val(datum.unitPrice);
                                     $('#VAT').val(datum.vat);
+                                    $('#MaxSaleQty').val(datum.maxSaleQty);
                                 saleOrder.CalculateVatValueWithTotal(datum.vat);
                             });
                             $("#Product").focus();

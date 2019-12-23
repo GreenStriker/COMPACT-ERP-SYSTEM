@@ -18,6 +18,7 @@ using System;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Text.RegularExpressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Inventory.Controllers
 {
@@ -158,13 +159,13 @@ namespace Inventory.Controllers
                     }
                 }
 
-                var customer = _customerService.Queryable().AsQueryable().SingleOrDefault(c => c.Mobile.Equals(vm.CustomerMobile));
+                var customer =await _customerService.Queryable().AsQueryable().SingleOrDefaultAsync(c => c.Mobile.Equals(vm.CustomerMobile));
                 //Generate Invoice and Voucher No
                 var voucher = DateTime.Now.ToLocalTime().ToString();
                 //  purchase.IsActive = true;
-                Regex reg = new Regex("[*'\",_-&^@]");
+                //Regex reg = new Regex("[*'\",_-&^@]");
                 sale.SaleInvoiceNo = "SIV#" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
-                sale.SaleInvoiceNo = reg.Replace(sale.SaleInvoiceNo, "0");
+                sale.SaleInvoiceNo = sale.SaleInvoiceNo.Replace("-", "0");
                 sale.VoucherNo = null;
                 sale.NoOfIteams = NoOfIteams;
                 if (customer!=null)
@@ -195,8 +196,7 @@ namespace Inventory.Controllers
                         SalesDetail detail = new SalesDetail();
                         detail.SaleId = sale.SalesId;
                         detail.ProductId = item.ProductId;
-                        var stockId = _stockService.Queryable().AsQueryable().SingleOrDefault(c =>
-                            c.ProductId == item.ProductId && c.BranchId == _session.BranchId && c.CurrentStock > 0);
+                        var stockId =await _stockService.Query().FirstOrDefaultAsync(c =>c.ProductId == item.ProductId && c.BranchId == _session.BranchId && c.CurrentStock > 0,CancellationToken.None);
                         detail.StockId = stockId.StockId;
                         detail.Qty = item.Qty;
                         detail.UnitPrice = item.UnitPrice;
@@ -205,7 +205,13 @@ namespace Inventory.Controllers
                         detail.CreatedBy = _session.UserId;
                         detail.CreatedTime=DateTime.Now;
                         _detailService.Insert(detail);
-                      
+                        stock =await _stockService.GetById(stockId.StockId);
+                        var qty = stock.SaleQuantity??0;
+                        qty += item.Qty.Value;
+                        stock.SaleQuantity = qty;
+                        _stockService.Update(stock);
+                        await UnitOfWork.SaveChangesAsync();
+                        stockId = null;
                     }
 
                     // await UnitOfWork.SaveChangesAsync();
