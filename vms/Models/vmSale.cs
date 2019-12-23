@@ -13,7 +13,7 @@ namespace vms.Models
         public List<Content> ContentInfoJsonTest { get; set; }
         public List<ContentInfo> ContentInfoJson { get; set; }
         public List<SalePayment> SalesPaymentReceiveJson { get; set; }
-     
+        public string CustomerMobile { get; set; }
         public IFormFile UploadFile { get; set; }
         public string FileName { get; set; }
 

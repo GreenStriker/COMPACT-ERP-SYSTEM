@@ -18,7 +18,7 @@ namespace vms.entity.models
         public int SalesId { get; set; }
         public string SaleInvoiceNo { get; set; }
         public string VoucherNo { get; set; }
-        public int? NoOfIteams { get; set; }
+        public decimal? NoOfIteams { get; set; }
         public int? CustomerId { get; set; }
         public decimal? TotalVat { get; set; }
         public int? BranchId { get; set; }

@@ -727,6 +727,8 @@ namespace vms.entity.models
 
                 entity.Property(e => e.DiscountOnTotalPrice).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.NoOfIteams).HasColumnType("decimal(18, 2)");
+
                 entity.Property(e => e.PaymentDueAmount)
                     .HasColumnType("decimal(21, 2)")
                     .HasComputedColumnSql("(((isnull([TotalPriceWithoutVat],(0))+isnull([TotalVat],(0)))-(isnull([DiscountOnTotalPrice],(0))+isnull([TotalDiscountOnIndividualProduct],(0))))-isnull([PaymentReceiveAmount],(0)))");
