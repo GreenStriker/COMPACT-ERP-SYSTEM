@@ -154,7 +154,7 @@
                                                 Customer Mobile:
                                                 <div class="input-group mg-b-pro-edt">
                                                     <span class="input-group-addon"><i class="fa fa-book" aria-hidden="true"></i></span>
-                                                    <input type="text" class="form-control" id="CustomerMbl" name="CustomerMbl" placeholder="01000000000">
+                                                    <input type="text" class="form-control" id="CustomerMobile" name="CustomerMobile" placeholder="01000000000">
                                                 </div>
 
 
@@ -657,9 +657,9 @@
 
             Save: function () {
                 debugger
-                var VendorId = $('#VendorId').val();
-                var PurchaseInvoice = $('#PurchaseInvoice').val();
-                var VoucherNo = $('#VoucherNo').val();
+                var CustomerMobile = $('#CustomerMobile').val();
+                //var PurchaseInvoice = $('#PurchaseInvoice').val();
+                //var VoucherNo = $('#VoucherNo').val();
                 var DiscountOnTotal = $('#DiscountOnTotal').val();
 
 
@@ -685,10 +685,8 @@
                     data.append('SalePaymenJson[' + i + '].PaidAmount', saleOrder.SalePaymenJson[i].PaidAmount);
                     data.append('SalePaymenJson[' + i + '].PaymentDate', saleOrder.SalePaymenJson[i].PaymentDate);
                 }
-                data.append("PurchaseInvoice", PurchaseInvoice);
-                data.append("VoucherNo", VoucherNo);
+                data.append("CustomerMobile", CustomerMobile);
                 data.append("DiscountOnTotal", DiscountOnTotal);
-                data.append("VendorId", VendorId);
 
                 //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
 

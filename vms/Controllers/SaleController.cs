@@ -17,6 +17,7 @@ using X.PagedList;
 using System;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Inventory.Controllers
 {
@@ -30,8 +31,9 @@ namespace Inventory.Controllers
         private readonly IStockService _stockService;
         private readonly ISaleContentService _contentService;
         private readonly IEmployeService _employeService;
-        
+        private readonly ICustomerService _customerService;
         public SaleController(
+            ICustomerService customerService,
             IEmployeService employeService,
             ControllerBaseParamModel controllerBaseParamModel,
             IHostingEnvironment hostingEnvironment,
@@ -44,6 +46,7 @@ namespace Inventory.Controllers
 
             ) : base(controllerBaseParamModel)
         {
+            _customerService = customerService;
             _employeService = employeService;
             _vendorService = vendorService;
             _hostingEnvironment = hostingEnvironment;
@@ -133,10 +136,14 @@ namespace Inventory.Controllers
                 decimal payableAmount = 0;
                 decimal paidAmount = 0;
                 decimal totalDiscountPerItem = 0;
+                decimal NoOfIteams = 0;
+                decimal totalVat = 0;
                 foreach (var detail in vm.SalesDetailList)
                 {
+                    NoOfIteams += detail.Qty.Value;
                     payableAmount += detail.UnitPrice.Value * detail.Qty.Value;
                     totalDiscountPerItem += detail.DiscountPerItem.Value;
+                    totalVat += detail.Vatpercent.Value;
                 }
 
                 if (vm.SalesPaymentReceiveJson == null)
@@ -151,17 +158,31 @@ namespace Inventory.Controllers
                     }
                 }
 
+                var customer = _customerService.Queryable().AsQueryable().SingleOrDefault(c => c.Mobile.Equals(vm.CustomerMobile));
                 //Generate Invoice and Voucher No
                 var voucher = DateTime.Now.ToLocalTime().ToString();
                 //  purchase.IsActive = true;
+                Regex reg = new Regex("[*'\",_-&^@]");
                 sale.SaleInvoiceNo = "SIV#" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
+                sale.SaleInvoiceNo = reg.Replace(sale.SaleInvoiceNo, "0");
                 sale.VoucherNo = null;
-                sale.CustomerId = vm.CustomerId;
+                sale.NoOfIteams = NoOfIteams;
+                if (customer!=null)
+                {
+                    sale.CustomerId = customer.CustomerId;
+                }
+                else
+                {
+                    sale.CustomerId = null;
+                }
+
+                sale.TotalVat = payableAmount * (totalVat / 100);
                 sale.BranchId = _session.BranchId;
-                sale.ReceivableAmount = payableAmount;
+                sale.TotalPriceWithoutVat = payableAmount;
+                sale.PaymentReceiveAmount = paidAmount;
                 sale.DiscountOnTotalPrice = vm.DiscountOnTotalPrice;
                 sale.TotalDiscountOnIndividualProduct = totalDiscountPerItem;
-                sale.PaymentReceiveAmount = paidAmount;
+                sale.SoldBy = vm.SoldBy;
                 sale.IsActive = true;
                 sale.CreatedBy = createdBy;
                 sale.CreatedTime = DateTime.Now;
@@ -174,9 +195,15 @@ namespace Inventory.Controllers
                         SalesDetail detail = new SalesDetail();
                         detail.SaleId = sale.SalesId;
                         detail.ProductId = item.ProductId;
+                        var stockId = _stockService.Queryable().AsQueryable().SingleOrDefault(c =>
+                            c.ProductId == item.ProductId && c.BranchId == _session.BranchId && c.CurrentStock > 0);
+                        detail.StockId = stockId.StockId;
                         detail.Qty = item.Qty;
                         detail.UnitPrice = item.UnitPrice;
                         detail.DiscountPerItem = item.DiscountPerItem;
+                        detail.Vatpercent = item.Vatpercent;
+                        detail.CreatedBy = _session.UserId;
+                        detail.CreatedTime=DateTime.Now;
                         _detailService.Insert(detail);
                       
                     }
