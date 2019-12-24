@@ -184,8 +184,6 @@
 
   <ItemGroup>
     <Folder Include="ActionFilter\" />
-    <Folder Include="Utility\" />
-    <Folder Include="Utility\" />
     <Folder Include="wwwroot\assets\apps\img\" />
     <Folder Include="wwwroot\assets\global\img\portfolio\1200x900\" />
     <Folder Include="wwwroot\assets\global\img\portfolio\400x300\" />
