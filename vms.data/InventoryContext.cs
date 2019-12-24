@@ -42,7 +42,10 @@ namespace vms.entity.models
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<RewardPoint> RewardPoints { get; set; }
+        public virtual DbSet<Right> Rights { get; set; }
+        public virtual DbSet<RightsCategory> RightsCategories { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RoleRight> RoleRights { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<SaleContent> SaleContents { get; set; }
@@ -692,13 +695,53 @@ namespace vms.entity.models
                     .HasConstraintName("FK_RewardPoint_Settings");
             });
 
+            modelBuilder.Entity<Right>(entity =>
+            {
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.Description).HasMaxLength(128);
+
+                entity.Property(e => e.RightName)
+                    .IsRequired()
+                    .HasMaxLength(64);
+
+                entity.HasOne(d => d.RightsCategoryNavigation)
+                    .WithMany(p => p.Rights)
+                    .HasForeignKey(d => d.RightsCategory)
+                    .HasConstraintName("FK_Rights_RightsCategory");
+            });
+
+            modelBuilder.Entity<RightsCategory>(entity =>
+            {
+                entity.HasKey(e => e.RightCategoryId);
+
+                entity.ToTable("RightsCategory");
+
+                entity.Property(e => e.Description).HasMaxLength(50);
+
+                entity.Property(e => e.RightCategoryName).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
 
-                entity.Property(e => e.RoleId).ValueGeneratedNever();
+                entity.Property(e => e.RoleDefController).HasMaxLength(50);
+
+                entity.Property(e => e.RoleDefMethord).HasMaxLength(50);
 
                 entity.Property(e => e.RoleName).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<RoleRight>(entity =>
+            {
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Right)
+                    .WithMany(p => p.RoleRights)
+                    .HasForeignKey(d => d.RightId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_RoleRights_Rights");
             });
 
             modelBuilder.Entity<Salary>(entity =>
@@ -969,11 +1012,6 @@ namespace vms.entity.models
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.BrachId)
                     .HasConstraintName("FK_User_Branch");
-
-                entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK_User_Role");
 
                 entity.HasOne(d => d.UserType)
                     .WithMany(p => p.Users)
