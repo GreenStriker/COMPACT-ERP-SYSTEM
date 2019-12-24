@@ -568,6 +568,10 @@ namespace vms.entity.models
 
                 entity.Property(e => e.DiscountOnTotal).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.DueAmount)
+                    .HasColumnType("decimal(21, 2)")
+                    .HasComputedColumnSql("(((isnull([PayableAmount],(0))-isnull([DiscountOnTotal],(0)))-isnull([TotalDiscountOnIndividualProduct],(0)))-isnull([PaidAmount],(0)))");
+
                 entity.Property(e => e.EfectiveFrom).HasColumnType("date");
 
                 entity.Property(e => e.EfectiveTo).HasColumnType("date");

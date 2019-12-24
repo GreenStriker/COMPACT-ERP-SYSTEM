@@ -22,6 +22,7 @@ namespace vms.entity.models
         public decimal? DiscountOnTotal { get; set; }
         public decimal? TotalDiscountOnIndividualProduct { get; set; }
         public decimal? PaidAmount { get; set; }
+        public decimal? DueAmount { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public bool? IsActive { get; set; }
