@@ -118,7 +118,19 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Rights]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[RightsCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[RoleRights]"
       },
       {
          "HasPrimaryKey": true,
