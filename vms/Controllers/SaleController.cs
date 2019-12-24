@@ -269,6 +269,36 @@ namespace Inventory.Controllers
             }
            
         }
+        public async Task<IActionResult> SalesDue(int? page, string search = null)
+        {
+            var sale =  _service.Queryable().Include(c=>c.Customer).Where(c=>c.PaymentDueAmount>0 && c.BranchId==_session.BranchId).AsQueryable();
+   
+            ViewBag.PageCount = sale.Count();
+
+            string txt = search;
+
+            if (search != null)
+            {
+                search = search.ToLower().Trim();
+                sale = sale.Where(c => c.SaleInvoiceNo.ToString().ToLower().Contains(search)
+                                       || c.CreatedTime.ToString().Contains(search)
+                                       
+
+                );
+            }
+
+            var pageNumber = page ?? 1;
+            var listOfSalesDue = sale.ToPagedList(pageNumber, 10);
+            if (txt != null)
+            {
+                ViewData[ViewStaticData.SEARCH_TEXT] = txt;
+            }
+            else
+            {
+                ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
+            }
+            return View(listOfSalesDue);
+        }
 
     }
 }

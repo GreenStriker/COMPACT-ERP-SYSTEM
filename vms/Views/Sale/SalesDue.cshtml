@@ -1,0 +1,118 @@
+﻿@model IEnumerable<vms.entity.models.Sale>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@{
+    ViewData["Title"] = "SalesDue List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("SalesDue", "Sales", FormMethod.Get, new { id = "frmSales" }))
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="custom-page-title">Sale Due</h1>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group Search" style="margin-top:10px">
+                <input type="text" class="form-control" id="search" name="search" placeholder="Search..." value="@ViewBag.searchText">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn submit ">
+                        <i class="icon-magnifier"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+}
+<table class="table  table-bordered">
+    <thead>
+        <tr>
+
+            <th class="text-center">
+                Inv. No.
+            </th>
+            <th class="text-center">
+                Cus. Name
+            </th>
+            <th class="text-center">
+                Customer Address
+            </th>
+            <th class="text-center">
+                Customer Mobile
+            </th>
+            <th class="text-left">
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    @if (Model.Any())
+    {
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+           
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.SaleInvoiceNo)
+                    </td>
+                    <td class="text-left">
+                        @Html.DisplayFor(modelItem => item.Customer.Name)
+                    </td>
+
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.Customer.Address)
+                    </td>
+       
+                        <td class="text-center">
+                            @Html.DisplayFor(modelItem => item.Customer.Mobile)
+                        </td>
+         
+                    <td>
+                        <div class="btn-group">
+                            <div class="dropdown dropdown-user">
+                                <a style="text-decoration:none" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                    <span class=""> Action </span>
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-default pull-right">
+
+                                    <li>
+                                        <a asp-action="SalesPaymentReceive" asp-route-id="@item.SalesId"> <i class="fa fa-money"></i> Add Sales Receive</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    }
+
+    else
+    {
+        <tr>
+            <td colspan="10">
+                <p style="text-align: center">No Records Found</p>
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="pager">
+    @if ((int)ViewBag.PageCount <= 10)
+    {
+
+    }
+
+    else
+    {
+        @Html.PagedListPager(
+        (IPagedList)Model,
+        page => Url.Action("SalesDue", new { page })
+        )
+    }
+</div>
