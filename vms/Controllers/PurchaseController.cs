@@ -26,8 +26,9 @@ namespace Inventory.Controllers
         private readonly IPurchasePaymentService _paymentService;
         private readonly IStockService _stockService;
         private readonly IPurchaseContentService _contentService;
+        private readonly IPaymentMethodService _paymentMethodService;
         public PurchaseController(
-
+            IPaymentMethodService paymentMethodService,
             ControllerBaseParamModel controllerBaseParamModel,
             IHostingEnvironment hostingEnvironment,
             IPurchaseService service,
@@ -38,6 +39,7 @@ namespace Inventory.Controllers
             IPurchaseContentService contentService
         ) : base(controllerBaseParamModel)
         {
+            _paymentMethodService = paymentMethodService;
             _vendorService = vendorService;
             _hostingEnvironment = hostingEnvironment;
             _service = service;
@@ -253,7 +255,9 @@ namespace Inventory.Controllers
             var getPurchase = await _service.Query().Where(c => c.BranchId == _session.BranchId)
                 .Include(c => c.Vendor)
                 .Include(c => c.Branch)
+                .Where(c=>c.DueAmount>0)
                 .OrderByDescending(c => c.PurchaseId).SelectAsync(CancellationToken.None);
+            ViewBag.PageCount = getPurchase.Count();
             if (search != null)
             {
                 search = search.ToLower().Trim();
@@ -271,5 +275,73 @@ namespace Inventory.Controllers
             return View(listOfPurchase);
 
         }
+        public async Task<IActionResult> PurchasePayment(int id)
+        {
+            var purchaseDetails = await _service.GetById(id);
+            //Query().SingleOrDefaultAsync(p => p.PurchaseId == id, CancellationToken.None);
+            var payments = await _paymentMethodService.Query().SelectAsync();
+            IEnumerable<SelectListItems> paymentMethods = payments.Select(s => new SelectListItems
+            {
+                Id = s.PaymentMethodId,
+                Name = s.Name
+            });
+            //int purchaseId = int.Parse(_dataProtector.Unprotect(id));
+            VmDuePayment duePayment = new VmDuePayment
+            {
+                PurchaseId = id,
+                PaymentMethods = paymentMethods,
+                PayableAmount = purchaseDetails.PayableAmount,
+                PrevPaidAmount = purchaseDetails.PaidAmount,
+                DueAmount = purchaseDetails.DueAmount,
+            };
+          
+            return View(duePayment);
+        }
+        [HttpPost]
+        public async Task<IActionResult> PurchasePayment(VmDuePayment purchasePayment, int id)
+        {
+           // int purchaseId = int.Parse(_dataProtector.Unprotect(id));
+            var purchaseDetails = await _service.Query().SingleOrDefaultAsync(p => p.PurchaseId == id, CancellationToken.None);
+
+            var value = Convert.ToInt32(purchasePayment.DueAmount);
+            if (purchasePayment.PaidAmount <= Convert.ToDecimal(purchaseDetails.PayableAmount))
+            {
+                if (purchasePayment.PaidAmount <= Convert.ToDecimal(value))
+                {
+                    var totalPaidAmount = purchaseDetails.PaidAmount + purchasePayment.PaidAmount;
+                    vmPurchasePayment vmPurchasePayment = new vmPurchasePayment
+                    {
+                        PurchaseId = id,
+                        PaymentMethodId = purchasePayment.PaymentMethodId,
+                        TotalPaidAmount = Convert.ToDecimal(totalPaidAmount),
+                        PaidAmount = purchasePayment.PaidAmount,
+                        CreatedBy = _session.UserId
+                    };
+                    await _paymentService.ManagePurchaseDue(vmPurchasePayment);
+
+                    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+
+                    return RedirectToAction(ViewStaticData.PURCHASE_DUE, ControllerStaticData.PURCHASE);
+                }
+                else
+                {
+                    ViewData[ControllerStaticData.MESSAGE] = MessageStaticData.PURCHASE_DUE_MESSAGE;
+                }
+            }
+            else
+            {
+                ViewData[ControllerStaticData.MESSAGE] = MessageStaticData.PURCHASE_DUE_PAID_MESSAGE;
+            }
+
+            var payments = await _paymentMethodService.Query().SelectAsync();
+            IEnumerable<SelectListItems> paymentMethods = payments.Select(s => new SelectListItems
+            {
+                Id = s.PaymentMethodId,
+                Name = s.Name
+            });
+            purchasePayment.PaymentMethods = paymentMethods;
+            return View(purchasePayment);
+        }
+
     }
 }
