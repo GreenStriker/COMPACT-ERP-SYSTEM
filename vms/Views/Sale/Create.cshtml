@@ -456,7 +456,8 @@
                         data.Qty = item;
                         data.UnitPrice = amount;
                         data.DiscountPerItem = DiscountPerItem;
-                        data.Vatpercent = VAT;
+                        data.Vatpercent = VATValue;
+                        
                         data.TotalAmount = unitAmount;
                         saleOrder.totalPrice += parseFloat(unitAmount);
                         saleOrder.SaleOrderDetailList.push(data);
@@ -695,7 +696,7 @@
                     data.append('SalesPaymentReceiveJson[' + i + '].PaymentDate', saleOrder.SalePaymenJson[i].PaymentDate);
                 }
                 data.append("CustomerMobile", CustomerMobile);
-                data.append("DiscountOnTotal", DiscountOnTotal);
+                data.append("DiscountOnTotalPrice", DiscountOnTotal);
                 data.append("SoldBy", SoldBy);
                 //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
 

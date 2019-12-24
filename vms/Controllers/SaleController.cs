@@ -177,7 +177,7 @@ namespace Inventory.Controllers
                     sale.CustomerId = null;
                 }
 
-                sale.TotalVat = payableAmount * (totalVat / 100);
+                sale.TotalVat = totalVat;
                 sale.BranchId = _session.BranchId;
                 sale.TotalPriceWithoutVat = payableAmount;
                 sale.PaymentReceiveAmount = paidAmount;
