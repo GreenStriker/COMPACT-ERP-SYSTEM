@@ -15,6 +15,7 @@ namespace vms.entity.viewModels
     {
         public int SalesId { get; set; }
         public int PaymentMethodId { get; set; }
+        public decimal TotalPaidAmount { get; set; }
         public decimal PaidAmount { get; set; }
         public int CreatedBy { get; set; }
     }

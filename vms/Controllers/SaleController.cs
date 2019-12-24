@@ -33,7 +33,10 @@ namespace Inventory.Controllers
         private readonly ISaleContentService _contentService;
         private readonly IEmployeService _employeService;
         private readonly ICustomerService _customerService;
+        private readonly IPaymentMethodService _paymentMethodService;
+       // private readonly ISalesPaymentReceiveService _salesPaymentReceiveService;
         public SaleController(
+            IPaymentMethodService paymentMethodService,
             ICustomerService customerService,
             IEmployeService employeService,
             ControllerBaseParamModel controllerBaseParamModel,
@@ -47,6 +50,7 @@ namespace Inventory.Controllers
 
             ) : base(controllerBaseParamModel)
         {
+            _paymentMethodService = paymentMethodService;
             _customerService = customerService;
             _employeService = employeService;
             _vendorService = vendorService;
@@ -298,6 +302,73 @@ namespace Inventory.Controllers
                 ViewData[ViewStaticData.SEARCH_TEXT] = string.Empty;
             }
             return View(listOfSalesDue);
+        }
+
+        public async Task<IActionResult> SalesPaymentReceive(int id)
+        {
+            var sale = await _service.Query().SingleOrDefaultAsync(c=>c.SalesId==id,CancellationToken.None);
+            //Query().Include(c => c.SalesType).Include(c => c.SalesDeliveryType).Include(c => c.ExportType).Include(p => p.Customer).Include(p => p.Organization).SingleOrDefaultAsync(c => c.SalesId == id, CancellationToken.None);
+            var payments = await _paymentMethodService.Query().SelectAsync();
+            IEnumerable<SelectListItems> paymentMethods = payments.Select(s => new SelectListItems
+            {
+                Id = s.PaymentMethodId,
+                Name = s.Name
+            });
+            VmDuePayment duePayment = new VmDuePayment
+            {
+                SalesId = id,
+                PaymentMethods = paymentMethods,
+                PayableAmount = sale.ReceivableAmount,
+                PrevPaidAmount = sale.PaymentReceiveAmount,
+                DueAmount = sale.PaymentDueAmount,
+            };
+
+            return View(duePayment);
+        }
+        [HttpPost]
+        public async Task<IActionResult> SalesPaymentReceive(VmDuePayment salesPayment, int id)
+        {
+            //int salesId = int.Parse(_dataProtector.Unprotect(id));
+            var salesDetails = await _service.Query().SingleOrDefaultAsync(p => p.SalesId == id, CancellationToken.None);
+
+            var value = Convert.ToInt32(salesPayment.DueAmount);
+            if (salesPayment.PaidAmount <= Convert.ToDecimal(salesDetails.ReceivableAmount))
+            {
+                if (salesPayment.PaidAmount <= Convert.ToDecimal(value))
+                {
+                    var totalPaidAmount = salesDetails.PaymentReceiveAmount + salesPayment.PaidAmount;
+                    VmSalesPaymentReceive vmSales = new VmSalesPaymentReceive
+                    {
+                        SalesId = id,
+                        PaymentMethodId = salesPayment.PaymentMethodId,
+                        TotalPaidAmount= Convert.ToDecimal(totalPaidAmount),
+                        PaidAmount = salesPayment.PaidAmount,
+                        CreatedBy = _session.UserId
+                    };
+                    await _paymentService.ManageSalesDueAsync(vmSales);
+                    TempData[ControllerStaticData.MESSAGE] = ControllerStaticData.SUCCESS_CLASSNAME;
+                    return RedirectToAction(ViewStaticData.SALES_DUE, "Sale");
+                }
+                else
+                {
+                    ViewData[ControllerStaticData.MESSAGE] = MessageStaticData.SALES_DUE_MESSAGE;
+                }
+            }
+            else
+            {
+                ViewData[ControllerStaticData.MESSAGE] = MessageStaticData.SALES_DUE_PAID_MESSAGE;
+            }
+
+            var payments = await _paymentMethodService.Query().SelectAsync();
+            IEnumerable<SelectListItems> paymentMethods = payments.Select(s => new SelectListItems
+            {
+                Id = s.PaymentMethodId,
+                Name = s.Name
+            });
+
+            salesPayment.PaymentMethods = paymentMethods;
+
+            return View(salesPayment);
         }
 
     }

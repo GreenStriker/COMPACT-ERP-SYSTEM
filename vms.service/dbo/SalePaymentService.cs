@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using vms.entity.models;
+using vms.entity.viewModels;
 using vms.repository.dbo;
 
 namespace vms.service.dbo
@@ -11,6 +12,7 @@ namespace vms.service.dbo
     {
         Task<IEnumerable<SalePayment>> GetAll();
         Task<SalePayment> GetById(int id);
+        Task<bool> ManageSalesDueAsync(VmSalesPaymentReceive vmSales);
     }
     public class SalePaymentService : ServiceBase<SalePayment>, ISalePaymentService
     {
@@ -26,6 +28,10 @@ namespace vms.service.dbo
         public async Task<SalePayment> GetById(int id)
         {
             return await _repository.GetById(id);
+        }
+        public async Task<bool> ManageSalesDueAsync(VmSalesPaymentReceive vmSales)
+        {
+            return await _repository.ManageSalesDueAsync(vmSales);
         }
     }
 }
