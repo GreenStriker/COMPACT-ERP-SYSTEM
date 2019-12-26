@@ -9,8 +9,7 @@ namespace vms.service.dbo.StoredProdecure
 {
     public interface IReportsService
     {
-        Task<SpProfit> ProfitReport(DateTime from,
-             DateTime to);
+        Task<SpProfit> ProfitReport(DateTime from,DateTime to);
 
 
 

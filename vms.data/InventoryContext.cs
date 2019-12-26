@@ -23,6 +23,8 @@ namespace vms.entity.models
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
+        public virtual DbSet<CreditNote> CreditNotes { get; set; }
+        public virtual DbSet<CreditNoteDetail> CreditNoteDetails { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
@@ -201,6 +203,48 @@ namespace vms.entity.models
                 entity.Property(e => e.Name)
                     .HasColumnName("name")
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<CreditNote>(entity =>
+            {
+                entity.ToTable("CreditNote");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReasonOfReturn).HasMaxLength(500);
+
+                entity.Property(e => e.ReturnDate).HasColumnType("datetime");
+
+                entity.Property(e => e.VoucherNo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Sales)
+                    .WithMany(p => p.CreditNotes)
+                    .HasForeignKey(d => d.SalesId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNote_Sales");
+            });
+
+            modelBuilder.Entity<CreditNoteDetail>(entity =>
+            {
+                entity.ToTable("CreditNoteDetail");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.CreditNote)
+                    .WithMany(p => p.CreditNoteDetails)
+                    .HasForeignKey(d => d.CreditNoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNoteDetail_CreditNote");
+
+                entity.HasOne(d => d.SalesDetail)
+                    .WithMany(p => p.CreditNoteDetails)
+                    .HasForeignKey(d => d.SalesDetailId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNoteDetail_SalesDetails");
             });
 
             modelBuilder.Entity<Customer>(entity =>

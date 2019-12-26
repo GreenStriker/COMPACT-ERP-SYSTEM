@@ -42,6 +42,14 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[CreditNote]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CreditNoteDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Customer]"
       },
       {

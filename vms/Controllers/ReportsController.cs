@@ -31,7 +31,7 @@ namespace Inventory.Controllers
             ) : base(controllerBaseParamModel)
         {
 
-            service = _service;
+            _service = service;
         }
 
 
@@ -46,11 +46,6 @@ namespace Inventory.Controllers
             {
 
             }
-           
-
-
-
-
 
             return View();
         }

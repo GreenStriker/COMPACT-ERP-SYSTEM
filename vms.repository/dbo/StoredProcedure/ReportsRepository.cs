@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using vms.entity.StoredProcedureModel;
 
@@ -9,8 +10,7 @@ namespace vms.repository.dbo.StoredProcedure
 {
     public interface IReportsRepository
     {
-        Task<SpProfit> ProfitReport(DateTime from,
-            DateTime to);
+        Task<SpProfit> ProfitReport(DateTime from,DateTime to);
     }
 
     public class ReportsRepository : IReportsRepository
@@ -26,7 +26,7 @@ namespace vms.repository.dbo.StoredProcedure
         {
             try
             {
-                return await  _context.Set<SpProfit>().FromSql("SPProfitLossReport @From={0}, @To={1}", from, to).SingleOrDefaultAsync();
+                return await  _context.Set<SpProfit>().FromSql("SPProfitLossReport @From={0}, @To={1}", from, to).SingleOrDefaultAsync(CancellationToken.None);
 
             }
             catch (Exception e)
