@@ -29,8 +29,8 @@ namespace vms.ioc
             
             services.AddSingleton<PurposeStringConstants>();
 
-            //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
-            //services.AddScoped<IAutocompleteService, AutocompleteService>();
+            services.AddScoped<IStoreProcedureRepository, StoreProcedureRepository>();
+            services.AddScoped<IStoreProcedureService, StoreProcedureService>();
             services.AddScoped<ISalesPaymentReceiveRepository, SalesPaymentReceiveRepository>();
             services.AddScoped<ISalesPaymentReceiveService, SalesPaymentReceiveService>();
             services.AddScoped<IProductLogRepository, ProductLogRepository>();
