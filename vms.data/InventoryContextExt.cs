@@ -11,5 +11,7 @@ namespace vms.entity.models
     {
         [NotMapped]
         public DbSet<SpGetProductAutocompleteForSale> SpGetProductAutocompleteForSales { get; set; }
+        [NotMapped]
+        public DbSet<SpProfit> SpProfit { get; set; }
     }
 }
