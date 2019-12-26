@@ -86,8 +86,7 @@ namespace Inventory.Controllers
 
                 else
                 {
-
-
+                    
                     var session = new vmSession
                     {
 
@@ -99,9 +98,7 @@ namespace Inventory.Controllers
                         secThe = theme.Color.Sec,
                         thirdThe = theme.Color.Third,
                         FroreThe = theme.Color.Forth,
-
-
-
+                        
                     };
 
                     HttpContext.Session.SetComplexData(vms.utility.StaticData.ControllerStaticData.SESSION, session);
