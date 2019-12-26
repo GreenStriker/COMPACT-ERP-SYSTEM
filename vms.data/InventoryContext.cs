@@ -26,6 +26,8 @@ namespace vms.entity.models
         public virtual DbSet<CreditNote> CreditNotes { get; set; }
         public virtual DbSet<CreditNoteDetail> CreditNoteDetails { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<DebitNote> DebitNotes { get; set; }
+        public virtual DbSet<DebitNoteDetail> DebitNoteDetails { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
@@ -269,6 +271,48 @@ namespace vms.entity.models
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Customer_Branch");
+            });
+
+            modelBuilder.Entity<DebitNote>(entity =>
+            {
+                entity.ToTable("DebitNote");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReasonOfReturn).HasMaxLength(500);
+
+                entity.Property(e => e.ReturnDate).HasColumnType("datetime");
+
+                entity.Property(e => e.VoucherNo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Purchase)
+                    .WithMany(p => p.DebitNotes)
+                    .HasForeignKey(d => d.PurchaseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNote_Purchase");
+            });
+
+            modelBuilder.Entity<DebitNoteDetail>(entity =>
+            {
+                entity.ToTable("DebitNoteDetail");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.DebitNote)
+                    .WithMany(p => p.DebitNoteDetails)
+                    .HasForeignKey(d => d.DebitNoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNoteDetail_DebitNote");
+
+                entity.HasOne(d => d.PurchaseDetail)
+                    .WithMany(p => p.DebitNoteDetails)
+                    .HasForeignKey(d => d.PurchaseDetailId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNoteDetail_purchaseDetail");
             });
 
             modelBuilder.Entity<Employe>(entity =>

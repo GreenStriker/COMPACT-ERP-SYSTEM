@@ -12,9 +12,10 @@ namespace vms.entity.models
         }
 
         public int DebitNoteId { get; set; }
-        public int? PurchaseId { get; set; }
+        public int PurchaseId { get; set; }
+        public string VoucherNo { get; set; }
         public string ReasonOfReturn { get; set; }
-        public DateTime? ReturnDate { get; set; }
+        public DateTime ReturnDate { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
 

@@ -54,6 +54,14 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[DebitNote]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DebitNoteDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Employe]"
       },
       {
