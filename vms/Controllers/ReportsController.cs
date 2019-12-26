@@ -15,6 +15,7 @@ using Inventory.Utility;
 using vms.utility.StaticData;
 using X.PagedList;
 using System;
+using vms.entity.viewModels.ReportsViewModel;
 
 namespace Inventory.Controllers
 {
@@ -38,19 +39,52 @@ namespace Inventory.Controllers
 
         public async Task<IActionResult> Index()
         {
-
-            try
-            {
-                var data = await _service.ProfitReport(DateTime.Now.AddMonths(-1), DateTime.Now);
-            }catch(Exception ex)
-            {
-
-            }
+            
 
             return View();
         }
 
+        public async Task<IActionResult> Profit()
+        {
 
-        
+
+            var data = await _service.ProfitReport(DateTime.Now.AddMonths(-1), DateTime.Now);
+
+
+
+
+            var model = new ProfitReport();
+
+
+            model.profit = data;
+
+            model.fromDate = DateTime.Now.AddMonths(-1);
+            model.toDate = DateTime.Now;
+
+            return View(model);
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> Profit(ProfitReport md )
+        {
+
+
+            var data = await _service.ProfitReport(md.fromDate, md.toDate);
+
+
+
+
+            var model = new ProfitReport();
+
+
+            model.profit = data;
+
+            model.fromDate = md.fromDate;
+            model.toDate = md.toDate;
+
+            return View(model);
+        }
     }
 }
