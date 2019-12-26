@@ -8,11 +8,12 @@ namespace vms.entity.viewModels
    public class vmDebitNote
     {
         public int DebitNoteId { get; set; }
+        public string VoucherNo { get; set; }
         public int PurchaseId { get; set; }
         public string ReasonOfReturn { get; set; }
         public DateTime ReturnDate { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
-       // public List<DebitNoteDetail> DebitNoteDetails { get; set; }
+       public List<DebitNoteDetail> DebitNoteDetails { get; set; }
     }
 }

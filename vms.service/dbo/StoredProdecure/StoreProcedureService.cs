@@ -10,6 +10,7 @@ namespace vms.service.dbo.StoredProdecure
     public interface IStoreProcedureService
     {
         Task<bool> InsertCredit(vmCreditNote vm);
+        Task<bool> InsertDebit(vmDebitNote vm);
     }
    public class StoreProcedureService: IStoreProcedureService
     {
@@ -22,6 +23,11 @@ namespace vms.service.dbo.StoredProdecure
         public async Task<bool> InsertCredit(vmCreditNote vm)
         {
             return await _repository.InsertCredit(vm);
+        }
+
+        public async Task<bool> InsertDebit(vmDebitNote vm)
+        {
+            return await _repository.InsertDebit(vm);
         }
     }
 }

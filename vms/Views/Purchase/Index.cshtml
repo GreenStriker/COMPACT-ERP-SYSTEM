@@ -82,9 +82,9 @@
                                                         <li>
                                                             <a asp-action="Details" asp-route-id="@item.PurchaseId"><i class="fa fa-info"></i> Details</a>
                                                         </li>
-                                                        @*<li>
-                                                            <a asp-action="DebitNote" asp-route-id="@item.EncryptedId"><i class="fa fa-money"></i> Debit Note</a>
-                                                        </li>*@
+                                                        <li>
+                                                            <a href="~/DebitNote/DebitNote?id=@item.PurchaseId"><i class="fa fa-money"></i> Debit Note</a>
+                                                        </li>
 
                                                       
                                                     </ul>
