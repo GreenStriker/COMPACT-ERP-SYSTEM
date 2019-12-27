@@ -453,7 +453,7 @@ namespace Inventory.Controllers
             List<SpGetProductAutocompleteForSale> productList;
             try
             {
-                 productList = await _autocompleteService.GetProductAutocompleteForSales(branchId.Value, filterText);
+                 productList = await _autocompleteService.GetProductAutocompleteForSales(_session.BranchId, filterText);
 
             }
             catch (Exception e)

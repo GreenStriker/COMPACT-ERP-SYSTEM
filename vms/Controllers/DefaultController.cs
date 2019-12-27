@@ -57,19 +57,23 @@ namespace Inventory.Controllers
 
 
             var theme = await _themeservice.Query().Include(c => c.Color).SingleOrDefaultAsync(w => w.Uid== userData.Uid, CancellationToken.None);
-
-
-
-            if (userData != null)
+            if (userData.BrachId != null)
             {
 
-               if(theme != null) { 
+                //int bid = (int)userData.BrachId;
+
+
+
+                if (theme != null) { 
                     var session = new vmSession
                     {
 
                           UserId = userData.Uid,
                           UserName = userData.Name,
-                          BranchId = userData.BrachId,
+
+
+                          BranchId = (int)userData.BrachId,
+                         
                           BranchName = userData.Brach.Name,
                           FristThe = theme.Color.Frist,
                           secThe = theme.Color.Sec,
@@ -92,7 +96,7 @@ namespace Inventory.Controllers
 
                         UserId = userData.Uid,
                         UserName = userData.Name,
-                        BranchId = userData.BrachId,
+                        BranchId = (int)userData.BrachId,
                         BranchName = userData.Brach.Name,
                         FristThe = theme.Color.Frist,
                         secThe = theme.Color.Sec,
