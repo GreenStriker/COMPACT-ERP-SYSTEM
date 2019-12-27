@@ -58,8 +58,8 @@
                                             @Html.DisplayFor(modelItem => item.SaleInvoiceNo)
                                         </td>
                                         @*<td class="text-center">
-                                            @item.Vendor.Name
-                                        </td>*@
+                                                @item.Vendor.Name
+                                            </td>*@
                                         <td class="text-center">
                                             @item.PaymentReceiveAmount
                                         </td>
@@ -79,9 +79,9 @@
                                                         <li>
                                                             <a asp-action="Details" asp-route-id="@item.SalesId"><i class="fa fa-info"></i> Details</a>
                                                         </li>
-                                                        @*<li>
-                                                                <a asp-action="DebitNote" asp-route-id="@item.EncryptedId"><i class="fa fa-money"></i> Debit Note</a>
-                                                            </li>*@
+                                                        <li>
+                                                            <a href="~/CreditNote/CreditNote?id=@item.SalesId"><i class="fa fa-money"></i> Credit Note</a>
+                                                        </li>
 
 
                                                     </ul>

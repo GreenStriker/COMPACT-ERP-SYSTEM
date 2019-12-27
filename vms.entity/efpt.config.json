@@ -42,7 +42,23 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[CreditNote]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CreditNoteDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Customer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DebitNote]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DebitNoteDetail]"
       },
       {
          "HasPrimaryKey": true,
@@ -118,7 +134,19 @@
       },
       {
          "HasPrimaryKey": true,
+         "Name": "[dbo].[Rights]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[RightsCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
          "Name": "[dbo].[Role]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[RoleRights]"
       },
       {
          "HasPrimaryKey": true,

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using vms.entity.models;
@@ -13,6 +14,8 @@ namespace vms.repository.dbo
     {
         Task<IEnumerable<SalePayment>> GetAll();
         Task<SalePayment> GetById(int id);
+        Task<bool> ManageSalesDueAsync(VmSalesPaymentReceive vmSales);
+
     }
     public class SalePaymentRepository : RepositoryBase<SalePayment>, ISalePaymentRepository
     {
@@ -38,6 +41,33 @@ namespace vms.repository.dbo
             int id = ids;
             var data = await this.Query().SingleOrDefaultAsync(x => x.SalePaymentId == id, System.Threading.CancellationToken.None);
             return data;
+        }
+        public async Task<bool> ManageSalesDueAsync(VmSalesPaymentReceive vmSales)
+        {
+            try
+            {
+                this._context.Database.ExecuteSqlCommand(
+                    $"EXEC [dbo].[SPManageSalesDue]" +
+                    $"@SalesId" +
+                    $",@PaymentMethodId" +
+                    $",@TotalPaidAmount" +
+                    $",@PaidAmount" +
+                    $",@CreatedBy "
+
+                    , new SqlParameter("@SalesId", vmSales.SalesId)
+                    , new SqlParameter("@PaymentMethodId", vmSales.PaymentMethodId)
+                    , new SqlParameter("@TotalPaidAmount", vmSales.TotalPaidAmount)
+                    , new SqlParameter("@PaidAmount", vmSales.PaidAmount)
+                    , new SqlParameter("@CreatedBy", vmSales.CreatedBy)
+                );
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            return await Task.FromResult(true);
         }
     }
    

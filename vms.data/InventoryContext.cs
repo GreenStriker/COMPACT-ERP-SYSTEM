@@ -23,7 +23,11 @@ namespace vms.entity.models
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Contenttype> Contenttypes { get; set; }
+        public virtual DbSet<CreditNote> CreditNotes { get; set; }
+        public virtual DbSet<CreditNoteDetail> CreditNoteDetails { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<DebitNote> DebitNotes { get; set; }
+        public virtual DbSet<DebitNoteDetail> DebitNoteDetails { get; set; }
         public virtual DbSet<Employe> Employes { get; set; }
         public virtual DbSet<Expence> Expences { get; set; }
         public virtual DbSet<ExpenceType> ExpenceTypes { get; set; }
@@ -42,7 +46,10 @@ namespace vms.entity.models
         public virtual DbSet<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual DbSet<PurchasePayment> PurchasePayments { get; set; }
         public virtual DbSet<RewardPoint> RewardPoints { get; set; }
+        public virtual DbSet<Right> Rights { get; set; }
+        public virtual DbSet<RightsCategory> RightsCategories { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RoleRight> RoleRights { get; set; }
         public virtual DbSet<Salary> Salaries { get; set; }
         public virtual DbSet<Sale> Sales { get; set; }
         public virtual DbSet<SaleContent> SaleContents { get; set; }
@@ -200,6 +207,48 @@ namespace vms.entity.models
                     .HasMaxLength(50);
             });
 
+            modelBuilder.Entity<CreditNote>(entity =>
+            {
+                entity.ToTable("CreditNote");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReasonOfReturn).HasMaxLength(500);
+
+                entity.Property(e => e.ReturnDate).HasColumnType("datetime");
+
+                entity.Property(e => e.VoucherNo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Sales)
+                    .WithMany(p => p.CreditNotes)
+                    .HasForeignKey(d => d.SalesId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNote_Sales");
+            });
+
+            modelBuilder.Entity<CreditNoteDetail>(entity =>
+            {
+                entity.ToTable("CreditNoteDetail");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.CreditNote)
+                    .WithMany(p => p.CreditNoteDetails)
+                    .HasForeignKey(d => d.CreditNoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNoteDetail_CreditNote");
+
+                entity.HasOne(d => d.SalesDetail)
+                    .WithMany(p => p.CreditNoteDetails)
+                    .HasForeignKey(d => d.SalesDetailId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_CreditNoteDetail_SalesDetails");
+            });
+
             modelBuilder.Entity<Customer>(entity =>
             {
                 entity.ToTable("Customer");
@@ -222,6 +271,48 @@ namespace vms.entity.models
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.BranchId)
                     .HasConstraintName("FK_Customer_Branch");
+            });
+
+            modelBuilder.Entity<DebitNote>(entity =>
+            {
+                entity.ToTable("DebitNote");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReasonOfReturn).HasMaxLength(500);
+
+                entity.Property(e => e.ReturnDate).HasColumnType("datetime");
+
+                entity.Property(e => e.VoucherNo)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Purchase)
+                    .WithMany(p => p.DebitNotes)
+                    .HasForeignKey(d => d.PurchaseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNote_Purchase");
+            });
+
+            modelBuilder.Entity<DebitNoteDetail>(entity =>
+            {
+                entity.ToTable("DebitNoteDetail");
+
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.ReturnQuantity).HasColumnType("decimal(18, 2)");
+
+                entity.HasOne(d => d.DebitNote)
+                    .WithMany(p => p.DebitNoteDetails)
+                    .HasForeignKey(d => d.DebitNoteId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNoteDetail_DebitNote");
+
+                entity.HasOne(d => d.PurchaseDetail)
+                    .WithMany(p => p.DebitNoteDetails)
+                    .HasForeignKey(d => d.PurchaseDetailId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_DebitNoteDetail_purchaseDetail");
             });
 
             modelBuilder.Entity<Employe>(entity =>
@@ -565,6 +656,10 @@ namespace vms.entity.models
 
                 entity.Property(e => e.DiscountOnTotal).HasColumnType("decimal(18, 2)");
 
+                entity.Property(e => e.DueAmount)
+                    .HasColumnType("decimal(21, 2)")
+                    .HasComputedColumnSql("(((isnull([PayableAmount],(0))-isnull([DiscountOnTotal],(0)))-isnull([TotalDiscountOnIndividualProduct],(0)))-isnull([PaidAmount],(0)))");
+
                 entity.Property(e => e.EfectiveFrom).HasColumnType("date");
 
                 entity.Property(e => e.EfectiveTo).HasColumnType("date");
@@ -692,13 +787,53 @@ namespace vms.entity.models
                     .HasConstraintName("FK_RewardPoint_Settings");
             });
 
+            modelBuilder.Entity<Right>(entity =>
+            {
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.Property(e => e.Description).HasMaxLength(128);
+
+                entity.Property(e => e.RightName)
+                    .IsRequired()
+                    .HasMaxLength(64);
+
+                entity.HasOne(d => d.RightsCategoryNavigation)
+                    .WithMany(p => p.Rights)
+                    .HasForeignKey(d => d.RightsCategory)
+                    .HasConstraintName("FK_Rights_RightsCategory");
+            });
+
+            modelBuilder.Entity<RightsCategory>(entity =>
+            {
+                entity.HasKey(e => e.RightCategoryId);
+
+                entity.ToTable("RightsCategory");
+
+                entity.Property(e => e.Description).HasMaxLength(50);
+
+                entity.Property(e => e.RightCategoryName).HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
 
-                entity.Property(e => e.RoleId).ValueGeneratedNever();
+                entity.Property(e => e.RoleDefController).HasMaxLength(50);
+
+                entity.Property(e => e.RoleDefMethord).HasMaxLength(50);
 
                 entity.Property(e => e.RoleName).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<RoleRight>(entity =>
+            {
+                entity.Property(e => e.CreatedTime).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Right)
+                    .WithMany(p => p.RoleRights)
+                    .HasForeignKey(d => d.RightId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_RoleRights_Rights");
             });
 
             modelBuilder.Entity<Salary>(entity =>
@@ -969,11 +1104,6 @@ namespace vms.entity.models
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.BrachId)
                     .HasConstraintName("FK_User_Branch");
-
-                entity.HasOne(d => d.Role)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK_User_Role");
 
                 entity.HasOne(d => d.UserType)
                     .WithMany(p => p.Users)

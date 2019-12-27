@@ -29,8 +29,10 @@ namespace vms.ioc
             
             services.AddSingleton<PurposeStringConstants>();
 
-            //services.AddScoped<IAutocompleteRepository, AutocompleteRepository>();
-            //services.AddScoped<IAutocompleteService, AutocompleteService>();
+            services.AddScoped<IStoreProcedureRepository, StoreProcedureRepository>();
+            services.AddScoped<IStoreProcedureService, StoreProcedureService>();
+            services.AddScoped<ISalesPaymentReceiveRepository, SalesPaymentReceiveRepository>();
+            services.AddScoped<ISalesPaymentReceiveService, SalesPaymentReceiveService>();
             services.AddScoped<IProductLogRepository, ProductLogRepository>();
             services.AddScoped<IProductLogService, ProductLogService>();
             services.AddScoped<IPurchaseRepository, PurchaseRepository>();
@@ -62,8 +64,11 @@ namespace vms.ioc
 
             services.AddScoped<IPurchaseContentRepository, PurchaseContentRepository>();
             services.AddScoped<IPurchaseContentService, PurchaseContentService>();
-            //services.AddScoped<IMushok6P3ViewRepositoy, Mushok6P3ViewRepositoy>();
-            //services.AddScoped<IMushok6P3ViewService, Mushok6P3ViewService>();
+
+
+
+            services.AddScoped<IReportsRepository, ReportsRepository>();
+            services.AddScoped<IReportsService, ReportsService>();
             //services.AddScoped<ISpGetSalePagedRepository, SpGetSalePagedRepository>();
             //services.AddScoped<ISpGetSalePagedService, SpGetSalePagedService>();
             //services.AddScoped<IDamageInvoiceListRepository, DamageInvoiceListRepository>();

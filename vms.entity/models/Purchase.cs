@@ -8,6 +8,7 @@ namespace vms.entity.models
     {
         public Purchase()
         {
+            DebitNotes = new HashSet<DebitNote>();
             PurchaseContents = new HashSet<PurchaseContent>();
             PurchaseDetails = new HashSet<PurchaseDetail>();
             PurchasePayments = new HashSet<PurchasePayment>();
@@ -22,6 +23,7 @@ namespace vms.entity.models
         public decimal? DiscountOnTotal { get; set; }
         public decimal? TotalDiscountOnIndividualProduct { get; set; }
         public decimal? PaidAmount { get; set; }
+        public decimal? DueAmount { get; set; }
         public DateTime? EfectiveFrom { get; set; }
         public DateTime? EfectiveTo { get; set; }
         public bool? IsActive { get; set; }
@@ -30,6 +32,7 @@ namespace vms.entity.models
 
         public virtual Branch Branch { get; set; }
         public virtual Vendor Vendor { get; set; }
+        public virtual ICollection<DebitNote> DebitNotes { get; set; }
         public virtual ICollection<PurchaseContent> PurchaseContents { get; set; }
         public virtual ICollection<PurchaseDetail> PurchaseDetails { get; set; }
         public virtual ICollection<PurchasePayment> PurchasePayments { get; set; }

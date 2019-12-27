@@ -13,7 +13,7 @@ namespace vms.entity.viewModels
         public DateTime ReturnDate { get; set; }
         public int? CreatedBy { get; set; }
         public DateTime? CreatedTime { get; set; }
-
-       // public List<CreditNoteDetail> CreditNoteDetails { get; set; }
+        public string VoucherNo { get; set; }
+        public List<CreditNoteDetail> CreditNoteDetails { get; set; }
     }
 }

@@ -39,13 +39,13 @@ namespace vms.repository.dbo
         public async Task<Sale> GetById(int ids)
         {
             int id = ids;
-            //var data = await this.Query().Include("PurchaseDetails.Product.Munit")
-            //    .Include("PurchasePayments.PaymentMethod")
-            //    .Include(c=>c.PurchaseContents)
-            //    .Include(c=>c.Vendor)
-            //    .Include(c=>c.Branch)
-            //    .SingleOrDefaultAsync(x => x.PurchaseId == id, System.Threading.CancellationToken.None);
-            var data=new Sale();
+            var data = await this.Query().Include("SalesDetails.Product.Munit")
+                .Include("SalePayments.PaymentMethod")
+                .Include(c => c.SaleContents)
+                .Include(c => c.Customer)
+                .Include(c => c.Branch)
+                .SingleOrDefaultAsync(x => x.SalesId == id, System.Threading.CancellationToken.None);
+
             return data;
         }
    
