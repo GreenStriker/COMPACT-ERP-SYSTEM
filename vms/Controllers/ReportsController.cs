@@ -24,15 +24,22 @@ namespace Inventory.Controllers
     
         private readonly IConfiguration _configuration;
         private readonly IReportsService _service;
+        private readonly IStoreProcedureService _Storeservice;
        
+     
      
         public ReportsController(
             ControllerBaseParamModel controllerBaseParamModel,
-           IReportsService service
+           IReportsService service,
+           IStoreProcedureService Storeservice
+
+
+
             ) : base(controllerBaseParamModel)
         {
 
             _service = service;
+            _Storeservice = Storeservice;
         }
 
 
@@ -86,5 +93,32 @@ namespace Inventory.Controllers
 
             return View(model);
         }
+
+
+
+
+
+        public async Task<IActionResult> Stock()
+        {
+
+
+            var data = await _Storeservice.StockList(_session.BranchId);
+
+
+
+
+
+            return View(data);
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -6,13 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using vms.entity.models;
 using vms.entity.viewModels;
-
+using vms.entity.StoredProcedureModel;
 namespace vms.repository.dbo.StoredProcedure
 {
     public interface IStoreProcedureRepository 
     {
         Task<bool> InsertCredit(vmCreditNote vm);
         Task<bool> InsertDebit(vmDebitNote vm);
+
+        Task<List<Spstock>> StockList(int BranchID);
+
     }
     public class StoreProcedureRepository : IStoreProcedureRepository
     {
@@ -86,5 +89,19 @@ namespace vms.repository.dbo.StoredProcedure
 
             return await Task.FromResult(true);
         }
+
+
+
+
+        public async Task<List<Spstock>> StockList(int BranchID)
+        {
+
+            var item = await _context.Set<Spstock>().FromSql("SPStock @brach={0}", BranchID).ToListAsync();
+            return item;
+        }
+
+
+
+
     }
 }
