@@ -11,114 +11,129 @@
 <input type="hidden" class="form-control" id="SalesId" name="SalesId" value="@Model.Sale.SalesId" />
 
 <input type="hidden" class="form-control" id="ProductId" name="ProductId" />
+<div class="single-product-tab-area mg-tb-15">
 
-<div class="custom-page-title">
-    Credit Note
-</div>
-<form id="creditNoteFrm">
-    <div class="row">
+    <div class="single-pro-review-area">
+        <div class="container-fluid">
+            <h4 style="padding-left:15px;">Sales Return</h4>
+            <form id="creditNoteFrm">
+                <div class="row">
 
-        <div class="col-md-12 ">
+                    <div class="col-md-12 ">
 
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="col-md-2 ">
-                <div class="form-group form-md-line-input has-info">
-                    <input type="text" class="form-control" id="ReasonOfReturn" name="ReasonOfReturn">
-                    <label for="form_control">Reason Of Return</label>
+                        <!-- BEGIN SAMPLE FORM PORTLET-->
+
+                        <div class="col-md-2 ">
+                            <div class="form-group form-md-line-input">
+                                <div>
+                                    <input type="text" class="form-control" id="VoucherNo" name="VoucherNo">
+                                    <label style="color:#327ad5;" for="form_control">Voucher No<span class="label-color">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="form-group form-md-line-input has-info">
+                                <input type="text" class="form-control" id="ReasonOfReturn" name="ReasonOfReturn">
+                                <label style="color:#327ad5;" for="form_control">Reason Of Return</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="form-group form-md-line-input">
+                                <div>
+                                    <input type="text" class="form-control" id="ReturnDate" name="ReturnDate" value="@DateTime.Now">
+                                    <label style="color:#327ad5;" for="form_control">Return Date<span class="label-color">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- END SAMPLE FORM PORTLET-->
                 </div>
-            </div>
-            <div class="col-md-2 ">
-                <div class="form-group form-md-line-input">
-                    <div>
-                        <input type="text" class="form-control" id="VoucherNo" name="VoucherNo">
-                        <label style="color:#327ad5;" for="form_control">Voucher No<span class="label-color">*</span></label>
+
+                <div class="col-md-12 ">
+                    <!-- BEGIN SAMPLE FORM PORTLET-->
+
+                    <table class="table table-bordered" id="creditDetails">
+                        <thead>
+                            <tr>
+                                <th hidden></th>
+                                <th hidden></th>
+                                <th>Serial</th>
+                                <th>Product</th>
+                                <th>Qty.</th>
+                                <th>Return Qty.</th>
+                                <th>Amount</th>
+                                <th style="width: 100px">Unit</th>
+                                <th> Price</th>
+                                <th>VAT(%)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model.SalesDetails)
+                            {
+
+                                <tr id="@item.SalesDetailId">
+                                    <td hidden>@item.SalesDetailId</td>
+                                    <td hidden></td>
+                                    <td>@i</td>
+                                    <td>@item.Product.Name</td>
+                                    <td class='Quantity'>
+                                        @item.Qty
+                                    </td>
+                                    <label id="MaxQty" name="MaxQty" class="MaxQty" style="display:none">@item.Qty</label>
+                                    <td class="form-group form-md-line-input col-md-2">
+                                        <div>
+                                            @*onkeypress="preventInput(event,@item.Quantity,this)"*@
+                                            <input type="text" class="form-control" name="ReturnQuantity" id="returnQty#@item.SalesDetailId" />
+                                        </div>
+                                    </td>
+                                    <td> @((item.UnitPrice * item.Qty.Value))</td>
+                                    <td style="width: 100px">@*@item.MeasurementUnit.Name*@</td>
+                                    <td>@item.UnitPrice</td>
+                                    <td>@(item.Vatpercent)</td>
+                                </tr>
+                                i++;
+                                vatTotal += item.Vatpercent.Value;
+                                total += item.UnitPrice.Value;
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="6">Total</td>
+                                <td><label id="TotalPrice" name="TotalPrice" />@total</td>
+                                <td colspan="1"><label id="TotalVat" name="TotalVat" />@vatTotal</td>
+
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="text-center mg-b-pro-edt custom-pro-edt-ds">
+                            <button type="button" data-requiredconfirmation="true" id="save" class="btn btn-primary waves-effect waves-light m-r-10">
+                                Save
+                            </button>
+
+                            <a href="~/Purchase/Index" class="btn btn-warning waves-effect waves-light">Discard</a>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-2 ">
-                <div class="form-group form-md-line-input">
-                    <div>
-                        <input type="text" class="form-control" id="ReturnDate" name="ReturnDate" value="@DateTime.Now">
-                        <label style="color:#327ad5;" for="form_control">Return Date<span class="label-color">*</span></label>
-                    </div>
-                </div>
-            </div>
-
+            </form>
 
         </div>
-
-        <!-- END SAMPLE FORM PORTLET-->
     </div>
 
-    <div class="col-md-12 ">
-        <!-- BEGIN SAMPLE FORM PORTLET-->
+</div>
 
-        <table class="table table-bordered" id="creditDetails">
-            <thead>
-                <tr>
-                    <th hidden></th>
-                    <th hidden></th>
-                    <th>Serial</th>
-                    <th>Product</th>
-                    <th>Qty.</th>
-                    <th>Return Qty.</th>
-                    <th>Amount</th>
-                    <th style="width: 100px">Unit</th>
-                    <th> Price</th>
-                    <th>VAT(%)</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var item in Model.SalesDetails)
-                {
-
-                    <tr id="@item.SalesDetailId">
-                        <td hidden>@item.SalesDetailId</td>
-                        <td hidden></td>
-                        <td>@i</td>
-                        <td>@item.Product.Name</td>
-                        <td class='Quantity'>
-                            @item.Qty
-                        </td>
-                        <label id="MaxQty" name="MaxQty" class="MaxQty" style="display:none">@item.Qty</label>
-                        <td class="form-group form-md-line-input col-md-2">
-                            <div>
-                                @*onkeypress="preventInput(event,@item.Quantity,this)"*@
-                                <input type="text" class="form-control" name="ReturnQuantity" id="returnQty#@item.SalesDetailId" />
-                            </div>
-                        </td>
-                        <td> @((item.UnitPrice * item.Qty.Value))</td>
-                        <td style="width: 100px">@*@item.MeasurementUnit.Name*@</td>
-                        <td>@item.UnitPrice</td>
-                        <td>@(item.Vatpercent)</td>
-                    </tr>
-                    i++;
-                    vatTotal += item.Vatpercent.Value;
-                    total += item.UnitPrice.Value;
-                }
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td colspan="6">Total</td>
-                    <td><label id="TotalPrice" name="TotalPrice" />@total</td>
-                    <td colspan="1"><label id="TotalVat" name="TotalVat" />@vatTotal</td>
-
-
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-
-    <div class="form-actions" style="margin-left:15px">
-        <button type="button" class="btn blue" id="save"><i class="fa fa-floppy-o"></i> Save</button>
-        <a href="~/Sales/Index" class="btn btn-default"><i class="fa fa-ban"></i> Cancel</a>
-    </div>
-</form>
-@section Scripts{
-    <script src="~/js/jquery-ui.js"></script>
-    <script>
+            @section Scripts{
+                <script src="~/js/jquery-ui.js"></script>
+                <script>
         var CreditNote = {
             CreditNoteDetails: [],
 
@@ -273,7 +288,7 @@
             }
 
         }
-    </script>
+                </script>
 
 
-}
+            }
