@@ -709,6 +709,7 @@
                 data.append("DiscountOnTotalPrice", DiscountOnTotal);
                 data.append("SoldBy", SoldBy);
                 //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
+                var url_redirect = '@Url.Action("print_pos", "Sale", new { id = "00replace00" })';
 
                 $.ajax({
                     url: '@Url.Action("Create", "Sale")',
@@ -725,14 +726,14 @@
                         $("#AjaxLoader").hide();
                         
                         if (result > 0) {
-                            //var ids = $('#result').val();
-                              window.location.href = '@Url.Action("print_pos", "Sale", new { id = 1 })';
-                           
+                            url_redirect = url_redirect.replace("00replace00", result );
+
+                            window.location.href = url_redirect;
+ 
                         }
                         else {
                             alert("Please add atleast one  Item");
-                            @*var url = '@Url.Action("print_pos", "Sale")';*@
-                           // $("#myModalBodyDiv1").load(url);
+                      
                         }
                     },
                     error: function (x, e) {
