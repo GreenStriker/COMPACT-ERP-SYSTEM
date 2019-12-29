@@ -368,6 +368,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="modal-body" id="myModalBodyDiv1" name="myModalBodyDiv1">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            @*@Html.Partial("print_pos");*@
+                        </div>
+
+
+                    </div>
+
+                </div>
             </form>
         </div>
     </div>
@@ -457,7 +467,7 @@
                         data.UnitPrice = amount;
                         data.DiscountPerItem = DiscountPerItem;
                         data.Vatpercent = VATValue;
-                        
+
                         data.TotalAmount = unitAmount;
                         saleOrder.totalPrice += parseFloat(unitAmount);
                         saleOrder.SaleOrderDetailList.push(data);
@@ -659,7 +669,7 @@
                     var vatValue = parseFloat(vatPercentage) / 100;
                     vatValue = parseFloat(unitAmount) * vatValue;
                     var totalAmount = (parseFloat(unitAmount) * value)+vatValue-discount;
-                   // $('#Amount').text(parseFloat(totalAmount) + vatValue);
+                    // $('#Amount').text(parseFloat(totalAmount) + vatValue);
                     $("#Amount").text(totalAmount);
 
                 }
@@ -699,6 +709,7 @@
                 data.append("DiscountOnTotalPrice", DiscountOnTotal);
                 data.append("SoldBy", SoldBy);
                 //data.append("__RequestVerificationToken", $("input[name=__RequestVerificationToken]").val());//.attr("name","__RequestVerificationToken").val());//TODO
+                var url_redirect = '@Url.Action("print_pos", "Sale", new { id = "00replace00" })';
 
                 $.ajax({
                     url: '@Url.Action("Create", "Sale")',
@@ -713,12 +724,16 @@
                     },
                     success: function (result) {
                         $("#AjaxLoader").hide();
+                        
+                        if (result > 0) {
+                            url_redirect = url_redirect.replace("00replace00", result );
 
-                        if (result == false) {
-                            alert("Please add atleast one  Item");
+                            window.location.href = url_redirect;
+ 
                         }
                         else {
-                            window.location.href = '@Url.Action("Index", "Sale")';
+                            alert("Please add atleast one  Item");
+                      
                         }
                     },
                     error: function (x, e) {
@@ -761,12 +776,12 @@
                                     }
                                 }).on('typeahead:selected', function (obj, datum) {
 
-                                    $("#ProductId").val(datum.id);
-                                    //$('#Amount').text(datum.unitPrice);
-                                    $('#item').val('1');
-                                    $('#amount').val(datum.unitPrice);
-                                    $('#VAT').val(datum.vat);
-                                    $('#MaxSaleQty').val(datum.maxSaleQty);
+                                $("#ProductId").val(datum.id);
+                                //$('#Amount').text(datum.unitPrice);
+                                $('#item').val('1');
+                                $('#amount').val(datum.unitPrice);
+                                $('#VAT').val(datum.vat);
+                                $('#MaxSaleQty').val(datum.maxSaleQty);
                                 saleOrder.CalculateVatValueWithTotal(datum.vat);
                             });
                             $("#Product").focus();
@@ -809,7 +824,7 @@
         function Delete(id) {
             saleOrder.delete(id);
         }
-       function DeleteDocument(id) {
+        function DeleteDocument(id) {
             saleOrder.deleteDocument(id);
         }
         function DeletePayment(id) {
@@ -818,7 +833,7 @@
 
         $("#item").keyup(function () {
             var that = this,
-            numberOfItem = $(this).val();
+                numberOfItem = $(this).val();
             saleOrder.calculate(numberOfItem);
 
         });
@@ -846,13 +861,14 @@
 
             var that = this,
                 discount = $(this).val();
-           // var paidAmount = $("#PaidAmount").val();
+            // var paidAmount = $("#PaidAmount").val();
 
-           // var afterDiscount = currentTotal - discount;
+            // var afterDiscount = currentTotal - discount;
             $("#PaidAmount").val(saleOrder.totalPrice - discount);
         });
 
 
     </script>
+
 
 }
