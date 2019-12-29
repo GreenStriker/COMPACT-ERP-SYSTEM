@@ -239,6 +239,7 @@ namespace Inventory.Controllers
                     // await UnitOfWork.SaveChangesAsync();
                 }
                 await UnitOfWork.SaveChangesAsync();
+                
                 if (vm.ContentInfoJson != null)
                 {
                     // Content content;
@@ -264,12 +265,13 @@ namespace Inventory.Controllers
                     }
                     await UnitOfWork.SaveChangesAsync();
                 }
-                return Json(true);
-
+                var id = sale.SalesId;
+                return Json(id);
+                
             }
             catch (Exception e)
             {
-                return Json(status);
+                return Json(0);
             }
            
         }
@@ -369,6 +371,13 @@ namespace Inventory.Controllers
             salesPayment.PaymentMethods = paymentMethods;
 
             return View(salesPayment);
+        }
+        public async Task<ActionResult> print_pos(int id)
+        {
+           
+            var saleList =await _service.Query().Include(c=>c.SalesDetails).OrderByDescending(c=>c.SalesId).SingleOrDefaultAsync(c=>c.SalesId==id,CancellationToken.None);
+
+            return View(saleList);
         }
 
     }
