@@ -27,13 +27,15 @@ namespace Inventory.Controllers
         private readonly IReportsService _service;
         private readonly IStoreProcedureService _Storeservice;
         private readonly ISaleDetailService _detailService;
+        private readonly IPurchaseDetailService _pdetailService;
 
 
         public ReportsController(
             ControllerBaseParamModel controllerBaseParamModel,
            IReportsService service,
            IStoreProcedureService Storeservice,
-           ISaleDetailService detailService
+           ISaleDetailService detailService,
+           IPurchaseDetailService pdetailService
 
 
 
@@ -43,6 +45,7 @@ namespace Inventory.Controllers
             _service = service;
             _Storeservice = Storeservice;
             _detailService = detailService;
+            _pdetailService = pdetailService;
         }
 
 
@@ -157,6 +160,46 @@ namespace Inventory.Controllers
 
         }
 
+        public async Task<IActionResult> PurchaseReport()
+        {
+            var model = new vmPurDetails();
+            model.FromDate = DateTime.Now.AddMonths(-1);
+            model.ToDate = DateTime.Now;
+            var getsale = await _pdetailService.Query().Where(c => c.Purchase.BranchId == _session.BranchId && c.Purchase.CreatedTime >= model.FromDate && c.Purchase.CreatedTime <= model.ToDate)
+
+                .Include(a => a.Purchase).Include(a => a.Purchase.Vendor).Include(a => a.Product)
+
+                .OrderByDescending(c => c.PurchaseDetailId).SelectAsync(CancellationToken.None);
+
+
+
+
+            model.Listsale = getsale;
+
+            return View(model);
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> PurchaseReport(vmPurDetails model)
+        {
+
+
+            var getsale = await _pdetailService.Query().Where(c => c.Purchase.BranchId == _session.BranchId && c.Purchase.CreatedTime >= model.FromDate && c.Purchase.CreatedTime <= model.ToDate)
+
+                .Include(a => a.Purchase).Include(a => a.Purchase.Vendor).Include(a => a.Product)
+
+                .OrderByDescending(c => c.PurchaseDetailId).SelectAsync(CancellationToken.None);
+
+
+
+
+            model.Listsale = getsale;
+
+            return View(model);
+
+        }
 
 
     }
