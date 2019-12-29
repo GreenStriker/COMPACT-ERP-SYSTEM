@@ -16,6 +16,7 @@ using vms.utility.StaticData;
 using X.PagedList;
 using System;
 using vms.entity.viewModels.ReportsViewModel;
+using vms.service.dbo;
 
 namespace Inventory.Controllers
 {
@@ -25,13 +26,14 @@ namespace Inventory.Controllers
         private readonly IConfiguration _configuration;
         private readonly IReportsService _service;
         private readonly IStoreProcedureService _Storeservice;
-       
-     
-     
+        private readonly ISaleDetailService _detailService;
+
+
         public ReportsController(
             ControllerBaseParamModel controllerBaseParamModel,
            IReportsService service,
-           IStoreProcedureService Storeservice
+           IStoreProcedureService Storeservice,
+           ISaleDetailService detailService
 
 
 
@@ -40,6 +42,7 @@ namespace Inventory.Controllers
 
             _service = service;
             _Storeservice = Storeservice;
+            _detailService = detailService;
         }
 
 
@@ -113,10 +116,46 @@ namespace Inventory.Controllers
 
 
 
+        public async Task<IActionResult> salesReport()
+        {
+            var model = new vmSalesDetails();
+            model.FromDate = DateTime.Now.AddMonths(-1);
+            model.ToDate = DateTime.Now;
+            var getsale = await _detailService.Query().Where(c => c.Sale.BranchId == _session.BranchId && c.Sale.CreatedTime >= model.FromDate && c.Sale.CreatedTime <= model.ToDate)
+
+                .Include(a=>a.Sale).Include(a=>a.Sale.Customer).Include(a => a.Product)
+
+                .OrderByDescending(c => c.SalesDetailId).SelectAsync(CancellationToken.None);
+
+           
+
+          
+            model.Listsale = getsale;
+
+            return View(model);
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> salesReport(vmSalesDetails model)
+        {
+            
+           
+            var getsale = await _detailService.Query().Where(c => c.Sale.BranchId == _session.BranchId && c.Sale.CreatedTime >= model.FromDate && c.Sale.CreatedTime <= model.ToDate)
+
+                .Include(a => a.Sale).Include(a => a.Sale.Customer).Include(a => a.Product)
+
+                .OrderByDescending(c => c.SalesDetailId).SelectAsync(CancellationToken.None);
 
 
 
 
+            model.Listsale = getsale;
+
+            return View(model);
+
+        }
 
 
 
