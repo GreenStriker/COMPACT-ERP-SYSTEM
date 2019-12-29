@@ -1,9 +1,9 @@
-﻿@model vms.entity.viewModels.ReportsViewModel.vmSalesDetails
+﻿@model vms.entity.viewModels.ReportsViewModel.vmPurDetails
 @*@using X.PagedList.Mvc.Core;
     @using X.PagedList;*@
 @using vms.entity.viewModels;
 @{
-    ViewData["Title"] = "SALES INFORMATION";
+    ViewData["Title"] = "PURCHASE INFORMATION";
 
 }
 
@@ -20,7 +20,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="product-status-wrap">
-                                <h4>SALES INFORMATION</h4>
+                                <h4>PURCHASE Report</h4>
 
                                 @using (Html.BeginForm())
                                 {
@@ -90,7 +90,7 @@
                             <div class="row " style="text-align:center">
 
                                 <h3>@session.BranchName</h3>
-                                <h4>Sales Report From : @Model.FromDate.ToString("dd-MMM-yyyy") ##  To: @Model.ToDate.ToString("dd-MMM-yyyy") </h4>
+                                <h4>Purchase Report From : @Model.FromDate.ToString("dd-MMM-yyyy") ##  To: @Model.ToDate.ToString("dd-MMM-yyyy") </h4>
 
                             </div>
                         </div>
@@ -102,12 +102,12 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Invoice</th>
-                                    <th>Cus.</th>
+                                    <th>Ven.</th>
                                     <th>mobile</th>
                                     <th>Product</th>
                                     <th>QTY</th>
                                     <th>U.P</th>
-                                    <th>Vat</th>
+                                    @*<th>Vat</th>*@
                                     <th>Disc:</th>
                                     <th>Amount</th>
 
@@ -130,9 +130,9 @@
                                 <tbody>
                                     @foreach (var item in Model.Listsale)
                                     {
-                                        var x = (item.UnitPrice * item.Qty) - item.DiscountPerItem + item.Vatpercent;
+                                        var x = (item.Amount * item.Qty) - item.DiscountPerItem;
 
-                                        tvat = tvat + item.Vatpercent;
+                                        //tvat = tvat + item.Vatpercent;
                                         tAmount = tAmount + x;
                                         tqty = tqty + item.Qty;
                                         tdis = tdis + item.DiscountPerItem;
@@ -140,23 +140,23 @@
 
                                         <tr>
                                             <td class="text-center">
-                                                @item.Sale.CreatedTime.ToString("ddMMM,yyyy")
+                                                @item.Purchase.CreatedTime.ToString("ddMMM,yyyy")
                                             </td>
                                             <td style="text-align:left;" class="text-center">
-                                                @item.Sale.SaleInvoiceNo
+                                                @item.Purchase.PurchaseInvoice
                                             </td>
 
                                             <td style="text-align:left;" class="text-center">
-                                                @if (item.Sale.Customer != null)
-                                                {@item.Sale.Customer.Name}
+                                                @if (item.Purchase.Vendor != null)
+                                                {@item.Purchase.Vendor.Name}
                                             else
                                             { <span>----</span>}
 
                                             </td>
 
                                             <td style="text-align:left;" class="text-center">
-                                                @if (item.Sale.Customer != null)
-                                                {@item.Sale.Customer.Mobile}
+                                                @if (item.Purchase.Vendor != null)
+                                                {@item.Purchase.Vendor.ContactNo}
                                             else
                                             { <span>----</span>}
                                             </td>
@@ -167,12 +167,12 @@
                                                 @item.Qty
                                             </td>
                                             <td style="text-align:right;" class="text-center">
-                                                @item.UnitPrice
+                                                @item.Amount
                                             </td>
 
-                                            <td style="text-align:right;" class="text-center">
+                                            @*<td style="text-align:right;" class="text-center">
                                                 @item.Vatpercent
-                                            </td>
+                                            </td>*@
 
                                             <td style="text-align:right;" class="text-center">
                                                 @item.DiscountPerItem
@@ -193,7 +193,7 @@
 
                                         <td>@tqty</td>
                                         <td> -- </td>
-                                        <td style="text-align:right;">@tvat</td>
+                                        @*<td style="text-align:right;">@tvat</td>*@
                                         <td style="text-align:right;">@tdis</td>
                                         <td style="text-align:right;">@tAmount</td>
 
