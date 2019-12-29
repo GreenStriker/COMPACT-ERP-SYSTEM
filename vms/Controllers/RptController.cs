@@ -20,7 +20,7 @@ using vms.service.dbo;
 
 namespace Inventory.Controllers
 {
-    public class ReportsController : ControllerBase
+    public class RptController : ControllerBase
     {
     
         private readonly IConfiguration _configuration;
@@ -30,7 +30,7 @@ namespace Inventory.Controllers
         private readonly IPurchaseDetailService _pdetailService;
 
 
-        public ReportsController(
+        public RptController(
             ControllerBaseParamModel controllerBaseParamModel,
            IReportsService service,
            IStoreProcedureService Storeservice,
@@ -151,9 +151,23 @@ namespace Inventory.Controllers
 
                 .OrderByDescending(c => c.SalesDetailId).SelectAsync(CancellationToken.None);
 
+            //string search = model.searchtext;
+
+
+            if (model.searchtext != null && model.searchtext != "")
+            {
+
+                model.searchtext = model.searchtext.ToLower().Trim();
+                getsale = getsale.Where(c => c.Product.Name.ToLower().Contains(model.searchtext) );
+
+
+            }
 
 
 
+
+
+            //model.searchtext = search;
             model.Listsale = getsale;
 
             return View(model);
@@ -193,8 +207,18 @@ namespace Inventory.Controllers
                 .OrderByDescending(c => c.PurchaseDetailId).SelectAsync(CancellationToken.None);
 
 
+            //string search = model.searchtext;
+            if (model.searchtext != null && model.searchtext != "")
+            {
+
+                model.searchtext = model.searchtext.ToLower().Trim();
+                getsale = getsale.Where(c => c.Product.Name.ToLower().Contains(model.searchtext));
 
 
+            }
+
+
+             //model.searchtext = search ;
             model.Listsale = getsale;
 
             return View(model);

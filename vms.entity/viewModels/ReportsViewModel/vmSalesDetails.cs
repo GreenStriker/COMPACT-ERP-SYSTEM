@@ -10,5 +10,7 @@ namespace vms.entity.viewModels.ReportsViewModel
         public IEnumerable<SalesDetail> Listsale { get; set; }
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
+
+        public string searchtext { get; set; }
     }
 }

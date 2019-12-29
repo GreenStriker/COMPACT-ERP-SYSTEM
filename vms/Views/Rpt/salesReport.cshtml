@@ -26,51 +26,51 @@
                                 {
 
 
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>From Date</label>
-                                                <input class="form-control" autocomplete="off" id="FromDate" name="FromDate" value="@Model.FromDate" type="text">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group">
-                                                <label>To Date</label>
-                                                <input class="form-control" autocomplete="off" id="ToDate" name="ToDate" value="@Model.ToDate" type="text">
-                                            </div>
-                                        </div>
-                                        @*<div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>Product</label>
-                                                    <input type="text" class="form-control" id="Product" name="Product" value="@ViewBag.searchProduct">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label>Vendor</label>
-                                                    <input type="text" class="form-control" id="Vendor" name="Vendor" value="@ViewBag.searchVendor">
-                                                </div>
-                                            </div>*@
-                                        <div class="col-md-1">
-
-                                        </div>
-                                        <div class="col-md-1">
-                                            <div class="form-group pull-right">
-                                                <input class="btn  btn-success" style="margin-top:25px;" type="submit" value="View Report" />
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-2">
-                                            <div class="form-group pull-left">
-                                                <input id="btnprint" class="btn  btn-success" style="margin-top:25px;" type="button" value="Print" />
-                                            </div>
-                                        </div>
-
-
-
-
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>From Date</label>
+                                        <input class="form-control" autocomplete="off" id="FromDate" name="FromDate" value="@Model.FromDate" type="text">
                                     </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>To Date</label>
+                                        <input class="form-control" autocomplete="off" id="ToDate" name="ToDate" value="@Model.ToDate" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Type Product Name to Filter:</label>
+                                        <input type="text" class="form-control" id="searchtext" name="searchtext" value="@Model.searchtext">
+                                    </div>
+                                </div>
+                                @* <div class="col-md-2">
+            <div class="form-group">
+                <label>Vendor</label>
+                <input type="text" class="form-control" id="Vendor" name="Vendor" value="@ViewBag.searchVendor">
+            </div>
+        </div>*@
+                                <div class="col-md-1">
+
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group pull-right">
+                                        <input class="btn  btn-success" style="margin-top:25px;" type="submit" value="View Report" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group pull-left">
+                                        <input id="btnprint" class="btn  btn-success" style="margin-top:25px;" type="button" value="Print" />
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
 
 
                                 }
@@ -98,7 +98,7 @@
 
 
                         <table class="table  table-bordered table-striped" ">
-                            <thead style="background-color:lightskyblue">
+                            <thead style="background-color:lightskyblue; text-align:center; ">
                                 <tr>
                                     <th>Date</th>
                                     <th>Invoice</th>
@@ -163,7 +163,7 @@
                                             <td style="text-align:left;" class="text-center">
                                                 @item.Product.Name
                                             </td>
-                                            <td class="text-center">
+                                            <td style="text-align:right;" class="text-center">
                                                 @item.Qty
                                             </td>
                                             <td style="text-align:right;" class="text-center">
